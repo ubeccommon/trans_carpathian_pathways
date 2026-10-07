@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_7"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_8"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.7"
+version: "v0.8"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -105,10 +105,11 @@ the range-wide open map.
 
 ## 3. The First Corridor
 
-Proposal order: Vorokhta → Kosiv → Verkhovyna. **Recommended
-order, pending OI-P3:** Vorokhta → Verkhovyna → Kosiv — down
-from the mountain gateway, through high-pasture country, to the
-craft centre and its market, without doubling back.
+**The order — Michel's word, October 7, 2026 (OI-P3):**
+Vorokhta → Verkhovyna → Kosiv — down from the mountain gateway,
+through high-pasture country, to the craft centre and its
+market, without doubling back. (The first draft's order,
+Vorokhta → Kosiv → Verkhovyna, not taken.)
 
 Straight-line distances between town centres (approximate
 coordinates, great circle — the walked distance will be longer,
@@ -328,7 +329,7 @@ Added here:
 Gate-by-gate: a gate opens on Michel's word, not on a date.
 
 - **Gate 0 — Decisions.** OI-P1 to OI-P8 answered or explicitly
-  deferred.
+  deferred. All eight answered on Michel's word, October 7, 2026.
 - **Gate 1 — Plai in a browser.** Michel's look as a throwaway
   entrant and curator (pending on the mapservice side). Pathways
   adds nothing to Plai until a Digitizer save has worked in a
@@ -357,7 +358,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 - **OI-P2** — Closed, Michel's word, October 7, 2026: a view of
   Plai's entries, fields by Plai migration, a Pathways map as a
   backend copy of Plai. §2.
-- **OI-P3** — Corridor order: Vorokhta → Verkhovyna → Kosiv. §3.
+- **OI-P3** — Closed, Michel's word, October 7, 2026: Vorokhta →
+  Verkhovyna → Kosiv. §3.
 - **OI-P4** — Closed, Michel's word, October 7, 2026: the host's
   own account, the Curator beside them while they enter. §4.
 - **OI-P5** — Closed, Michel's word, October 7, 2026: location
@@ -388,6 +390,9 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.8 — 2026-10-07 — OI-P3 closed on Michel's word: Vorokhta →
+  Verkhovyna → Kosiv. Gate 0's eight items all answered. The
+  host-fields specification settled at v0.2 but for its Q4.
 - v0.7 — 2026-10-07 — OI-P5 and OI-P6 closed and OI-P13's first
   half, on Michel's word: `viewpoint` a location type; one point
   with a list of offers; season, capacity, languages, access; the
