@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_3"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_4"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.3"
+version: "v0.4"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -145,18 +145,27 @@ Before any stage is published:
 Accounts are made by the administrator in Mapbender's backend,
 and Mapbender 5.0.0-RC2 requires an email on every account.
 
-**The conflict (OI-P4).** The proposal's host may have limited
-digital literacy; in practice the Curator will often enter for
-them. Plai's curator role never creates, and the row's owner is
-whoever saved it. Three ways out, none chosen:
-- (a) the Curator also holds an entrant account and enters on the
-  host's behalf, with the host's consent recorded on paper and
-  referenced in the row — the owner is then the Curator;
-- (b) the host has an account (an email is required) and the
-  Curator sits beside them while they enter;
-- (c) a Plai migration adds an "entered on behalf of" column and
-  a hand-over: the Curator enters, the host's account takes
-  ownership later.
+**A host who does not enter alone — Michel's word, October 7,
+2026 (OI-P4):** the host has their own account and the Curator
+sits beside them while they enter. The host owns their row and
+edits or withdraws it themselves; the Curator stays a curator and
+never creates. No Plai change follows from it.
+
+What it carries, from the stack as it stands:
+- Every host account is made by the administrator in Mapbender's
+  backend, in `PLAI_ENTRANT`, with a unique email (Mapbender
+  5.0.0-RC2 requires one). A host without an email needs one
+  before they can be entered.
+- Each host is a login, and a login is a trace (Mapservice §4,
+  minimal accounts).
+- Real accounts wait for Mapservice's own condition: backups
+  before any real account, the off-host copy on Michel's
+  computer.
+
+The options not taken, for the record: (a) the Curator enters on
+the host's behalf from an entrant account of their own, consent
+on paper, the Curator owning the row; (c) a Plai migration adding
+"entered on behalf of" and a later hand-over of ownership.
 
 * * *
 
@@ -324,8 +333,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
   Plai's entries, fields by Plai migration, a Pathways map as a
   backend copy of Plai. §2.
 - **OI-P3** — Corridor order: Vorokhta → Verkhovyna → Kosiv. §3.
-- **OI-P4** — How a host who does not enter for themselves gets
-  onto the map. §4.
+- **OI-P4** — Closed, Michel's word, October 7, 2026: the host's
+  own account, the Curator beside them while they enter. §4.
 - **OI-P5** — "A view" as location type `viewpoint`. §5.
 - **OI-P6** — Which host fields, and multiple offers as rows or
   points. §5.
@@ -349,6 +358,9 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.4 — 2026-10-07 — OI-P4 closed on Michel's word: each host
+  has their own account and enters with the Curator beside them;
+  what follows from Plai's accounts recorded.
 - v0.3 — 2026-10-07 — OI-P2 closed on Michel's word: Pathways is
   a view of Plai, not its own instance; what bore on it recorded
   from mapservice `edb1419` (prompt v0.64), including the
