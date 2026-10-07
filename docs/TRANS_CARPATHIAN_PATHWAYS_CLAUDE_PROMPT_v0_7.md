@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_6"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_7"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.6"
+version: "v0.7"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -170,7 +170,7 @@ on paper, the Curator owning the row; (c) a Plai migration adding
 
 * * *
 
-## 5. What a Host Carries — the Gap Against Plai Step A
+## 5. What a Host Carries — the Gap Against Plai Steps A and B
 
 The proposal's five offers against Plai's category list
 (`db/instances/plai/001_entry_fields.sql`):
@@ -183,38 +183,39 @@ The proposal's five offers against Plai's category list
 | A workshop       | `learning`, `crafts`    | yes — two codes         |
 | A view           | —                       | no: a view is a place, not an offer |
 
-Recommended (OI-P5): a view becomes a location type —
-`viewpoint`, "Viewpoint" — that anyone or the Curator may map,
-not a host offer.
+**A view — Michel's word, October 7, 2026 (OI-P5):** a new
+location type `viewpoint`, "Viewpoint", in Plai's list, that
+anyone or the Curator may map; not a host offer.
 
-What the proposal asks of a host point that Plai step A does not
-hold (OI-P6, each a column or table in a Plai migration, none
-built):
+**What a host point carries — Michel's word, October 7, 2026
+(OI-P6):** one point with a list of offers, not a point per
+offer — one place, one consent set, one photo. And four fields
+beside it, all of them:
 
-- **More than one offer per host.** Plai: one category per point.
-  A bed, a meal and a walk at one farm is three points or one
-  point with a list — decide which.
-- **Availability** — the proposal deliberately keeps this with
-  the Curator ("maintains the living map of who is available").
-  Recommended: a season (months open) on the row; day-to-day
-  availability stays with the Curator, never a calendar. A
-  calendar is the first step to a booking service.
-- **Capacity** — beds; people at a meal. Small integers.
-- **Languages the host speaks** — a closed list (uk, en, de, fr,
-  pl, ro, sk, hu, …).
+- **Season** — the months open. Day-to-day availability stays
+  with the Curator, never a calendar; a calendar is the first
+  step to a booking service.
+- **Capacity** — beds; people at a meal, a walk, a workshop.
+  Small whole numbers.
+- **Languages the host speaks** — a closed list.
 - **Access** — reachable on foot only, by car, with a pram, with
   a wheelchair. Feeds the family-with-small-children journey.
-- **Exchange** — how a host is paid (OI-P8, below).
+
+Plai's step B (one photo per place, cleaned of metadata, mapservice
+`plai/002`) was built and run on the host the same day, so images
+are no longer a Pathways need. What these decisions ask of Plai is
+specified in `docs/specs/PLAI_HOST_FIELDS_SPEC`; it is built in
+`ubec_mapservice` as a Plai migration, not here.
 
 **How a host is paid — Michel's word, October 7, 2026 (OI-P8):**
 four forms, all of them: a fixed contribution, a suggested
 contribution, exchange of work, and `ubec-pay` or a community
 currency. Gift, the fifth form named in v0.1, was not among
-them. Still open (OI-P13): who chooses among the four — the
-host per offer, or the project per corridor — and whether
-payment passes host to traveler directly or through the Curator
-or `ubec-pay`. The first decides whether a host point carries a
-column for it (OI-P6); the second whether the project holds
+them. Who chooses among the four — Michel's word, October 7,
+2026 (OI-P13, first half): the host, per offer, so each offer on
+a point says which forms the host accepts. Still open (OI-P13,
+second half): whether payment passes host to traveler directly
+or through the Curator or `ubec-pay` — whether the project holds
 money.
 
 **Published location of a private home — Michel's word,
@@ -359,9 +360,11 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 - **OI-P3** — Corridor order: Vorokhta → Verkhovyna → Kosiv. §3.
 - **OI-P4** — Closed, Michel's word, October 7, 2026: the host's
   own account, the Curator beside them while they enter. §4.
-- **OI-P5** — "A view" as location type `viewpoint`. §5.
-- **OI-P6** — Which host fields, and multiple offers as rows or
-  points. §5.
+- **OI-P5** — Closed, Michel's word, October 7, 2026: location
+  type `viewpoint`. §5.
+- **OI-P6** — Closed, Michel's word, October 7, 2026: one point
+  with a list of offers; season, capacity, languages, access.
+  §5.
 - **OI-P7** — Closed, Michel's word, October 7, 2026: the exact
   point, as today. §5.
 - **OI-P8** — Closed, Michel's word, October 7, 2026: fixed
@@ -377,13 +380,20 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 - **OI-P12** — Travel in wartime: what the project says to a
   traveler from abroad about advisories, insurance and martial
   law, and who says it.
-- **OI-P13** — Who chooses among OI-P8's four forms, and whether
-  payment passes directly or through the Curator or `ubec-pay`.
-  §5. Before the first traveler.
+- **OI-P13** — First half closed, Michel's word, October 7, 2026:
+  the host chooses, per offer. Open: whether payment passes
+  directly or through the Curator or `ubec-pay`. §5. Before the
+  first traveler.
 
 * * *
 
 *Changelog*
+- v0.7 — 2026-10-07 — OI-P5 and OI-P6 closed and OI-P13's first
+  half, on Michel's word: `viewpoint` a location type; one point
+  with a list of offers; season, capacity, languages, access; the
+  host chooses payment forms per offer. Plai's step B (photo)
+  recorded as built (mapservice `b9edde4`, prompt v0.66). The
+  host fields go to `docs/specs/PLAI_HOST_FIELDS_SPEC`.
 - v0.6 — 2026-10-07 — OI-P8 closed on Michel's word: four forms
   of payment, gift not among them; OI-P13 opened for who chooses
   among them and how payment passes. Gate 0's four blocking
