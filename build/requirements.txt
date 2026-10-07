@@ -1,0 +1,5 @@
+# Python packages for build/ — pandoc is a system tool, and the Inter
+# and Lora fonts are installed system-wide, not through pip.
+weasyprint>=62
+pillow>=10
+cairosvg>=2.7
