@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_4"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_5"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.4"
+version: "v0.5"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -93,7 +93,8 @@ What bore on it, read in mapservice at `edb1419` (prompt v0.64):
 - The wartime protection of a host's home is the published
   location rule (OI-P7), a gate in Plai's published view of the
   kind the contact fields already have — not a database
-  boundary.
+  boundary. (OI-P7 was then decided the same day: the exact
+  point, as today. §5.)
 
 The option not taken, for the record: (b), its own instance
 `pathways` reading Plai at render time only, which would have
@@ -205,15 +206,26 @@ built):
   a wheelchair. Feeds the family-with-small-children journey.
 - **Exchange** — see OI-P8.
 
-**Published location of a private home (OI-P7).** Plai's
-precision is free and its published point is the point entered.
-For a host's home, published exactly, in wartime, with a name on
-it, that is an address. Options: publish the exact point (as
-today); or publish a generalised point (e.g. the village, or a
-fixed offset) for `lodging` at a home, the exact point going to a
-traveler through the Curator. Plai's `show_C`/`consent_C`
-convention already gates contact fields; the geometry is the one
-field it does not gate.
+**Published location of a private home — Michel's word,
+October 7, 2026 (OI-P7):** the exact point, as today. Plai's
+precision is free and a published point is the point entered,
+for a home as for any other place; nothing in Plai changes. The
+host decides where they place the point, the Curator decides
+whether the entry is published, and the contact fields stay
+gated by `consent_C` and `show_C` as step A built them.
+
+Said before the decision and kept for the record: for a host's
+home, published exactly, in wartime, with a name on it, the
+point is an address.
+
+The options not taken: a generalised point always published for
+a home, the exact one passed through the Curator; and the host
+deciding, generalised by default, through a consent and show
+pair on the geometry.
+
+The outward proposal still says otherwise ("A home is not a
+public pin", in English and Ukrainian, §Safety): it is corrected
+in a version of its own, on Michel's word.
 
 * * *
 
@@ -290,7 +302,8 @@ recorded at use.
 
 Added here:
 
-- **A host's home is not a map pin by default** (pending OI-P7).
+- **A home is published at the point entered** (OI-P7): the
+  host places it, the Curator publishes or holds the entry.
 - **No calendar.** Availability beyond season stays a
   conversation with the Curator.
 - **Safety is the Curator's to hold**, not the traveler's to
@@ -310,8 +323,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
   browser.
 - **Gate 2 — Host fields.** One Plai migration for what OI-P5
   and OI-P6 decide, with `verify` and the leak pass extended to
-  the new fields, the published location rule (OI-P7) among
-  them.
+  the new fields. The published location stays the point
+  entered (OI-P7).
 - **Gate 3 — First hosts.** Three to five hosts in the corridor,
   entered by the route OI-P4 chose, one Curator named.
 - **Gate 4 — First walk.** The corridor walked end to end. What
@@ -338,7 +351,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 - **OI-P5** — "A view" as location type `viewpoint`. §5.
 - **OI-P6** — Which host fields, and multiple offers as rows or
   points. §5.
-- **OI-P7** — Published location of a private home. §5.
+- **OI-P7** — Closed, Michel's word, October 7, 2026: the exact
+  point, as today. §5.
 - **OI-P8** — The exchange. The proposal names economic
   marginalisation as half the problem and says nothing of how a
   host is paid: fixed contribution, a suggested contribution,
@@ -358,6 +372,10 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.5 — 2026-10-07 — OI-P7 closed on Michel's word: a home is
+  published at the point entered, as today; the principle "not a
+  map pin by default" replaced; Gate 2 no longer carries a
+  location rule; the proposal's contrary line flagged.
 - v0.4 — 2026-10-07 — OI-P4 closed on Michel's word: each host
   has their own account and enters with the Curator beside them;
   what follows from Plai's accounts recorded.
