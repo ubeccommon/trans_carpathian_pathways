@@ -15,7 +15,7 @@ there, as Plai migrations in `ubec_mapservice`.
 
 | Path | What it holds |
 | --- | --- |
-| `docs/TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_2.md` | The starting prompt: load order, decisions, open items. Source of truth. |
+| `docs/TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v*.md` | The starting prompt, latest version: load order, decisions, open items. Source of truth. |
 | `docs/proposal/` | The outward proposal in English and Ukrainian, its diagrams and logo, and the bilingual PDF built from them |
 | `build/` | The scripts that draw the diagrams and build the PDF |
 | `tools/` | Empty until a tool is needed |

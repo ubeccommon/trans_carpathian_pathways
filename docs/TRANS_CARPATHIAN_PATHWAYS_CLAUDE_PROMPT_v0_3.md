@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_2"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_3"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.2"
+version: "v0.3"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -70,20 +70,35 @@ anything that changes what a Plai point carries — stay in
 `ubec_mapservice`; this repository specifies them, it does not
 hold them.
 
-**Relation to Plai — decided in the proposal:** Pathways is
-"built on Plai". **Open (OI-P2):** whether Pathways is
-- (a) a view of Plai's own entries — hosts are Plai points whose
-  category is lodging, meals, guiding or learning, with
-  Pathways' extra fields added to Plai by a Plai migration; or
-- (b) its own Mapservice instance `pathways`, its own database,
-  reading Plai at render time only.
+**Relation to Plai — Michel's word, October 7, 2026 (OI-P2):**
+Pathways is a view of Plai's own entries, not an instance of its
+own. A host is a Plai point whose category is lodging, meals,
+guiding or learning; what Pathways needs beyond step A is added
+to Plai by a Plai migration in `ubec_mapservice`; there is no
+`pathways` database. One place for a host to enter, one consent
+model, one curator queue.
 
-(a) keeps one place for a host to enter themselves and one
-consent model. (b) keeps a wartime list of private homes out of
-a database that also holds a range-wide open map. Recommended
-here: (a), because the framework already isolates by role and
-row-level security, and a host should not have to enter twice —
-but it is Michel's word, not this document's.
+What bore on it, read in mapservice at `edb1419` (prompt v0.64):
+- Mapservice defines an instance as one initiative; Pathways is
+  a project of the Carpathian Hub Initiative, whose instance is
+  Plai.
+- Every YAML application is private, and what people see is a
+  copy made in Mapbender's backend whose security tab grants
+  view to the public, logged-in users, groups or single users.
+  So a Pathways map is a backend copy of Plai with its own
+  audience, not a second instance.
+- A separate instance would isolate less than it seems: one
+  connections file holds write access to every instance's
+  database (mapservice prompt §8, credential concentration).
+- The wartime protection of a host's home is the published
+  location rule (OI-P7), a gate in Plai's published view of the
+  kind the contact fields already have — not a database
+  boundary.
+
+The option not taken, for the record: (b), its own instance
+`pathways` reading Plai at render time only, which would have
+kept the list of private homes out of the database that holds
+the range-wide open map.
 
 * * *
 
@@ -305,8 +320,9 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
   repository `ubeccommon/trans_carpathian_pathways` for
   documents, the proposal build and tools; Plai migrations stay
   in `ubec_mapservice`. §2.
-- **OI-P2** — Pathways as a view of Plai (a) or its own instance
-  (b). §2.
+- **OI-P2** — Closed, Michel's word, October 7, 2026: a view of
+  Plai's entries, fields by Plai migration, a Pathways map as a
+  backend copy of Plai. §2.
 - **OI-P3** — Corridor order: Vorokhta → Verkhovyna → Kosiv. §3.
 - **OI-P4** — How a host who does not enter for themselves gets
   onto the map. §4.
@@ -333,6 +349,11 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.3 — 2026-10-07 — OI-P2 closed on Michel's word: Pathways is
+  a view of Plai, not its own instance; what bore on it recorded
+  from mapservice `edb1419` (prompt v0.64), including the
+  per-application viewing rights that give a Pathways map its
+  own audience.
 - v0.2 — 2026-10-07 — moved into the repository, whose copy is
   now the source of truth; OI-P1 closed on Michel's word (this
   repository; Plai migrations stay in `ubec_mapservice`); load
