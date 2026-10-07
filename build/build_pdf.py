@@ -17,6 +17,8 @@ requirements.txt.
 SPDX-License-Identifier: AGPL-3.0-or-later
 
 Changelog:
+  v0.3 — 2026-10-07 — skips each text's YAML front matter (version and
+         changelog), which the PDF does not print.
   v0.2 — 2026-10-07 — moved into the repository: reads and writes
          docs/proposal/, renders the logo and draws the diagrams
          first.
@@ -46,6 +48,8 @@ LANGS = [
 
 def section(lang):
     text = (PROP / lang["md"]).read_text(encoding="utf-8")
+    # Front matter (version, changelog) is for the record, not the page.
+    text = re.sub(r"\A---\n.*?\n---\n", "", text, flags=re.S)
     lines = text.splitlines()
     # Front matter of each file: logo, title, subtitle, byline — the PDF sets these itself.
     title = next(l[2:] for l in lines if l.startswith("# "))

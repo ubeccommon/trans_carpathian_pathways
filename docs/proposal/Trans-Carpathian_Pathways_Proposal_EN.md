@@ -1,3 +1,15 @@
+---
+title: "Trans-Carpathian Pathways — Proposal (EN)"
+version: "v0.2"
+date: "October 2026"
+lang: "en"
+license: "CC BY-SA 4.0"
+project: "Trans-Carpathian Pathways"
+changelog:
+  - "v0.2 — 2026-10-07 — corrected to Michel's decisions of October 7: a place, a home included, is shown where its host puts it (OI-P7); each host enters with their own account, the Curator beside them, so no assisted entry (OI-P4); payment forms settled, how payment passes still open (OI-P8, OI-P13); the photo moved to what is in place (Plai step B)."
+  - "v0.1 — 2026-10-07 — initial."
+---
+
 ![Trans-Carpathian Pathways](assets/logo.png)
 
 # Trans-Carpathian Pathways
@@ -89,7 +101,7 @@ The three are roughly 25 km apart as the crow flies, so the corridor is a walk o
 Work in the corridor during the pilot:
 
 1. Find and connect the first hosts: people who offer a bed, a meal, guidance or a craft.
-2. Place them on Plai, with their consent and on their terms.
+2. Help them place themselves on Plai, each with their own account, with their consent and on their terms.
 3. Establish the first Curator, a local person who holds the path.
 4. Walk the corridor end to end as a traveler would.
 5. Record what worked, what was missing and what the next corridor needs.
@@ -103,6 +115,7 @@ The project does not start from zero: its map platform already exists. Plai is t
 - A base map of the whole Carpathian range from OpenStreetMap: about 32 million mapped features (paths, villages, huts, springs, buildings), with hiking routes drawn on top.
 - An entry surface where a person places a point exactly where they mean it and describes it: a name, a type of place, a category of offering, what is offered, and contact details.
 - Consent built into the database: the entrant agrees, field by field, to what may be shown; a curator decides what is published; withdrawn entries leave every map and export.
+- One photo per place, cleaned of location and camera data before it is stored, and shown only where the entrant has agreed and a curator has chosen to show it.
 - Safeguards set before anything goes public: each project gets its own database, data licences are enforced by the database, and every public endpoint is tested for leaks.
 - Full export at any time, so no community depends on UBEC to keep its own data.
 
@@ -110,11 +123,9 @@ The project does not start from zero: its map platform already exists. Plai is t
 
 | Piece | What it does |
 | --- | --- |
-| Host details | More than one offer per host, season, capacity, languages spoken, accessibility |
+| Host details | More than one offer per host, season, capacity, languages spoken, accessibility, how the host is paid |
 | Local languages | Entry forms in Ukrainian first, then Polish, Slovak, Romanian and others |
-| Assisted entry | A Curator can enter a host's details on their behalf, with recorded consent |
 | Stage planner | A tool for the Curator that proposes daily stages between hosts by walking time and ascent |
-| Images | One photo per place, cleaned of metadata before it is stored |
 
 The stage planner is a tool for the Curator, never a replacement. It proposes; the Curator decides. It favours encounters along the way over speed.
 
@@ -137,8 +148,8 @@ These principles are operational, not aspirational: they decide every design and
 
 The pilot begins in Ukraine during the war, and the project is designed around that fact rather than despite it.
 
-- **A home is not a public pin.** Where a host offers lodging in a private home, how precisely its location is shown publicly is decided with the host. An exact location can go to a confirmed traveler through the Curator instead.
-- **Contact details are gated.** A name, email or phone number is published only where the host has agreed and the Curator has chosen to show it.
+- **The host places the point.** A place, a home included, is shown where its host puts it on the map, and only once the Curator has published it. The host can withdraw it at any time.
+- **Contact details are gated.** A name, email, phone number or photo is published only where the host has agreed and the Curator has chosen to show it.
 - **The Curator holds safety knowledge.** This includes the nearest shelter during air-raid alerts, any border-zone rules near the Romanian border, and current conditions on each stage. It is kept with the Curator, not published.
 - **Travelers from abroad are briefed honestly.** They hear about travel advisories, insurance and martial-law conditions before they come.
 - **Data is held in the EU,** on UBEC's own server, separate from any other project's data.
@@ -159,17 +170,19 @@ Support for the pilot would go to people on the ground first and software second
 
 | Area | What it covers |
 | --- | --- |
-| Host outreach | Finding and visiting hosts, explaining the project, entering their details with consent |
+| Host outreach | Finding and visiting hosts, explaining the project, sitting with them while they enter their details |
 | Curator | A paid role for the first Curator during the pilot |
 | Walking the corridor | Test journeys, documentation, safety assessment of each stage |
-| Development | Host details, local-language forms, assisted entry, stage planner, images |
+| Development | Host details, local-language forms, stage planner |
 | Translation | Interface and project materials in Ukrainian and later other Carpathian languages |
 | Hosting and security | Server, backups and the safeguards that keep host data private |
+
+How a host is paid is settled: each host chooses, for each offer, among a fixed contribution, a suggested contribution, exchange of work, and ubec-pay or a community currency.
 
 Open questions, to be settled before the first traveler:
 
 - Budget figures for each area, and the pilot's length.
-- How a host is paid: a fixed contribution, a suggested one, exchange of work, or a community currency.
+- How payment passes: directly from traveler to host, or through the Curator or a community payment system.
 
 ## How to take part
 
