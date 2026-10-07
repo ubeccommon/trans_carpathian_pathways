@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_8"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_9"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.8"
+version: "v0.9"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -236,9 +236,8 @@ a home, the exact one passed through the Curator; and the host
 deciding, generalised by default, through a consent and show
 pair on the geometry.
 
-The outward proposal still says otherwise ("A home is not a
-public pin", in English and Ukrainian, §Safety): it is corrected
-in a version of its own, on Michel's word.
+The outward proposal said otherwise ("A home is not a public
+pin"); proposal v0.2, October 7, corrects it in both languages.
 
 * * *
 
@@ -390,6 +389,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.9 — 2026-10-07 — the proposal's contrary line on a home
+  recorded as corrected (proposal v0.2).
 - v0.8 — 2026-10-07 — OI-P3 closed on Michel's word: Vorokhta →
   Verkhovyna → Kosiv. Gate 0's eight items all answered. The
   host-fields specification settled at v0.2 but for its Q4.
