@@ -1,0 +1,11 @@
+# secrets and local settings, never tracked
+.env
+*.env
+!.env.example
+# Python
+__pycache__/
+*.pyc
+.venv/
+# build output that is not the deliverable; the PDF and the
+# diagrams in docs/proposal/ are tracked on purpose
+build/proposal.html
