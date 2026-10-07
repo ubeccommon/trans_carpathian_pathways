@@ -377,10 +377,10 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 - **OI-P12** — Travel in wartime: what the project says to a
   traveler from abroad about advisories, insurance and martial
   law, and who says it.
-
 - **OI-P13** — Who chooses among OI-P8's four forms, and whether
   payment passes directly or through the Curator or `ubec-pay`.
   §5. Before the first traveler.
+
 * * *
 
 *Changelog*
