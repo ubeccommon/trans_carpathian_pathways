@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_5"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_6"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.5"
+version: "v0.6"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -204,7 +204,18 @@ built):
   pl, ro, sk, hu, …).
 - **Access** — reachable on foot only, by car, with a pram, with
   a wheelchair. Feeds the family-with-small-children journey.
-- **Exchange** — see OI-P8.
+- **Exchange** — how a host is paid (OI-P8, below).
+
+**How a host is paid — Michel's word, October 7, 2026 (OI-P8):**
+four forms, all of them: a fixed contribution, a suggested
+contribution, exchange of work, and `ubec-pay` or a community
+currency. Gift, the fifth form named in v0.1, was not among
+them. Still open (OI-P13): who chooses among the four — the
+host per offer, or the project per corridor — and whether
+payment passes host to traveler directly or through the Curator
+or `ubec-pay`. The first decides whether a host point carries a
+column for it (OI-P6); the second whether the project holds
+money.
 
 **Published location of a private home — Michel's word,
 October 7, 2026 (OI-P7):** the exact point, as today. Plai's
@@ -353,11 +364,9 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
   points. §5.
 - **OI-P7** — Closed, Michel's word, October 7, 2026: the exact
   point, as today. §5.
-- **OI-P8** — The exchange. The proposal names economic
-  marginalisation as half the problem and says nothing of how a
-  host is paid: fixed contribution, a suggested contribution,
-  gift, exchange of work, or `ubec-pay`. Decide before the first
-  traveler, not after.
+- **OI-P8** — Closed, Michel's word, October 7, 2026: fixed
+  contribution, suggested contribution, exchange of work, and
+  `ubec-pay` or a community currency. §5.
 - **OI-P9** — DEM source and licence, at Gate 5 only.
 - **OI-P10** — Route licence: computed and unstored, or stored
   under ODbL in `instance_sa`. §6.
@@ -369,9 +378,16 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
   traveler from abroad about advisories, insurance and martial
   law, and who says it.
 
+- **OI-P13** — Who chooses among OI-P8's four forms, and whether
+  payment passes directly or through the Curator or `ubec-pay`.
+  §5. Before the first traveler.
 * * *
 
 *Changelog*
+- v0.6 — 2026-10-07 — OI-P8 closed on Michel's word: four forms
+  of payment, gift not among them; OI-P13 opened for who chooses
+  among them and how payment passes. Gate 0's four blocking
+  items are answered.
 - v0.5 — 2026-10-07 — OI-P7 closed on Michel's word: a home is
   published at the point entered, as today; the principle "not a
   map pin by default" replaced; Gate 2 no longer carries a
