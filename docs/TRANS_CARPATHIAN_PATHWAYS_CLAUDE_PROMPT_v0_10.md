@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_9"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_10"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.9"
+version: "v0.10"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -333,12 +333,20 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
   entrant and curator (pending on the mapservice side). Pathways
   adds nothing to Plai until a Digitizer save has worked in a
   browser.
-- **Gate 2 — Host fields.** One Plai migration for what OI-P5
-  and OI-P6 decide, with `verify` and the leak pass extended to
-  the new fields. The published location stays the point
-  entered (OI-P7).
+- **Gate 2 — Host fields.** One Plai migration, `plai/003`, for
+  what `docs/specs/PLAI_HOST_FIELDS_SPEC` v0.3 says (OI-P5, OI-P6,
+  OI-P13, Q1 to Q8), with `verify` and the leak pass extended to
+  the new fields and hosts drawn as a style on the entry layer.
+  The published location stays the point entered (OI-P7).
+  **Gate 2 closes before Gate 3 opens, as a hard constraint**
+  (state review v0.1, F-3): Mapservice's proofs refuse or skip an
+  instance that holds entries and no throwaway carries Plai's own
+  migrations, so `003` can only be proven while Plai is empty.
 - **Gate 3 — First hosts.** Three to five hosts in the corridor,
-  entered by the route OI-P4 chose, one Curator named.
+  entered by the route OI-P4 chose, one Curator named. Opens only
+  after Mapservice's own condition on real accounts is met —
+  backups with an off-host copy, which nothing in that tree yet
+  implements (its review's F5; state review v0.1 §2).
 - **Gate 4 — First walk.** The corridor walked end to end. What
   is recorded: walked distance and time per stage, what was
   missing, what a traveler needed and did not have.
@@ -389,6 +397,12 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.10 — 2026-10-07 — the mapservice state review
+  (`docs/reviews/UBEC_MAPSERVICE_STATE_REVIEW_v0_1.md`) read and
+  its findings applied on Michel's word in spec v0.3: hosts a
+  style on the entry layer (Q4), `category` beside `offers` (Q7),
+  `reach` for `access` (Q8). Gate 2 before Gate 3 recorded as a
+  hard constraint; Gate 3 waits on Mapservice's backup condition.
 - v0.9 — 2026-10-07 — the proposal's contrary line on a home
   recorded as corrected (proposal v0.2).
 - v0.8 — 2026-10-07 — OI-P3 closed on Michel's word: Vorokhta →
