@@ -1,13 +1,13 @@
 ---
-title: "PLAI_HOST_FIELDS_SPEC_v0_3"
+title: "PLAI_HOST_FIELDS_SPEC_v0_4"
 subtitle: "What a Plai point carries for Trans-Carpathian Pathways"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.3"
+version: "v0.4"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
-status: "settled on Michel's word, October 7; ready to build as plai/003; nothing built"
+status: "built as plai/003 in ubec_mapservice (a386165), proven locally; awaiting the host run"
 ---
 
 *A specification for one Plai migration in `ubec_mapservice`,
@@ -400,6 +400,14 @@ stage planner (Gate 5).
 * * *
 
 *Changelog*
+- v0.4 — 2026-10-07 — built: mapservice `a386165` — `plai/003`,
+  schemes v0.4, mapfile template v0.17, `instance.py` v0.28,
+  `leak_pass.py` v1.14, prompt v0.67, README v0.33. Two framework
+  additions beyond this specification, both generic: `instance.meta
+  entry_checks`, the instance's own rules proven by `verify`; and
+  the leak pass refusing a view column outside the whitelist in
+  the click. Proven locally (verify 91 of 91, leak pass 52 of 52,
+  prove 13 of 13); the host run and Michel's browser look remain.
 - v0.3 — 2026-10-07 — the state review's findings applied on
   Michel's word: Q7 `category` stays beside `offers`; Q8 `access`
   renamed `reach`; Q4 hosts a style on the entry layer, no second

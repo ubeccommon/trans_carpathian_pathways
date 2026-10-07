@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_10"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_11"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.10"
+version: "v0.11"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -334,10 +334,16 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
   adds nothing to Plai until a Digitizer save has worked in a
   browser.
 - **Gate 2 — Host fields.** One Plai migration, `plai/003`, for
-  what `docs/specs/PLAI_HOST_FIELDS_SPEC` v0.3 says (OI-P5, OI-P6,
+  what `docs/specs/PLAI_HOST_FIELDS_SPEC` says (OI-P5, OI-P6,
   OI-P13, Q1 to Q8), with `verify` and the leak pass extended to
   the new fields and hosts drawn as a style on the entry layer.
   The published location stays the point entered (OI-P7).
+  **Built October 7, 2026, on Michel's word** — mapservice
+  `a386165`, proven locally (spec v0.4). The gate closes when
+  Michel has run it on the host (`migrate plai`, `render`,
+  `cache:clear`, `verify plai vt`, the leak pass through the
+  public face) and looked at the form in a browser as a throwaway
+  entrant and curator.
   **Gate 2 closes before Gate 3 opens, as a hard constraint**
   (state review v0.1, F-3): Mapservice's proofs refuse or skip an
   instance that holds entries and no throwaway carries Plai's own
@@ -397,6 +403,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.11 — 2026-10-07 — Gate 2 built on Michel's word (mapservice
+  `a386165`, spec v0.4); closes on his host run and browser look.
 - v0.10 — 2026-10-07 — the mapservice state review
   (`docs/reviews/UBEC_MAPSERVICE_STATE_REVIEW_v0_1.md`) read and
   its findings applied on Michel's word in spec v0.3: hosts a
