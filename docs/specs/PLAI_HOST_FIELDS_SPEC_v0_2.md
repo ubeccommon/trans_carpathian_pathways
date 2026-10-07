@@ -1,13 +1,13 @@
 ---
-title: "PLAI_HOST_FIELDS_SPEC_v0_1"
+title: "PLAI_HOST_FIELDS_SPEC_v0_2"
 subtitle: "What a Plai point carries for Trans-Carpathian Pathways"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.1"
+version: "v0.2"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
-status: "draft — for Michel's review; nothing here is built"
+status: "decisions settled but Q4; the shape (columns, rules, forms) is Claude's proposal for Michel's review; nothing built"
 ---
 
 *A specification for one Plai migration in `ubec_mapservice`,
@@ -36,6 +36,11 @@ document is Claude's proposal rather than a decision, it says so.
 | OI-P7  | A home is published at the point entered                  |
 | OI-P8  | Four forms of payment: fixed, suggested, work, `ubec-pay` |
 | OI-P13 | The host chooses the forms, per offer (first half only)   |
+| Q1     | Naming a form of payment for an offer is optional          |
+| Q2     | Twelve languages: the eight, and Czech, Rusyn, Romani, Russian |
+| Q3     | No new consent pair; the host fields are public once published |
+| Q5     | No amount on the map; the Curator holds it for the pilot    |
+| Q6     | An empty season reads "ask the Curator", not "all year"     |
 
 Consequences that need no new decision:
 - No new owner or on-behalf column (OI-P4): the host saves their
@@ -78,8 +83,8 @@ migration.
 10 … `dec` December 120.
 
 **`instance.entry_language`** — languages the host speaks
-(OI-P6). The eight named in the starting prompt, each labelled
-in English with its own name beside it:
+(OI-P6, Q2). Twelve, each labelled in English with its own name
+beside it:
 
 | code | label                     | ordinal |
 |------|---------------------------|---------|
@@ -91,9 +96,13 @@ in English with its own name beside it:
 | `ro` | Romanian — română         | 60      |
 | `sk` | Slovak — slovenčina       | 70      |
 | `hu` | Hungarian — magyar        | 80      |
+| `cs` | Czech — čeština           | 90      |
+| `rue`| Rusyn — русиньскый        | 100     |
+| `rom`| Romani — romani čhib      | 110     |
+| `ru` | Russian — русский         | 120     |
 
-Which others belong (Czech, Rusyn, Romani, Serbian, Russian …)
-is open — Q2 in §8. The codes are ISO 639-1, so a later row is
+The codes are ISO 639-1 where a two-letter code exists, and
+ISO 639-3 otherwise (`rue`, `rom`), so a later row is
 unambiguous.
 
 **`instance.entry_access`** — how the place is reached (OI-P6).
@@ -184,11 +193,11 @@ which already fires before template 008's trigger
    to a category or a type: a farm, a guesthouse and a shepherd's
    hut can all offer a bed.
 
-Proposed, for Michel (Q1 in §8): a listed offer must name at
-least one form of payment — refused otherwise — because OI-P8 is
-to be settled "before the first traveler, not after", and a host
-point that offers a bed without saying on what terms leaves it
-to be settled at the door.
+Naming a form of payment for a listed offer is optional —
+Michel's word, October 7 (Q1). An offer with none is saved; its
+terms are then the Curator's to give, like day-to-day
+availability. (Proposed and not taken: refusing an offer without
+a form of payment.)
 
 Grants, by the lesson of step A (an update writes back every
 column its scheme loaded, so a missing grant is a failed save):
@@ -204,17 +213,26 @@ answers.
 
 ## 5. What the Public Sees
 
-**No new consent pair** — Claude's proposal, traced to the step
-A rule that a place's descriptive fields (name, types, category,
+**No new consent pair** — Michel's word, October 7 (Q3), as
+proposed, traced to the step A rule that a place's descriptive fields (name, types, category,
 offering) are public once the entry is published, and to OI-P7,
 which leaves the location as entered. Offers, season, capacity,
 payment forms, languages and access describe the place and its
 terms, not the person; the host chooses to enter them, and the
 curator chooses whether the entry is published at all. The
-contact fields and the photo stay gated as they are. If Michel
-wants any of these gated per field (capacity of a home, say),
-template 008's `consent_C`/`show_C` convention takes it with no
-new mechanism — Q3 in §8.
+contact fields and the photo stay gated as they are. Should any
+of these need gating later, template 008's `consent_C`/`show_C`
+convention takes it with no new mechanism.
+
+No amount is shown for a fixed or a suggested contribution —
+Michel's word, October 7 (Q5): the form of payment is on the
+map, the figure stays with the Curator for the pilot. No amount
+or currency column is specified.
+
+An empty season reads "ask the Curator" — Michel's word,
+October 7 (Q6): the view gives null, the click prints nothing,
+and nothing on the map says "all year" unless the host chose all
+twelve months.
 
 **The published view** `instance.entry_public` grows, at its
 end, after `image_html`:
@@ -301,21 +319,15 @@ what it loaded.
 
 * * *
 
-## 8. Open, for Michel
+## 8. Open
 
-- **Q1** — Must each listed offer name at least one form of
-  payment (§4)? Proposed: yes.
-- **Q2** — The language list beyond the eight (§2).
-- **Q3** — Any of the new fields gated by its own consent pair
-  rather than public once published (§5)? Proposed: none.
 - **Q4** — How the hosts layer is declared (§6): Mapservice's
-  word, on the mapservice side.
-- **Q5** — A fixed contribution has an amount, and this
-  specification carries none: whether an amount (and a currency)
-  is on the map, or stays with the Curator like availability.
-  Proposed: with the Curator for the pilot.
-- **Q6** — Whether `season` left empty reads "ask the Curator"
-  (proposed) or "all year".
+  word, on the mapservice side, when `plai/003` is built.
+
+Settled October 7, on Michel's word, and written into the
+sections above: Q1 payment optional (§4); Q2 twelve languages
+(§2); Q3 no new consent pair (§5); Q5 no amount on the map (§5);
+Q6 an empty season reads "ask the Curator" (§5).
 
 Not here, and why: how payment passes (OI-P13, second half —
 it decides whether the project holds money, not what a point
@@ -326,6 +338,11 @@ stage planner (Gate 5).
 * * *
 
 *Changelog*
+- v0.2 — 2026-10-07 — Q1, Q2, Q3, Q5 and Q6 settled on Michel's
+  word: payment optional per offer; Czech, Rusyn, Romani and
+  Russian join the language list; no new consent pair; no amount
+  on the map; an empty season reads "ask the Curator". Only Q4,
+  the mapservice side's, stays open.
 - v0.1 — 2026-10-07 — initial draft, from starting prompt v0.7
   (OI-P2, P4–P8, P13 first half) and Plai at mapservice
   `b9edde4`; multiple selects and empty numbers read at
