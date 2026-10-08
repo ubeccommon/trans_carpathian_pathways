@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_18"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_19"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.18"
+version: "v0.19"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -139,8 +139,11 @@ its prompt v0.80): `agreement_accepted` required, the version
 from `instance.meta agreement_version` and the time given by the
 database and kept on every save, none of it public; the entries
 scheme v0.8; the PDF at `/ubec/agreement/`, its file named for its
-version. Proven locally (`verify plai vt` 99 of 99); not yet on
-the host. A new version of the agreement on Plai is a new PDF
+version. Proven locally (`verify plai vt` 99 of 99), and on the
+host the same afternoon after the look's two rows were purged:
+`verify plai vt` 96 of 96, the leak pass 519 of 519, none skipped
+(mapservice `bbc6a36`, its prompt v0.81). Left: Plai's user copy
+made again and exported, and Michel's look as a throwaway entrant. A new version of the agreement on Plai is a new PDF
 there, a new link in the scheme and a new `agreement_version` — a
 Plai migration. The user manual v0.2 says what the entrant and
 the curator see.
@@ -490,6 +493,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.19 — 2026-10-08 — `plai/004` on the host: verify 96 of 96,
+  the leak pass 519 of 519.
 - v0.18 — 2026-10-08 — the agreement on every Plai entry,
   Michel's word: mapservice `plai/004` (`064c34a`); manual v0.2.
 - v0.17 — 2026-10-08 — the co-creator agreement, Michel's word:
