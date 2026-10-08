@@ -10,3 +10,4 @@ __pycache__/
 # diagrams in docs/proposal/ are tracked on purpose
 build/proposal.html
 build/manual.html
+build/agreement.html

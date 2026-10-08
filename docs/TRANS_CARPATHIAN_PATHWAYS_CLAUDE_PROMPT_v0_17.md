@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_16"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_17"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.16"
+version: "v0.17"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -112,6 +112,21 @@ English; the Ukrainian text glosses them. When a Plai form or
 rule changes, the manual is checked against it and rebuilt. It
 says what the stack cannot yet do: no password-reset mail (no
 mailer is set), so a forgotten password goes to the administrator.
+
+**The co-creator agreement — Michel's word, October 8, 2026.**
+One agreement for every role that builds the project — host,
+pathway steward, Curator, traveler, contributor, partner
+initiative, funder, and the administrator — English and
+Ukrainian, built to one A4 PDF like the proposal:
+`docs/agreement/`, built by `build/build_agreement.py`. It is a
+draft for Michel's word, not for signing: items A-1 to A-7 are
+open (who answers for the project, rights in entries, how payment
+passes, a deputy administrator, governing law, retention, how
+each role signs), and the cover and every footer say "Draft".
+It follows the project review
+(`docs/reviews/TRANS_CARPATHIAN_PATHWAYS_PROJECT_REVIEW_v0_1.md`),
+whose §5 lists Claude's own proposals in the draft so none is read
+as decided, and whose drifts and risks are not yet acted on.
 
 * * *
 
@@ -458,6 +473,9 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.17 — 2026-10-08 — the co-creator agreement, Michel's word:
+  every role, English and Ukrainian, one PDF in `docs/agreement/`,
+  a draft with A-1 to A-7 open; the project review v0.1 recorded.
 - v0.16 — 2026-10-08 — the user manual, Michel's word: entrants
   and curators, bilingual PDF in `docs/manual/`, Plai's emblem on
   the cover.

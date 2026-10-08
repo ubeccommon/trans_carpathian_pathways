@@ -1,12 +1,13 @@
 ---
 title: "Trans-Carpathian Pathways — Co-Creator Agreement (EN)"
-version: "v0.1"
+version: "v0.2"
 date: "October 2026"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
 status: "draft for Michel's word — not yet for signing; items A-1 to A-7 open"
 changelog:
+  - "v0.2 — 2026-10-08 — the Ukrainian text added and one PDF in both languages (Michel's word); §5 corrected: the data sits in Plai's own database, apart from every other project's, not in one of this project's own."
   - "v0.1 — 2026-10-08 — initial draft, Michel's word: a co-creator agreement for every role that builds the project. Read against starting prompt v0.16, proposal v0.2, user manual v0.1 and Plai at mapservice 67ae732; follows the project review v0.1. Seven open items for Michel."
 ---
 
@@ -14,7 +15,7 @@ changelog:
 
 *Co-Creator Agreement — what we promise each other while we build the pathway together*
 
-October 2026 · UBEC / Carpathian Hub Initiative · Draft v0.1
+October 2026 · UBEC / Carpathian Hub Initiative · Draft v0.2
 
 ## Why an agreement
 
@@ -75,7 +76,7 @@ These principles decide every choice in the project. By joining, each of us agre
 
 **What is kept.** For each place on Plai: its point on the map, its name, type, category and offering; for a host, the offers, capacities, forms of payment, months open, languages and how to reach it; a contact name, email and mobile; one photo if you add one; your consent ticks and the time you gave them; who entered it, when it was made and last changed, and its state. For each account: a user name, an email and a password. For a traveler: only what the Curator needs for the journey — a name, a way to reach you, the dates and the size of your party — kept by the Curator, not on Plai.
 
-**Where.** On UBEC's own server in Germany, under EU law, in a database that holds this project's data and no other's.
+**Where.** On UBEC's own server in Germany, under EU law, in Plai's own database, apart from every other project's data.
 
 **Why.** To put the network on the map, to let the Curator suggest journeys, and to let travelers find hosts. For nothing else. The basis is your consent, which you give field by field and can take back.
 

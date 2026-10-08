@@ -19,6 +19,7 @@ there, as Plai migrations in `ubec_mapservice`.
 | `docs/proposal/` | The outward proposal in English and Ukrainian, its diagrams and logo, and the bilingual PDF built from them |
 | `build/` | The scripts that draw the diagrams and build the PDF |
 | `docs/manual/` | Plai's user manual for entrants and curators, in English and Ukrainian, and the bilingual PDF built from them |
+| `docs/agreement/` | The co-creator agreement for every role, in English and Ukrainian, and the bilingual PDF built from them — a draft until its open items are settled |
 | `docs/specs/` | Specifications for changes built elsewhere — Plai migrations in `ubec_mapservice` |
 | `docs/reviews/` | Read-only reviews of the stack Pathways runs on, before a change is made |
 | `docs/prompts/` | Starting prompts for conversations that open a bounded piece of work |
@@ -59,6 +60,21 @@ with Plai's emblem, then English, then Ukrainian), in the
 proposal's styles. The PDF is committed; rebuild and commit it
 whenever either text changes, and check the texts whenever a Plai
 form or rule changes.
+
+## Building the co-creator agreement
+
+Same tools as the proposal:
+
+```bash
+python3 build/build_agreement.py
+```
+
+It writes `docs/agreement/Trans-Carpathian_Pathways_Co-Creator_Agreement_EN-UK.pdf`
+(A4, a cover, then English, then Ukrainian, each ending with its
+sign-on sheet on a page of its own), in the proposal's styles.
+While the agreement is a draft, the cover and every footer say so.
+The PDF is committed; rebuild and commit it whenever either text
+changes, and change both texts together.
 
 ## Taking the latest work
 
