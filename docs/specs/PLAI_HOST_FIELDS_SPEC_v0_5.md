@@ -1,13 +1,13 @@
 ---
-title: "PLAI_HOST_FIELDS_SPEC_v0_4"
+title: "PLAI_HOST_FIELDS_SPEC_v0_5"
 subtitle: "What a Plai point carries for Trans-Carpathian Pathways"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.4"
+version: "v0.5"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
-status: "built as plai/003 in ubec_mapservice (a386165), proven locally; awaiting the host run"
+status: "built as plai/003 (mapservice a386165), on the host, seen working end to end; Gate 2 closed October 8, 2026"
 ---
 
 *A specification for one Plai migration in `ubec_mapservice`,
@@ -400,6 +400,12 @@ stage planner (Gate 5).
 * * *
 
 *Changelog*
+- v0.5 — 2026-10-08 — on the host and seen working end to end on
+  Michel's look: a workshop host published, ochre to the public,
+  the click carrying the twenty fields. Gate 2 closed on his word.
+  Two faults older than this migration found by the look and fixed
+  in mapservice: `id` absent from every scheme's `fields` since
+  step A (`e203e3f`), and the steward group (`727aeec`).
 - v0.4 — 2026-10-07 — built: mapservice `a386165` — `plai/003`,
   schemes v0.4, mapfile template v0.17, `instance.py` v0.28,
   `leak_pass.py` v1.14, prompt v0.67, README v0.33. Two framework

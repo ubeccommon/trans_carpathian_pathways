@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_14"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_15"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.14"
+version: "v0.15"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -362,11 +362,17 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
   the new fields and hosts drawn as a style on the entry layer.
   The published location stays the point entered (OI-P7).
   **Built October 7, 2026, on Michel's word** — mapservice
-  `a386165`, proven locally (spec v0.4). The gate closes when
-  Michel has run it on the host (`migrate plai`, `render`,
-  `cache:clear`, `verify plai vt`, the leak pass through the
-  public face) and looked at the form in a browser as a throwaway
-  entrant and curator.
+  `a386165`, proven locally (spec v0.4); on the host the same
+  day, verify 91 of 91, the leak pass 519 of 519. **Closed
+  October 8, 2026, on Michel's word**, after his look in a
+  browser: a place entered and published, a workshop host with a
+  capacity and three languages published and drawn in ochre to
+  the public, the click carrying every host field. The look found
+  two faults older than `003` and fixed in mapservice the same
+  morning — every scheme had listed its `fields` without `id`
+  since step A, so a publish was refused and an edit inserted a
+  second row (`e203e3f`); and `PLAI_STEWARD` became a group of its
+  own (`727aeec`). Mapservice at `d0456b4`, prompt v0.72.
   **Gate 2 closes before Gate 3 opens, as a hard constraint**
   (state review v0.1, F-3): Mapservice's proofs refuse or skip an
   instance that holds entries and no throwaway carries Plai's own
@@ -440,6 +446,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.15 — 2026-10-08 — Gate 2 closed on Michel's word after the
+  browser look; what the look found recorded; spec v0.5.
 - v0.14 — 2026-10-08 — OI-P15 closed on Michel's word:
   `PLAI_STEWARD` a group of its own, built in mapservice `727aeec`.
 - v0.13 — 2026-10-08 — the pathway steward, Michel's word: a new
