@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_15"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_16"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.15"
+version: "v0.16"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -100,6 +100,18 @@ The option not taken, for the record: (b), its own instance
 `pathways` reading Plai at render time only, which would have
 kept the list of private homes out of the database that holds
 the range-wide open map.
+
+**The user manual — Michel's word, October 8, 2026.** One manual
+for entrants and curators, English and Ukrainian, built to one A4
+PDF like the proposal, with Plai's emblem on its cover:
+`docs/manual/`, built by `build/build_manual.py`. It is read
+against Plai as it stands — the entries scheme v0.7, the curation
+scheme v0.6, template 008's rules (mapservice `1c1c192`) — and
+quotes every screen label in English, since Plai's screens are
+English; the Ukrainian text glosses them. When a Plai form or
+rule changes, the manual is checked against it and rebuilt. It
+says what the stack cannot yet do: no password-reset mail (no
+mailer is set), so a forgotten password goes to the administrator.
 
 * * *
 
@@ -446,6 +458,9 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.16 — 2026-10-08 — the user manual, Michel's word: entrants
+  and curators, bilingual PDF in `docs/manual/`, Plai's emblem on
+  the cover.
 - v0.15 — 2026-10-08 — Gate 2 closed on Michel's word after the
   browser look; what the look found recorded; spec v0.5.
 - v0.14 — 2026-10-08 — OI-P15 closed on Michel's word:

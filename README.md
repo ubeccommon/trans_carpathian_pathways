@@ -18,6 +18,7 @@ there, as Plai migrations in `ubec_mapservice`.
 | `docs/TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v*.md` | The starting prompt, latest version: load order, decisions, open items. Source of truth. |
 | `docs/proposal/` | The outward proposal in English and Ukrainian, its diagrams and logo, and the bilingual PDF built from them |
 | `build/` | The scripts that draw the diagrams and build the PDF |
+| `docs/manual/` | Plai's user manual for entrants and curators, in English and Ukrainian, and the bilingual PDF built from them |
 | `docs/specs/` | Specifications for changes built elsewhere — Plai migrations in `ubec_mapservice` |
 | `docs/reviews/` | Read-only reviews of the stack Pathways runs on, before a change is made |
 | `docs/prompts/` | Starting prompts for conversations that open a bounded piece of work |
@@ -44,6 +45,20 @@ diagrams in `docs/proposal/assets/`, and writes
 
 The PDF is committed, so it can be sent without building. Rebuild
 and commit it whenever either proposal text changes.
+
+## Building the user manual
+
+Same tools as the proposal:
+
+```bash
+python3 build/build_manual.py
+```
+
+It writes `docs/manual/Plai_User_Manual_EN-UK.pdf` (A4, a cover
+with Plai's emblem, then English, then Ukrainian), in the
+proposal's styles. The PDF is committed; rebuild and commit it
+whenever either text changes, and check the texts whenever a Plai
+form or rule changes.
 
 ## Taking the latest work
 
