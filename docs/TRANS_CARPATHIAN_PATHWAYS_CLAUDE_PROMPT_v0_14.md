@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_13"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_14"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.13"
+version: "v0.14"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -141,7 +141,7 @@ Before any stage is published:
 | Role            | Does                                   | Plai                      |
 |-----------------|----------------------------------------|---------------------------|
 | Host            | enters their own place, or has it entered | `PLAI_ENTRANT`, or none |
-| Pathway steward | cares for a stretch; enters for a host, adds places along the way | `PLAI_ENTRANT` |
+| Pathway steward | cares for a stretch; enters for a host, adds places along the way | `PLAI_STEWARD` |
 | Curator         | publishes or holds; also enters        | `PLAI_CURATOR` and `PLAI_ENTRANT` |
 | Traveler        | sees published points                  | no account                |
 
@@ -420,12 +420,12 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 - **OI-P12** — Travel in wartime: what the project says to a
   traveler from abroad about advisories, insurance and martial
   law, and who says it.
-- **OI-P15** — Whether stewards get a Mapbender group of their
-  own, `PLAI_STEWARD`, so the backend shows who is one. Plai's
-  entries scheme can name it, but the Digitizer button and element
-  are gated by the framework's template, which lists the three
-  groups — a small framework change. For the pilot stewards sit in
-  `PLAI_ENTRANT`. §4.
+- **OI-P15** — Closed, Michel's word, October 8, 2026:
+  `PLAI_STEWARD` is a group of its own. Built in mapservice
+  `727aeec` (`instance.py entry-groups`, application template
+  v0.20, Plai's entries scheme v0.5); on the host: `entry-groups
+  plai STEWARD`, `render`, `cache:clear`, the group made in the
+  backend. §4.
 - **OI-P14** — A place nobody hosts (a viewpoint, a spring,
   entered by the Curator) still needs a `category` and a contact
   email, as every Plai point does since `plai/001`. For the pilot:
@@ -440,6 +440,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.14 — 2026-10-08 — OI-P15 closed on Michel's word:
+  `PLAI_STEWARD` a group of its own, built in mapservice `727aeec`.
 - v0.13 — 2026-10-08 — the pathway steward, Michel's word: a new
   role, an entrant on Plai; the roles table rewritten; OI-P15
   opened for a group of its own.
