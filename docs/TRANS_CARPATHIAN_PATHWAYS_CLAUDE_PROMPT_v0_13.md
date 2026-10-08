@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_12"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_13"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.12"
+version: "v0.13"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -138,11 +138,23 @@ Before any stage is published:
 
 ## 4. Roles, and How They Meet Plai's Accounts
 
-| Proposal role | Plai today                                        |
-|---------------|---------------------------------------------------|
-| Host          | `PLAI_ENTRANT` — enters and edits own points      |
-| Curator       | `PLAI_CURATOR` — publishes or holds; never creates |
-| Traveler      | no account; sees published points only            |
+| Role            | Does                                   | Plai                      |
+|-----------------|----------------------------------------|---------------------------|
+| Host            | enters their own place, or has it entered | `PLAI_ENTRANT`, or none |
+| Pathway steward | cares for a stretch; enters for a host, adds places along the way | `PLAI_ENTRANT` |
+| Curator         | publishes or holds; also enters        | `PLAI_CURATOR` and `PLAI_ENTRANT` |
+| Traveler        | sees published points                  | no account                |
+
+**The pathway steward — Michel's word, October 8, 2026:** a new
+role, someone who cares for a stretch of pathway and may add for
+a host and add places along the way. On Plai a steward is an
+entrant: the group means "may enter", not "is a host"; what a
+steward enters is their row, under their name, as when the
+Curator enters for a host (above). The stretch a steward cares
+for is the project's knowledge, not a column. The Curator keeps
+the whole: publishing, and the living map of who can receive
+whom. The proposal's "become a Curator and hold a stretch" line
+moves to the steward in its next version.
 
 Accounts are made by the administrator in Mapbender's backend,
 and Mapbender 5.0.0-RC2 requires an email on every account.
@@ -408,6 +420,12 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 - **OI-P12** — Travel in wartime: what the project says to a
   traveler from abroad about advisories, insurance and martial
   law, and who says it.
+- **OI-P15** — Whether stewards get a Mapbender group of their
+  own, `PLAI_STEWARD`, so the backend shows who is one. Plai's
+  entries scheme can name it, but the Digitizer button and element
+  are gated by the framework's template, which lists the three
+  groups — a small framework change. For the pilot stewards sit in
+  `PLAI_ENTRANT`. §4.
 - **OI-P14** — A place nobody hosts (a viewpoint, a spring,
   entered by the Curator) still needs a `category` and a contact
   email, as every Plai point does since `plai/001`. For the pilot:
@@ -422,6 +440,9 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.13 — 2026-10-08 — the pathway steward, Michel's word: a new
+  role, an entrant on Plai; the roles table rewritten; OI-P15
+  opened for a group of its own.
 - v0.12 — 2026-10-08 — OI-P4 amended on Michel's word: the
   Curator also enters points, from an account in both groups;
   OI-P14 opened, the shape of a place nobody hosts.
