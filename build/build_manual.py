@@ -17,6 +17,8 @@ Lora fonts installed, and requirements.txt.
 SPDX-License-Identifier: AGPL-3.0-or-later
 
 Changelog:
+  v0.2 — 2026-10-08 — screenshots: figure styles; images from
+         docs/manual/img/, referenced by the texts.
   v0.1 — 2026-10-08 — initial (Michel's word: a user manual for
          entrants and curators, bilingual, Plai's emblem on the
          cover).
@@ -55,6 +57,14 @@ table { page-break-inside: auto; }
 tr { page-break-inside: avoid; }
 h2, h3, h2 + p, h3 + p { page-break-after: avoid; }
 .cover .logo { width: 92mm; margin-top: 34mm; }
+/* Screenshots: full width for whole pages, narrower for a panel or
+   a form, never split across a page. */
+figure.shot { margin: 3mm 0 4mm; page-break-inside: avoid; text-align: center; }
+figure.shot img { width: 100%; border: 0.3mm solid #d8d2c0; border-radius: 1.2mm; }
+figure.half img { width: 74%; }
+figure.narrow img { width: 48%; }
+figure.shot figcaption { font-size: 8.5pt; color: #5d5a52; margin-top: 1.5mm;
+                         text-align: left; }
 """
 
 

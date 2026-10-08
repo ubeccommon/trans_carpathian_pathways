@@ -1,11 +1,12 @@
 ---
 title: "Plai — User Manual (EN)"
-version: "v0.2"
+version: "v0.3"
 date: "October 2026"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
 changelog:
+  - "v0.3 — 2026-10-08 — Michel's screenshots of the landing page, the login page, the toolbar, My places and the form, in both languages; required fields are outlined in red on screen; Select by current extent only."
   - "v0.2 — 2026-10-08 — the co-creator agreement in the form (mapservice plai/004, entries scheme v0.8, Michel's word): a link and a required tick above the state; the curator's tick when entering for a host."
   - "v0.1 — 2026-10-08 — initial, read against Plai's entries scheme v0.7 and curation scheme v0.6 (mapservice 1c1c192); Michel's word: entrants and curators, a bilingual PDF, Plai's emblem on the cover."
 ---
@@ -43,6 +44,11 @@ Plai's screens are in English for now. This manual quotes every button and field
 4. Enter your "User name" and "Password" and click "Login".
 5. You return to the list of maps. Open the Plai map again. A pencil icon now appears in the toolbar: that is your way in.
 
+
+<figure class="shot"><img src="img/01_landing.png" alt=""><figcaption>Figure 1. The list of maps at mapservice.ubec.network, with Plai's card.</figcaption></figure>
+
+<figure class="shot"><img src="img/02_login.png" alt=""><figcaption>Figure 2. The login page.</figcaption></figure>
+
 **Logging out.** Click the log-out icon at the right end of the toolbar, an arrow pointing out of a door.
 
 **Your session lasts one hour.** After an hour without logging in again, Plai asks you to sign in, and anything you had not saved is lost. Save before you step away.
@@ -52,6 +58,8 @@ Plai's screens are in English for now. This manual quotes every button and field
 ## 2. The map page
 
 The toolbar along the top holds, from left to right:
+
+<figure class="shot"><img src="img/03_toolbar.png" alt=""><figcaption>Figure 3. The toolbar, logged in: layer tree, information, search, credits, the pencil, log out.</figcaption></figure>
 
 | Icon | What it does |
 | --- | --- |
@@ -72,7 +80,12 @@ The zoom buttons are on the right edge of the map. Drag the map to move it; use 
 4. A form opens, titled "A place on the map". Fill it in (chapter 4).
 5. At the bottom of the form, choose the **"State"** (chapter 5) and click **"Save"**.
 
+
+<figure class="shot narrow"><img src="img/04_my_places.png" alt=""><figcaption>Figure 4. The "Entries" panel on "My places". The two buttons on the right are "Draw point" and "Move".</figcaption></figure>
+
 The place appears in "My places" and stays on the map as a point.
+
+**"Select by current extent only".** With this ticked, as it is when the panel opens, "My places" lists only the places within the part of the map you are looking at. Untick it to list all of them.
 
 **To change a place**, click it in "My places", or click its point on the map. The form opens again; change what you need and click "Save".
 
@@ -82,7 +95,10 @@ The place appears in "My places" and stays on the map as a point.
 
 ## 4. The form, field by field
 
-Fields marked with a star must be filled in; the form will not save without them.
+Required fields are outlined in red on screen until they are filled in; the form will not save without them. In the tables below they carry a star.
+
+<figure class="shot half"><img src="img/05_form_top.png" alt=""><figcaption>Figure 5. The top of the form: what the place is.</figcaption></figure>
+
 
 ### What the place is
 
@@ -98,6 +114,8 @@ The type says what the place is; the category says what it is mainly for. A farm
 ### If you host travelers
 
 Leave this part empty if you do not host anyone.
+
+<figure class="shot half"><img src="img/06_form_host.png" alt=""><figcaption>Figure 6. If you host travelers: the offers, how many people, and how you are paid.</figcaption></figure>
 
 | Field | What to put |
 | --- | --- |
@@ -139,6 +157,9 @@ Each tick is your permission, not a promise of publication: a curator still deci
 ### The Co-Creator Agreement
 
 Just above "State", the form links to the **Co-Creator Agreement — Угода співтворців**: the agreement every co-creator of Trans-Carpathian Pathways keeps, in English and Ukrainian. Open it, read it, then tick "I have read the Co-Creator Agreement and accept it". The form will not save without the tick, and the tick cannot be taken back on a later save: to leave, withdraw your places (chapter 5) or write to stewardship@ubec.network. Plai records which version of the agreement you accepted, and when.
+
+
+<figure class="shot half"><img src="img/07_form_consent.png" alt=""><figcaption>Figure 7. The end of the form: the photo, your contact details, the consent ticks and the Co-Creator Agreement. "State" and "Save" follow below.</figcaption></figure>
 
 ## 5. What happens to a place
 

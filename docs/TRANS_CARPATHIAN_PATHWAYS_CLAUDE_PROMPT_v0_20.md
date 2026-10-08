@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_19"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_20"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.19"
+version: "v0.20"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -112,6 +112,16 @@ English; the Ukrainian text glosses them. When a Plai form or
 rule changes, the manual is checked against it and rebuilt. It
 says what the stack cannot yet do: no password-reset mail (no
 mailer is set), so a forgotten password goes to the administrator.
+Manual v0.3 carries Michel's screenshots, taken on the host the
+evening of October 8 with no test entry: the list of maps, the
+login page, the toolbar, "My places" and the form in three parts,
+cropped and kept in `docs/manual/img/` without their metadata, the
+same pictures in both languages. They showed two things the text
+had not said: required fields are outlined in red on screen, not
+starred, and "Select by current extent only", ticked when the panel
+opens, lists only the places in view. Still to come from him: the
+curator's form, the public popup on a published place, and the
+"State" list below the agreement.
 
 **The co-creator agreement — Michel's word, October 8, 2026.**
 One agreement for every role that builds the project — host,
@@ -493,6 +503,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.20 — 2026-10-08 — manual v0.3: Michel's screenshots in both
+  languages; three more wanted.
 - v0.19 — 2026-10-08 — `plai/004` on the host: verify 96 of 96,
   the leak pass 519 of 519.
 - v0.18 — 2026-10-08 — the agreement on every Plai entry,

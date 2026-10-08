@@ -1,11 +1,12 @@
 ---
 title: "Plai — User Manual (UK)"
-version: "v0.2"
+version: "v0.3"
 date: "October 2026"
 lang: "uk"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
 changelog:
+  - "v0.3 — 2026-10-08 — Michel's screenshots of the landing page, the login page, the toolbar, My places and the form, in both languages; required fields are outlined in red on screen; Select by current extent only."
   - "v0.2 — 2026-10-08 — the co-creator agreement in the form (mapservice plai/004, entries scheme v0.8, Michel's word): a link and a required tick above the state; the curator's tick when entering for a host."
   - "v0.1 — 2026-10-08 — initial, read against Plai's entries scheme v0.7 and curation scheme v0.6 (mapservice 1c1c192); Michel's word: entrants and curators, a bilingual PDF, Plai's emblem on the cover."
 ---
@@ -43,6 +44,11 @@ changelog:
 4. Введіть "User name" (ім'я користувача) і "Password" (пароль) та натисніть "Login".
 5. Ви повернетеся до переліку мап. Відкрийте мапу Плаю ще раз. Тепер на панелі інструментів з'явиться значок олівця — це ваш вхід до записів.
 
+
+<figure class="shot"><img src="img/01_landing.png" alt=""><figcaption>Рисунок 1. Перелік мап на mapservice.ubec.network із карткою Плаю.</figcaption></figure>
+
+<figure class="shot"><img src="img/02_login.png" alt=""><figcaption>Рисунок 2. Сторінка входу.</figcaption></figure>
+
 **Вихід.** Клацніть значок виходу в правому кінці панелі — стрілку, що виходить із дверей.
 
 **Сеанс триває одну годину.** Через годину Плай попросить увійти знову, і все незбережене буде втрачено. Зберігайте, перш ніж відійти.
@@ -52,6 +58,8 @@ changelog:
 ## 2. Сторінка мапи
 
 Панель інструментів угорі містить, зліва направо:
+
+<figure class="shot"><img src="img/03_toolbar.png" alt=""><figcaption>Рисунок 3. Панель інструментів після входу: дерево шарів, інформація, пошук, джерела, олівець, вихід.</figcaption></figure>
 
 | Значок | Що робить |
 | --- | --- |
@@ -72,7 +80,12 @@ changelog:
 4. Відкриється форма "A place on the map" (місце на мапі). Заповніть її (розділ 4).
 5. Унизу форми виберіть **"State"** (стан, розділ 5) і натисніть **"Save"** (зберегти).
 
+
+<figure class="shot narrow"><img src="img/04_my_places.png" alt=""><figcaption>Рисунок 4. Панель "Entries" зі списком "My places". Дві кнопки праворуч — "Draw point" (поставити точку) і "Move" (пересунути).</figcaption></figure>
+
 Місце з'явиться у списку "My places" і залишиться на мапі як точка.
+
+**"Select by current extent only"** (лише в поточній області мапи). Коли цю позначку поставлено — а так є, щойно панель відкривається, — у списку "My places" лише місця в тій частині мапи, яку ви бачите. Зніміть позначку, щоб побачити всі.
 
 **Щоб змінити місце**, клацніть на нього у списку "My places" або на його точку на мапі. Форма відкриється знову; змініть потрібне й натисніть "Save".
 
@@ -82,7 +95,10 @@ changelog:
 
 ## 4. Форма, поле за полем
 
-Поля, позначені зірочкою, обов'язкові; без них форма не збережеться.
+Обов'язкові поля на екрані обведено червоним, доки їх не заповнено; без них форма не збережеться. У таблицях нижче вони позначені зірочкою.
+
+<figure class="shot half"><img src="img/05_form_top.png" alt=""><figcaption>Рисунок 5. Початок форми: що це за місце.</figcaption></figure>
+
 
 ### Що це за місце
 
@@ -98,6 +114,8 @@ changelog:
 ### Якщо ви приймаєте мандрівників
 
 Залиште цю частину порожньою, якщо нікого не приймаєте.
+
+<figure class="shot half"><img src="img/06_form_host.png" alt=""><figcaption>Рисунок 6. Якщо ви приймаєте мандрівників: пропозиції, скільки людей і як вам платять.</figcaption></figure>
 
 | Поле | Що вписати |
 | --- | --- |
@@ -139,6 +157,9 @@ changelog:
 ### Угода співтворців
 
 Просто над полем "State" форма містить посилання на **Co-Creator Agreement — Угода співтворців** — угоду, якої дотримується кожен співтворець Транскарпатських стежок, англійською та українською. Відкрийте її, прочитайте й позначте "I have read the Co-Creator Agreement and accept it" (я прочитав(-ла) угоду співтворців і приймаю її). Без цієї позначки форма не збережеться, і зняти її під час наступного збереження не можна: щоб відійти, відкличте свої місця (розділ 5) або напишіть на stewardship@ubec.network. Плай записує, яку версію угоди ви прийняли і коли.
+
+
+<figure class="shot half"><img src="img/07_form_consent.png" alt=""><figcaption>Рисунок 7. Кінець форми: фото, контакти, позначки згоди й Угода співтворців. Нижче — "State" і "Save".</figcaption></figure>
 
 ## 5. Що відбувається з місцем
 

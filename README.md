@@ -55,7 +55,8 @@ Same tools as the proposal:
 python3 build/build_manual.py
 ```
 
-It writes `docs/manual/Plai_User_Manual_EN-UK.pdf` (A4, a cover
+The screenshots it shows are in `docs/manual/img/`, referenced from
+both texts. It writes `docs/manual/Plai_User_Manual_EN-UK.pdf` (A4, a cover
 with Plai's emblem, then English, then Ukrainian), in the
 proposal's styles. The PDF is committed; rebuild and commit it
 whenever either text changes, and check the texts whenever a Plai
