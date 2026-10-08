@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_17"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_18"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.17"
+version: "v0.18"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -127,6 +127,23 @@ It follows the project review
 (`docs/reviews/TRANS_CARPATHIAN_PATHWAYS_PROJECT_REVIEW_v0_1.md`),
 whose §5 lists Claude's own proposals in the draft so none is read
 as decided, and whose drifts and risks are not yet acted on.
+
+**The agreement on every Plai entry — Michel's word, October 8,
+2026.** Whoever creates a point ticks that they have read the
+co-creator agreement and accept it, a link to it beside the tick.
+His answers: build now and link draft v0.2; serve the PDF from
+Mapservice, since this repository is private; record the tick,
+the version and the time; purge the two rows of his host-fields
+look first. Built in `ubec_mapservice` as `plai/004` (`064c34a`,
+its prompt v0.80): `agreement_accepted` required, the version
+from `instance.meta agreement_version` and the time given by the
+database and kept on every save, none of it public; the entries
+scheme v0.8; the PDF at `/ubec/agreement/`, its file named for its
+version. Proven locally (`verify plai vt` 99 of 99); not yet on
+the host. A new version of the agreement on Plai is a new PDF
+there, a new link in the scheme and a new `agreement_version` — a
+Plai migration. The user manual v0.2 says what the entrant and
+the curator see.
 
 * * *
 
@@ -473,6 +490,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.18 — 2026-10-08 — the agreement on every Plai entry,
+  Michel's word: mapservice `plai/004` (`064c34a`); manual v0.2.
 - v0.17 — 2026-10-08 — the co-creator agreement, Michel's word:
   every role, English and Ukrainian, one PDF in `docs/agreement/`,
   a draft with A-1 to A-7 open; the project review v0.1 recorded.

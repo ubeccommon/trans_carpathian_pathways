@@ -76,6 +76,12 @@ While the agreement is a draft, the cover and every footer say so.
 The PDF is committed; rebuild and commit it whenever either text
 changes, and change both texts together.
 
+Plai links to the agreement from its entry form and records the
+version each entrant accepted. That copy is served by
+`ubeccommon/ubec_mapservice`, since this repository is private:
+a new version shown on Plai means its PDF copied there under a
+new file name, and a Plai migration there for the new version.
+
 ## Taking the latest work
 
 Clone once:

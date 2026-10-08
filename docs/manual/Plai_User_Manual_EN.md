@@ -1,11 +1,12 @@
 ---
 title: "Plai — User Manual (EN)"
-version: "v0.1"
+version: "v0.2"
 date: "October 2026"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
 changelog:
+  - "v0.2 — 2026-10-08 — the co-creator agreement in the form (mapservice plai/004, entries scheme v0.8, Michel's word): a link and a required tick above the state; the curator's tick when entering for a host."
   - "v0.1 — 2026-10-08 — initial, read against Plai's entries scheme v0.7 and curation scheme v0.6 (mapservice 1c1c192); Michel's word: entrants and curators, a bilingual PDF, Plai's emblem on the cover."
 ---
 
@@ -135,6 +136,10 @@ A photo is public only if you tick "My photo may be shown on the public map" **a
 
 Each tick is your permission, not a promise of publication: a curator still decides. Untick a box at any time and that detail leaves the public map.
 
+### The Co-Creator Agreement
+
+Just above "State", the form links to the **Co-Creator Agreement — Угода співтворців**: the agreement every co-creator of Trans-Carpathian Pathways keeps, in English and Ukrainian. Open it, read it, then tick "I have read the Co-Creator Agreement and accept it". The form will not save without the tick, and the tick cannot be taken back on a later save: to leave, withdraw your places (chapter 5) or write to stewardship@ubec.network. Plai records which version of the agreement you accepted, and when.
+
 ## 5. What happens to a place
 
 Every place has a **state**. You set it in the "State" list at the bottom of the form.
@@ -199,6 +204,7 @@ A curator whose account is also an entrant can enter places: for a host who cann
 
 - What you enter is **your** row, under your name. The host cannot edit or withdraw it; you do it for them.
 - Keep the host's agreement on paper. The consent ticks in the form are then yours, on their behalf.
+- The agreement tick in the form is yours too. The host accepts the agreement on the sheet they sign with you (its Part III).
 - A place nobody hosts still needs a category and an email: choose "Something else", and give your own email.
 
 ## 8. When something goes wrong
