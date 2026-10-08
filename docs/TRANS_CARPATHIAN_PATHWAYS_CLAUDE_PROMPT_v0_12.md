@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_11"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_12"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.11"
+version: "v0.12"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -164,9 +164,20 @@ What it carries, from the stack as it stands:
   before any real account, the off-host copy on Michel's
   computer.
 
-The options not taken, for the record: (a) the Curator enters on
-the host's behalf from an entrant account of their own, consent
-on paper, the Curator owning the row; (c) a Plai migration adding
+**Amended — Michel's word, October 8, 2026:** the Curator also
+enters points — for a host who cannot, and for places along the
+way (a viewpoint, a spring). No change to Plai: the Curator's
+Mapbender account is put in `PLAI_ENTRANT` as well as
+`PLAI_CURATOR` (or in `PLAI_ADMIN`, which the application treats
+as both), so both schemes show; what it creates goes through the
+entry role under the Curator's name, and the database rule that
+the curator role never creates stands. Such a point is the
+Curator's row — the host cannot edit or withdraw it themselves,
+their consent is on paper and the `data_consent` tick is the
+Curator's on their behalf; a hand-over of ownership would be a
+Plai migration (option (c) below), not yet asked for.
+
+The option not taken, for the record: (c) a Plai migration adding
 "entered on behalf of" and a later hand-over of ownership.
 
 * * *
@@ -374,7 +385,9 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 - **OI-P3** — Closed, Michel's word, October 7, 2026: Vorokhta →
   Verkhovyna → Kosiv. §3.
 - **OI-P4** — Closed, Michel's word, October 7, 2026: the host's
-  own account, the Curator beside them while they enter. §4.
+  own account, the Curator beside them while they enter; amended
+  October 8: the Curator also enters, for a host who cannot and
+  for places along the way, from an account in both groups. §4.
 - **OI-P5** — Closed, Michel's word, October 7, 2026: location
   type `viewpoint`. §5.
 - **OI-P6** — Closed, Michel's word, October 7, 2026: one point
@@ -395,6 +408,12 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 - **OI-P12** — Travel in wartime: what the project says to a
   traveler from abroad about advisories, insurance and martial
   law, and who says it.
+- **OI-P14** — A place nobody hosts (a viewpoint, a spring,
+  entered by the Curator) still needs a `category` and a contact
+  email, as every Plai point does since `plai/001`. For the pilot:
+  "Something else" and the Curator's email. Whether such a place
+  should need neither is a Plai change (`plai/004`), on Michel's
+  word.
 - **OI-P13** — First half closed, Michel's word, October 7, 2026:
   the host chooses, per offer. Open: whether payment passes
   directly or through the Curator or `ubec-pay`. §5. Before the
@@ -403,6 +422,9 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.12 — 2026-10-08 — OI-P4 amended on Michel's word: the
+  Curator also enters points, from an account in both groups;
+  OI-P14 opened, the shape of a place nobody hosts.
 - v0.11 — 2026-10-07 — Gate 2 built on Michel's word (mapservice
   `a386165`, spec v0.4); closes on his host run and browser look.
 - v0.10 — 2026-10-07 — the mapservice state review
