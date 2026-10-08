@@ -20,6 +20,7 @@ there, as Plai migrations in `ubec_mapservice`.
 | `build/` | The scripts that draw the diagrams and build the PDF |
 | `docs/specs/` | Specifications for changes built elsewhere — Plai migrations in `ubec_mapservice` |
 | `docs/reviews/` | Read-only reviews of the stack Pathways runs on, before a change is made |
+| `docs/prompts/` | Starting prompts for conversations that open a bounded piece of work |
 | `tools/` | Empty until a tool is needed |
 
 ## Building the proposal PDF
