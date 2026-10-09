@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_29"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_30"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.29"
+version: "v0.30"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -350,11 +350,22 @@ with what stays open. Decided:
   governance; the first corridor gets a partnership note of its
   own.
 - **S-19** — a public list of partners from the start.
-- **S-23** — the mapservice changes are to be committed: Mapbender's
-  own database in the backup, abuse-control logging with a
-  request threshold; the third (the entry layer logged-in only)
-  falls with S-1. Each a bounded mapservice change under that
-  tree's rules.
+- **S-23** — done in `ubec_mapservice` the same day (its commit
+  `0a5aa99`, prompt v0.82, README v0.43): Mapbender's own database
+  in the backup (`backup.py` v0.8, a `mapbender` target with a
+  whole restore, proven on a throwaway cluster); abuse control on
+  the public face (vhost v0.5: its own log directory, a short
+  format, seven-day rotation, three request thresholds answered
+  with 429). The third change fell with S-1. And the agreement at
+  draft v0.3 on Plai: the PDF served beside v0.2, the entries
+  scheme v0.9, `plai/005` setting `agreement_version` to `v0.3`.
+  **Not yet run on the host:** pull there; `migrate plai`,
+  `render`, `cache:clear`, the user copy made again, `verify
+  plai`; the vhost's install lines with the log directory and the
+  rotation rule, `nginx -t`, reload, the leak pass through the
+  public face; `backup.py prove`. What F5 still asks — a timer,
+  encryption, an off-host copy — is not built, and Gate 3 waits on
+  the last.
 - **S-24** — the white paper stays a draft; no v0.4 now.
 - **A-7** — hosts sign on paper with the Curator, in Ukrainian.
 - **D-1** — Gate 1 closed (§8). **D-2, D-3, D-4, D-6** — proposal
@@ -756,6 +767,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.30 — 2026-10-09 — S-23 and the agreement v0.3 built in
+  mapservice (`0a5aa99`); what remains to run on the host.
 - v0.29 — 2026-10-09 — Michel's answers to the decisions checklist
   carried into agreement v0.3, proposal v0.3, manual v0.4; Gate 1
   closed; OI-P12 and OI-P13 closed; OI-P7 and OI-P8 amended; what

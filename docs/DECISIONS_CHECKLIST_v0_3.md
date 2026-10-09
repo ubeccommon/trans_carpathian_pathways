@@ -1,9 +1,9 @@
 ---
-title: "DECISIONS_CHECKLIST_v0_2"
+title: "DECISIONS_CHECKLIST_v0_3"
 subtitle: "The questions waiting on Michel's word, one line each — with his answers of October 9"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.2"
+version: "v0.3"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -136,13 +136,12 @@ manual v0.4, prompt v0.29.*
 ## Records and the stack
 
 - ☐ **S-7 — What Gate 4 records.** To be defined.
-- ☑ **S-23 — Mapservice.** Commit: Mapbender's own database in the
-      backup (state review F5); abuse-control logging and a
-      request threshold. The third change falls with S-1 (points
-      stay public). Each a bounded change in `ubec_mapservice`
-      under that tree's rules, in its own conversation. **Also
-      due there:** the agreement v0.3 PDF served on Plai under a
-      new file name and a new `agreement_version` (prompt §2).
+- ☑ **S-23 — Mapservice.** Built, mapservice commit `0a5aa99`
+      (October 9): Mapbender's database in the backup (`backup.py`
+      v0.8); abuse-control logging and request thresholds (vhost
+      v0.5); the agreement v0.3 on Plai (`plai/005`, scheme v0.9).
+      The third change fell with S-1. Still to run on the host:
+      see prompt v0.30.
 - ☑ **S-24 — The white paper.** Stays a draft; changes may still
       come; no v0.4 now.
 
@@ -165,6 +164,8 @@ manual v0.4, prompt v0.29.*
 * * *
 
 *Changelog*
+- v0.3 — 2026-10-09 — S-23 built in mapservice; the host run
+  pending.
 - v0.2 — 2026-10-09 — Michel's answers written against each
   question; 22 carried into agreement v0.3, proposal v0.3, manual
   v0.4 and prompt v0.29; 10 open or part-answered, marked.
