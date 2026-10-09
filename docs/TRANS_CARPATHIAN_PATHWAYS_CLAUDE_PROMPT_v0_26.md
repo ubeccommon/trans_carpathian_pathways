@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_25"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_26"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.25"
+version: "v0.26"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -265,6 +265,22 @@ Lake Herashaska → озеро Герашаська, conviviality →
 Neither this text nor the diagram labels have yet been read by
 anyone in the corridor; §12 of the paper says the Ukrainian should
 in the end come from them.
+
+**The site — Michel's word, October 9, 2026.** A presence on the
+web at `tcp.ubec.network`, opened by its own conversation from
+`docs/prompts/TCP_WEB_PRESENCE_START_PROMPT_v0_1.md`: a small,
+bilingual, static site that says what the project is, carries the
+documents as PDFs and pages, names how to take part, and links to
+Plai and the field writing; never a map, a directory of hosts, a
+booking page or a form. The UBEC mark, not the Plai emblem;
+fonts served locally; no third-party request from any page.
+The prompt binds the site to the stress tests — no host listed or
+located (S-1), partners and declined requests (S-19), the stage
+said plainly, no form (agreement §5) — and leaves to Gate A where
+the site lives, who manages DNS and TLS for `ubec.network`, and
+whether the vhost is a mapservice change. Serving the white paper
+from Mapservice, left open the same morning, is answered if the
+site publishes it. The decisions S-1 to S-24 still wait.
 
 * * *
 
@@ -611,6 +627,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.26 — 2026-10-09 — the starting prompt for the site at
+  `tcp.ubec.network` recorded.
 - v0.25 — 2026-10-09 — the white paper in Ukrainian; one PDF in
   both languages.
 - v0.24 — 2026-10-09 — white paper v0.3: regeneration woven in and
