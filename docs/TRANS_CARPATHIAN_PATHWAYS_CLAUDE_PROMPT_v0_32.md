@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_31"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_32"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.31"
+version: "v0.32"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -379,6 +379,19 @@ entrenched clauses; S-19's "Part I in full, §3 included" for
 partners; S-14's hromada-council step; OI-P11 (the proposal's
 seven or Plai's nine, both named); S-7 (what Gate 4 records — to be
 defined); A-2 (read as the drafted option, to confirm); A-5; A-6.
+
+**Partners — Michel's word, October 9, 2026.** The search for
+those who would fund, help build, help run and scientifically
+report the first corridor's prototype opens in its own
+conversation from `docs/prompts/TCP_PARTNERS_START_PROMPT_v0_1.md`:
+four kinds of partner (funders, creators, implementers, scientific
+reporters), four gates (the needs, a sourced long list, a short
+list with each one's fit and conditions, the material to approach
+them with — a bilingual prototype brief and a study sketch), its
+documents in `docs/partners/`. It explores and commits nothing;
+every approach is Michel's. The prototype it serves is the pilot
+as proposal v0.3 sets it out, measured by whether the co-creators
+could do their part and wanted to go on.
 
 * * *
 
@@ -768,6 +781,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.32 — 2026-10-09 — the starting prompt for the partners
+  conversation recorded.
 - v0.31 — 2026-10-09 — S-23 and the agreement v0.3 closed on the
   host, Michel's "looks good".
 - v0.30 — 2026-10-09 — S-23 and the agreement v0.3 built in
