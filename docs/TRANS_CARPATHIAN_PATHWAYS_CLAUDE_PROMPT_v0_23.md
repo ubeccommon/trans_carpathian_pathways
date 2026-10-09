@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_22"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_23"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.22"
+version: "v0.23"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -202,6 +202,30 @@ Gate 1 is passed in fact but not yet closed in §8 (review D-1,
 still open). Appendix A records that proposal v0.3 is due (D-2,
 D-3, D-4, D-6). The legal strand's "needs a lawyer" list is in the
 paper's §9 and bears on the two legal reads the agreement names.
+
+**The stress tests — Michel's word, October 9, 2026.** Three,
+each by a separate agent that had not seen the white paper
+written: a sceptical funder (money over five years), a red-team
+reviewer (adversaries and failures), an anthropologist of rural
+development (capture and co-option). Recorded as delivered in
+`docs/reviews/TRANS_CARPATHIAN_PATHWAYS_STRESS_TESTS_v0_1.md`,
+with what they demand in common and 24 decisions for Michel
+(S-1 to S-24) tied to the document each would change. The five
+demands all three share: the Curator is assumed to stand between
+the map and the door and nothing makes it so (host points public,
+in their own colour, with the hosting details on the click — the
+security tab of the Pathways copy is the unused lever, S-1); one
+person holds everything and the agreement's promises fail for any
+six weeks he is unreachable (A-1, A-4, the first Curator not the
+lead, Mapbender's database not in the backup, S-9, S-11, S-12);
+one lawful defined form of payment out of four and no cost-carrier
+after the grant (S-2, S-3, S-16); a corridor speaks for its points,
+never for a place (S-14, S-18); and hosts are promised a withdrawal
+the map cannot keep once a point is copied, while the manual
+contradicts the meeting-place option (S-4, S-14, S-22). One finding
+was an inconsistency inside the white paper and is corrected in
+its v0.2 (§12). Every other finding waits on Michel's word;
+nothing is decided by the tests.
 
 * * *
 
@@ -548,6 +572,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.23 — 2026-10-09 — three stress tests recorded, 24 decisions
+  put to Michel (S-1 to S-24); white paper v0.2 corrects its §12.
 - v0.22 — 2026-10-09 — the white paper v0.1, Michel's word:
   documents reviewed, four research strands, 24-page PDF, checked
   by a separate agent.

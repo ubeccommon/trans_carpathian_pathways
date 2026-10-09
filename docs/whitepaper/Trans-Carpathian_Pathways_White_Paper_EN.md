@@ -1,12 +1,13 @@
 ---
 title: "Trans-Carpathian Pathways — White Paper (EN)"
-version: "v0.1"
+version: "v0.2"
 date: "October 2026"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
 status: "draft for Michel's word — English first, Ukrainian once it settles"
 changelog:
+  - "v0.2 — 2026-10-09 — §12 corrected after the stress tests (docs/reviews/TRANS_CARPATHIAN_PATHWAYS_STRESS_TESTS_v0_1.md): a corridor is put before a public body as the places of named hosts, never as what a community wants, which contradicted §8. Nothing else changed; the tests' other findings wait on Michel's word."
   - "v0.1 — 2026-10-09 — initial, Michel's word: a comprehensive review of the project's documents and in-depth background research, written as a white paper. Read against starting prompt v0.21, proposal v0.2, co-creator agreement v0.2, user manual v0.3, host-fields specification v0.5, the two reviews v0.1 and the reasoning document v0.1. Research in four strands the same day (the region, comparable initiatives, the legal frame, the theory); every figure carries its source in the list at the end. Checked the same day by a separate agent that had not seen it written: 24 findings against the project's documents, the sources and its own consistency, all taken in."
 ---
 
@@ -16,7 +17,7 @@ changelog:
 
 *A living network of hosts, paths and Curators across the Carpathian arc — the case, the evidence and the design*
 
-October 2026 · UBEC / Carpathian Hub Initiative · White Paper, draft v0.1
+October 2026 · UBEC / Carpathian Hub Initiative · White Paper, draft v0.2
 
 ## How to read this paper
 
@@ -288,7 +289,7 @@ The project keeps its tensions in view rather than resolving them on paper. The 
 
 **Of mountain communities and their councils.** Not endorsement but attention: a reading of this paper; the names of people who already host, teach, herd or mow; and the questions a village would want answered before any of its people appear on a map.
 
-**Of the Carpathian Eight and the Carpathian Convention.** The C8 declaration commits its signatories to cultural landscapes, the traditional way of life of mountain communities and shared cultural routes; the Convention has treated nature and culture together since 2003 and Ukraine will hold its presidency after COP8. Pathways is one concrete form that commitment can take, built from the communities outward, and it asks to be heard as such: as evidence, place by place and with consent, of what the mountains' people want their mountains to be.
+**Of the Carpathian Eight and the Carpathian Convention.** The C8 declaration commits its signatories to cultural landscapes, the traditional way of life of mountain communities and shared cultural routes; the Convention has treated nature and culture together since 2003 and Ukraine will hold its presidency after COP8. Pathways is one concrete form that commitment can take, built from the communities outward, and it asks to be heard as such: as the places of named hosts and the paths between them, shown with their consent and speaking for no one else — never as what a community wants, which only a community can say.
 
 **Of anyone.** The project's documents, code and record of every decision are open; its agreement is written in plain words on purpose; and anyone may propose. Contact: Michel Garand — stewardship@ubec.network.
 

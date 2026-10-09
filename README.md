@@ -23,7 +23,7 @@ there, as Plai migrations in `ubec_mapservice`.
 | `docs/manual/` | Plai's user manual for entrants and curators, in English and Ukrainian, and the bilingual PDF built from them |
 | `docs/agreement/` | The co-creator agreement for every role, in English and Ukrainian, and the bilingual PDF built from them — a draft until its open items are settled |
 | `docs/specs/` | Specifications for changes built elsewhere — Plai migrations in `ubec_mapservice` |
-| `docs/reviews/` | Read-only reviews of the stack Pathways runs on, before a change is made |
+| `docs/reviews/` | Read-only reviews — of the stack Pathways runs on, of the project as a whole, and the stress tests of its design — each before a change is made |
 | `docs/prompts/` | Starting prompts for conversations that open a bounded piece of work |
 | `tools/` | Empty until a tool is needed |
 
