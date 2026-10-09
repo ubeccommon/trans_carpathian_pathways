@@ -1,4 +1,4 @@
-# Trans-Carpathian Pathways — nginx vhost for tcp.ubec.network, v0.1
+# Trans-Carpathian Pathways — nginx vhost for tcp.ubec.network, v0.2
 # SPDX-License-Identifier: AGPL-3.0-or-later
 #
 # A static site: the files build/build_site.py writes to site/dist/,
@@ -26,9 +26,9 @@
 #        /etc/nginx/sites-enabled/
 #   sudo nginx -t && sudo systemctl reload nginx
 # The certificate comes first, from certbot with the webroot the
-# host's other sites use (/var/lib/letsencrypt). If no server on port
-# 80 answers the challenge for this name yet, install only the part
-# above the TLS line first (site/README.md says how), take the
+# host's other sites use (/var/lib/letsencrypt). No other server on
+# ubec-common answers the challenge for this name, so install only the
+# part above the TLS line first (site/README.md says how), take the
 # certificate, then install the whole file.
 #
 # Reinstall after every commit that changes this file: a pull does not
@@ -36,6 +36,7 @@
 # says which copy the host runs.
 #
 # Changelog:
+#   v0.2 — 2026-10-09 — install note: the port-80 half first, always.
 #   v0.1 — 2026-10-09 — initial: the landing page.
 
 server {

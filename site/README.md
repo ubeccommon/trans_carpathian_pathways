@@ -1,6 +1,6 @@
 ---
 title: "tcp.ubec.network — the site"
-version: "v0.3"
+version: "v0.4"
 date: "2026-10-09"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -133,15 +133,9 @@ together, bump each one's `version` and `changelog`, and rebuild.
    scp /home/farmer/projects/plai/site/nginx/tcp.ubec.network ubec@ubec-common:
    ```
 
-   If a server on port 80 already answers ACME challenges for any name,
-   this is enough:
-
-   ```bash
-   sudo certbot certonly --webroot -w /var/lib/letsencrypt -d tcp.ubec.network
-   ```
-
-   If it fails with a 404 on the challenge, install the port-80 half
-   first, then take the certificate:
+   On ubec-common no other server answers the challenge for a new name
+   (the first try, October 9, got a redirect to https and a 503), so the
+   port-80 half goes in first, then the certificate:
 
    ```bash
    sed '/^# --- TLS/,$d' tcp.ubec.network | sudo tee /etc/nginx/sites-available/tcp.ubec.network >/dev/null
@@ -149,6 +143,10 @@ together, bump each one's `version` and `changelog`, and rebuild.
    sudo nginx -t && sudo systemctl reload nginx
    sudo certbot certonly --webroot -w /var/lib/letsencrypt -d tcp.ubec.network
    ```
+
+   Never leave the whole file in `sites-enabled` without its
+   certificate: `nginx -t` fails, and the next reload or reboot of
+   nginx fails with it, for every site on the host.
 
 4. **The vhost, whole:**
 
@@ -197,6 +195,9 @@ site's own, and logged no policy violation.
 * * *
 
 *Changelog*
+- v0.4 — 2026-10-09 — step 3: the port-80 half first, always, after the
+  first certificate request failed; the warning against a vhost
+  enabled without its certificate.
 - v0.3 — 2026-10-09 — step 0 names no address: the alias takes the one
   Michel already uses; access details stay out of the tree.
 - v0.2 — 2026-10-09 — step 0: the ssh alias for ubec-common on schiff,
