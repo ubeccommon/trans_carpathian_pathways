@@ -1,13 +1,13 @@
 ---
-title: "NEEDS_v0_1"
+title: "NEEDS_v0_2"
 subtitle: "Gate A — what the first corridor's prototype needs, and from which kind of partner"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.1"
+version: "v0.2"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
-status: "draft for Michel's word — Gate A of docs/prompts/TCP_PARTNERS_START_PROMPT_v0_1.md"
+status: "Gate A answered in part on Michel's word, October 9, 2026; Gate B opened — everything open"
 ---
 
 *Read against prompt v0.32, white paper v0.3, proposal v0.3,
@@ -45,11 +45,20 @@ hosts), not yet decided. Four kinds of partner: **F** funder,
 
 ## 3. What Michel already has
 
-*For Michel to fill in; Gate B searches around it.*
+*Michel's word, October 9, 2026.*
 
-- **People he knows** (name, kind, what they could bring):
-- **Approaches already made** (to whom, when, what came back):
-- **Doors already closed** (who, and why):
+- **A test of the concept, now.** The concept is being tried on a
+  short stretch between two places he named. They are kept unnamed
+  in these documents, since either may be a host's place; the
+  prototype brief at Gate D says what the test is.
+- **Two candidates he brings:** Änderwerk gGmbH, Berlin, a fiscal
+  host (`LONG_LIST_v0_1.md` F-1), and the NGO Alliance of
+  Development, which works in Verkhovyna district (I-1).
+- **Everything is open.** None of the items in §4 is decided; Gate
+  B searched without assuming an answer to any of them and marks
+  each candidate with the item its fit turns on.
+- **Still to add, when he wants:** others he knows, approaches
+  already made, doors already closed.
 
 ## 4. Open items Gate B waits on
 
@@ -62,11 +71,16 @@ From the starting prompt §5. Each line ends with Claude's proposal, for Michel'
 5. **The country** — Romanian partners (Maramureș, the grassland studies, Via Transilvanica) in scope now, or only after the corridor is walked. *Proposal: in scope for creators and scientific reporters now, as sources of method; not as partner initiatives until Gate 4.*
 6. **What Michel will not take** — money or partnership that asks for a calendar, ratings, a commission, a logo on the map, an exclusive, or a host's data. *Proposal: all six, so Gate B drops such candidates on sight.*
 
-Gate B also notes where a candidate's fit turns on a decision still open in the checklist — most often S-19 (whether a partner keeps Part I in full, §3 included) and S-7 (what Gate 4 records).
+Gate B (`LONG_LIST_v0_1.md` §4) counts what each item holds back:
+the grantee fifteen of thirty-nine candidates, the research
+partner's standing eight. Gate B also notes where a candidate's fit turns on a decision still open in the checklist — most often S-19 (whether a partner keeps Part I in full, §3 included) and S-7 (what Gate 4 records).
 
 * * *
 
 *Changelog*
+- v0.2 — 2026-10-09 — Michel's word: the concept under test on a
+  short stretch; his two candidates; everything open, Gate B
+  opened. §3 filled; §4 points to the long list.
 - v0.1 — 2026-10-09 — initial, Gate A of the partners prompt: nine
   needs with a cost line, five without, the four kinds of partner
   against each; §3 for Michel; the six open items with Claude's

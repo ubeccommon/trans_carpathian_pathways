@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_32"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_33"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.32"
+version: "v0.33"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -393,6 +393,26 @@ every approach is Michel's. The prototype it serves is the pilot
 as proposal v0.3 sets it out, measured by whether the co-creators
 could do their part and wanted to go on.
 
+**Partners, Gates A and B — Michel's word, October 9, 2026.** The
+needs (`docs/partners/NEEDS_v0_2.md`): nine with a cost line, five
+without. Michel's additions: the concept is being tested now on a
+short stretch between two places he named, kept unnamed in the
+documents since either may be a host's place; his two candidates,
+Änderwerk gGmbH (a Berlin fiscal host) and the NGO Alliance of
+Development (Verkhovyna district); and "everything is open" — none
+of the partners prompt's §5 items decided. The long list
+(`docs/partners/LONG_LIST_v0_1.md`): a review of the project as a
+partner would read it, and thirty-nine candidates across the four
+kinds, sourced and dated, for him to strike and add. What it found:
+the grantee holds back fifteen of the thirty-nine; no fund or grant
+instrument was found in the Carpathian Convention or the C8; a "plai" route of
+twelve QR stops already runs in Verkhovyna, led by Alliance of
+Development; a partner profile of Verkhovynskyi National Park lists
+keeping meadows by horse grazing; the oblast tourism office and the green tourism union ask
+for what the project refuses. Open, from the review: whether the
+test enters anyone's place on Plai, which would bring Gate 3's
+backup condition with it; what the test records (S-7).
+
 * * *
 
 ## 3. The First Corridor
@@ -781,6 +801,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.33 — 2026-10-09 — partners Gates A and B recorded: the needs
+  v0.2 with Michel's additions, the test stretch, the long list.
 - v0.32 — 2026-10-09 — the starting prompt for the partners
   conversation recorded.
 - v0.31 — 2026-10-09 — S-23 and the agreement v0.3 closed on the
