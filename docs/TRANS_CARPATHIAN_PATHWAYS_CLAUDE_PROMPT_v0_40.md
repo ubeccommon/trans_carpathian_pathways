@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_39"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_40"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.39"
+version: "v0.40"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -494,7 +494,10 @@ Android's `q=` for a pin) to the published point to seven
 decimals; `verify` and the leak pass prove it is the point,
 latitude first, to 2 cm, and on published places only. Proven
 locally (`verify plai vt` 101 of 101, the leak pass's six new
-checks passing). Left: the host run, Michel's look on a phone —
+checks passing), and on the host the same afternoon, Michel's run
+(mapservice prompt v0.86): `verify plai vt` 98 of 98, the leak pass
+525 of 525, none skipped. Left: Plai's user copy made again,
+Michel's look on a phone —
 on iPhones a `geo:` link opens only an app that claims the scheme
 — and then the user manual's §6 in both languages.
 
@@ -888,6 +891,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.40 — 2026-10-09 — Gate B on the host: verify 98 of 98, the
+  leak pass 525 of 525.
 - v0.39 — 2026-10-09 — open data: the two facts, and Gate B built
   in mapservice (`plai/006`), proven locally.
 - v0.38 — 2026-10-09 — the starting prompt for the open-data work.
