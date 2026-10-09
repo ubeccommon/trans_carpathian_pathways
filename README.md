@@ -16,6 +16,7 @@ there, as Plai migrations in `ubec_mapservice`.
 | Path | What it holds |
 | --- | --- |
 | `docs/TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v*.md` | The starting prompt, latest version: load order, decisions, open items. Source of truth. |
+| `docs/TRANS_CARPATHIAN_PATHWAYS_REASONING_v*.md` | Why the project exists: the pressures it answers, the vision of corridors of stewardship, the reason behind each principle, and the tensions still open |
 | `docs/proposal/` | The outward proposal in English and Ukrainian, its diagrams and logo, and the bilingual PDF built from them |
 | `build/` | The scripts that draw the diagrams and build the PDF |
 | `docs/manual/` | Plai's user manual for entrants and curators, in English and Ukrainian, and the bilingual PDF built from them |

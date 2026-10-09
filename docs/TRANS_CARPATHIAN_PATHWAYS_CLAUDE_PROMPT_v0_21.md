@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_20"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_21"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.20"
+version: "v0.21"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -157,6 +157,25 @@ made again and exported, and Michel's look as a throwaway entrant. A new version
 there, a new link in the scheme and a new `agreement_version` — a
 Plai migration. The user manual v0.2 says what the entrant and
 the curator see.
+
+**The reasoning — Michel's word, October 9, 2026.** Why the
+project exists and the reasons behind its principles, in
+`docs/TRANS_CARPATHIAN_PATHWAYS_REASONING_v0_1.md`, English first,
+Ukrainian once it settles. His direction, recorded there: the two
+forces — the mountains re-valued from outside (tourism and
+property, energy on the high meadows, EU accession, the Carpathian
+Eight launched in Bukovel in September 2026, ageing holders) and
+the people who keep them alive, newcomers among them; that a
+community's spokesmen are asked who they speak for, this project
+included ("no one speaks for a community"); and corridors of
+cultural, natural and landscape stewardship that emerge from the
+places and paths, grounded in spirituality and relationship, not
+wilderness ("people and land are one and the same"). Twelve
+tensions are set out there with what answers them and what is
+open (T-1 to T-12), for Michel's word. Two bear on other
+documents: T-10, the corridors cannot draw on a host's place while
+the agreement's §5 says "for nothing else"; and the proposal that
+its §5 become the one list of principles (project review D-6).
 
 * * *
 
@@ -503,6 +522,9 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.21 — 2026-10-09 — the reasoning document v0.1, Michel's word:
+  why now, corridors of stewardship, the principles with their
+  reasons, tensions T-1 to T-12.
 - v0.20 — 2026-10-08 — manual v0.3: Michel's screenshots in both
   languages; three more wanted.
 - v0.19 — 2026-10-08 — `plai/004` on the host: verify 96 of 96,
