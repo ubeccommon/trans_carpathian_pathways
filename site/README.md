@@ -1,6 +1,6 @@
 ---
 title: "tcp.ubec.network — the site"
-version: "v0.5"
+version: "v0.6"
 date: "2026-10-09"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -202,6 +202,11 @@ site's own, and logged no policy violation.
 * * *
 
 *Changelog*
+- v0.6 — 2026-10-09 — the name inside the picture's frame (Michel's word):
+  left of the moon and above the ridge at every width; on a narrow screen
+  the name alone, on two lines, with the other language's name and the
+  tagline below the picture. Stylesheet and pictures referenced with
+  `?v=` and their hash, so a cached old copy is never shown.
 - v0.5 — 2026-10-09 — Michel's picture in the head of the landing page.
 - v0.4 — 2026-10-09 — step 3: the port-80 half first, always, after the
   first certificate request failed; the warning against a vhost

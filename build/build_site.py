@@ -27,10 +27,14 @@ Needs pandoc on the PATH, and Python 3 alone; deploy needs rsync and ssh.
 SPDX-License-Identifier: AGPL-3.0-or-later
 
 Changelog:
+  v0.3 — 2026-10-09 — the name inside the picture's frame (Michel's word);
+         ?v= on the stylesheet and the pictures, after a cached v0.1
+         stylesheet left the picture unstyled.
   v0.2 — 2026-10-09 — Michel's picture "Warm wind on the path" in the
          head, in place of the drawn ridges.
   v0.1 — 2026-10-09 — initial: the landing page, English and Ukrainian.
 """
+import hashlib
 import html
 import re
 import shutil
@@ -52,10 +56,12 @@ ORIGIN = "https://tcp.ubec.network"
 LINKS_OUT = {"mapservice.ubec.network", "pilgrims.ubec.network"}
 MAILTO = {"stewardship@ubec.network"}
 
-# The landing page's picture: Michel's "Warm wind on the path" (day 70),
-# static/assets/warm_wind_on_the_path.svg, 1600 x 900. Its alt text is
-# each page's `image_alt`.
-ART = '<img class="art" src="{up}assets/warm_wind_on_the_path.svg" alt="{alt}" width="1600" height="900">'
+# The landing page's picture is Michel's "Warm wind on the path" (day 70),
+# static/assets/warm_wind_on_the_path.svg, 1600 x 900, with the name set
+# in its sky, inside its frame. Its alt text is each page's `image_alt`.
+# Files that may change keep their name, so every reference to them
+# carries ?v= and the first eight hex digits of their SHA-256: a browser
+# that cached the old one fetches the new one at once.
 
 PAGE = """<!doctype html>
 <html lang="{lang}">
@@ -68,22 +74,24 @@ PAGE = """<!doctype html>
 <meta name="referrer" content="no-referrer">
 <link rel="canonical" href="{canonical}">
 {alternates}
-<link rel="icon" href="{up}assets/ubec_mark.svg" type="image/svg+xml">
-<link rel="stylesheet" href="{up}style.css">
+<link rel="icon" href="{up}{v_mark}" type="image/svg+xml">
+<link rel="stylesheet" href="{up}{v_css}">
 </head>
 <body>
 <a class="skip" href="#main">{skip}</a>
 <header class="head">
   <div class="bar">
-    <a class="brand" href="{up}{home}"><img src="{up}assets/ubec_mark.svg" alt="UBEC" width="42" height="42"><span>UBEC · {hub}</span></a>
+    <a class="brand" href="{up}{home}"><img src="{up}{v_mark}" alt="UBEC" width="42" height="42"><span>UBEC · {hub}</span></a>
     <a class="switch" href="{up}{other_href}" hreflang="{other_lang}" lang="{other_lang}">{switch}</a>
   </div>
-  <div class="hero">
-    <h1>{title}</h1>
-    <p class="other" lang="{other_lang}">{other_title}</p>
-    <p class="tagline">{tagline}</p>
-  </div>
-  {art}
+  <figure class="art">
+    <img src="{up}{v_art}" alt="{image_alt}" width="1600" height="900">
+    <figcaption class="hero">
+      <h1>{title}</h1>
+      <p class="other" lang="{other_lang}">{other_title}</p>
+      <p class="tagline">{tagline}</p>
+    </figcaption>
+  </figure>
 </header>
 <main id="main">
 {body}
@@ -143,6 +151,11 @@ def emblem() -> str:
             "from docs/proposal/assets/plai_emblem_mark.svg by build/build_site.py. -->\n" + svg)
 
 
+def v(rel: str) -> str:
+    """A file in site/dist/ named with its content's version, for the browser's cache."""
+    return f"{rel}?v={hashlib.sha256((DIST / rel).read_bytes()).hexdigest()[:8]}"
+
+
 def build():
     if DIST.exists():
         shutil.rmtree(DIST)
@@ -171,8 +184,9 @@ def build():
             description=e(meta["description"]), canonical=ORIGIN + meta["path"],
             alternates=alternates, skip=SKIP[lang], hub=HUB[lang],
             other_href=other["path"].lstrip("/"), other_lang=other_lang, switch=e(meta["switch"]),
-            tagline=e(meta["tagline"]), art=ART.format(up=up, alt=e(meta["image_alt"])),
-            body=markdown(body).replace("{up}", up),
+            tagline=e(meta["tagline"]), image_alt=e(meta["image_alt"]),
+            v_css=v("style.css"), v_mark=v("assets/ubec_mark.svg"), v_art=v("assets/warm_wind_on_the_path.svg"),
+            body=markdown(body).replace("{up}", up).replace("assets/plai_emblem.svg", v("assets/plai_emblem.svg")),
             initiative=e(meta["initiative"]), licence=e(meta["licence"]), privacy=e(meta["privacy"]),
             sources=e(meta["sources"]), version_label=VERSION[lang], version=e(meta["version"]))
         out = DIST / meta["path"].lstrip("/") / "index.html"
