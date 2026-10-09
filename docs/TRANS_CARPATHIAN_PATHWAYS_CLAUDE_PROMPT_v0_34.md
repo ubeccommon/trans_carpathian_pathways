@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_33"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_34"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.33"
+version: "v0.34"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -401,7 +401,7 @@ documents since either may be a host's place; his two candidates,
 Änderwerk gGmbH (a Berlin fiscal host) and the NGO Alliance of
 Development (Verkhovyna district); and "everything is open" — none
 of the partners prompt's §5 items decided. The long list
-(`docs/partners/LONG_LIST_v0_1.md`): a review of the project as a
+(`docs/partners/LONG_LIST_v0_1.md`, now v0.2): a review of the project as a
 partner would read it, and thirty-nine candidates across the four
 kinds, sourced and dated, for him to strike and add. What it found:
 the grantee holds back fifteen of the thirty-nine; no fund or grant
@@ -412,6 +412,23 @@ keeping meadows by horse grazing; the oblast tourism office and the green touris
 for what the project refuses. Open, from the review: whether the
 test enters anyone's place on Plai, which would bring Gate 3's
 backup condition with it; what the test records (S-7).
+
+**The project in modules — Michel's question, October 9, 2026.**
+Should the project be one comprehensive whole of building blocks
+and the blocks that connect them? Claude's answer, for his word, in
+`docs/TRANS_CARPATHIAN_PATHWAYS_MODULES_v0_1.md`: yes, as a map and
+not as a plan — a spine (relationship, spirituality, regeneration,
+and the regenerative test), four blocks (the corridor, heritage,
+infrastructure, the commons) and twelve modules, each active, named
+or later, with the long list's candidates as their possible holders;
+the standards kept in the connectors between modules. A module opens
+only when a gate needs it and someone holds it. The precedent, from
+Michel's link stezhky.org: the society *Plai*, Lviv 1924, which
+joined regional studies, nature protection, trail marking and the
+first Ukrainian mountain shelter (Plisce, 1933–35). The same review
+rewrote the long list's trail-marking entry (v0.2). Open: the map,
+what is active now, the spine, marking, the standards proposals, the
+name's precedent.
 
 * * *
 
@@ -801,6 +818,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.34 — 2026-10-09 — the module map v0.1 on Michel's question;
+  stezhky.org reviewed; long list v0.2.
 - v0.33 — 2026-10-09 — partners Gates A and B recorded: the needs
   v0.2 with Michel's additions, the test stretch, the long list.
 - v0.32 — 2026-10-09 — the starting prompt for the partners

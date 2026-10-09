@@ -1,9 +1,9 @@
 ---
-title: "LONG_LIST_v0_1"
+title: "LONG_LIST_v0_2"
 subtitle: "Gate B — a review of the project as a partner would read it, and the long list of partners"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.1"
+version: "v0.2"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -12,7 +12,8 @@ status: "for Michel to strike and add — nobody on this list has been approache
 
 *Gate B of `docs/prompts/TCP_PARTNERS_START_PROMPT_v0_1.md`, opened on
 Michel's word, October 9, 2026: "everything is open". Read against
-the needs list (`NEEDS_v0_2.md`), prompt v0.33, white paper v0.3,
+the needs list (`NEEDS_v0_2.md`), the module map
+(`TRANS_CARPATHIAN_PATHWAYS_MODULES_v0_1.md`), prompt v0.34, white paper v0.3,
 proposal v0.3, agreement v0.3, the stress tests and the decisions
 checklist v0.3. Research the same day in English, German and
 Ukrainian, in three strands (funders and fiscal hosts; implementers
@@ -156,7 +157,7 @@ to ask for something Michel would refuse in advance.
 | C-1 | **Mapbender / WhereGroup** (Bonn, Berlin, Freiburg) | Mapbender is an OSGeo project; its steering committee is chaired by WhereGroup's head; WhereGroup, 30+ staff, contributes to Mapbender and works with MapServer and PostGIS [S12] | Plai's own stack: a review of the consent layer, a bug fixed upstream | Paid support or upstream contribution · a scoped review within the €3,000 line | mapbender.org/en/contact · none | G | Rates may exceed the line |
 | C-2 | **FOSSGIS e.V.** | German OSGeo and OSM chapter; small grants for community projects (process last documented 2015, unverified now); conference held March 2026 in Göttingen [S13] | Volunteer developers; a talk on Plai's consent model | Open code and data · a talk slot; a code sprint | fossgis.de · 2027 call unverified | — | Host data never open |
 | C-3 | **OpenStreetMap Ukraine** | Ukrainian OSM community, tile server, tasking and QA tools [S14] | The public trail layer — paths, springs, shelters — belongs in OSM | ODbL; nothing copied from closed maps · tagging and mapping the public layer | t.me/osmUA · none | — | ⚑ never a host's place in OSM |
-| C-4 | **«Карпатські стежки»** (Carpathian Trails) | Volunteers marked ~1,500 km in Ivano-Frankivsk and Zakarpattia to Czech standards [S47]; its head wanted upkeep handed to local communities (2011) [S15]. Current activity unverified; later re-marking by one volunteer rescuer [S15] | The steward role in its own words | Materials; permissions · training two stewards; whether to mark at all | stezhky.org.ua (unreachable) · none | H | — |
+| C-4 | **Стежки та мапи** (Trails and Maps), stezhky.org — continuing the «Карпатські стежки» foundation's work since 2001 | Founded 2017 by the foundation's former chair; trail restoration, maps of Gorgany, Svydovets, Chornohora, Marmarosy, Borzhava, sold through shops; rescue and avalanche safety pages [S53]. Last dated news November 2021; maps reissued since, undated [S53]. Earlier: ~1,500 km marked in Ivano-Frankivsk and Zakarpattia, to Czech standards [S15][S47]. No coverage of the Verkhovyna–Kosiv end; its pages for Chornohora and Pokuttia–Bukovyna problems are empty [S53]. Site content all rights reserved, no route data to download [S53] | Marking knowledge and maps for the Vorokhta end; the steward role in its own words | Their consent for any use of their maps or routes · advice on whether and how to mark; training two stewards; a link to their safety pages | stezhky.org/kontakty · none | H | Its data cannot enter Plai without their consent. A later society of the same name (2013–16) is one the site warns against [S53]: the address stezhky.org.ua in v0.1 may be that one |
 | C-5 | **Kosiv State Institute of Decorative Art** | Founded 1882; ceramics, weaving, wood, metal, leather [S16]; UNESCO names its ceramics department as responsible for sustaining the tradition [S16]. Separation from the Lviv academy unverified | The makers who could shape what a workshop host offers | Recognition; student practice · advice on a workshop offer; introductions by consent | kdidm.edu.ua · none | R | — |
 | C-6 | **Lviv University**, Department of Intercultural Communication and Translation | Trains German–Ukrainian translators; DAAD and Goethe-Institut projects [S17] | A supervised translation practice for the €1,500 line | A practice agreement · DE/EN↔UK texts with a staff editor | lnu.edu.ua · none | G | — |
 | C-7 | **UPJ e.V.**, Berlin | Matches non-profits with law firms working pro bono; data protection among its areas [S18] | The German data-protection read | A non-profit applicant (Änderwerk?) · the read of agreement §5 | probono@upj.de · none | G | — |
@@ -278,12 +279,18 @@ Read October 9, 2026; the date after each is the source's own.
 - S50 Kosiv strategy 2022–27 — Kosiv council call for proposals on the spatial plan, docs.google.com/document/d/1Hzs8H2Y40qpyUe2s9XpxTVijRk0IglO_ (2023)
 - S51 UCF "Local history in dialogue" — fundsforngos.org/?p=493851 (2026-09-17)
 - S52 Ukraine's Convention presidency — kmu.gov.ua/en/news/ukraina-hotuietsia-do-prezydentstva-v-karpatskii-konventsii (2025-11-10)
+- S53 Стежки та мапи — stezhky.org: home, news (latest dated 2021-11-09), the foundation's history, the marked-trail problem pages, rules for marked trails, the Plai Society page (undated; footer 2017–2026, archive to July 2026); read on Michel's link, October 9, 2026
 
 The full research notes, with every field for every candidate, are kept outside the repository and can be added on Michel's word.
 
 * * *
 
 *Changelog*
+- v0.2 — 2026-10-09 — C-4 rewritten from Michel's link, stezhky.org:
+  the project that continues the Carpathian Trails foundation's work,
+  its reach (not the corridor's middle or end), its closed licence,
+  and a warning that v0.1's address may be a different society. Each
+  candidate's module is in the module map v0.1, §2.
 - v0.1 — 2026-10-09 — initial, Gate B on Michel's word ("everything
   is open"): a review of the project as a partner would read it;
   thirty-nine candidates across the four kinds, sourced and dated,
