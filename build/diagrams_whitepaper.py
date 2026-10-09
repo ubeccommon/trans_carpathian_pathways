@@ -14,13 +14,14 @@ own, or through build_whitepaper.py, which runs it first.
 SPDX-License-Identifier: AGPL-3.0-or-later
 
 Changelog:
+  v0.2 — 2026-10-09 — each diagram carries its BCP 47 language tag.
   v0.1 — 2026-10-09 — initial (Michel's word: the regeneration
          approach woven into the white paper, compared with
          sustainable development, with diagrams).
 """
 from pathlib import Path
 
-from diagrams import ACCENT, EDGE, INK, QUIET, TERRA, fits, svg, t
+from diagrams import ACCENT, EDGE, INK, QUIET, TERRA, fits, svg, t, tagged
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "docs" / "whitepaper" / "assets"
@@ -283,9 +284,9 @@ UK = {
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     for lang, L in (("en", EN), ("uk", UK)):
-        (OUT / f"aims_{lang}.svg").write_text(aims(L["aims"]), encoding="utf-8")
-        (OUT / f"sees_{lang}.svg").write_text(sees(L["sees"]), encoding="utf-8")
-        (OUT / f"flows_{lang}.svg").write_text(flows(L["flows"]), encoding="utf-8")
+        (OUT / f"aims_{lang}.svg").write_text(tagged(aims(L["aims"]), lang), encoding="utf-8")
+        (OUT / f"sees_{lang}.svg").write_text(tagged(sees(L["sees"]), lang), encoding="utf-8")
+        (OUT / f"flows_{lang}.svg").write_text(tagged(flows(L["flows"]), lang), encoding="utf-8")
         print("wrote white paper diagrams", lang)
 
 

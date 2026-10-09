@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_34"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_35"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.34"
+version: "v0.35"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -426,9 +426,25 @@ only when a gate needs it and someone holds it. The precedent, from
 Michel's link stezhky.org: the society *Plai*, Lviv 1924, which
 joined regional studies, nature protection, trail marking and the
 first Ukrainian mountain shelter (Plisce, 1933–35). The same review
-rewrote the long list's trail-marking entry (v0.2). Open: the map,
-what is active now, the spine, marking, the standards proposals, the
-name's precedent.
+rewrote the long list's trail-marking entry (v0.2).
+
+**The modules, adopted — Michel's word, October 9, 2026.** All six
+points of the module map, as proposed (`docs/TRANS_CARPATHIAN_PATHWAYS_MODULES_v0_2.md`):
+the four blocks and twelve modules are how the project describes
+itself; active now P1, P2, P3, T1, T2, G1, T3 and T4, and named H1,
+H2, G2, G3 — a named module opens on a gate's need and a holder, on his
+word; relationship, spirituality and regeneration stay the spine;
+marking is settled at Gate 4 (§8); the standards — a BCP 47 language
+tag in every document, page, PDF and diagram, WCAG 2.2 AA for the site,
+ISO 19115 with an INSPIRE-compatible profile only for a layer published
+for others, CARE for the people in any study and FAIR for the data that
+may be open; and the society *Plai* of 1924 named in the white paper as
+the name's precedent. Done the same day: white paper v0.4 in both
+languages, its S-24 "no v0.4 now" superseded for this change; the four
+PDF builds and the two diagram builds tag their language, all rebuilt;
+the site's stylesheet v0.4 and build v0.4 meet and check WCAG 2.2 AA,
+what only a person can check listed in `site/README.md` v0.7. The
+repository's own README has no front matter and stays English.
 
 * * *
 
@@ -753,7 +769,9 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
   implements (its review's F5; state review v0.1 §2).
 - **Gate 4 — First walk.** The corridor walked end to end. What
   is recorded: walked distance and time per stage, what was
-  missing, what a traveler needed and did not have.
+  missing, what a traveler needed and did not have. And settled
+  here, after the walk (Michel's word, October 9, 2026): whether
+  the pathway is marked, and to which standard.
 - **Gate 5 — Planner, if needed.** Built only if Gate 4 shows the
   Curator needs it, against the stages actually walked as its
   test cases.
@@ -818,6 +836,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.35 — 2026-10-09 — the module map adopted, all six points;
+  white paper v0.4; language tags and WCAG 2.2 AA implemented.
 - v0.34 — 2026-10-09 — the module map v0.1 on Michel's question;
   stezhky.org reviewed; long list v0.2.
 - v0.33 — 2026-10-09 — partners Gates A and B recorded: the needs

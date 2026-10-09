@@ -1,13 +1,13 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_MODULES_v0_1"
+title: "TRANS_CARPATHIAN_PATHWAYS_MODULES_v0_2"
 subtitle: "The project as building blocks and the connectors between them — a map for Michel's word"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.1"
+version: "v0.2"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
-status: "proposal for Michel's word — nothing here is decided by being written"
+status: "adopted on Michel's word, October 9, 2026 — all six points of §6"
 ---
 
 *Michel's question, October 9, 2026: should the project be seen as
@@ -84,7 +84,8 @@ it is the question each module answers at its gate.
 
 A connector is the promise one module makes to another. Each names
 the standard it keeps. **Decided** means on Michel's dated word or
-built; **proposal** is Claude's, for his word.
+built. All of the table's proposals were decided on his word, October 9,
+2026 (§6).
 
 | Connector | What it keeps | Standard | State |
 |---|---|---|---|
@@ -92,12 +93,12 @@ built; **proposal** is Claude's, for his word.
 | T1 → public · the map and everyone | What is published is what was consented and chosen; nothing confidential on Plai | OGC WMS through MapServer; the leak pass after every change | Built |
 | T1 ↔ OpenStreetMap | The base map credited; no host's place ever written to OSM; data combined at render, never joined | ODbL; licence recorded at use | Decided (Mapservice rule) |
 | T2 → everyone · keeping the data | Encrypted backups with a copy off the server, a restore tested; retention set | The agreement §5; A-6 | Off-host copy **not built**; A-6 open |
-| P2 → the ground · a stretch and its marks | Whether the pathway is marked, and to which standard; who keeps the marks | Slovak STN 01 8025 or the Czech system already used in the oblast [2] — or no marks, an emergent path told in person | **Open** — proposal: decide at Gate 4, after walking |
+| P2 → the ground · a stretch and its marks | Whether the pathway is marked, and to which standard; who keeps the marks | Slovak STN 01 8025 or the Czech system already used in the oblast [2] — or no marks, an emergent path told in person | Decided: settled at Gate 4, after walking |
 | P3 → traveler | The border strip, alerts, preparation, in writing | The agreement's traveler part; the stage register, one sheet per stage | Decided |
-| H1, H2, G3 → hosts · a study, a record, a corridor | A separate, revocable consent for any use beyond the map; no host identifiable; locations generalised; findings shown to the co-creators first | CARE principles for the people; FAIR for the data that may be open; S-14 | S-14 decided in part; **proposal** for the rest |
-| T3 → all modules · words | One glossary; the Ukrainian from the corridor in the end | The glossary of the white paper's translation; BCP 47 language tags in every file | Glossary exists; **proposal**: the tags |
-| T4 → visitors | No third-party request; no form; no host listed | The site's Gate A rules; WCAG 2.2 AA | Rules decided; **proposal**: WCAG |
-| T1 → others · a layer someone else uses | Described so it can be found and trusted | ISO 19115 metadata, an INSPIRE-compatible profile — only for a layer published for others | **Proposal**, at need only |
+| H1, H2, G3 → hosts · a study, a record, a corridor | A separate, revocable consent for any use beyond the map; no host identifiable; locations generalised; findings shown to the co-creators first | CARE principles for the people; FAIR for the data that may be open; S-14 | S-14 in part; the rest decided October 9 (CARE, FAIR) |
+| T3 → all modules · words | One glossary; the Ukrainian from the corridor in the end | The glossary of the white paper's translation; BCP 47 language tags in every file | Decided; tags in every document, page, PDF and diagram |
+| T4 → visitors | No third-party request; no form; no host listed | The site's Gate A rules; WCAG 2.2 AA | Decided; checked by the build |
+| T1 → others · a layer someone else uses | Described so it can be found and trusted | ISO 19115 metadata, an INSPIRE-compatible profile — only for a layer published for others | Decided, at need only |
 | G2 → funder | No say over what is published; no data; an open account at each gate | The agreement's funder part | Drafted, decided in principle |
 | G1 → partner initiative | Part I's commitments; a written note; the public list | The agreement's partner part; S-19 | Partly open (S-19) |
 
@@ -135,21 +136,32 @@ park and a grassland team (I-7, SR-4, SR-5) for H2, a university for
 G3 (SR-1 to SR-3). Read this way, the long list is not one search
 for one pilot's money but a set of doors, one or two per module.
 
-## 6. Open — for Michel
+## 6. Decided — Michel's word, October 9, 2026
 
-- **The map itself.** Adopt the four blocks and twelve modules as
-  the project's way of describing itself, or change them.
-- **What is active now.** *Proposal:* for the test stretch and Gate
-  3 — P1, P2, P3, T1, T2 and G1 active; T3 and T4 active as already
-  under way; H1, H2, G2, G3 named.
-- **The spine.** Keep relationship, spirituality and regeneration
-  as the spine (proposed), or give them a module of their own.
-- **Marking.** Whether the pathway is marked at all, and to which
-  standard (§3).
-- **The standards proposals** in §3: language tags, WCAG 2.2 AA,
-  ISO 19115 at need, CARE and FAIR for research.
-- **The name.** Whether the 1924 society *Plai* is acknowledged
-  in the white paper as the name's precedent.
+All six points, as proposed:
+
+1. **The map.** Four blocks and twelve modules, as §2 sets them out,
+   are how the project describes itself.
+2. **What is active now.** For the test stretch and Gate 3: P1, P2,
+   P3, T1, T2 and G1; T3 and T4, already under way. Named, waiting:
+   H1, H2, G2, G3. A named module opens on a gate's need and a holder,
+   on his word.
+3. **The spine.** Relationship, spirituality and regeneration stay the
+   spine, not a module; the regenerative test is asked at every gate.
+4. **Marking.** Whether the pathway is marked, and to which standard,
+   is settled at Gate 4, after the corridor is walked.
+5. **Standards.** A BCP 47 language tag in every document, page, PDF
+   and diagram; WCAG 2.2 AA for the site, checked by its build; ISO
+   19115 metadata with an INSPIRE-compatible profile for a layer
+   published for others to use, and only then; CARE for the people in
+   any study, FAIR for the data that may be open.
+6. **The name.** The society *Plai* of 1924 is named in the white
+   paper (v0.4, §6.2) as the precedent for Plai's name.
+
+What was done the same day: the white paper v0.4 in both languages and
+its PDF; the language tags in the four PDF builds and the two diagram
+builds, all rebuilt; WCAG 2.2 AA in the site's stylesheet (v0.4) and
+build (v0.4), with what only a person can check in `site/README.md`.
 
 ## Sources
 
@@ -161,6 +173,8 @@ Read October 9, 2026.
 * * *
 
 *Changelog*
+- v0.2 — 2026-10-09 — adopted on Michel's word, all six points of §6;
+  §3's states updated; what was done the same day.
 - v0.1 — 2026-10-09 — initial, on Michel's question: the project as
   a spine, four blocks, twelve modules and the connectors between
   them, each with its state and its holders from the long list; the

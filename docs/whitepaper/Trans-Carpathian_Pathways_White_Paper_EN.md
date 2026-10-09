@@ -1,12 +1,13 @@
 ---
 title: "Trans-Carpathian Pathways — White Paper (EN)"
-version: "v0.3"
+version: "v0.4"
 date: "October 2026"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
 status: "draft for Michel's word — English first, Ukrainian once it settles"
 changelog:
+  - "v0.4 — 2026-10-09 — Michel's word (the module map v0.1, §6): the society *Plai* of 1924 named in §6.2 as the precedent for Plai's name, with source 90 under a new heading, History. S-24's \"no v0.4 now\" is superseded for this change on his word; nothing else changed."
   - "v0.3 — 2026-10-09 — Michel's word: the regeneration approach woven in and set against sustainable development, with three diagrams (build/diagrams_whitepaper.py, docs/whitepaper/assets/, both languages): a new §5 \"From sustaining to regenerating\"; the summary, §4.2, the signs of success and the ask carry it; sources 82–89. The former §5–§12 are now §6–§13 — reviews that cite v0.1 or v0.2 use the old numbers."
   - "v0.2 — 2026-10-09 — §13 corrected after the stress tests (docs/reviews/TRANS_CARPATHIAN_PATHWAYS_STRESS_TESTS_v0_1.md): a corridor is put before a public body as the places of named hosts, never as what a community wants, which contradicted §9. Nothing else changed; the tests' other findings wait on Michel's word."
   - "v0.1 — 2026-10-09 — initial, Michel's word: a comprehensive review of the project's documents and in-depth background research, written as a white paper. Read against starting prompt v0.21, proposal v0.2, co-creator agreement v0.2, user manual v0.3, host-fields specification v0.5, the two reviews v0.1 and the reasoning document v0.1. Research in four strands the same day (the region, comparable initiatives, the legal frame, the theory); every figure carries its source in the list at the end. Checked the same day by a separate agent that had not seen it written: 24 findings against the project's documents, the sources and its own consistency, all taken in."
@@ -18,7 +19,7 @@ changelog:
 
 *A living network of hosts, paths and Curators across the Carpathian arc — the case, the evidence and the design*
 
-October 2026 · UBEC / Carpathian Hub Initiative · White Paper, draft v0.3
+October 2026 · UBEC / Carpathian Hub Initiative · White Paper, draft v0.4
 
 ## How to read this paper
 
@@ -195,7 +196,7 @@ Trans-Carpathian Pathways builds a network of hosts, a living pathway between th
 
 ### 6.2 Plai: a map that already exists
 
-The project does not start from zero. Plai is the Carpathian hub of UBEC Mapservice, an open-source map service that UBEC runs on its own server in Germany, under EU jurisdiction, on PostgreSQL/PostGIS, MapServer and Mapbender. In place today: a base map of the whole Carpathian range from OpenStreetMap, some 32 million features with hiking routes drawn on top; an entry surface where a person places a point exactly where they mean it and describes it; consent built into the database, field by field, so that a curator decides what is published and withdrawn entries leave every map and export; one photo per place, cleaned of location and camera data before it is stored; the host fields above, built and proven in a browser on October 7–8, 2026; a tick on every entry that the person has read and accepts the co-creator agreement, with the version and time recorded; and full export at any time. Pathways is a view of Plai's entries, not a system of its own (decided October 7, 2026): one place for a host to enter, one consent model, one curator queue. Plai's own name carries the idea (proposed as the project's wording): in the speech of these mountains a *plai* is a mountain path, the kind that follows a ridge from one pasture to the next.
+The project does not start from zero. Plai is the Carpathian hub of UBEC Mapservice, an open-source map service that UBEC runs on its own server in Germany, under EU jurisdiction, on PostgreSQL/PostGIS, MapServer and Mapbender. In place today: a base map of the whole Carpathian range from OpenStreetMap, some 32 million features with hiking routes drawn on top; an entry surface where a person places a point exactly where they mean it and describes it; consent built into the database, field by field, so that a curator decides what is published and withdrawn entries leave every map and export; one photo per place, cleaned of location and camera data before it is stored; the host fields above, built and proven in a browser on October 7–8, 2026; a tick on every entry that the person has read and accepts the co-creator agreement, with the version and time recorded; and full export at any time. Pathways is a view of Plai's entries, not a system of its own (decided October 7, 2026): one place for a host to enter, one consent model, one curator queue. Plai's own name carries the idea (proposed as the project's wording): in the speech of these mountains a *plai* is a mountain path, the kind that follows a ridge from one pasture to the next. The name has a precedent in these mountains' own history: the Ukrainian regional studies and tourism society *Plai*, founded in Lviv in 1924, joined in one body the study of the land, the protection of natural and archaeological monuments, the marking of trails and the building of shelters, and built what is described as the first Ukrainian mountain shelter for tourists, on the Plisce meadow in the Gorgany, in 1933–35 [90]. The project takes the name in the same spirit and claims no descent from the society.
 
 ### 6.3 What it refuses
 
@@ -473,5 +474,9 @@ Read October 9, 2026. Figures from secondary compilations are marked; items mark
 87. Reed, "Shifting from 'sustainability' to regeneration", *Building Research & Information* 35(6):674–680, 2007 — https://doi.org/10.1080/09613210701475753
 88. Mang & Reed, "Designing from place: a regenerative framework and methodology", *Building Research & Information* 40(1):23–38, 2012
 89. Gibbons, "Regenerative—The New Sustainable?", *Sustainability* 12(13):5483, 2020 — https://doi.org/10.3390/su12135483; Wahl, *Designing Regenerative Cultures*, Triarchy Press 2016
+
+**History**
+
+90. Стежки та мапи, "Товариство Плай" (the society *Plai*), undated, read October 9, 2026 — https://stezhky.org/stezhky/istoriya-fundacziyi-ks/prytulky/prytulok-pliscze/tovarystvo-plaj/
 
 *This is a living document. It will change as the network grows, and every change will be written down.*

@@ -17,6 +17,8 @@ Lora fonts installed, and requirements.txt.
 SPDX-License-Identifier: AGPL-3.0-or-later
 
 Changelog:
+  v0.3 — 2026-10-09 — the document says its language: lang="en" on the root,
+         lang="uk" on the Ukrainian cover lines (BCP 47; Michel's word).
   v0.2 — 2026-10-08 — screenshots: figure styles; images from
          docs/manual/img/, referenced by the texts.
   v0.1 — 2026-10-08 — initial (Michel's word: a user manual for
@@ -103,15 +105,15 @@ def main():
 <section class="cover">
   <img class="logo" src="{LOGO}" alt="Plai">
   <h1>Plai — User Manual</h1>
-  <h1 class="uk">Плай — посібник користувача</h1>
+  <h1 class="uk" lang="uk">Плай — посібник користувача</h1>
   <p class="tag">Entering places on the Carpathian map, and publishing them</p>
-  <p class="tag">Як позначати місця на карпатській мапі та оприлюднювати їх</p>
+  <p class="tag" lang="uk">Як позначати місця на карпатській мапі та оприлюднювати їх</p>
   <div class="rule"></div>
   <p class="meta">For entrants and curators · Для авторів записів і кураторів</p>
   <p class="meta">October 2026 · Жовтень 2026 · UBEC / Carpathian Hub Initiative</p>
   <p class="toc"><a href="#en">English</a><span>·</span><a href="#uk">Українська</a></p>
 </section>"""
-    doc = ('<!doctype html><html><head><meta charset="utf-8">'
+    doc = ('<!doctype html><html lang="en"><head><meta charset="utf-8">'
            '<meta name="author" content="Michel Garand">'
            '<title>Plai — User Manual — Плай — посібник користувача</title>'
            f'<style>{CSS}{EXTRA_CSS}</style></head><body>{cover}'

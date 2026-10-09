@@ -22,6 +22,8 @@ Lora fonts installed, and requirements.txt.
 SPDX-License-Identifier: AGPL-3.0-or-later
 
 Changelog:
+  v0.3 — 2026-10-09 — the document says its language: lang="en" on the root,
+         lang="uk" on the Ukrainian cover lines (BCP 47; Michel's word).
   v0.2 — 2026-10-09 — draws the diagrams first.
   v0.1 — 2026-10-09 — initial (Michel's word: a white paper from a
          review of the documents and background research).
@@ -112,16 +114,16 @@ def main():
 <section class="cover">
   <img class="logo" src="{LOGO}" alt="Trans-Carpathian Pathways">
   <h1>White Paper</h1>
-  <h1 class="uk">Біла книга</h1>
+  <h1 class="uk" lang="uk">Біла книга</h1>
   <p class="tag">A living network of hosts, paths and Curators across the Carpathian arc — the case, the evidence and the design</p>
-  <p class="tag">Жива мережа господарів, стежок і кураторів через усю Карпатську дугу — підстави, свідчення та задум</p>
+  <p class="tag" lang="uk">Жива мережа господарів, стежок і кураторів через усю Карпатську дугу — підстави, свідчення та задум</p>
   <div class="rule"></div>
   <p class="meta">Trans-Carpathian Pathways · Транскарпатські стежки</p>
   <p class="meta">October 2026 · Жовтень 2026 · UBEC / Carpathian Hub Initiative</p>
-  <p class="draft">Draft {v} — for discussion<br>Проєкт {v} — для обговорення</p>
+  <p class="draft">Draft {v} — for discussion<br><span lang="uk">Проєкт {v} — для обговорення</span></p>
   <p class="toc">{toc}</p>
 </section>"""
-    doc = ('<!doctype html><html><head><meta charset="utf-8">'
+    doc = ('<!doctype html><html lang="en"><head><meta charset="utf-8">'
            '<meta name="author" content="Michel Garand">'
            '<title>Trans-Carpathian Pathways — White Paper</title>'
            f'<style>{CSS}{EXTRA_CSS}{WP_CSS}</style></head><body>{cover}'

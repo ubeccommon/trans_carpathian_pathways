@@ -1,4 +1,4 @@
-/* Trans-Carpathian Pathways — tcp.ubec.network, v0.3
+/* Trans-Carpathian Pathways — tcp.ubec.network, v0.4
  * SPDX-License-Identifier: AGPL-3.0-or-later
  *
  * The palette and type of the project's PDFs (build/build_pdf.py):
@@ -6,7 +6,15 @@
  * the two greens and the creams of the Plai emblem. Every font is served
  * from this site (fonts/, SIL OFL 1.1). No JavaScript, no other server.
  *
+ * WCAG 2.2 AA (Michel's word, October 9, 2026): text 4.5:1 or more on its
+ * background, focus outlines 3:1 or more; build/build_site.py checks the
+ * pairs listed in its CONTRAST table against the colours below.
+ *
  * Changelog:
+ *   v0.4 — 2026-10-09 — WCAG 2.2 AA: the focus outline night on light
+ *          ground and ochre on the night head (ochre on paper was 2.8:1);
+ *          the list arrow silent to screen readers; the name keeps a rem
+ *          floor so it grows with text-only zoom.
  *   v0.3 — 2026-10-09 — the name set inside the picture's frame.
  *   v0.2 — 2026-10-09 — the picture in place of the drawn ridges.
  *   v0.1 — 2026-10-09 — initial: the landing page.
@@ -48,10 +56,11 @@ body { margin: 0; }
 
 a { color: var(--terra); text-decoration-thickness: 1px; text-underline-offset: .18em; }
 a:hover { color: var(--night); }
-a:focus-visible { outline: 2px solid var(--ochre); outline-offset: 3px; border-radius: 2px; }
+a:focus-visible { outline: 3px solid var(--night); outline-offset: 3px; border-radius: 2px; }
+.head a:focus-visible { outline-color: var(--ochre); }
 
 .skip { position: absolute; left: -999px; top: 0; }
-.skip:focus { left: 1rem; top: 1rem; z-index: 2; background: var(--paper); padding: .4rem .7rem; }
+.skip:focus, .skip:focus-visible { left: 1rem; top: 1rem; z-index: 2; background: var(--paper); padding: .4rem .7rem; }
 
 /* ---- the head: the name inside Michel's picture, on its own night sky ---- */
 
@@ -77,7 +86,7 @@ a:focus-visible { outline: 2px solid var(--ochre); outline-offset: 3px; border-r
 .hero { position: absolute; left: 5.2%; top: 7%; width: 60%; margin: 0;
         text-shadow: 0 1px 3px rgba(10, 12, 28, .55); }
 .hero h1 { font-family: "Lora", Georgia, serif; font-weight: 600; color: #fff; margin: 0;
-           font-size: 4.4cqw; line-height: 1.05; letter-spacing: -.01em; white-space: nowrap; }
+           font-size: max(1.6rem, 4.4cqw); line-height: 1.05; letter-spacing: -.01em; white-space: nowrap; }
 .hero .other { font-family: "Lora", Georgia, serif; font-style: italic; color: var(--ochre);
                font-size: max(.78rem, 2.1cqw); line-height: 1.3; margin: .5cqw 0 0; }
 .hero .tagline { font-family: "Lora", Georgia, serif; font-style: italic; color: var(--cream);
@@ -88,7 +97,7 @@ a:focus-visible { outline: 2px solid var(--ochre); outline-offset: 3px; border-r
 @container (max-width: 40rem) {
   .hero { position: static; width: auto; padding: .9rem 1rem 1.4rem; text-shadow: none; }
   .hero h1 { position: absolute; left: 5.2%; top: 7%; width: 60%; white-space: normal;
-             font-size: 6.2cqw; text-shadow: 0 1px 3px rgba(10, 12, 28, .55); }
+             font-size: max(1.25rem, 6.2cqw); text-shadow: 0 1px 3px rgba(10, 12, 28, .55); }
   .hero .other { margin: 0; font-size: 1.05rem; }
   .hero .tagline { margin: .35rem 0 0; font-size: 1.1rem; }
 }
@@ -122,7 +131,7 @@ strong { font-weight: 600; color: var(--night); }
 .links ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
 .links li { border-bottom: 1px solid var(--line); padding: 1rem 0 1rem 3.4rem; position: relative;
             color: var(--quiet); font-size: .95rem; line-height: 1.5; }
-.links li::before { content: "→"; position: absolute; left: .6rem; top: .95rem; color: var(--ochre);
+.links li::before { content: "→"; content: "→" / ""; position: absolute; left: .6rem; top: .95rem; color: var(--ochre);
                     font-weight: 600; font-size: 1.15rem; }
 .links li.has-mark::before { content: none; }
 .links li .mark { position: absolute; left: 0; top: .85rem; width: 2.4rem; height: 2.4rem; }

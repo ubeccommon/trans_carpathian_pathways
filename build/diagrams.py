@@ -12,6 +12,8 @@ The Inter font is looked for in INTER_FONT_DIR, else in
 SPDX-License-Identifier: AGPL-3.0-or-later
 
 Changelog:
+  v0.3 — 2026-10-09 — each diagram carries its BCP 47 language tag (Michel's word:
+         language tags in every file).
   v0.2 — 2026-10-07 — moved into the repository: writes to
          docs/proposal/assets/, font directory overridable, main().
   v0.1 — 2026-10-07 — initial, in the Claude Project.
@@ -228,11 +230,16 @@ UK = {
 }
 
 
+def tagged(svg_text, lang):
+    """Each diagram says its language (BCP 47), as every document does."""
+    return svg_text.replace("<svg ", f'<svg lang="{lang}" ', 1)
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     for lang, L in (("en", EN), ("uk", UK)):
-        (OUT / f"network_{lang}.svg").write_text(network(L["network"]), encoding="utf-8")
-        (OUT / f"roadmap_{lang}.svg").write_text(roadmap(L["roadmap"]), encoding="utf-8")
+        (OUT / f"network_{lang}.svg").write_text(tagged(network(L["network"]), lang), encoding="utf-8")
+        (OUT / f"roadmap_{lang}.svg").write_text(tagged(roadmap(L["roadmap"]), lang), encoding="utf-8")
         print("wrote diagrams", lang)
 
 

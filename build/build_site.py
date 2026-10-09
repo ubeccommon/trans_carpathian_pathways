@@ -21,12 +21,21 @@ is not tracked; the host and the path are arguments, never in the tree.
 The check refuses a build in which any page or stylesheet loads anything
 from another server, links to a file that is not there, or leaves an
 element unclosed; links out are allowed only to the hosts in LINKS_OUT.
+It also checks what WCAG 2.2 AA asks that a build can check: a valid
+language tag on every page and part, one h1 and no skipped heading level,
+alt on every picture, a name on every link, a title, and the contrast of
+every colour pair in CONTRAST. What only a person can check is listed in
+site/README.md.
 
 Needs pandoc on the PATH, and Python 3 alone; deploy needs rsync and ssh.
 
 SPDX-License-Identifier: AGPL-3.0-or-later
 
 Changelog:
+  v0.4 — 2026-10-09 — WCAG 2.2 AA in the check (Michel's word): BCP 47
+         language tags, one h1 and no skipped heading level, alt on every
+         picture, a name on every link, a title, and the contrast of the
+         stylesheet's colour pairs; the UBEC mark beside its name is alt="".
   v0.3 — 2026-10-09 — the name inside the picture's frame (Michel's word);
          ?v= on the stylesheet and the pictures, after a cached v0.1
          stylesheet left the picture unstyled.
@@ -81,7 +90,7 @@ PAGE = """<!doctype html>
 <a class="skip" href="#main">{skip}</a>
 <header class="head">
   <div class="bar">
-    <a class="brand" href="{up}{home}"><img src="{up}{v_mark}" alt="UBEC" width="42" height="42"><span>UBEC · {hub}</span></a>
+    <a class="brand" href="{up}{home}"><img src="{up}{v_mark}" alt="" width="42" height="42"><span>UBEC · {hub}</span></a>
     <a class="switch" href="{up}{other_href}" hreflang="{other_lang}" lang="{other_lang}">{switch}</a>
   </div>
   <figure class="art">
@@ -195,6 +204,54 @@ def build():
         print("wrote", out.relative_to(ROOT))
 
 
+# WCAG 2.2 AA: every pair of colours the stylesheet sets text or a focus
+# outline in, by the names of its :root variables, with the least ratio
+# allowed (4.5 for text, 3 for an outline). A new colour pair in
+# style.css gets a line here.
+CONTRAST = [
+    ("ink", "paper", 4.5, "body text"),
+    ("quiet", "paper", 4.5, "quiet text, the foot"),
+    ("terra", "paper", 4.5, "links"),
+    ("night", "paper", 4.5, "headings, links in the list"),
+    ("quiet", "cream-2", 4.5, "the stage block"),
+    ("terra", "cream-2", 4.5, "links in the stage block"),
+    ("ink", "cream-2", 4.5, "text in the stage block"),
+    ("cream", "night", 4.5, "the head"),
+    ("cream-2", "night", 4.5, "the head"),
+    ("ochre", "night", 4.5, "the other language's name, narrow"),
+    ("night", "cream", 4.5, "the language switch, hovered"),
+    ("night", "paper", 3.0, "focus outline"),
+    ("night", "cream-2", 3.0, "focus outline in the stage block"),
+    ("ochre", "night", 3.0, "focus outline in the head"),
+]
+BCP47 = re.compile(r"^[a-z]{2,3}(-[A-Z][a-z]{3})?(-([A-Z]{2}|[0-9]{3}))?$")
+
+
+def luminance(hexcolour: str) -> float:
+    h = hexcolour.lstrip("#")
+    if len(h) == 3:
+        h = "".join(c * 2 for c in h)
+    def lin(c):
+        c = int(c, 16) / 255
+        return c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4
+    r, g, b = lin(h[0:2]), lin(h[2:4]), lin(h[4:6])
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+
+def contrast_problems(css_text: str) -> list:
+    colours = dict(re.findall(r"--([a-z0-9-]+):\s*(#[0-9a-fA-F]{3,6})\s*;", css_text))
+    problems = []
+    for fg, bg, least, where in CONTRAST:
+        if fg not in colours or bg not in colours:
+            problems.append(f"style.css: --{fg} or --{bg} not defined ({where})")
+            continue
+        a, b = sorted((luminance(colours[fg]), luminance(colours[bg])), reverse=True)
+        ratio = (a + 0.05) / (b + 0.05)
+        if ratio < least:
+            problems.append(f"style.css: {fg} on {bg} is {ratio:.2f}:1, below {least}:1 ({where})")
+    return problems
+
+
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr",
         "path", "circle", "rect"}
 OPTIONAL_END = {"p", "li"}
@@ -204,9 +261,24 @@ class Refs(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
         self.loads, self.links, self.stack, self.errors = [], [], [], []
+        self.headings, self.langs, self.title, self.in_title = [], [], "", False
+        self.link = None
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
+        for key in ("lang", "hreflang"):
+            if key in a:
+                self.langs.append(a[key] or "")
+        if re.fullmatch(r"h[1-6]", tag):
+            self.headings.append(int(tag[1]))
+        if tag == "title":
+            self.in_title = True
+        if tag == "img" and "alt" not in a:
+            self.errors.append(f"a picture without alt: {a.get('src')}")
+        if tag == "a":
+            self.link = {"href": a.get("href"), "name": (a.get("aria-label") or "").strip()}
+        if tag == "img" and self.link is not None and (a.get("alt") or "").strip():
+            self.link["name"] += a["alt"]
         if tag in ("img", "script", "iframe", "source", "embed", "audio", "video"):
             if a.get("src"):
                 self.loads.append(a["src"])
@@ -226,7 +298,19 @@ class Refs(HTMLParser):
         if tag not in VOID and self.stack and self.stack[-1] == tag:
             self.stack.pop()
 
+    def handle_data(self, data):
+        if self.in_title:
+            self.title += data
+        if self.link is not None:
+            self.link["name"] += data.strip()
+
     def handle_endtag(self, tag):
+        if tag == "title":
+            self.in_title = False
+        if tag == "a" and self.link is not None:
+            if not self.link["name"]:
+                self.errors.append(f"a link with no name: {self.link['href']}")
+            self.link = None
         if tag in VOID:
             return
         while self.stack and self.stack[-1] != tag and self.stack[-1] in OPTIONAL_END:
@@ -248,6 +332,16 @@ def check(dist: Path = DIST) -> None:
         if open_:
             problems.append(f"{rel}: left open: {open_}")
         problems += [f"{rel}: {e}" for e in p.errors]
+        if not p.langs or p.langs[0] not in ("en", "uk"):
+            problems.append(f"{rel}: the page's language is not en or uk")
+        problems += [f"{rel}: not a BCP 47 tag: '{t}'" for t in p.langs if not BCP47.match(t)]
+        if p.headings.count(1) != 1:
+            problems.append(f"{rel}: {p.headings.count(1)} h1, not one")
+        for before, after in zip(p.headings, p.headings[1:]):
+            if after > before + 1:
+                problems.append(f"{rel}: heading h{before} followed by h{after}")
+        if not p.title.strip():
+            problems.append(f"{rel}: no title")
         for ref in p.loads:
             u = urlparse(ref)
             if u.scheme or u.netloc:
@@ -279,13 +373,15 @@ def check(dist: Path = DIST) -> None:
                 problems.append(f"{css.relative_to(dist)}: loads a missing file: {ref}")
         if "@import" in css.read_text(encoding="utf-8"):
             problems.append(f"{css.relative_to(dist)}: @import")
+    problems += contrast_problems((dist / "style.css").read_text(encoding="utf-8"))
     for svg in sorted(dist.rglob("*.svg")):
         if re.search(r"(href|src)=\"https?:", svg.read_text(encoding="utf-8")):
             problems.append(f"{svg.relative_to(dist)}: refers to another server")
     if problems:
         raise SystemExit("check failed:\n  " + "\n  ".join(problems))
     n = len(list(dist.rglob("*.html")))
-    print(f"check: {n} pages, every reference resolves, nothing loads from another server")
+    print(f"check: {n} pages, every reference resolves, nothing loads from another server;"
+          f" WCAG checks passed, {len(CONTRAST)} colour pairs")
 
 
 def deploy(host: str, path: str) -> None:

@@ -1,7 +1,8 @@
 ---
 title: "tcp.ubec.network — the site"
-version: "v0.6"
+version: "v0.7"
 date: "2026-10-09"
+lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
 status: "Gate A record and the landing page; everything marked proposal waits on Michel's word"
@@ -111,6 +112,43 @@ Open `site/dist/index.html` in a browser to look before deploying.
 To change a text, edit `content/index_en.md` and `content/index_uk.md`
 together, bump each one's `version` and `changelog`, and rebuild.
 
+## Accessibility — WCAG 2.2 AA
+
+Michel's word, October 9, 2026 (module map, §3): the site meets WCAG
+2.2 at level AA, and every page and part says its language in a BCP 47
+tag (`en`, `uk`).
+
+**What the build checks**, every time (`build/build_site.py`, v0.4):
+the page's language and every `lang` and `hreflang` as a BCP 47 tag;
+one `h1` and no skipped heading level; `alt` on every picture; a name
+on every link; a title; and the contrast of every colour pair the
+stylesheet uses, by its `CONTRAST` table — 4.5:1 for text, 3:1 for
+focus outlines. A new colour pair in `style.css` gets a line in that
+table.
+
+**What was changed for it** (stylesheet v0.4): the focus outline was
+ochre on paper, 2.8:1, and is now night blue on light ground and ochre
+on the night head; the arrow before each link in the list is silent to
+screen readers; the name in the picture keeps a floor in `rem`, so it
+grows when only the text is enlarged; the UBEC mark beside its name has
+an empty `alt`, so the name is not read twice.
+
+**What only a person can check**, before the first deploy and after any
+change to the head:
+
+- With the keyboard alone, every link is reached in order, its outline
+  visible, and the skip link appears first.
+- A screen reader (NVDA or VoiceOver) reads each page in its own
+  language, the other language's name in the other.
+- At 200% zoom, and at 200% text-only zoom, nothing is cut off; at 320
+  px wide nothing scrolls sideways.
+- With WCAG's text spacing applied (line height 1.5, paragraphs 2,
+  letters 0.12, words 0.16), the name in the picture stays readable.
+- The name, the other language's name and the tagline are read against
+  the picture itself, at their darkest and lightest points — the build
+  cannot measure text over a picture.
+- The language switch is at least 24 by 24 px.
+
 ## First deploy (Gate D)
 
 0. **The host's name on schiff.** `ubec-common` is the host's own
@@ -202,6 +240,8 @@ site's own, and logged no policy violation.
 * * *
 
 *Changelog*
+- v0.7 — 2026-10-09 — WCAG 2.2 AA and BCP 47 language tags, Michel's
+  word: what the build checks, what was changed, what a person checks.
 - v0.6 — 2026-10-09 — the name inside the picture's frame (Michel's word):
   left of the moon and above the ridge at every width; on a narrow screen
   the name alone, on two lines, with the other language's name and the

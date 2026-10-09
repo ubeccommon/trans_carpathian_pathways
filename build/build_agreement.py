@@ -20,6 +20,8 @@ Lora fonts installed, and requirements.txt.
 SPDX-License-Identifier: AGPL-3.0-or-later
 
 Changelog:
+  v0.2 — 2026-10-09 — the document says its language: lang="en" on the root,
+         lang="uk" on the Ukrainian cover lines (BCP 47; Michel's word).
   v0.1 — 2026-10-08 — initial (Michel's word: the agreement in
          Ukrainian as well, one PDF in both languages).
 """
@@ -121,16 +123,16 @@ def main():
 <section class="cover">
   <img class="logo" src="{LOGO}" alt="Trans-Carpathian Pathways">
   <h1>Co-Creator Agreement</h1>
-  <h1 class="uk">Угода співтворців</h1>
+  <h1 class="uk" lang="uk">Угода співтворців</h1>
   <p class="tag">What we promise each other while we build the pathway together</p>
-  <p class="tag">Що ми обіцяємо одне одному, будуючи стежку разом</p>
+  <p class="tag" lang="uk">Що ми обіцяємо одне одному, будуючи стежку разом</p>
   <div class="rule"></div>
   <p class="meta">Trans-Carpathian Pathways · Транскарпатські стежки</p>
   <p class="meta">October 2026 · Жовтень 2026 · UBEC / Carpathian Hub Initiative</p>
   <p class="draft">Draft {v} — for discussion, not yet for signing<br>Проєкт {v} — для обговорення, ще не для підписання</p>
   <p class="toc"><a href="#en">English</a><span>·</span><a href="#uk">Українська</a></p>
 </section>"""
-    doc = ('<!doctype html><html><head><meta charset="utf-8">'
+    doc = ('<!doctype html><html lang="en"><head><meta charset="utf-8">'
            '<meta name="author" content="Michel Garand">'
            '<title>Co-Creator Agreement — Угода співтворців</title>'
            f'<style>{CSS}{EXTRA_CSS}</style></head><body>{cover}'

@@ -17,6 +17,8 @@ requirements.txt.
 SPDX-License-Identifier: AGPL-3.0-or-later
 
 Changelog:
+  v0.4 — 2026-10-09 — the document says its language: lang="en" on the root,
+         lang="uk" on the Ukrainian cover lines (BCP 47; Michel's word).
   v0.3 — 2026-10-07 — skips each text's YAML front matter (version and
          changelog), which the PDF does not print.
   v0.2 — 2026-10-07 — moved into the repository: reads and writes
@@ -156,15 +158,15 @@ def main():
 <section class="cover">
   <img class="logo" src="assets/logo.png" alt="Trans-Carpathian Pathways">
   <h1>{en_title}</h1>
-  <h1 class="uk">{uk_title}</h1>
+  <h1 class="uk" lang="uk">{uk_title}</h1>
   <p class="tag">A living network of place, people and path</p>
-  <p class="tag">Жива мережа місць, людей і стежок</p>
+  <p class="tag" lang="uk">Жива мережа місць, людей і стежок</p>
   <div class="rule"></div>
   <p class="meta">Project summary and proposal · Опис проєкту та пропозиція</p>
   <p class="meta">October 2026 · Жовтень 2026 · UBEC / Carpathian Hub Initiative</p>
   <p class="toc"><a href="#en">English</a><span>·</span><a href="#uk">Українська</a></p>
 </section>"""
-    doc = (f'<!doctype html><html><head><meta charset="utf-8"><meta name="author" content="Michel Garand"><title>{en_title} — {uk_title}</title>'
+    doc = (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="author" content="Michel Garand"><title>{en_title} — {uk_title}</title>'
            f'<style>{CSS}</style></head><body>{cover}'
            + "".join(section(l) for l in LANGS) + "</body></html>")
     HTML_OUT.write_text(doc, encoding="utf-8")
