@@ -1,11 +1,12 @@
 ---
 title: "Plai — User Manual (EN)"
-version: "v0.3"
+version: "v0.4"
 date: "October 2026"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
 changelog:
+  - "v0.4 — 2026-10-09 — Michel's word: a host may place the point at a nearby meeting place and then says so in the description; the curator checks that the point is where the host chose to be found; a published point may be copied, and withdrawal removes it from Plai, not from copies."
   - "v0.3 — 2026-10-08 — Michel's screenshots of the landing page, the login page, the toolbar, My places and the form, in both languages; required fields are outlined in red on screen; Select by current extent only."
   - "v0.2 — 2026-10-08 — the co-creator agreement in the form (mapservice plai/004, entries scheme v0.8, Michel's word): a link and a required tick above the state; the curator's tick when entering for a host."
   - "v0.1 — 2026-10-08 — initial, read against Plai's entries scheme v0.7 and curation scheme v0.6 (mapservice 1c1c192); Michel's word: entrants and curators, a bilingual PDF, Plai's emblem on the cover."
@@ -75,7 +76,7 @@ The zoom buttons are on the right edge of the map. Drag the map to move it; use 
 ## 3. Entering a place
 
 1. Click the **pencil**. The "Entries" panel opens on the left, showing "My places": the list of everything you have entered.
-2. Zoom in on the map until you can see exactly where the place is. The point is published where you put it, so take care.
+2. Zoom in on the map until you can see exactly where the place is. The point is published where you put it, so take care. You may put it at a nearby meeting place — a crossroads, a chapel, a shop — instead of your house; if you do, say so in the description, so a traveler knows the point is not the house. A point once published may be copied by others: withdrawing it later removes it from Plai, not from copies.
 3. In the panel, click **"Draw point"**. Then click once on the map where the place is.
 4. A form opens, titled "A place on the map". Fill it in (chapter 4).
 5. At the bottom of the form, choose the **"State"** (chapter 5) and click **"Save"**.
@@ -211,7 +212,7 @@ Click a place in the list, or its point on the map. The "Curation" form shows ev
 
 ### Publishing
 
-1. Read the place. Is the offer honest and specific? Is the point where the place is?
+1. Read the place. Is the offer honest and specific? Is the point where the host chose to be found — the place itself, or a meeting place the description names?
 2. Under "What the public sees", tick what may be shown: "Show the contact name", "Show the email", "Show the mobile", "Show the photo". A field can be shown only where the entrant agreed, which the box above each one says. A "Show" tick without the entrant's agreement is refused when you save.
 3. Set "State" to **"Published"** and click "Save".
 

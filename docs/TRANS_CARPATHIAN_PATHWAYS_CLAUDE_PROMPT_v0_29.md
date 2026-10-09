@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_28"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_29"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.28"
+version: "v0.29"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -298,6 +298,76 @@ what is still open — the documents on the site, pictures, partners
 (S-19), the access log and indexing, both of which are in place as
 Claude's proposals — is recorded in `site/README.md`.
 
+**Michel's answers to the decisions checklist — October 9, 2026.**
+Carried into agreement v0.3, proposal v0.3 and manual v0.4 (both
+languages, PDFs rebuilt) and recorded in `docs/DECISIONS_CHECKLIST_v0_2.md`
+with what stays open. Decided:
+- **S-1** — host points are public during the pilot, and the
+  public may click them; a traveler need not contact the Curator
+  before visiting. The Curator is not a gatekeeper. (§4, §7.)
+- **S-11 / A-1** — Michel personally for now; a core body is to be
+  formed in the near future and will hold the Plai instance, the
+  marks and the controller role.
+- **S-12 / A-4** — there is no second person today; Michel holds
+  both roles; the core body decides the deputy. The stewardship
+  mailbox must be verified to reach the deputy once named.
+- **S-9** — the first Curator is Michel for now, named before the
+  first hosts; the core body decides thereafter, and later
+  Curators are named by all co-creators.
+- **S-2 / A-3 / OI-P13** — payment passes directly from traveler to
+  host. Closed.
+- **S-3 / OI-P8** — ubec-pay kept among the four forms and defined
+  in one paragraph (agreement §8; Claude's wording for his word).
+- **S-16** — a contribution defined in one paragraph (agreement
+  §8; Claude's wording); Curators and stewards are paid roles,
+  terms decided once a financing plan is secured.
+- **S-21** — a budget recommendation and a pilot length in
+  proposal v0.3 (eighteen months, about €25,700; Claude's for his
+  word).
+- **S-4 / OI-P7** — the Curator proposes nothing; a host may place
+  the point at a nearby meeting place and must then say so in
+  the place's own information.
+- **S-14** — the agreement and the sign-on sheet say withdrawal
+  removes a point from Plai, not from copies; a separate,
+  revocable consent for the use of a place in any submission to a
+  public body; corridors as fuzzy bands, never parcels; a corridor
+  is **not** presented with a count of consents against residents.
+- **S-22** — no guidance against surnames in a place's name.
+- **S-6** — no fixed ceiling; the Curator keeps an overview of the
+  carrying capacity of each host, each stretch and the pathway.
+- **S-17** — a hold beyond 30 days carries a written reason.
+- **S-5 / OI-P12** — travelers from abroad are responsible for
+  their own preparation and are told so in the agreement's
+  traveler part. Closed.
+- **S-8** — no stage inside the border strip is suggested to
+  anyone until the permit route is held in writing and done once;
+  a stage register, one sheet per stage.
+- **S-15** — Plai holds no confidential information.
+- **S-13 / S-20** — a minimal incident record kept by the Curator
+  and the deputy, retention under A-6; a traveler's identity is
+  not seen before a journey.
+- **S-18** — the first corridor's co-creators decide Phase 2
+  governance; the first corridor gets a partnership note of its
+  own.
+- **S-19** — a public list of partners from the start.
+- **S-23** — the mapservice changes are to be committed: Mapbender's
+  own database in the backup, abuse-control logging with a
+  request threshold; the third (the entry layer logged-in only)
+  falls with S-1. Each a bounded mapservice change under that
+  tree's rules.
+- **S-24** — the white paper stays a draft; no v0.4 now.
+- **A-7** — hosts sign on paper with the Curator, in Ukrainian.
+- **D-1** — Gate 1 closed (§8). **D-2, D-3, D-4, D-6** — proposal
+  v0.3.
+Still open, with Michel's answer read as far as it goes: S-10
+(when Phase 1 ends — the three options restated, none chosen);
+S-17's second number (review by another after how many days) and
+the kin question, which he asked to have explained; S-18's
+entrenched clauses; S-19's "Part I in full, §3 included" for
+partners; S-14's hromada-council step; OI-P11 (the proposal's
+seven or Plai's nine, both named); S-7 (what Gate 4 records — to be
+defined); A-2 (read as the drafted option, to confirm); A-5; A-6.
+
 * * *
 
 ## 3. The First Corridor
@@ -340,7 +410,18 @@ Before any stage is published:
 | Host            | enters their own place, or has it entered | `PLAI_ENTRANT`, or none |
 | Pathway steward | cares for a stretch; enters for a host, adds places along the way | `PLAI_STEWARD` |
 | Curator         | publishes or holds; also enters        | `PLAI_CURATOR` and `PLAI_ENTRANT` |
-| Traveler        | sees published points                  | no account                |
+| Traveler        | sees published points; may go directly | no account                |
+
+**The Curator is not a gatekeeper — Michel's word, October 9,
+2026 (S-1):** host points are public and clickable during the
+pilot; a traveler may ask the Curator for a journey or find a
+published host and go directly. Every Curator duty towards
+travelers in the agreement applies to those who come through the
+Curator. The first Curator is Michel, named before the first hosts;
+the core body, once formed, decides thereafter, and later Curators
+are named by all co-creators (S-9). Curators and stewards are paid
+roles, their terms decided once a financing plan is secured
+(S-16).
 
 **The pathway steward — Michel's word, October 8, 2026:** a new
 role, someone who cares for a stretch of pathway and may add for
@@ -434,10 +515,10 @@ contribution, exchange of work, and `ubec-pay` or a community
 currency. Gift, the fifth form named in v0.1, was not among
 them. Who chooses among the four — Michel's word, October 7,
 2026 (OI-P13, first half): the host, per offer, so each offer on
-a point says which forms the host accepts. Still open (OI-P13,
-second half): whether payment passes host to traveler directly
-or through the Curator or `ubec-pay` — whether the project holds
-money.
+a point says which forms the host accepts. OI-P13's second half closed —
+Michel's word, October 9, 2026: payment passes directly from
+traveler to host; the project, its Curators and its stewards hold
+no money for stays and take no share (agreement §8).
 
 **Published location of a private home — Michel's word,
 October 7, 2026 (OI-P7):** the exact point, as today. Plai's
@@ -458,6 +539,24 @@ pair on the geometry.
 
 The outward proposal said otherwise ("A home is not a public
 pin"); proposal v0.2, October 7, corrects it in both languages.
+
+**Amended — Michel's word, October 9, 2026 (S-4):** the Curator
+proposes nothing about where a point goes. A host may place the
+point at a nearby meeting place instead of the house, and must
+then say so plainly in the place's own information (the
+description), so a traveler knows the point is not the house.
+Nothing in Plai changes; the manual v0.4 and the agreement v0.3
+say it. And the host is told, in the agreement and on the sign-on
+sheet, that a published point may be copied and that withdrawal
+removes it from Plai, not from copies (S-14).
+
+**ubec-pay — Michel's word, October 9, 2026 (S-3):** kept among
+the four forms and defined in one paragraph in agreement §8 — a
+settlement in a community currency or in a mutual-credit account
+UBEC keeps for its commons, not money; the project runs no payment
+system; the hryvnia the only legal tender; the wording Claude's,
+for his word. **A contribution is not a price** is defined beside
+it (S-16), the wording likewise Claude's.
 
 * * *
 
@@ -539,7 +638,17 @@ Added here:
 - **No calendar.** Availability beyond season stays a
   conversation with the Curator.
 - **Safety is the Curator's to hold**, not the traveler's to
-  find: shelter, border zone, alerts.
+  find: shelter, the state of each stage, alerts — off the
+  platform. **Plai holds no confidential information** (Michel's
+  word, October 9, 2026, S-15). The border-zone rules are public
+  law and are told to every traveler in writing.
+- **The Curator is not a gatekeeper** (Michel's word, October 9,
+  2026, S-1): travelers may find a published host and go
+  directly; travelers are responsible for their own preparation
+  (S-5).
+- **No one speaks for a community** and **Not wilderness**
+  (Michel's direction, October 9, 2026; reasoning §5), now in the
+  proposal's and the agreement's lists too (D-6).
 
 * * *
 
@@ -550,9 +659,10 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 - **Gate 0 — Decisions.** OI-P1 to OI-P8 answered or explicitly
   deferred. All eight answered on Michel's word, October 7, 2026.
 - **Gate 1 — Plai in a browser.** Michel's look as a throwaway
-  entrant and curator (pending on the mapservice side). Pathways
-  adds nothing to Plai until a Digitizer save has worked in a
-  browser.
+  entrant and curator. **Closed October 8, 2026, on Michel's
+  word**: the browser look recorded under Gate 2 was that look — a
+  Digitizer save worked as entrant and as curator (review D-1;
+  recorded here October 9).
 - **Gate 2 — Host fields.** One Plai migration, `plai/003`, for
   what `docs/specs/PLAI_HOST_FIELDS_SPEC` says (OI-P5, OI-P6,
   OI-P13, Q1 to Q8), with `verify` and the leak pass extended to
@@ -620,9 +730,12 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
   countries; the Outlook boundary that sets Plai's extent
   reaches nine, Austria and Bulgaria included (mapservice
   prompt §3).
-- **OI-P12** — Travel in wartime: what the project says to a
-  traveler from abroad about advisories, insurance and martial
-  law, and who says it.
+- **OI-P12** — Closed, Michel's word, October 9, 2026: a traveler
+  from abroad is responsible for their own preparation and travel
+  and informs themselves, in their own country, about advisories,
+  insurance, martial law, cash and permits; the agreement's
+  traveler part says so, and the Curator repeats it to those who
+  come through them.
 - **OI-P15** — Closed, Michel's word, October 8, 2026:
   `PLAI_STEWARD` is a group of its own. Built in mapservice
   `727aeec` (`instance.py entry-groups`, application template
@@ -635,14 +748,18 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
   "Something else" and the Curator's email. Whether such a place
   should need neither is a Plai change (`plai/004`), on Michel's
   word.
-- **OI-P13** — First half closed, Michel's word, October 7, 2026:
-  the host chooses, per offer. Open: whether payment passes
-  directly or through the Curator or `ubec-pay`. §5. Before the
-  first traveler.
+- **OI-P13** — Closed. First half, Michel's word, October 7, 2026:
+  the host chooses, per offer. Second half, Michel's word,
+  October 9, 2026: payment passes directly from traveler to host.
+  §5.
 
 * * *
 
 *Changelog*
+- v0.29 — 2026-10-09 — Michel's answers to the decisions checklist
+  carried into agreement v0.3, proposal v0.3, manual v0.4; Gate 1
+  closed; OI-P12 and OI-P13 closed; OI-P7 and OI-P8 amended; what
+  stays open listed.
 - v0.28 — 2026-10-09 — the site's Gate A on Michel's word: in this
   repository, apart from the map service; a landing page with vision
   and mission (`site/`).
