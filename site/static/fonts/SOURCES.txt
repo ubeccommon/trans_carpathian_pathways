@@ -1,0 +1,30 @@
+Fonts served by tcp.ubec.network, written by build/site_fonts.py.
+Inter and Lora are under the SIL Open Font License 1.1 (the OFL-*.txt files).
+
+Inter-Regular.woff2
+  from: Inter-4.1.zip:web/Inter-Regular.woff2, unchanged
+  sha256: e06f6b1bc553aaea4e4668023ed0ab0a147129c3107f511bc7d03d361b0ae085
+
+Inter-Italic.woff2
+  from: Inter-4.1.zip:web/Inter-Italic.woff2, unchanged
+  sha256: 2d078cb3bc8f934740d53b39dd23b0678f2f97477e49ec785dd9d8acd8b96bfc
+
+Inter-SemiBold.woff2
+  from: Inter-4.1.zip:web/Inter-SemiBold.woff2, unchanged
+  sha256: 5cb7103e4e605989afebc03d989c79201e54b21b5183db33981f70db9178a301
+
+OFL-Inter.txt
+  from: Inter-4.1.zip:LICENSE.txt
+  sha256: 262481e844521b326f5ecd053e59b98c8b2da78c8ee1bdbb6e8174305e54935a
+
+Lora-Variable.woff2
+  from: Lora-Cyrillic@2d53b44:fonts/variable/Lora[wght].ttf, re-encoded as WOFF2, not subset
+  sha256: eebc1089fd34256e756357b648e1ce148128f5b88df7526bbe4a2b3b9ebc4318
+
+Lora-Italic-Variable.woff2
+  from: Lora-Cyrillic@2d53b44:fonts/variable/Lora-Italic[wght].ttf, re-encoded as WOFF2, not subset
+  sha256: 5df746f376864a28e459b278c296777dd5d614644b7ca999403cbf6dd3936f5b
+
+OFL-Lora.txt
+  from: Lora-Cyrillic@2d53b44:OFL.txt
+  sha256: 1d9a970809ac804b582a6ce7f0ebc4e7fefcbfd7ff6299cad35ee656a21be716

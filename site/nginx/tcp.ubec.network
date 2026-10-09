@@ -1,0 +1,105 @@
+# Trans-Carpathian Pathways — nginx vhost for tcp.ubec.network, v0.1
+# SPDX-License-Identifier: AGPL-3.0-or-later
+#
+# A static site: the files build/build_site.py writes to site/dist/,
+# copied by its deploy step to /var/www/tcp.ubec.network on
+# ubec-common. Nothing proxied, nothing run. Kept in this tree, not in
+# ubec_mapservice (Michel's word, October 9, 2026: the site is the
+# project's, apart from the map service).
+#
+# What it promises, by construction:
+# - Nothing loads from any other server: the Content-Security-Policy
+#   allows this site's own styles, fonts and images and nothing else,
+#   and no script at all.
+# - No access log. A static page needs none for abuse control, and the
+#   co-creator agreement (§5) promises logs no longer than that needs.
+#   Errors are still logged. (Claude's proposal, in place until
+#   Michel's word.)
+# - Indexed: robots.txt allows all and no noindex header, since the
+#   site's job is to be found. (Claude's proposal, in place until
+#   Michel's word.)
+#
+# Install, on ubec-common, from a copy of this file there:
+#   sudo install -d -o ubec -g ubec -m 755 /var/www/tcp.ubec.network
+#   sudo install -m 644 tcp.ubec.network /etc/nginx/sites-available/
+#   sudo ln -sf /etc/nginx/sites-available/tcp.ubec.network \
+#        /etc/nginx/sites-enabled/
+#   sudo nginx -t && sudo systemctl reload nginx
+# The certificate comes first, from certbot with the webroot the
+# host's other sites use (/var/lib/letsencrypt). If no server on port
+# 80 answers the challenge for this name yet, install only the part
+# above the TLS line first (site/README.md says how), take the
+# certificate, then install the whole file.
+#
+# Reinstall after every commit that changes this file: a pull does not
+# deploy it. `diff tcp.ubec.network /etc/nginx/sites-available/tcp.ubec.network`
+# says which copy the host runs.
+#
+# Changelog:
+#   v0.1 — 2026-10-09 — initial: the landing page.
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name tcp.ubec.network;
+    access_log off;
+
+    location ^~ /.well-known/acme-challenge/ {
+        root /var/lib/letsencrypt;
+        default_type text/plain;
+        allow all;
+    }
+
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+
+# --- TLS: everything below needs the certificate ---
+
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name tcp.ubec.network;
+
+    ssl_certificate     /etc/letsencrypt/live/tcp.ubec.network/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/tcp.ubec.network/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers off;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_tickets off;
+
+    root  /var/www/tcp.ubec.network;
+    index index.html;
+
+    access_log off;
+    error_log  /var/log/nginx/tcp.ubec.network.error.log;
+
+    # Server-level headers apply to every location that sets none of
+    # its own; keep add_header out of the locations.
+    add_header Strict-Transport-Security "max-age=31536000"                    always;
+    add_header X-Content-Type-Options    "nosniff"                             always;
+    add_header X-Frame-Options           "DENY"                                always;
+    add_header Referrer-Policy           "no-referrer"                         always;
+    add_header Content-Security-Policy   "default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'" always;
+    add_header Permissions-Policy        "camera=(), microphone=(), geolocation=(), interest-cohort=()" always;
+
+    gzip on;
+    gzip_types text/css image/svg+xml text/plain;
+
+    location ~ /\. {
+        deny all;
+    }
+
+    location / {
+        try_files $uri $uri/ =404;
+        expires 1h;
+    }
+
+    # Fonts and marks rarely change; a browser may show an old mark
+    # for up to a week after one does, and a forced reload the new.
+    location ~* \.(woff2|svg)$ {
+        try_files $uri =404;
+        expires 7d;
+    }
+}

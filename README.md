@@ -26,6 +26,7 @@ there, as Plai migrations in `ubec_mapservice`.
 | `docs/specs/` | Specifications for changes built elsewhere — Plai migrations in `ubec_mapservice` |
 | `docs/reviews/` | Read-only reviews — of the stack Pathways runs on, of the project as a whole, and the stress tests of its design — each before a change is made |
 | `docs/prompts/` | Starting prompts for conversations that open a bounded piece of work |
+| `site/` | The site at tcp.ubec.network — its text in both languages, its style, fonts and mark, its nginx vhost, and the Gate A record (`site/README.md`) |
 | `tools/` | Empty until a tool is needed |
 
 ## Building the proposal PDF
@@ -99,6 +100,18 @@ version each entrant accepted. That copy is served by
 `ubeccommon/ubec_mapservice`, since this repository is private:
 a new version shown on Plai means its PDF copied there under a
 new file name, and a Plai migration there for the new version.
+
+## Building the site
+
+Needs Python 3 and pandoc only:
+
+```bash
+python3 build/build_site.py
+```
+
+It writes `site/dist/` (not tracked) and checks it: every reference
+resolves and nothing loads from another server. Deploying and the
+first install on ubec-common are in `site/README.md`.
 
 ## Taking the latest work
 

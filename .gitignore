@@ -12,3 +12,5 @@ build/proposal.html
 build/manual.html
 build/agreement.html
 build/whitepaper.html
+# the site, built from site/ by build/build_site.py; deployed, not tracked
+site/dist/

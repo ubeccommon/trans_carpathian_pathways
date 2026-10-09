@@ -1,0 +1,19 @@
+/* TEAM */
+Michel Garand — the project's lead; its decisions, its words and its marks.
+Contact: stewardship@ubec.network
+From: the Verkhovyna area, Ukrainian Carpathians
+
+/* THANKS */
+The people of the Hutsul highlands who keep mountain life alive.
+
+/* SITE */
+Written and built with Claude (Anthropic), working in the project's
+repository from the project's own documents, on Michel's word at each
+step. Every line of text is his to change.
+Standards: HTML, CSS. No JavaScript, no cookies, no analytics, nothing
+loaded from any other server.
+Fonts: Inter (The Inter Project Authors) and Lora (The Lora Project
+Authors), SIL Open Font License 1.1, served from this site.
+Marks: the UBEC mark and the Plai emblem, Michel Garand, CC BY-SA 4.0.
+Text: CC BY-SA 4.0. Code: AGPL-3.0-or-later.
+Last update: 2026-10-09

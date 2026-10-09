@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_27"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_28"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.27"
+version: "v0.28"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -284,6 +284,19 @@ site publishes it. The decisions S-1 to S-24 still wait — Michel's word, Octob
 they will be taken later; the questions are listed one per line
 in `docs/DECISIONS_CHECKLIST_v0_1.md`, with the agreement's
 A-items and the review's drifts still due.
+
+**The site, Gate A — Michel's word, October 9, 2026.** The site is
+the project's, apart from the map service: its source, its build
+(`build/build_site.py`) and its nginx vhost are in this repository's
+`site/`, and nothing is changed in `ubec_mapservice` for it. It links
+to the map service. It is served from `/var/www/tcp.ubec.network` on
+ubec-common, with an A/AAAA record for `tcp` pointing at that host.
+For now it is one landing page, in English and Ukrainian, with a
+vision and a mission statement. Those are drafted from the white paper
+v0.3 and the proposal v0.2 and wait on his word. What was found and
+what is still open — the documents on the site, pictures, partners
+(S-19), the access log and indexing, both of which are in place as
+Claude's proposals — is recorded in `site/README.md`.
 
 * * *
 
@@ -630,6 +643,9 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.28 — 2026-10-09 — the site's Gate A on Michel's word: in this
+  repository, apart from the map service; a landing page with vision
+  and mission (`site/`).
 - v0.27 — 2026-10-09 — the decisions checklist recorded; S-1 to
   S-24 wait on Michel's word, later.
 - v0.26 — 2026-10-09 — the starting prompt for the site at
