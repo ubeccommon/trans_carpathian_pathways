@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_35"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_36"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.35"
+version: "v0.36"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -446,6 +446,18 @@ the site's stylesheet v0.4 and build v0.4 meet and check WCAG 2.2 AA,
 what only a person can check listed in `site/README.md` v0.7. The
 repository's own README has no front matter and stays English.
 
+**The Appalachian Trail — Michel's word, October 9, 2026.** Added to
+the white paper's §7 as the eighth case, in both languages (white
+paper v0.5, PDF rebuilt, 60 pages): MacKaye's 1921 proposal of a trail
+with shelter, community and farm camps on land held in common, of
+which only the trail was built; the federation of some thirty
+maintaining clubs, each with its section, under the Appalachian Trail
+Conservancy and the National Park Service; and the corridor bought
+under the 1968 and 1978 acts against landowners' resistance, compulsory
+purchase made a last resort. Three rows in the lessons table: keep the
+living part of the vision, a federation of section-keepers, a corridor
+from consent. Sources 91–93.
+
 * * *
 
 ## 3. The First Corridor
@@ -836,6 +848,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.36 — 2026-10-09 — the Appalachian Trail in the white paper, v0.5.
 - v0.35 — 2026-10-09 — the module map adopted, all six points;
   white paper v0.4; language tags and WCAG 2.2 AA implemented.
 - v0.34 — 2026-10-09 — the module map v0.1 on Michel's question;

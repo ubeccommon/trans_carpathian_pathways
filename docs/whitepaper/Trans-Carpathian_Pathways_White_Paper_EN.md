@@ -1,12 +1,13 @@
 ---
 title: "Trans-Carpathian Pathways — White Paper (EN)"
-version: "v0.4"
+version: "v0.5"
 date: "October 2026"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
 status: "draft for Michel's word — English first, Ukrainian once it settles"
 changelog:
+  - "v0.5 — 2026-10-09 — Michel's word: the Appalachian Trail added to §7 as the eighth case — MacKaye's 1921 vision, the federation of maintaining clubs, the corridor and its landowners — with three rows in the lessons table and sources 91–93."
   - "v0.4 — 2026-10-09 — Michel's word (the module map v0.1, §6): the society *Plai* of 1924 named in §6.2 as the precedent for Plai's name, with source 90 under a new heading, History. S-24's \"no v0.4 now\" is superseded for this change on his word; nothing else changed."
   - "v0.3 — 2026-10-09 — Michel's word: the regeneration approach woven in and set against sustainable development, with three diagrams (build/diagrams_whitepaper.py, docs/whitepaper/assets/, both languages): a new §5 \"From sustaining to regenerating\"; the summary, §4.2, the signs of success and the ask carry it; sources 82–89. The former §5–§12 are now §6–§13 — reviews that cite v0.1 or v0.2 use the old numbers."
   - "v0.2 — 2026-10-09 — §13 corrected after the stress tests (docs/reviews/TRANS_CARPATHIAN_PATHWAYS_STRESS_TESTS_v0_1.md): a corridor is put before a public body as the places of named hosts, never as what a community wants, which contradicted §9. Nothing else changed; the tests' other findings wait on Michel's word."
@@ -19,7 +20,7 @@ changelog:
 
 *A living network of hosts, paths and Curators across the Carpathian arc — the case, the evidence and the design*
 
-October 2026 · UBEC / Carpathian Hub Initiative · White Paper, draft v0.4
+October 2026 · UBEC / Carpathian Hub Initiative · White Paper, draft v0.5
 
 ## How to read this paper
 
@@ -220,7 +221,7 @@ Each person decides what is shown about them, field by field; unticking a consen
 
 ## 7. What others have learned
 
-Nothing in this design is untested elsewhere, and the record of comparable projects is the project's most useful teacher. Seven cases, and the lesson each carries.
+Nothing in this design is untested elsewhere, and the record of comparable projects is the project's most useful teacher. Eight cases, and the lesson each carries.
 
 **Via Transilvanica (Romania).** Some 1,400 kilometres from Putna to Drobeta-Turnu Severin, built 2018–2022 by one NGO, Tășuleasa Social, with more than ten thousand volunteers and a thousand hand-carved andesite milestones; inaugurated October 2022; Europa Nostra's citizen-involvement award in 2023 [37]. Construction cost about €1.8 million from donations, by design without state money; the annual operating budget is now over €2.5 million from some 1,200 donors and a membership scheme, and 300–400 kilometres of marking must be refreshed every year [38]. Visitor counts drift — about 30,000 in 2024 by one estimate, 37,000 by another, and 120,000 claimed for 2025 — a four-fold jump that suggests a change of method rather than of travelers [38]. The host layer stayed informal: private guesthouses on an app map, with no published selection or standard, until in 2026 the association began building its own tiny-house modules on chosen families' land [38]. Documented outcomes are strong but anecdotal: one host up 600% in guests "but the figures are still small"; one village from 18 to 28 residents and its first birth in forty years [38]. Property-price rises, commodification and uneven benefit between villages on and off the route are the risks any such trail carries, and this paper names them for Pathways in §12. *Lesson:* a single committed body with a membership base and volunteer section-adopters can hold a long trail without the state — but maintenance is the recurring cost, counting must be owned by someone, and a host layer left informal becomes the operator's own beds in the end.
 
@@ -236,6 +237,8 @@ Nothing in this design is untested elsewhere, and the record of comparable proje
 
 **Platform cooperatives.** Fairbnb, the Italian cooperative alternative to Airbnb, raised a million euro in 2021, kept a 15% commission of which half went to local projects, was judged by a 2025 study to risk becoming "more of the same", and went into voluntary liquidation in 2024 before its brand was bought in 2025 [49]. CoopCycle's federated delivery platform worked where there was local trust and failed where a foreign licence caused friction [49]. Mapeo, the offline-first mapping tool built with Amazonian communities, shows that community-owned map data is operationally possible phone to phone [50]. In New Zealand an employment authority ruled in 2018 that "volunteers" working forty hours a week for board and a small payment were employees owed wages [51]. *Lesson:* a cooperative that imitates the incumbent inherits its economics; host-owned data is feasible; and hosted work must be framed as hospitality, never as labour for board.
 
+**The Appalachian Trail (United States).** Benton MacKaye proposed it in 1921 not as a footpath but as a project in regional planning: a trail along the Appalachian skyline; shelter camps about a day's walk apart; community camps near it on land held in common, with no lots sold and run without profit; and in time cooperative farm and forest camps to supply them — a way back to the land, to work and to health, built by volunteers, each section kept by a local group under a federation [91]. The trail was built; the community and farm camps were not. It is kept today by some thirty volunteer clubs, each with its own section — from 2.2 miles to more than 280, many assigned in the 1920s and 1930s — coordinated by the Appalachian Trail Conservancy, with the National Park Service holding overall responsibility and a memorandum with each of the fourteen states [92]. To protect it, the National Trails System Act of 1968 and its 1978 amendments set out to acquire a corridor. Compulsory purchase met hard resistance from landowners; the 1978 bill made it a last resort behind negotiation and easements, and where an owner refused the route moved to a willing neighbour [93]. It is also a wilderness-recreation trail on largely public land, the frame this paper refuses for the Carpathians; its lessons lie in its structure and its history, not in its picture of nature. *Lesson:* the walking part of a vision finds volunteers and money, and the living part is dropped unless it is held from the start; a federation of section-keepers can hold a trail for a century; and a corridor bought or imposed from above turns the people inside the line against it — a corridor has to come from their consent.
+
 | Lesson | From | What Pathways does |
 | --- | --- | --- |
 | Budget for maintenance first | Via Transilvanica | The path is held by stewards and the Curator; no infrastructure is built that no one is named to keep |
@@ -249,6 +252,9 @@ Nothing in this design is untested elsewhere, and the record of comparable proje
 | Frame hosted work as hospitality | NZ ERA 2018 | Exchange of work is a form of payment a host may accept; the agreement must say what it is not (§10) |
 | Do not imitate the incumbent | Fairbnb | No calendar, no ratings, no commission, no app for travelers |
 | Host-owned data is feasible | Mapeo, CARE | Consent as columns, withdrawal, export; no open licence on homes (as drafted, A-2) |
+| Keep the living part of the vision, not only the path | Appalachian Trail, 1921 | The hosts and the meadows are the project; the path is what joins them (§5, §9) |
+| A federation of section-keepers can hold a trail for a century | Appalachian Trail | A steward per stretch; the first corridor's co-creators decide how it is governed from Phase 2 (agreement §4) |
+| A corridor imposed from above turns the people inside it against it | Appalachian Trail, 1978 | Corridors as fuzzy bands drawn from consent, never parcels (§9) |
 
 ## 8. Foundations
 
@@ -478,5 +484,11 @@ Read October 9, 2026. Figures from secondary compilations are marked; items mark
 **History**
 
 90. Стежки та мапи, "Товариство Плай" (the society *Plai*), undated, read October 9, 2026 — https://stezhky.org/stezhky/istoriya-fundacziyi-ks/prytulky/prytulok-pliscze/tovarystvo-plaj/
+
+**The Appalachian Trail**
+
+91. MacKaye, "An Appalachian Trail: A Project in Regional Planning", *Journal of the American Institute of Architects*, October 1921 — https://www.hudsonrivervalley.org/documents/d/guest/mackaye1921
+92. Appalachian Trail Conservancy, "A Cooperative Approach to Managing the Appalachian Trail", undated (after 2016; 31 maintaining clubs) — https://appalachiantrail.org/wp-content/uploads/2020/04/cooperative-management.pdf; ATC, "Clubs & Partners" (30 affiliated clubs listed), read October 9, 2026 — https://appalachiantrail.org/protect/trail-management/clubs-partners/
+93. Appalachian Trail Histories, "Eminent domain" — https://appalachiantrailhistory.org/exhibits/show/federal-land-acquisition--the-/eminent-domain; Appalachian Trail Conservancy, "The Appalachian Trail Bill of 1978" — https://appalachiantrail.org/news-stories/at-bill-of-1978/
 
 *This is a living document. It will change as the network grows, and every change will be written down.*
