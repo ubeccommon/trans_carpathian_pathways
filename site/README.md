@@ -1,6 +1,6 @@
 ---
 title: "tcp.ubec.network — the site"
-version: "v0.1"
+version: "v0.2"
 date: "2026-10-09"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -107,6 +107,16 @@ together, bump each one's `version` and `changelog`, and rebuild.
 
 ## First deploy (Gate D)
 
+0. **The host's name on schiff.** `ubec-common` is the host's own
+   name, not one schiff's DNS knows. Give ssh an alias for it once, in
+   `/home/farmer/.ssh/config`, and every command below works as written:
+
+   ```
+   Host ubec-common
+       HostName mapservice.ubec.network
+       User ubec
+   ```
+
 1. **DNS.** Add A and AAAA records for `tcp.ubec.network` with
    ubec-common's addresses.
 2. **On ubec-common, the directory:**
@@ -185,6 +195,8 @@ site's own, and logged no policy violation.
 * * *
 
 *Changelog*
+- v0.2 — 2026-10-09 — step 0: the ssh alias for ubec-common on schiff,
+  after `scp` could not resolve the name.
 - v0.1 — 2026-10-09 — initial: the Gate A record, Michel's word on
   where the site lives and what it is for now, and the landing page in
   English and Ukrainian.
