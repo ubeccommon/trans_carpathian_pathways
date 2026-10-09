@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_23"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_24"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.23"
+version: "v0.24"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -226,6 +226,28 @@ contradicts the meeting-place option (S-4, S-14, S-22). One finding
 was an inconsistency inside the white paper and is corrected in
 its v0.2 (§12). Every other finding waits on Michel's word;
 nothing is decided by the tests.
+
+**Regeneration against sustainable development — Michel's word,
+October 9, 2026.** Before the stress tests' decisions are taken
+up, the regeneration approach is woven into the white paper and
+set against sustainable development, which was applied where it
+was convenient and neglected where it would bite: white paper
+v0.3, a new §5 "From sustaining to regenerating" (Brundtland 1987;
+the UN's 2025 finding that only 35% of the Goals' targets are on
+track or progressing; the UNEP/UNWTO definition's four claimants
+with the industry among them; Bukovel's own Sustainable Development
+Office beside the Svydovets plan; Lyle, Reed's nested trajectory,
+Mang & Reed, Gibbons), a table of question, unit and measure, and
+three diagrams drawn by `build/diagrams_whitepaper.py` into
+`docs/whitepaper/assets/` in both languages: where each approach
+aims (a line from degenerating through zero to regenerating),
+what each sees (three pillars to balance against a nested living
+place), and two flows in the same mountains (the line of
+extraction against the regenerative loop). The summary, §4.2, the
+signs of success and the ask carry it; the regenerative test — is
+the place more alive and more able to go on than before the
+pathway — stands behind the signs. The paper's former §5–§12 are
+now §6–§13; the stress-test review cites v0.1/v0.2 numbers.
 
 * * *
 
@@ -572,6 +594,9 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.24 — 2026-10-09 — white paper v0.3: regeneration woven in and
+  set against sustainable development, three diagrams in both
+  languages; sections renumbered.
 - v0.23 — 2026-10-09 — three stress tests recorded, 24 decisions
   put to Michel (S-1 to S-24); white paper v0.2 corrects its §12.
 - v0.22 — 2026-10-09 — the white paper v0.1, Michel's word:

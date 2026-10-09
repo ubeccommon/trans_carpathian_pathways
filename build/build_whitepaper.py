@@ -4,7 +4,8 @@ One command, from anywhere:
 
     python3 build/build_whitepaper.py
 
-It renders the emblem (logo.py) for the cover, then reads
+It renders the emblem (logo.py) for the cover and draws the three
+diagrams (diagrams_whitepaper.py) into docs/whitepaper/assets/, then reads
 docs/whitepaper/Trans-Carpathian_Pathways_White_Paper_{EN[,UK]}.md
 and writes docs/whitepaper/Trans-Carpathian_Pathways_White_Paper.pdf.
 The page styles are the proposal's (build_pdf.CSS) with the
@@ -21,6 +22,7 @@ Lora fonts installed, and requirements.txt.
 SPDX-License-Identifier: AGPL-3.0-or-later
 
 Changelog:
+  v0.2 — 2026-10-09 — draws the diagrams first.
   v0.1 — 2026-10-09 — initial (Michel's word: a white paper from a
          review of the documents and background research).
 """
@@ -30,6 +32,7 @@ from pathlib import Path
 
 from weasyprint import HTML
 
+import diagrams_whitepaper
 import logo
 from build_agreement import EXTRA_CSS
 from build_pdf import CSS
@@ -101,6 +104,7 @@ def section(lang, v):
 
 def main():
     logo.main()
+    diagrams_whitepaper.main()
     v = version()
     langs = [l for l in LANGS if (WP / l["md"]).exists()]
     toc = '<span>·</span>'.join(f'<a href="#{l["code"]}">{l["label"]}</a>' for l in langs)
