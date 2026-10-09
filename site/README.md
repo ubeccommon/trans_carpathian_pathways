@@ -1,6 +1,6 @@
 ---
 title: "tcp.ubec.network — the site"
-version: "v0.2"
+version: "v0.3"
 date: "2026-10-09"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -109,11 +109,13 @@ together, bump each one's `version` and `changelog`, and rebuild.
 
 0. **The host's name on schiff.** `ubec-common` is the host's own
    name, not one schiff's DNS knows. Give ssh an alias for it once, in
-   `/home/farmer/.ssh/config`, and every command below works as written:
+   `/home/farmer/.ssh/config`, with the address you already ssh to, and
+   every command below works as written. The address stays out of the
+   tree, as every access detail of the host does:
 
    ```
    Host ubec-common
-       HostName mapservice.ubec.network
+       HostName <the address you ssh to>
        User ubec
    ```
 
@@ -195,6 +197,8 @@ site's own, and logged no policy violation.
 * * *
 
 *Changelog*
+- v0.3 — 2026-10-09 — step 0 names no address: the alias takes the one
+  Michel already uses; access details stay out of the tree.
 - v0.2 — 2026-10-09 — step 0: the ssh alias for ubec-common on schiff,
   after `scp` could not resolve the name.
 - v0.1 — 2026-10-09 — initial: the Gate A record, Michel's word on
