@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_30"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_31"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.30"
+version: "v0.31"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -359,13 +359,14 @@ with what stays open. Decided:
   with 429). The third change fell with S-1. And the agreement at
   draft v0.3 on Plai: the PDF served beside v0.2, the entries
   scheme v0.9, `plai/005` setting `agreement_version` to `v0.3`.
-  **Not yet run on the host:** pull there; `migrate plai`,
-  `render`, `cache:clear`, the user copy made again, `verify
-  plai`; the vhost's install lines with the log directory and the
-  rotation rule, `nginx -t`, reload, the leak pass through the
-  public face; `backup.py prove`. What F5 still asks — a timer,
-  encryption, an off-host copy — is not built, and Gate 3 waits on
-  the last.
+  **On the host the same midday, Michel's run** (mapservice prompt
+  v0.84): `005` applied; `verify plai vt` 96 of 96, the agreement
+  checks proving `v0.3`; the vhost installed with its log directory
+  and rotation, the leak pass 519 of 519; `backup.py prove` 15 of
+  15 with the first dump of Mapbender's database; the user copy
+  made again; the form's link opening the v0.3 PDF. Closed on his
+  "looks good". What F5 still asks — a timer, encryption, an
+  off-host copy — is not built, and Gate 3 waits on the last.
 - **S-24** — the white paper stays a draft; no v0.4 now.
 - **A-7** — hosts sign on paper with the Curator, in Ukrainian.
 - **D-1** — Gate 1 closed (§8). **D-2, D-3, D-4, D-6** — proposal
@@ -767,6 +768,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.31 — 2026-10-09 — S-23 and the agreement v0.3 closed on the
+  host, Michel's "looks good".
 - v0.30 — 2026-10-09 — S-23 and the agreement v0.3 built in
   mapservice (`0a5aa99`); what remains to run on the host.
 - v0.29 — 2026-10-09 — Michel's answers to the decisions checklist
