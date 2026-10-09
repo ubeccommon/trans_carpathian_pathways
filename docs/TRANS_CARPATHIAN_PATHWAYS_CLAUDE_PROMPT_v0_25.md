@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_24"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_25"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.24"
+version: "v0.25"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -248,6 +248,23 @@ signs of success and the ask carry it; the regenerative test — is
 the place more alive and more able to go on than before the
 pathway — stands behind the signs. The paper's former §5–§12 are
 now §6–§13; the stress-test review cites v0.1/v0.2 numbers.
+
+**The white paper in Ukrainian — Michel's word, October 9, 2026.**
+`Trans-Carpathian_Pathways_White_Paper_UK.md`, a translation of the
+English v0.3 made the same day in seven parts against one glossary
+drawn from the Ukrainian proposal and agreement (господар,
+доглядач стежки, Куратор, мандрівник, угода співтворців, перехід,
+внесок, регенерація, сталий розвиток, тяглий ландшафт, Карпатська
+вісімка), checked for structure against the English — the same
+17 sections, 29 subsections, 38 table rows, 169 paragraphs and
+89 citations, the Ukrainian diagrams in place — and built into
+the one PDF after the English (59 pages). Judgement calls the
+translators flagged: stewardship → догляд (to match доглядач),
+Lake Herashaska → озеро Герашаська, conviviality →
+конвівіальність, draft agreement → проєкт угоди throughout.
+Neither this text nor the diagram labels have yet been read by
+anyone in the corridor; §12 of the paper says the Ukrainian should
+in the end come from them.
 
 * * *
 
@@ -594,6 +611,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.25 — 2026-10-09 — the white paper in Ukrainian; one PDF in
+  both languages.
 - v0.24 — 2026-10-09 — white paper v0.3: regeneration woven in and
   set against sustainable development, three diagrams in both
   languages; sections renumbered.

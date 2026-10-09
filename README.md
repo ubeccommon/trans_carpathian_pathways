@@ -17,7 +17,7 @@ there, as Plai migrations in `ubec_mapservice`.
 | --- | --- |
 | `docs/TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v*.md` | The starting prompt, latest version: load order, decisions, open items. Source of truth. |
 | `docs/TRANS_CARPATHIAN_PATHWAYS_REASONING_v*.md` | Why the project exists: the pressures it answers, the vision of corridors of stewardship, the reason behind each principle, and the tensions still open |
-| `docs/whitepaper/` | The white paper for readers outside the project — the case, the evidence, regeneration against sustainable development, and the design, with its sources — in English, its three diagrams in both languages, and the PDF built from it |
+| `docs/whitepaper/` | The white paper for readers outside the project — the case, the evidence, regeneration against sustainable development, and the design, with its sources — in English and Ukrainian, its three diagrams in both languages, and the bilingual PDF built from them |
 | `docs/proposal/` | The outward proposal in English and Ukrainian, its diagrams and logo, and the bilingual PDF built from them |
 | `build/` | The scripts that draw the diagrams and build the PDFs |
 | `docs/manual/` | Plai's user manual for entrants and curators, in English and Ukrainian, and the bilingual PDF built from them |
@@ -75,8 +75,7 @@ python3 build/build_whitepaper.py
 That one command draws the three diagrams into
 `docs/whitepaper/assets/` in both languages and writes
 `docs/whitepaper/Trans-Carpathian_Pathways_White_Paper.pdf`
-(A4, a cover, then English; Ukrainian joins when its text exists), in
-the proposal's styles. The PDF is committed; rebuild and commit it
+(A4, a cover, then English, then Ukrainian), in the proposal's styles. The PDF is committed; rebuild and commit it
 whenever the text changes.
 
 ## Building the co-creator agreement

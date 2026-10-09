@@ -1,4 +1,4 @@
-"""Build the A4 white paper (English; Ukrainian joins when its text exists).
+"""Build the bilingual A4 white paper (English, then Ukrainian).
 
 One command, from anywhere:
 
