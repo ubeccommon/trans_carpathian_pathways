@@ -1,4 +1,4 @@
-/* Trans-Carpathian Pathways — tcp.ubec.network, v0.1
+/* Trans-Carpathian Pathways — tcp.ubec.network, v0.2
  * SPDX-License-Identifier: AGPL-3.0-or-later
  *
  * The palette and type of the project's PDFs (build/build_pdf.py):
@@ -7,6 +7,7 @@
  * from this site (fonts/, SIL OFL 1.1). No JavaScript, no other server.
  *
  * Changelog:
+ *   v0.2 — 2026-10-09 — the picture in place of the drawn ridges.
  *   v0.1 — 2026-10-09 — initial: the landing page.
  */
 
@@ -51,7 +52,7 @@ a:focus-visible { outline: 2px solid var(--ochre); outline-offset: 3px; border-r
 .skip { position: absolute; left: -999px; top: 0; }
 .skip:focus { left: 1rem; top: 1rem; z-index: 2; background: var(--paper); padding: .4rem .7rem; }
 
-/* ---- the head: night sky over two ridges, a path along the crest ---- */
+/* ---- the head: the name over Michel's picture, on its own night sky ---- */
 
 .head { background: var(--night); color: var(--cream-2); position: relative; }
 .bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem;
@@ -72,7 +73,7 @@ a:focus-visible { outline: 2px solid var(--ochre); outline-offset: 3px; border-r
 .hero .tagline { font-family: "Lora", Georgia, serif; font-style: italic; color: var(--cream);
                  font-size: clamp(1.15rem, 2.4vw, 1.4rem); margin: 1.4rem 0 0; max-width: 34rem; }
 
-.ridges { display: block; width: 100%; height: clamp(110px, 18vw, 230px); margin-top: 1.5rem; }
+.art { display: block; width: 100%; max-width: 64rem; height: auto; margin: 2.2rem auto 0; }
 
 /* ---- the body ---- */
 
@@ -128,5 +129,5 @@ footer { border-top: 1px solid var(--line); background: var(--paper); }
 @media print {
   .head { background: none; color: var(--ink); }
   .hero h1 { color: var(--night); }
-  .ridges, .switch, .skip { display: none; }
+  .switch, .skip { display: none; }
 }

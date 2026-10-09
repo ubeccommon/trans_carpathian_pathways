@@ -27,6 +27,8 @@ Needs pandoc on the PATH, and Python 3 alone; deploy needs rsync and ssh.
 SPDX-License-Identifier: AGPL-3.0-or-later
 
 Changelog:
+  v0.2 — 2026-10-09 — Michel's picture "Warm wind on the path" in the
+         head, in place of the drawn ridges.
   v0.1 — 2026-10-09 — initial: the landing page, English and Ukrainian.
 """
 import html
@@ -50,15 +52,10 @@ ORIGIN = "https://tcp.ubec.network"
 LINKS_OUT = {"mapservice.ubec.network", "pilgrims.ubec.network"}
 MAILTO = {"stewardship@ubec.network"}
 
-# The two ridges and the path along their crest, drawn here, not traced
-# from anything: a plai is a path that follows a ridge from one pasture
-# to the next.
-RIDGES = """<svg class="ridges" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-<path fill="#3f5e39" d="M0 210L120 172L210 192L330 122L430 162L560 96L690 152L800 112L930 172L1050 122L1180 166L1300 132L1440 176V320H0Z"/>
-<path fill="none" stroke="#c98a2e" stroke-width="2" stroke-dasharray="7 9" stroke-linecap="round" vector-effect="non-scaling-stroke" d="M30 206L120 180L210 200L330 130L430 170L560 104L690 160L800 120L930 180L1050 130L1180 174L1300 140L1420 180"/>
-<path fill="#2a3f2a" d="M0 262L150 226L280 246L420 202L560 236L700 206L860 250L1000 216L1150 246L1300 222L1440 242V320H0Z"/>
-<path fill="#fbf8f0" d="M0 306C360 286 1080 324 1440 298V320H0Z"/>
-</svg>"""
+# The landing page's picture: Michel's "Warm wind on the path" (day 70),
+# static/assets/warm_wind_on_the_path.svg, 1600 x 900. Its alt text is
+# each page's `image_alt`.
+ART = '<img class="art" src="{up}assets/warm_wind_on_the_path.svg" alt="{alt}" width="1600" height="900">'
 
 PAGE = """<!doctype html>
 <html lang="{lang}">
@@ -86,7 +83,7 @@ PAGE = """<!doctype html>
     <p class="other" lang="{other_lang}">{other_title}</p>
     <p class="tagline">{tagline}</p>
   </div>
-  {ridges}
+  {art}
 </header>
 <main id="main">
 {body}
@@ -174,7 +171,7 @@ def build():
             description=e(meta["description"]), canonical=ORIGIN + meta["path"],
             alternates=alternates, skip=SKIP[lang], hub=HUB[lang],
             other_href=other["path"].lstrip("/"), other_lang=other_lang, switch=e(meta["switch"]),
-            tagline=e(meta["tagline"]), ridges=RIDGES,
+            tagline=e(meta["tagline"]), art=ART.format(up=up, alt=e(meta["image_alt"])),
             body=markdown(body).replace("{up}", up),
             initiative=e(meta["initiative"]), licence=e(meta["licence"]), privacy=e(meta["privacy"]),
             sources=e(meta["sources"]), version_label=VERSION[lang], version=e(meta["version"]))

@@ -1,6 +1,6 @@
 ---
 title: "tcp.ubec.network — the site"
-version: "v0.4"
+version: "v0.5"
 date: "2026-10-09"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -68,6 +68,12 @@ Michel's word, October 9, 2026:
 - **No access log.** The vhost logs errors only (agreement §5).
 - **Indexed.** `robots.txt` allows everything, and there is no
   `noindex`.
+- **The picture.** Michel's word, October 9: his "Warm wind on the
+  path" (day 70, from his field writing) heads the landing page. It is
+  an SVG with no text, no location and no outside reference, copied
+  unchanged but for a comment that records its origin. Its licence is
+  not yet stated, so the footer's CC BY-SA line still names the text
+  and the marks only.
 - **The field writing** is linked as "Soil and Peace — Carpathian
   Dispatch".
 - **Still open from the starting prompt §5:** which documents go on
@@ -187,6 +193,7 @@ site's own, and logged no policy violation.
 | `static/style.css` | The look: the PDFs' palette and type |
 | `static/fonts/` | Inter and Lora, their OFL texts, `SOURCES.txt` |
 | `static/assets/ubec_mark.svg` | The UBEC mark, copied from ubec_mapservice |
+| `static/assets/warm_wind_on_the_path.svg` | Michel's picture "Warm wind on the path" (day 70), the head of the landing page |
 | `static/robots.txt`, `static/humans.txt` | Who made it, and that it may be indexed |
 | `nginx/tcp.ubec.network` | The vhost for ubec-common |
 | `../build/build_site.py` | Build, check, deploy, verify |
@@ -195,6 +202,7 @@ site's own, and logged no policy violation.
 * * *
 
 *Changelog*
+- v0.5 — 2026-10-09 — Michel's picture in the head of the landing page.
 - v0.4 — 2026-10-09 — step 3: the port-80 half first, always, after the
   first certificate request failed; the warning against a vhost
   enabled without its certificate.
