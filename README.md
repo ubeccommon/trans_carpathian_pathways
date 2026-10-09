@@ -16,6 +16,7 @@ there, as Plai migrations in `ubec_mapservice`.
 | Path | What it holds |
 | --- | --- |
 | `docs/TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v*.md` | The starting prompt, latest version: load order, decisions, open items. Source of truth. |
+| `docs/DECISIONS_CHECKLIST_v*.md` | The questions waiting on Michel's word, one line each, with the document each answer changes |
 | `docs/TRANS_CARPATHIAN_PATHWAYS_REASONING_v*.md` | Why the project exists: the pressures it answers, the vision of corridors of stewardship, the reason behind each principle, and the tensions still open |
 | `docs/whitepaper/` | The white paper for readers outside the project — the case, the evidence, regeneration against sustainable development, and the design, with its sources — in English and Ukrainian, its three diagrams in both languages, and the bilingual PDF built from them |
 | `docs/proposal/` | The outward proposal in English and Ukrainian, its diagrams and logo, and the bilingual PDF built from them |

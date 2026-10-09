@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_26"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_27"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.26"
+version: "v0.27"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -280,7 +280,10 @@ said plainly, no form (agreement §5) — and leaves to Gate A where
 the site lives, who manages DNS and TLS for `ubec.network`, and
 whether the vhost is a mapservice change. Serving the white paper
 from Mapservice, left open the same morning, is answered if the
-site publishes it. The decisions S-1 to S-24 still wait.
+site publishes it. The decisions S-1 to S-24 still wait — Michel's word, October 9:
+they will be taken later; the questions are listed one per line
+in `docs/DECISIONS_CHECKLIST_v0_1.md`, with the agreement's
+A-items and the review's drifts still due.
 
 * * *
 
@@ -627,6 +630,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.27 — 2026-10-09 — the decisions checklist recorded; S-1 to
+  S-24 wait on Michel's word, later.
 - v0.26 — 2026-10-09 — the starting prompt for the site at
   `tcp.ubec.network` recorded.
 - v0.25 — 2026-10-09 — the white paper in Ukrainian; one PDF in
