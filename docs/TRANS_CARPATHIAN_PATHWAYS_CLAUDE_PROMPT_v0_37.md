@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_36"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_37"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.36"
+version: "v0.37"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -458,6 +458,18 @@ purchase made a last resort. Three rows in the lessons table: keep the
 living part of the vision, a federation of section-keepers, a corridor
 from consent. Sources 91–93.
 
+**Open data for travelers' apps — Michel's question, October 9,
+2026.** Can travelers carry Plai's places and the pathways into
+their own apps (Organic Maps and others), and which standards? The
+specification, for his word: `docs/specs/PATHWAYS_OPEN_DATA_SPEC_v0_1.md`.
+Three kinds of data: the pathway (OSM-derived, ODbL) and places
+nobody hosts travel openly — OpenStreetMap by survey, stage files in
+GPX 1.1, GeoJSON (RFC 7946) and KML 2.3, an OGC API – Features
+service for partners when one asks; hosts travel one at a time, by a
+`geo:` link (RFC 5870) in the map's click, or in one traveler's
+journey file from the Curator — never in bulk, never in OSM, never
+in the API. Six decisions open (D-1 to D-6), among them OI-P10.
+
 * * *
 
 ## 3. The First Corridor
@@ -848,6 +860,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.37 — 2026-10-09 — the open-data specification v0.1 recorded.
 - v0.36 — 2026-10-09 — the Appalachian Trail in the white paper, v0.5.
 - v0.35 — 2026-10-09 — the module map adopted, all six points;
   white paper v0.4; language tags and WCAG 2.2 AA implemented.
