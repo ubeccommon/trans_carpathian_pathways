@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_37"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_38"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.37"
+version: "v0.38"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -469,6 +469,14 @@ service for partners when one asks; hosts travel one at a time, by a
 `geo:` link (RFC 5870) in the map's click, or in one traveler's
 journey file from the Curator — never in bulk, never in OSM, never
 in the API. Six decisions open (D-1 to D-6), among them OI-P10.
+Its development and build open in their own conversation, on
+Michel's word the same day, from
+`docs/prompts/TCP_OPEN_DATA_START_PROMPT_v0_1.md`: six gates — the
+decisions and two facts (the MapServer version, the click's
+template); the `geo:` link; the export tool and validator on
+invented data; the stages stored and published after Gate 4; the
+API on a partner's need; a guide for OpenStreetMap mappers after
+Gate 4.
 
 * * *
 
@@ -860,6 +868,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.38 — 2026-10-09 — the starting prompt for the open-data work.
 - v0.37 — 2026-10-09 — the open-data specification v0.1 recorded.
 - v0.36 — 2026-10-09 — the Appalachian Trail in the white paper, v0.5.
 - v0.35 — 2026-10-09 — the module map adopted, all six points;
