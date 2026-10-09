@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_21"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_22"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.21"
+version: "v0.22"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -176,6 +176,32 @@ open (T-1 to T-12), for Michel's word. Two bear on other
 documents: T-10, the corridors cannot draw on a host's place while
 the agreement's §5 says "for nothing else"; and the proposal that
 its §5 become the one list of principles (project review D-6).
+
+**The white paper — Michel's word, October 9, 2026.** A
+comprehensive review of the project's documents and in-depth
+background research, written as a white paper for readers outside
+the project: `docs/whitepaper/`, English first, built to one A4 PDF
+by `build/build_whitepaper.py` in the proposal's styles (24 pages,
+81 numbered sources). Research in four strands the same day: the
+region's pressures in figures (property, tourist tax, livestock,
+displaced people, Svydovets, Runa, the C8 declaration's text,
+accession and the Polish and Romanian land precedents); comparable
+initiatives (Via Transilvanica, Via Dinarica, the Czech and Slovak
+clubs, Bergsteigerdörfer, ADEPT, the Camino's donativo, Fairbnb)
+with their lessons; the legal frame (Procedure 297 for hosting from
+the home, the five-kilometre border strip and the 31st detachment's
+order, advisories, data law in both jurisdictions, the tour-product
+and package-travel definitions); and the theory (High Nature Value
+grassland evidence, IUCN V, UNESCO's continuing landscape, ubuntu
+and its critics, Ostrom, CARE, staged authenticity, elite capture).
+Checked by a separate agent against the documents and the sources:
+24 findings, all taken in — among them that the paper must not
+present the draft agreement's proposals (no ratings, no commission,
+money reported at each gate, no open licence) as decided, and that
+Gate 1 is passed in fact but not yet closed in §8 (review D-1,
+still open). Appendix A records that proposal v0.3 is due (D-2,
+D-3, D-4, D-6). The legal strand's "needs a lawyer" list is in the
+paper's §9 and bears on the two legal reads the agreement names.
 
 * * *
 
@@ -522,6 +548,9 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.22 — 2026-10-09 — the white paper v0.1, Michel's word:
+  documents reviewed, four research strands, 24-page PDF, checked
+  by a separate agent.
 - v0.21 — 2026-10-09 — the reasoning document v0.1, Michel's word:
   why now, corridors of stewardship, the principles with their
   reasons, tensions T-1 to T-12.
