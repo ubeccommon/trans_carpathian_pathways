@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_38"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_39"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.38"
+version: "v0.39"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -478,6 +478,26 @@ invented data; the stages stored and published after Gate 4; the
 API on a partner's need; a guide for OpenStreetMap mappers after
 Gate 4.
 
+**Open data, the facts and Gate B — Michel's word, October 9,
+2026.** Plai's MapServer is 8.6.5, built with `OGCAPI_SERVER`
+(his `mapserv -v` on the host), so an API on a partner's need asks
+no upgrade, only configuration; no mapfile enables OGC API today,
+which MapServer then refuses. The click is MapServer's HTML
+template, written from `instance.meta entry_info_fields`,
+`_labels` and `_html`; until now it served no geometry in any
+format. D-1 to D-6 and the starting prompt's other questions are
+still open. Michel opened Gate B: built in mapservice as
+`plai/006` (`967c94c`, its prompt v0.85, README v0.44) — the click
+on a published place carries "Open in your map app", labelled
+"Location", second after the name, a `geo:` link (RFC 5870, with
+Android's `q=` for a pin) to the published point to seven
+decimals; `verify` and the leak pass prove it is the point,
+latitude first, to 2 cm, and on published places only. Proven
+locally (`verify plai vt` 101 of 101, the leak pass's six new
+checks passing). Left: the host run, Michel's look on a phone —
+on iPhones a `geo:` link opens only an app that claims the scheme
+— and then the user manual's §6 in both languages.
+
 * * *
 
 ## 3. The First Corridor
@@ -868,6 +888,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.39 — 2026-10-09 — open data: the two facts, and Gate B built
+  in mapservice (`plai/006`), proven locally.
 - v0.38 — 2026-10-09 — the starting prompt for the open-data work.
 - v0.37 — 2026-10-09 — the open-data specification v0.1 recorded.
 - v0.36 — 2026-10-09 — the Appalachian Trail in the white paper, v0.5.
