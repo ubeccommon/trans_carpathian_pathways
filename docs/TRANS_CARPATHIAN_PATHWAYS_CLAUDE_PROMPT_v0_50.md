@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_49"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_50"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.49"
+version: "v0.50"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -600,15 +600,24 @@ v0.4 and the diagrams; PDFs rebuilt. Left as they were:
 "traveler" where a text speaks of travel in general (the
 critique of extractive travel, travel advisories), of the
 literature (Goodwin & Santilli), of other projects (Via
-Transilvanica) or quotes the law; Plai's screen label "If you
-host travelers", which the manual and the host-fields spec
-quote — changing it is a mapservice change, open for his word;
+Transilvanica) or quotes the law;
 the reviews, which are dated records; and every changelog. The
 deck in Claude's Slides and the handout's Claude doc are their own
 copies and follow the repository. Still open: whether the project
 says outright that it borrows no one's faith (T-3, white paper
 §12). Not yet heard: the name said aloud in the corridor, to
 Vasyl Yuskiv and the first hosts.
+
+**The pilgrim in Plai's form — Michel's word, October 10, 2026.**
+The one screen that still said "traveler" — the host group's
+heading in Plai's form — now reads "If you host pilgrims":
+mapservice `750dbf4`, Plai's entries scheme v0.10, its prompt
+v0.91. A label only; no column, list or check changes. The full
+name stays off the form, where the plai would read as the map.
+Carried here into the manual v0.6 (both languages) and the
+host-fields specification v0.6. Not yet on the host: `render`,
+`cache:clear`, the user copy made again and exported — and the
+manual's Figure 6, which still shows the old heading, retaken.
 
 * * *
 
@@ -1031,6 +1040,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.50 — 2026-10-10 — the pilgrim in Plai's form: mapservice
+  `750dbf4`, "If you host pilgrims".
 - v0.49 — 2026-10-10 — the project overview: the Kosiv handout and
   deck rewritten as an overview of the whole project, in
   `docs/overview/`, with a LibreOffice copy of the deck.

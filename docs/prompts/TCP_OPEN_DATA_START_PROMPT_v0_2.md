@@ -61,7 +61,7 @@ planner (Gate 5 of the project), anything a Curator holds off Plai.
      `docs/reviews/TRANS_CARPATHIAN_PATHWAYS_STRESS_TESTS_v0_1.md`,
      stress test two, scenario A, "The scraper" — what this work
      must not make easier;
-   - `docs/specs/PLAI_HOST_FIELDS_SPEC_v0_5.md` and
+   - `docs/specs/PLAI_HOST_FIELDS_SPEC_v0_6.md` and
      `docs/reviews/UBEC_MAPSERVICE_STATE_REVIEW_v0_1.md` — how a
      Plai change is specified, built and proven;
    - the user manual, `docs/manual/Plai_User_Manual_EN.md`, §6 —

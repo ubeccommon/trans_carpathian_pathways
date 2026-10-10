@@ -1,11 +1,12 @@
 ---
 title: "Plai — User Manual (EN)"
-version: "v0.5"
+version: "v0.6"
 date: "October 2026"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
 changelog:
+  - "v0.6 — 2026-10-10 — Plai's form now heads the host group \"If you host pilgrims\" (mapservice 750dbf4, entries scheme v0.10); the heading and Figure 6's caption follow. The screenshot still shows the old heading until it is retaken."
   - "v0.5 — 2026-10-10 — Michel's word, October 10: whoever walks is the Pilgrim of the Plai, not the traveler: *pilgrims* in the manual's own text. Plai's screen label \"If you host travelers\" is quoted as it stands, and the heading and figure that name it keep it."
   - "v0.4 — 2026-10-09 — Michel's word: a host may place the point at a nearby meeting place and then says so in the description; the curator checks that the point is where the host chose to be found; a published point may be copied, and withdrawal removes it from Plai, not from copies."
   - "v0.3 — 2026-10-08 — Michel's screenshots of the landing page, the login page, the toolbar, My places and the form, in both languages; required fields are outlined in red on screen; Select by current extent only."
@@ -113,11 +114,11 @@ Required fields are outlined in red on screen until they are filled in; the form
 
 The type says what the place is; the category says what it is mainly for. A farm (type) may be mainly about food and produce (category) and still offer a bed to pilgrims, which goes below.
 
-### If you host travelers
+### If you host pilgrims
 
 Leave this part empty if you do not host anyone.
 
-<figure class="shot half"><img src="img/06_form_host.png" alt=""><figcaption>Figure 6. If you host travelers: the offers, how many people, and how you are paid.</figcaption></figure>
+<figure class="shot half"><img src="img/06_form_host.png" alt=""><figcaption>Figure 6. If you host pilgrims: the offers, how many people, and how you are paid.</figcaption></figure>
 
 | Field | What to put |
 | --- | --- |

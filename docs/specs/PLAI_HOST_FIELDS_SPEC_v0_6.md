@@ -1,9 +1,9 @@
 ---
-title: "PLAI_HOST_FIELDS_SPEC_v0_5"
+title: "PLAI_HOST_FIELDS_SPEC_v0_6"
 subtitle: "What a Plai point carries for Trans-Carpathian Pathways"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.5"
+version: "v0.6"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -323,7 +323,7 @@ already covers it.
 **Entrant's scheme** (`mapbender/instances/plai/entries.yaml`):
 the twelve columns join `fields`; "Category" keeps its place and
 is titled "Category — what this place mainly is" (Q7); after
-"Offering", a group headed "If you host travelers":
+"Offering", a group headed "If you host pilgrims":
 
 - `offers` — select, `multiple: true`, from `entry_offer`;
 - per offer, `capacity_<offer>` — input `type: number`, min 1,
@@ -400,6 +400,9 @@ stage planner (Gate 5).
 * * *
 
 *Changelog*
+- v0.6 — 2026-10-10 — the group's heading reads "If you host
+  pilgrims" (mapservice `750dbf4`, entries scheme v0.10), on
+  Michel's word; nothing else changed.
 - v0.5 — 2026-10-08 — on the host and seen working end to end on
   Michel's look: a workshop host published, ochre to the public,
   the click carrying the twenty fields. Gate 2 closed on his word.
