@@ -4,7 +4,8 @@ A living network of hosts, a pathway that grows from where they
 are, and Curators who hold each stretch of it, across the
 Carpathian arc. First corridor: Vorokhta, Verkhovyna and Kosiv in
 the Hutsul highlands of western Ukraine. Initiated by UBEC (Ubuntu
-Bioregional Economic Commons), led by Michel Garand.
+Bioregional Economic Commons), led by Michel Garand, and Zhyva
+Khata, led by Vasyl Yuskiv.
 
 The project runs on Plai, the Carpathian hub instance of UBEC
 Mapservice (`ubeccommon/ubec_mapservice`). It does not own that
@@ -16,6 +17,7 @@ there, as Plai migrations in `ubec_mapservice`.
 | Path | What it holds |
 | --- | --- |
 | `docs/TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v*.md` | The starting prompt, latest version: load order, decisions, open items. Source of truth. |
+| `docs/IMPLEMENTATION_PLAN_v*.md`, `_UK_v*.md` | The project in one page and the step-by-step plan with to-do lists, in English and Ukrainian, and the bilingual PDF (`build/build_plan.py`) |
 | `docs/DECISIONS_CHECKLIST_v*.md` | The questions put to Michel, one line each, with his answers and the document each changed; what is still open |
 | `docs/TRANS_CARPATHIAN_PATHWAYS_REASONING_v*.md` | Why the project exists: the pressures it answers, the vision of corridors of stewardship, the reason behind each principle, and the tensions still open |
 | `docs/whitepaper/` | The white paper for readers outside the project — the case, the evidence, regeneration against sustainable development, and the design, with its sources — in English and Ukrainian, its three diagrams in both languages, and the bilingual PDF built from them |

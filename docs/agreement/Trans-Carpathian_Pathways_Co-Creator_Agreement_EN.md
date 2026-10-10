@@ -1,12 +1,13 @@
 ---
 title: "Trans-Carpathian Pathways — Co-Creator Agreement (EN)"
-version: "v0.3"
+version: "v0.4"
 date: "October 2026"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
 status: "draft for Michel's word — not yet for signing; A-2, A-5 and A-6 open, A-4 with the core body"
 changelog:
+  - "v0.4 — 2026-10-10 — Michel's word, October 10: the project is initiated by two — UBEC, led by Michel Garand, and Zhyva Khata, led by Vasyl Yuskiv; the initiator line replaced. Nothing else changed."
   - "v0.3 — 2026-10-09 — Michel's answers to the decisions checklist: A-1 Michel personally until a core body is formed, which will hold the instance, the marks and the controller role; A-3 closed, payment direct; A-4 passes to the body, today no second person; A-7 closed, hosts sign on paper; the Curator is not a gatekeeper and travelers may come directly (S-1); ubec-pay kept and defined, contribution defined (S-3, S-16, Claude's wording for his word); a host who places their point at a meeting place says so in the place's information (S-4); withdrawal removes a point from Plai, not from copies (S-14); Plai holds no confidential information, the permit regime is public, the stage register (S-8, S-15); the Curator keeps an overview of carrying capacity (S-6); a hold beyond 30 days carries a written reason (S-17); a minimal incident record (S-13); travelers responsible for their own preparation (S-5); the first corridor's co-creators decide Phase 2 and the corridor gets a partnership note (S-18); a public list of partners from the start (S-19); Curators and stewards paid roles once financing is secured (S-16)."
   - "v0.2 — 2026-10-08 — the Ukrainian text added and one PDF in both languages (Michel's word); §5 corrected: the data sits in Plai's own database, apart from every other project's, not in one of this project's own."
   - "v0.1 — 2026-10-08 — initial draft, Michel's word: a co-creator agreement for every role that builds the project. Read against starting prompt v0.16, proposal v0.2, user manual v0.1 and Plai at mapservice 67ae732; follows the project review v0.1. Seven open items for Michel."
@@ -32,7 +33,7 @@ Where something is not yet decided, this text says so, in the list "Open before 
 
 Trans-Carpathian Pathways is a living network of hosts, a pathway that grows from where they are, and the people who hold each stretch of it, across the Carpathian arc. Its first corridor runs through the Hutsul highlands of western Ukraine, from Vorokhta through Verkhovyna to Kosiv.
 
-It is initiated by UBEC, the Ubuntu Bioregional Economic Commons, and led by Michel Garand. It runs on Plai, the Carpathian map of UBEC Mapservice, on UBEC's own server in Germany.
+Initiated by UBEC (Ubuntu Bioregional Economic Commons), led by Michel Garand, and Zhyva Khata, led by Vasyl Yuskiv. It runs on Plai, the Carpathian map of UBEC Mapservice, on UBEC's own server in Germany.
 
 The person who answers for the project, and for the data held on Plai, is Michel Garand, reached at **stewardship@ubec.network** — personally, until a core body is formed, which is planned for the near future. That body will hold the Plai instance, the project's name and marks, and the role of controller of the data, and this agreement will then name it. *(Michel's word, October 9, 2026; A-1.)*
 

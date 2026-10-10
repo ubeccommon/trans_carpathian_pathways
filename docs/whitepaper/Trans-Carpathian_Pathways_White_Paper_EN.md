@@ -1,12 +1,13 @@
 ---
 title: "Trans-Carpathian Pathways — White Paper (EN)"
-version: "v0.5"
+version: "v0.6"
 date: "October 2026"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
 status: "draft for Michel's word — English first, Ukrainian once it settles"
 changelog:
+  - "v0.6 — 2026-10-10 — Michel's word, October 10: the project is initiated by two — UBEC, led by Michel Garand, and Zhyva Khata, led by Vasyl Yuskiv; §11's line on the legal body names both. Nothing else changed."
   - "v0.5 — 2026-10-09 — Michel's word: the Appalachian Trail added to §7 as the eighth case — MacKaye's 1921 vision, the federation of maintaining clubs, the corridor and its landowners — with three rows in the lessons table and sources 91–93."
   - "v0.4 — 2026-10-09 — Michel's word (the module map v0.1, §6): the society *Plai* of 1924 named in §6.2 as the precedent for Plai's name, with source 90 under a new heading, History. S-24's \"no v0.4 now\" is superseded for this change on his word; nothing else changed."
   - "v0.3 — 2026-10-09 — Michel's word: the regeneration approach woven in and set against sustainable development, with three diagrams (build/diagrams_whitepaper.py, docs/whitepaper/assets/, both languages): a new §5 \"From sustaining to regenerating\"; the summary, §4.2, the signs of success and the ask carry it; sources 82–89. The former §5–§12 are now §6–§13 — reviews that cite v0.1 or v0.2 use the old numbers."
@@ -314,7 +315,7 @@ Honesty about the stage is part of the design. On October 9, 2026:
 
 **What exists.** The proposal in English and Ukrainian; a user manual for entrants and curators in both languages with the screens as they are; a co-creator agreement for every role — host, steward, Curator, traveler, contributor, partner initiative, funder, administrator — in both languages, as a draft with seven items open; a reasoning document; and, on Plai, the Carpathian base map, the entry surface with consent as columns, the host fields, hosts drawn in their own colour to the public, the photo, the agreement tick on every entry, and a published place clicked in a browser carrying every host field. Gates 0 and 2 — decisions, host fields — are closed on dated record; Gate 1, Plai in a browser, was passed in fact by the browser look of October 8 recorded under Gate 2, though the prompt's own line still reads "pending".
 
-**What does not exist.** Any host, steward or Curator by name; any real account. Backups with an off-host copy, which is the service's own condition for the first real account. A mailer, so a forgotten password is reset by the administrator. A legal body: "UBEC" initiates every document but neither tree names its legal form, and the controller of every host's data is today the project lead personally. Any budget figure. The software is ahead of the agreements between people — the right order for a map, since the consent model had to be proven before anyone was asked to trust it — and Gate 3, the first hosts, is the first gate whose work is a promise made to a person.
+**What does not exist.** Any host, steward or Curator by name; any real account. Backups with an off-host copy, which is the service's own condition for the first real account. A mailer, so a forgotten password is reset by the administrator. A legal body: the documents name the two initiators, UBEC and Zhyva Khata, but neither tree names a legal form for the project, and the controller of every host's data is today the project lead personally. Any budget figure. The software is ahead of the agreements between people — the right order for a map, since the consent model had to be proven before anyone was asked to trust it — and Gate 3, the first hosts, is the first gate whose work is a promise made to a person.
 
 **The risks the project has named for itself**, in its own review: one person holds everything, in wartime, and a deputy administrator with a second copy of the backup key is proposed and not yet named; no legal body; the shape of the project turns on how payment passes; hosts' own obligations under tax and martial law; wartime knowledge held by Curators with a written duty of confidence only in the draft agreement; a home at its exact point is safe only as an informed choice; paid roles with no terms yet; people in photographs and stories.
 

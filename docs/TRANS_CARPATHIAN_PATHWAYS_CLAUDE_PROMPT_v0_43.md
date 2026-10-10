@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_42"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_43"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.42"
+version: "v0.43"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -519,6 +519,28 @@ the corridor) and the bilingual PDF
 (`docs/IMPLEMENTATION_PLAN_EN-UK.pdf`, from `build/build_plan.py`,
 which reads the latest version of each text).
 
+**The initiators — Michel's word, October 10, 2026.** The
+project is initiated by two: "Initiated by UBEC (Ubuntu
+Bioregional Economic Commons), led by Michel Garand, and Zhyva
+Khata, led by Vasyl Yuskiv." In Ukrainian: «Ініціатори — UBEC
+(Ubuntu Bioregional Economic Commons) під керівництвом Мішеля
+Ґарана (Michel Garand) та «Жива хата» (Zhyva Khata) під
+керівництвом Василя Юськіва (Vasyl Yuskiv).» — the Ukrainian
+spelling of both names is Claude's, for Vasyl's word. Replaced
+wherever an initiator was named: the README; the agreement v0.4
+§1 and the proposal v0.4 (summary table and "How to take part"),
+both languages; the white paper v0.6 §11, whose line on the legal
+body now names both; the implementation plan v0.2 §1; the site's
+landing page v0.3. PDFs rebuilt. Unchanged, for his word: who
+answers for the project and holds the data (A-1, Michel
+personally until the core body); the byline "UBEC / Carpathian
+Hub Initiative" on every cover and opener; the tensions that say
+the map was built by an initiative led by one person (reasoning
+T-5, white paper §12); Zhyva Khata's place in the agreement and
+the core body. Plai still links and records agreement v0.3
+(`plai/005`); asking for v0.4 there is a mapservice change of its
+own.
+
 * * *
 
 ## 3. The First Corridor
@@ -909,6 +931,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.43 — 2026-10-10 — the initiators: UBEC and Zhyva Khata.
 - v0.42 — 2026-10-10 — the implementation plan in Ukrainian, and its
   PDF.
 - v0.41 — 2026-10-10 — the implementation plan v0.1 recorded.
