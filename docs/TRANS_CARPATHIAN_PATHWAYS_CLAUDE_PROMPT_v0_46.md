@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_45"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_46"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.45"
+version: "v0.46"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -920,8 +920,16 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
   and render draws relief, contour lines (100 m labelled, 20 m
   between from 1:25,000) and the height of forest and buildings
   (off by default) on Plai. A WMS or WCS from elsewhere was not
-  taken: a picture carries no heights. Checked on synthetic
-  rasters only; not yet on the host.
+  taken: a picture carries no heights. On the host the same
+  morning (mapservice prompt v0.90, `44a56ba`): GEDTM30 turned out
+  to be in metres though its files state a scale of 0.1, which the
+  first run trusted; `terrain.py` v0.2 proves the unit against
+  Copernicus, and surface minus ground now averages 5.9 m. Michel's
+  look above Verkhovyna: contours 800 to 1,100 m below Synytsi
+  (1,186 m), the relief clear through the forest. Plai's user copy
+  carries the three layers; the leak pass passes every terrain
+  check. Open: the height of a point in the click, and the stage
+  planner's ascent, from the same ground file.
 - **OI-P10** — Route licence: computed and unstored, or stored
   under ODbL in `instance_sa`. §6.
 - **OI-P11** — The Phase 3 country list: the proposal names seven
@@ -954,6 +962,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.46 — 2026-10-10 — the terrain on Plai, closed on the host.
 - v0.45 — 2026-10-10 — the terrain built in mapservice
   (`6bed2e0`), not yet on the host.
 - v0.44 — 2026-10-10 — elevation: two DEMs, GEDTM30 for the
