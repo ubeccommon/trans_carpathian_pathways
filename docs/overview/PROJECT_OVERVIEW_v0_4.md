@@ -1,9 +1,9 @@
 ---
-title: "PROJECT_OVERVIEW_v0_3"
+title: "PROJECT_OVERVIEW_v0_4"
 subtitle: "Trans-Carpathian Pathways — project overview"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.3"
+version: "v0.4"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -22,18 +22,18 @@ Trans-Carpathian Pathways is a network of local hosts who share what they actual
 
 The project is meant for the whole Carpathian arc and begins with one corridor, from **Vorokhta through Verkhovyna to Kosiv** in the Hutsul highlands. The project is initiated by **UBEC** (Ubuntu Bioregional Economic Commons), led by Michel Garand, and **Zhyva Khata**, led by Vasyl Yuskiv.
 
-It runs on **Plai**, an open-source, consent-controlled map of the whole Carpathian range that UBEC already operates on its own server in the European Union. There is no booking platform, no rating and no commission: payment is the host's to set, and every host owns their own entry.
+It runs on **Plai**, an open-source, consent-controlled map of the whole Carpathian range that UBEC already operates on its own server in the European Union. There is no booking platform, no rating and no commission: payment is the host's to set and passes directly from pilgrim to host, and every host owns their own entry.
 
 ## Why now
 
 The Carpathians are being re-valued from outside faster than from within, while the people who hold the Hutsul way of life grow older.
 
-- **Property.** An average house was listed at about 1.9 million hryvnia in Kosiv and 1.8 million in Verkhovyna in October 2025, against 11.7 million in Polianytsia, the hromada of Bukovel ([Zaxid.net](https://zaxid.net/budinok_v_karpatah_skilki_koshtuye_i_vid_chogo_zalezhit_tsina_n1620372)). The gap is what makes the corridor attractive to buyers.
+- **Property.** An average house was listed at about 1.9 million hryvnia in Kosiv and 1.8 million in Verkhovyna in October 2025, against 11.7 million in Polianytsia, the hromada in which Bukovel lies ([Zaxid.net](https://zaxid.net/budinok_v_karpatah_skilki_koshtuye_i_vid_chogo_zalezhit_tsina_n1620372)). The gap is the pressure the corridor now faces.
 - **Visitors.** Oblast tourist-tax receipts rose from 10.4 million hryvnia in 2021 to 46.2 million in 2025 ([oblast tourism department](https://speakerdeck.com/iftourism/turizm-ivano-frankivskoyi-oblasti2025)).
 - **The land.** Cattle in private households of Ivano-Frankivsk oblast fell from 109,500 in 2021 to 76,000 in 2024 ([Suspilne](https://suspilne.media/ivano-frankivsk/968067-ak-na-frankivsini-zmensuetsa-ciselnist-koriv-statistika-z-1991-roku/)). The polonynas were made by mowing and grazing and degrade when that stops.
 - **Policy.** The Carpathian Eight declaration of September 2026 commits to cultural landscapes, the traditional way of life of mountain communities and shared cultural and tourist routes ([declaration](https://www.president.gov.ua/en/news/deklaraciya-samitu-karpatskoyi-integracijnoyi-iniciativi-106445)). Of its 90 listed projects, worth $10.7 billion, energy accounts for $7.28 billion ([Kyiv Post](https://www.kyivpost.com/post/84863)). Culture has a sentence; it does not yet have an instrument.
 
-The mountains are also being re-inhabited. Kosiv holds more than a hundred craft workshops ([ReHERIT](https://reherit.org.ua/wp-content/uploads/2020/08/Kosiv_profil-spadshhyny_REHERIT.pdf)); Kosiv painted ceramics are on UNESCO's intangible heritage list since 2019 ([UNESCO](https://ich.unesco.org/en/RL/tradition-of-kosiv-painted-ceramics-01456)); and 5,702 displaced people were registered in the Kosiv hromada by March 2025 ([Suspilne](https://suspilne.media/ivano-frankivsk/977307-u-akih-gromadah-ivano-frankivsini-zivut-najbilse-pereselenciv/)). Pathways stands with this second movement.
+The mountains are also being re-inhabited. Kosiv holds more than a hundred craft workshops ([ReHERIT](https://reherit.org.ua/wp-content/uploads/2020/08/Kosiv_profil-spadshhyny_REHERIT.pdf)); Kosiv painted ceramics are on UNESCO's intangible heritage list since 2019 ([UNESCO](https://ich.unesco.org/en/RL/tradition-of-kosiv-painted-ceramics-01456)); and families and newcomers are coming to learn and live the Hutsul way of life. Pathways stands with this second movement. The mountains also receive people the war has driven from home — 5,702 were registered in the Kosiv hromada by March 2025 ([Suspilne](https://suspilne.media/ivano-frankivsk/977307-u-akih-gromadah-ivano-frankivsini-zivut-najbilse-pereselenciv/)) — a hardship the hromadas carry with them, not a choice of a way of life.
 
 ## How it works
 
@@ -82,16 +82,16 @@ Each refusal guards against the ways community tourism has failed elsewhere.
 - **No commission.** The project, its Curators and stewards take no share of what a pilgrim pays a host.
 - **No staged tradition.** The encounter is real or it is nothing.
 - **No one speaks for a community.** A host speaks for their own place, a Curator for what they publish, the project for itself.
-- **No data sold, lent or tracked.** Each person decides what is shown, field by field, and can withdraw at any time.
+- **No data sold, lent or tracked.** Each person decides whether their contact details and photo are shown, and can withdraw their place at any time.
 
 ## Working in wartime, within the law
 
 The pilot begins in Ukraine during the war, and is designed around that fact. This is not legal advice; the white paper (§10) gives the sources.
 
 - **The border strip.** Within five kilometres of the state line, leaving a village for forest or polonyna needs a border-guard permit. No stage there is suggested until the permit route is held in writing.
-- **Pilgrims from abroad.** Western governments advise against travel to Ukraine. Each pilgrim reads their own government's advice and arranges what insurance they can; the Curator briefs them honestly before they come.
-- **Hosting from home.** Up to thirty places may be let without registering a business (Cabinet Procedure 297). Each host answers for their own tax; the project takes no money and sells no tourist product.
-- **Data.** Held on UBEC's own server in Germany under the GDPR, by explicit consent field by field, and handed to no one unless the law compels it.
+- **Pilgrims from abroad.** Western governments advise against travel to Ukraine. Each pilgrim reads their own government's advice and arranges what insurance they can; the Curator briefs those who come through the Curator honestly before they come.
+- **Hosting from home.** Under Cabinet Procedure 297 an owner of up to thirty places may host without registering a business, provided they declare the income, keep a guest register, report to the local authority and meet sanitary norms; how the tourist tax applies is still to be confirmed. Each host answers for their own tax and registrations; the project takes no money, and whether its shape needs any licence is for the Ukrainian legal read.
+- **Data.** Held on UBEC's own server in Germany. Contact details and the photo are shown only by the host's own tick; nothing is handed to anyone unless the law compels it. Which data-protection law governs the project is the first legal read.
 
 Two legal reads come first: data protection before the first real account, and Ukrainian tourism and tax law before the first pilgrim.
 
@@ -117,7 +117,7 @@ The project keeps its tensions in view rather than resolving them on paper; the 
 
 - **The map against “no performance”.** A pin that says “workshop” invites its host to become what the pin says.
 - **Paid, but not a transaction.** What makes a contribution different from a price, in words host and pilgrim both recognise.
-- **The Curator's power.** The memory of the path also decides who appears on it. How a Curator is chosen, and what a host passed over can do, are open.
+- **The Curator's power.** The memory of the path also decides who appears on it. The first Curator is the project lead, named before the first hosts; the core body decides thereafter, and later Curators are named by all co-creators. What a host passed over can do is open.
 - **The map as a buyer's guide.** In a rising market, old houses at exact points are a scouting list. A host may place their point at a nearby meeting place instead.
 - **Enough.** How many pilgrims a village can receive before encounter becomes throughput.
 - **Begun from outside.** The map was built by an initiative led by one person. What passes to the corridor, and when, is the question Phase 2 must answer.
@@ -144,9 +144,9 @@ The project needs people on the ground first and software second, because the ma
 1. **People in the mountains.** Hosts, pathway stewards and a first Curator in the corridor; and the questions a village would want answered before any of its people appear on a map.
 2. **Partners along the arc.** A corridor in another country, in its own language, under the same commitments on data, consent, safety and money, with the right to leave with its data.
 3. **Funders.** A small planning-and-legal grant first, then the pilot. Funding gives no say over what is published or which journeys are suggested, and no access to hosts' or pilgrims' data; what came in and how it was spent is reported at each gate.
-4. **Communities and institutions.** Not endorsement but attention: a reading, the names of people who already host, teach, herd or mow, and a place for Pathways as one concrete form of the cultural landscapes and shared routes that the Carpathian Eight and the Carpathian Convention name — heard as the places of named hosts, never as what a community wants.
+4. **Communities and institutions.** Not endorsement but attention: a reading, word passed to people who already host, teach, herd or mow that the project exists and how to reach it, so that they decide for themselves whether to come forward, and a place for Pathways as one concrete form of the cultural landscapes and shared routes that the Carpathian Eight and the Carpathian Convention name — heard as the places of named hosts, never as what a community wants.
 
-The documents, the code and the record of every decision are open.
+The documents published for review and the code are open under their licences; every decision is written down with its date, and the record is shared with those who take part.
 
 ## Contact
 
@@ -159,6 +159,7 @@ The white paper and proposal are available in English and Ukrainian on request. 
 * * *
 
 *Changelog*
+- v0.4 — 2026-10-10 — the public-drafts stress tests (docs/reviews/PUBLIC_DRAFTS_STRESS_TESTS_v0_1.md), corrections taken in: payment direct, Bukovel's hromada and the buyers line, the displaced apart from the second movement, data and consent stated as they are, hosts' conditions under Procedure 297, the Curator's choosing (S-9), the councils asked to pass word rather than names, the record described as it is. The deck's slides and its LibreOffice copy follow.
 - v0.3 — 2026-10-10 — Michel's word: the presentation is not for Kosiv; it presents the project, which is not only Kosiv, as an honest, comprehensive and concise overview. Renamed from the Kosiv handout and moved from `docs/kosiv/` to `docs/overview/`. "What it can mean for Kosiv" replaced by "Across the arc"; "Working in wartime, within the law", "What we have not solved" and "How we will know" added; "Still to come" became "Not yet", stating that no host is named, one person holds everything and the budget is not decided; the asks of the Department became asks of people in the mountains, partners, funders, and communities and institutions. Carries the Pilgrim of the Plai (prompt v0.48). The roadmap, a drawing in the doc, is a table here.
 - v0.2 — 2026-10-10 — the Pilgrim of the Plai, on Michel's word (prompt v0.48).
 - v0.1 — 2026-10-10 — initial, on Michel's word: a handout for the presentation to the Department of Culture and Tourism in Kosiv, English first. Drawn from the white paper v0.6 and the implementation plan v0.2; figures carry the sources the white paper gives. The roadmap, a drawing in the doc, is a table here.

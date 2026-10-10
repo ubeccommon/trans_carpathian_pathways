@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_REASONING_v0_2"
+title: "TRANS_CARPATHIAN_PATHWAYS_REASONING_v0_3"
 subtitle: "Why the project exists, and the reasons behind its principles"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.2"
+version: "v0.3"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -53,8 +53,8 @@ border on the arc.
 ## 2. Why Now — Two Forces
 
 *Michel's direction, October 9, 2026. The figures are sourced at
-the end; what has no source is stated as Michel's observation from
-living in the corridor.*
+the end; what has no source is stated as Michel's observation in
+the region.*
 
 ### The first force: the mountains re-valued from outside
 
@@ -79,9 +79,10 @@ within.
   mountain land to buyers who have never walked it. (Michel's
   observation; an expectation, not yet a measured effect.)
 - **The arc as a political region.** In September 2026 Ukraine
-  launched the Carpathian Eight with Romania, Serbia, Poland,
-  Slovakia, Czechia, Austria, Hungary and the European Union as a
-  whole, at a first summit in Bukovel. Its stated agenda is
+  launched the Carpathian Eight, counting Romania, Serbia, Poland,
+  Slovakia, Czechia, Austria and Hungary with the European Union,
+  at a first summit in Bukovel; six states signed its
+  declaration, and Hungary says it is not a member. Its stated agenda is
   security, energy, logistics and cross-border trade, and support
   for the region's communities; more than half of the fifty
   agreements signed there concerned solar and wind power. Cultural
@@ -120,8 +121,8 @@ voice of those who stand to gain; it is the same story all over
 the world. An example from the record: a report from the Yasinia
 and Ust-Chorna communities says local leaders and residents still
 hope for the Svydovets resort, for its taxes — without saying
-which residents were asked — and in turn says the plaintiffs
-against it were sawmill owners protecting their logging. Each side
+which residents were asked — and in turn casts the resort's
+opponents as serving logging interests. Each side
 says the other's community voice is a cover for interests.
 
 So the question is put in every direction: to a project's
@@ -389,8 +390,9 @@ OI-P13); no figure on the map; no commission and no fee for
 sending pilgrims (agreement §8). *Open:* what makes a
 contribution different from a price, in words a host and a
 pilgrim would both recognise; and why gift, the fifth form, was
-not among the four — Michel's reason to be written. How payment
-passes stays open (OI-P13, A-3).
+not among the four — Michel's reason to be written. *Decided,*
+October 9, 2026: payment passes directly from pilgrim to host
+(OI-P13, A-3 closed).
 
 **T-3 — Pilgrimage, to what?** There is no shrine, and the Hutsul
 region has real places of religious pilgrimage. *Answered in part
@@ -401,12 +403,14 @@ whether the project says plainly that it borrows no one's faith.
 
 **T-4 — The Curator's power.** The Curator publishes, suggests
 journeys and holds safety knowledge: the memory of the path, and
-also the gatekeeper of who appears on it. *Already answers:* the
+also the one who decides who appears on it. *Already answers:* the
 Curator never changes an entrant's answers, takes nothing from
 hosts, and hands everything on when leaving; disputes go to the
 Curator, then the lead, then a mediator (agreement §4, §8, §12).
-*Open:* how a Curator is chosen and by whom, and what a host
-passed over can do.
+*Decided,* October 9, 2026 (S-9): the first Curator is Michel,
+named before the first hosts; the core body decides thereafter,
+and later Curators are named by all co-creators. *Open:* what a
+host passed over can do.
 
 **T-5 — Organic growth that began from outside.** UBEC built the
 map before there were hosts, and the project is led by one person.
@@ -419,21 +423,26 @@ opens (agreement §4). *Open:* what passes to the corridor and when
 solidarity, income where it is needed, witness. Against: risk to
 guests, burden on hosts, a host's home made visible. *Already
 answers:* safety held by the Curator; alerts first; anyone may
-stop; pilgrims briefed (agreement §7). *Open:* OI-P12 — what the
-project says to a pilgrim from abroad, and who says it.
+stop; pilgrims briefed (agreement §7). *Decided,* October 9, 2026
+(OI-P12): a pilgrim from abroad prepares at home, and the Curator
+repeats it to those who come through the Curator. *Open:* whether
+to invite pilgrims from abroad at all while the war lasts.
 
 **T-7 — Enough.** How many pilgrims a host, or a village, can
 receive before the encounter turns into throughput. *Already
 answers:* capacity per offer on every host point; the Curator
-suggests only hosts with room. *Open:* a limit for a village or a
-stretch, and when the pathway refuses to grow.
+suggests only hosts with room; *decided,* October 9, 2026 (S-6),
+no fixed ceiling, and the Curator keeps an overview of the
+carrying capacity of each host, each stretch and the pathway.
+*Open:* when the pathway refuses to grow.
 
 **T-8 — The map as a buyer's guide.** In a rising market, a map of
 old houses with elderly owners, each at its exact point, is also a
 scouting list for buyers. This is new context bearing on OI-P7,
 not a reopening of it. *Already answers:* a host may place their
-point at a meeting place (agreement §7). *Open:* whether the
-Curator says this to every host before publishing, in these words.
+point at a meeting place (agreement §7). *Decided,* October 9,
+2026 (S-4): it is the host's own choice, and the Curator proposes
+nothing.
 
 **T-9 — Newcomers: learners and buyers.** The people who leave the
 cities to learn the Hutsul way of life are the hope of the second
@@ -531,6 +540,14 @@ Read October 9, 2026.
 * * *
 
 *Changelog*
+- v0.3 — 2026-10-10 — the public-drafts stress tests
+  (docs/reviews/PUBLIC_DRAFTS_STRESS_TESTS_v0_1.md): the decisions
+  of October 9 carried into T-2, T-4, T-6, T-7 and T-8; the
+  Carpathian Eight's signatories; the Yasinia report's claim
+  attributed rather than repeated. Not yet ready for publication:
+  the authorship notes, and the reason for OI-P7 still unwritten
+  in §5.
+- v0.2 — 2026-10-10 — the Pilgrim of the Plai: T-3 and §4.
 - v0.1 — 2026-10-09 — initial, from a conversation with Michel:
   his direction on the two forces, who speaks for a community, and
   corridors of stewardship that are not wilderness; the principles

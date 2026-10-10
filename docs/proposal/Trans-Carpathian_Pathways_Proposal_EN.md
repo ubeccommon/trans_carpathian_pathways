@@ -1,11 +1,12 @@
 ---
 title: "Trans-Carpathian Pathways — Proposal (EN)"
-version: "v0.5"
+version: "v0.6"
 date: "October 2026"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
 changelog:
+  - "v0.6 — 2026-10-10 — the public-drafts stress tests (docs/reviews/PUBLIC_DRAFTS_STRESS_TESTS_v0_1.md), corrections taken in: the host fields moved to what is in place, Plai's English screens said plainly, the corridor table without \"the first known hosts\" and with Kosiv's ceramics, distances, each instance its own database, the border rules for those who come directly, how to recognise the project, hosts' own tax duty, the existing guest-receiving tradition acknowledged, the budget's authorship note and decision dates. Nothing decided changed."
   - "v0.5 — 2026-10-10 — Michel's word, October 10: whoever walks is the Pilgrim of the Plai, not the traveler: the name in the summary and in \"Who it serves\", with the plai glossed; *pilgrim* in running text; the network diagram's label. Nothing else changed."
   - "v0.4 — 2026-10-10 — Michel's word, October 10: the project is initiated by two — UBEC, led by Michel Garand, and Zhyva Khata, led by Vasyl Yuskiv; the initiator line replaced. Nothing else changed."
   - "v0.3 — 2026-10-09 — the four drifts of the project review (D-2 the pathway steward; D-3 a Curator or steward may enter for a host; D-4 the contact address; D-6 one list of principles, the reasoning document's) and Michel's decisions of October 9: payment passes directly; the Curator is not a gatekeeper; a host who places the point at a meeting place says so; Curators and stewards paid roles once financing is secured; a budget recommendation and a pilot length, Claude's for his word; the white paper and the agreement named."
@@ -42,9 +43,9 @@ We are looking for people to take part: hosts, stewards and Curators in the corr
 
 Two problems meet in the Carpathians, and they share one answer: genuine encounter between a traveler and a place.
 
-**Travel has become extraction.** Travelers move through places without touching them. Hosts perform hospitality instead of sharing it. The meeting between a person and a place, which is what travel was once for, has become a transaction.
+**Travel is more and more often extraction.** Travelers move through places without touching them, and most of the money they leave goes to people who do not live there. The meeting between a person and a place, which is what travel was once for, more and more often becomes a transaction.
 
-**Mountain communities are thinning out.** Across the Carpathian arc, villages face depopulation, the loss of traditional knowledge and economic marginalisation. A way of life that took centuries to build is disappearing quietly. The people who still keep it are rarely on any tourist map, and they do not advertise.
+**Mountain communities are thinning out.** Across the Carpathian arc, villages face depopulation, the loss of traditional knowledge and economic marginalisation. A way of life that took centuries to build is disappearing quietly. Guests have long been received in the Hutsul highlands — in farmsteads, on the polonynas, in workshops — and the project does not start from nothing. But many of those who keep the old way of life are on no tourist map, and they do not advertise.
 
 A pilgrim who sleeps under someone's roof, eats at their table and learns how something is made leaves money and attention where they are needed. A host who shares what they actually have, without performing it, gains a reason and a means to keep it.
 
@@ -85,21 +86,21 @@ The pathway holds anyone ready to slow down, for an afternoon or a month. Whoeve
 
 **Hosts** gain a fair, direct connection to pilgrims who come for what they actually offer, without needing to market themselves.
 
-**Communities** gain income that stays local, and a reason for younger people to see value in knowledge that is otherwise being lost.
+**Communities** can gain income that stays local, and a reason for younger people to see value in knowledge that is otherwise being lost.
 
 **Stewards and Curators**, usually local people, gain a recognised role as keepers of their stretch of the path and of the whole.
 
 ## The pilot corridor
 
-The prototype runs through the Hutsul highlands of western Ukraine, one of the most culturally dense and naturally intact stretches of the Carpathian arc. Three towns anchor it:
+The prototype runs through the Hutsul highlands of western Ukraine, one of the most culturally rich stretches of the Carpathian arc, where meadows are still mown and grazed. Three towns anchor it:
 
 | Place | What it holds |
 | --- | --- |
-| Vorokhta | Mountain gateway: forest, river, a traditional Hutsul settlement |
-| Verkhovyna | High-pasture country and the first known hosts |
-| Kosiv | Centre of Hutsul craft: the market, weavers and woodcarvers |
+| Vorokhta | Mountain gateway: forest, the Prut, the way up to Chornohora |
+| Verkhovyna | High-pasture country: polonynas, herding and cheese |
+| Kosiv | Centre of Hutsul craft: the Saturday market, ceramics, weaving and woodcarving |
 
-The three are roughly 25 km apart as the crow flies, so the corridor is a walk of several days. The exact route, its stages and its intermediate villages will be set by the hosts who join and confirmed by walking it, not drawn in advance.
+Each town is about 25 km from the next as the crow flies, some 50 km in all, so the corridor is a walk of several days. The exact route, its stages and its intermediate villages will be set by the hosts who join and confirmed by walking it, not drawn in advance.
 
 Work in the corridor during the pilot:
 
@@ -111,7 +112,7 @@ Work in the corridor during the pilot:
 
 ## Technical foundation
 
-The project does not start from zero: its map platform already exists. Plai is the Carpathian hub of UBEC Mapservice, an open-source map service that UBEC runs on its own server in Germany, under EU jurisdiction, built on PostgreSQL/PostGIS, MapServer and Mapbender.
+The project does not start from zero: its map platform already exists. Plai is the Carpathian hub of UBEC Mapservice, an open-source map service that UBEC runs on its own server in Germany, built on PostgreSQL/PostGIS, MapServer and Mapbender.
 
 **In place today**
 
@@ -119,14 +120,15 @@ The project does not start from zero: its map platform already exists. Plai is t
 - An entry surface where a person places a point exactly where they mean it and describes it: a name, a type of place, a category of offering, what is offered, and contact details.
 - Consent built into the database: the entrant agrees, field by field, to what may be shown; a curator decides what is published; withdrawn entries leave every map and export.
 - One photo per place, cleaned of location and camera data before it is stored, and shown only where the entrant has agreed and a curator has chosen to show it.
-- Safeguards set before anything goes public: each project gets its own database, data licences are enforced by the database, and every public endpoint is tested for leaks.
+- Host details: one place with a list of offers, months open, capacity, languages, how the place is reached and the forms of payment the host accepts, built and tested in October 2026; and a tick on every entry that its maker has read the co-creator agreement.
+- Safeguards set before anything goes public: each instance of the map service, Plai among them, has its own database, data licences are enforced by the database, and every public endpoint is tested for leaks.
 - Full export at any time, so no community depends on UBEC to keep its own data.
+- Plai's screens are in English for now; until they are translated, a host who does not read English is helped by the Curator or a steward, beside them or entering the place for them with their agreement.
 
 **To be built for Pathways**
 
 | Piece | What it does |
 | --- | --- |
-| Host details | More than one offer per host, season, capacity, languages spoken, accessibility, how the host is paid |
 | Local languages | Entry forms in Ukrainian first, then Polish, Slovak, Romanian and others |
 | Stage planner | A tool for the Curator that proposes daily stages between hosts by walking time and ascent |
 
@@ -161,11 +163,12 @@ The pilot begins in Ukraine during the war, and the project is designed around t
 
 - **The host places the point.** A place, a home included, is shown where its host puts it on the map — or where the Curator or a steward put it with the host's agreement — and only once the Curator has published it. A host may place the point at a nearby meeting place instead of the house, and then says so in the place's information. The host can withdraw it at any time; a point once published may have been copied, and withdrawal removes it from Plai, not from copies.
 - **Contact details are gated.** A name, email, phone number or photo is published only where the host has agreed and the Curator has chosen to show it.
-- **The Curator holds safety knowledge, off the platform.** The nearest shelter during air-raid alerts and the current state of each stage are kept with the Curator, never on Plai and never published; the rules of the border zone near the Romanian border are public law and are told to every pilgrim in writing.
+- **The Curator holds safety knowledge, off the platform.** The nearest shelter during air-raid alerts and the current state of each stage are kept with the Curator, never on Plai and never published; the rules of the border zone near the Romanian border are public law: the Curator gives them in writing to every pilgrim who comes through the Curator, and the project publishes them for anyone who comes directly.
 - **Pilgrims are responsible for their own preparation.** A pilgrim from abroad informs themselves, in their own country, about travel advisories, insurance, martial law, cash and the permits the border zone requires; the project tells them what it knows and promises no more.
+- **Nobody pays the project.** Nobody from Trans-Carpathian Pathways — the lead, a Curator or a steward — asks for money in advance, a deposit, a password, or a passport or a copy of it. A pilgrim pays the host, as they agreed. The project writes only from stewardship@ubec.network; anyone else who claims to speak for it is not the project.
 - **Data is held in the EU,** on UBEC's own server, separate from any other project's data.
 
-A pilot that works under these conditions will work anywhere on the arc.
+What the pilot learns under these conditions is meant to serve the corridors that follow.
 
 ## Roadmap
 
@@ -184,14 +187,14 @@ Support for the pilot would go to people on the ground first and software second
 | Host outreach | Finding and visiting hosts, explaining the project, sitting with them while they enter their details |
 | Curator and stewards | Paid roles for the first Curator and the first stewards during the pilot, under written arrangements once a financing plan is secured |
 | Walking the corridor | Test journeys, documentation, safety assessment of each stage |
-| Development | Host details, local-language forms, stage planner |
+| Development | Local-language forms, the stage planner if needed, other Plai changes |
 | Translation | Interface and project materials in Ukrainian and later other Carpathian languages |
 | Hosting and security | Server, backups and the safeguards that keep host data private |
 | Legal | The two legal reads — data protection in Germany, tourism and tax law in Ukraine — and the forming of the core body |
 
-How a host is paid is settled: each host chooses, for each offer, among a fixed contribution, a suggested contribution, exchange of work, and ubec-pay or a community currency; and payment passes directly from pilgrim to host — the project, its Curators and its stewards hold no money for stays and take no share (decided October 9, 2026). The co-creator agreement says what each of these means.
+How a host is paid is settled: each host chooses, for each offer, among a fixed contribution, a suggested contribution, exchange of work, and ubec-pay or a community currency; and payment passes directly from pilgrim to host — the project, its Curators and its stewards hold no money for stays and take no share (the forms decided October 7, how payment passes October 9, 2026). The co-creator agreement says what each of these means. By law a payment for a bed or a meal is income whatever it is called: each host declares it and keeps a guest register under Cabinet Procedure 297, and how the tourist tax applies is to be confirmed with the hromada before the first pilgrim.
 
-**A budget, recommended.** The figures below are Claude's recommendation for Michel's word, not yet a decision: a pilot of eighteen months from the first hosts, so that the corridor is walked in two seasons, at about €25,700.
+**A budget, recommended.** The figures below are a recommendation, not yet a decision: a pilot of eighteen months from the first hosts, so that the corridor is walked in two seasons, at about €25,700.
 
 | Area | Eighteen months | Note |
 | --- | --- | --- |
@@ -203,7 +206,7 @@ How a host is paid is settled: each host chooses, for each offer, among a fixed 
 | Translation and materials | €1,500 | |
 | Hosting and security | €900 | server, backups, domain |
 | Legal | €4,000 | the two reads; forming the core body |
-| Contingency | €2,300 | ten per cent |
+| Contingency | €2,300 | about ten per cent |
 | **Total** | **about €25,700** | |
 
 The pay figures assume local rates in the corridor and should be checked against them; the legal figures assume two short written opinions. Nothing is budgeted for hosts' income, software for pilgrims, or a second corridor, which the stress tests say should wait until the first corridor has been walked and its record published.

@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_52"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_53"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.52"
+version: "v0.53"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -160,7 +160,7 @@ the curator see.
 
 **The reasoning — Michel's word, October 9, 2026.** Why the
 project exists and the reasons behind its principles, in
-`docs/TRANS_CARPATHIAN_PATHWAYS_REASONING_v0_2.md`, English first,
+`docs/TRANS_CARPATHIAN_PATHWAYS_REASONING_v0_3.md`, English first,
 Ukrainian once it settles. His direction, recorded there: the two
 forces — the mountains re-valued from outside (tourism and
 property, energy on the high meadows, EU accession, the Carpathian
@@ -462,7 +462,7 @@ from consent. Sources 91–93.
 **Open data for pilgrims' apps — Michel's question, October 9,
 2026.** Can pilgrims carry Plai's places and the pathways into
 their own apps (Organic Maps and others), and which standards? The
-specification, for his word: `docs/specs/PATHWAYS_OPEN_DATA_SPEC_v0_2.md`.
+specification, for his word: `docs/specs/PATHWAYS_OPEN_DATA_SPEC_v0_3.md`.
 Three kinds of data: the pathway (OSM-derived, ODbL) and places
 nobody hosts travel openly — OpenStreetMap by survey, stage files in
 GPX 1.1, GeoJSON (RFC 7946) and KML 2.3, an OGC API – Features
@@ -550,7 +550,7 @@ word, the presentation is not for Kosiv: it presents the project,
 which is not only Kosiv, as an honest, comprehensive and concise
 overview, English first, Ukrainian to follow. Both were rewritten
 and moved from `docs/kosiv/` to `docs/overview/`. The handout,
-`docs/overview/PROJECT_OVERVIEW_v0_3.md`, is drawn from the white
+`docs/overview/PROJECT_OVERVIEW_v0_4.md`, is drawn from the white
 paper and the implementation plan and decides nothing: in brief,
 why now (with the white paper's sources), how it works,
 regeneration against sustainable development, across the arc (the
@@ -621,6 +621,39 @@ copy's form, his look, the copy exported (mapservice `43d2cae`,
 recorded in its prompt v0.92). The manual's Figures 5 and 6
 retaken from the form by Michel the same evening, both showing
 the new heading; manual v0.7.
+
+**The drafts for public review, stress-tested — Michel's word,
+October 10, 2026.** Asked which drafts could be made public for
+review, Claude named the white paper, the proposal, the co-creator
+agreement and the project overview, with the reasoning and the
+open-data specification after a light edit; the partners' lists,
+the reviews, the prompts, the checklist and the plan stay
+private. On his word, three stress tests of those six were run the
+same evening by separate agents — the corridor reader, the hostile
+reader, the fact-checker — and are recorded with every finding and
+what was done with it in
+`docs/reviews/PUBLIC_DRAFTS_STRESS_TESTS_v0_1.md`. Their common
+finding: the drafts were behind the decisions of October 9. The
+corrections were taken in on his word: white paper v0.8, proposal
+v0.6, agreement v0.6, overview v0.4 (the doc, the deck and its
+LibreOffice copy too), reasoning v0.3, open-data specification
+v0.3, manual v0.8 (the password line); PDFs rebuilt. Among them:
+S-14's corridor consent drafted at last in agreement §5 and as an
+optional tick; the three D-6 principles in the agreement's list;
+the record described as it is, the repository being private;
+how to recognise the project, and that nobody from it asks for
+money in advance, a password or a passport; the deputy as not yet
+named; the border rules for those who come directly; the Bukovel
+forgery case kept apart from the resort's owners and NGO figures
+attributed; the toloka, the polonynas, the displaced and the
+newcomer reworded; «господиня» named. Nothing Michel decided was
+changed. Twenty-five decisions are put to him in the review's §5,
+eight of them before the drafts go out: the Ukrainian name, a
+reading in the corridor, the record, the test of the concept, the
+first Curator, the backups line, no ratings, and the agreement
+version Plai records. The texts now say that the documents
+published for review are on the project's site, which holds only
+once they are.
 
 * * *
 
@@ -899,7 +932,9 @@ Added here:
   find: shelter, the state of each stage, alerts — off the
   platform. **Plai holds no confidential information** (Michel's
   word, October 9, 2026, S-15). The border-zone rules are public
-  law and are told to every pilgrim in writing.
+  law: the Curator gives them in writing to every pilgrim who
+  comes through the Curator, and the project publishes them for
+  anyone who comes directly.
 - **The Curator is not a gatekeeper** (Michel's word, October 9,
   2026, S-1): pilgrims may find a published host and go
   directly; pilgrims are responsible for their own preparation
@@ -1043,6 +1078,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.53 — 2026-10-10 — the drafts for public review stress-tested;
+  the corrections taken in; twenty-five decisions put to Michel.
 - v0.52 — 2026-10-10 — the manual's Figures 5 and 6 retaken with
   the new heading; manual v0.7.
 - v0.51 — 2026-10-10 — the pilgrim in Plai's form, closed on the

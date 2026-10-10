@@ -1,11 +1,12 @@
 ---
 title: "Plai — User Manual (EN)"
-version: "v0.7"
+version: "v0.8"
 date: "October 2026"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
 changelog:
+  - "v0.8 — 2026-10-10 — a forgotten password is reset only after the request is confirmed with its owner, as agreement v0.6 says; nobody from the project asks for a password (public-drafts stress tests)."
   - "v0.7 — 2026-10-10 — Michel's screenshots of the form taken again the same evening: Figure 5 (the top of the form, over the map with its relief and contours) and Figure 6 (the host group under its new heading, \"If you host pilgrims\"), cropped and without metadata. The text unchanged."
   - "v0.6 — 2026-10-10 — Plai's form now heads the host group \"If you host pilgrims\" (mapservice 750dbf4, entries scheme v0.10); the heading and Figure 6's caption follow. The screenshot still shows the old heading until it is retaken."
   - "v0.5 — 2026-10-10 — Michel's word, October 10: whoever walks is the Pilgrim of the Plai, not the traveler: *pilgrims* in the manual's own text. Plai's screen label \"If you host travelers\" is quoted as it stands, and the heading and figure that name it keep it."
@@ -57,7 +58,7 @@ Plai's screens are in English for now. This manual quotes every button and field
 
 **Your session lasts one hour.** After an hour without logging in again, Plai asks you to sign in, and anything you had not saved is lost. Save before you step away.
 
-**A forgotten password.** The login page offers "Forgot password?", but the service sends no email yet. Write to stewardship@ubec.network instead, and the administrator will set a new password for you.
+**A forgotten password.** The login page offers "Forgot password?", but the service sends no email yet. Write to stewardship@ubec.network instead; the administrator confirms the request with you in person or through your Curator before setting a new password. Nobody from the project will ever ask you for your password.
 
 ## 2. The map page
 

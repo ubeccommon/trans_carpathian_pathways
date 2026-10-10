@@ -101,14 +101,14 @@ function statSlide(bg, sec, eyebrow, title, stats, numColor, cardFill, cardLine,
   s.addNotes(notes);
 }
 statSlide(C.cream, S2, "Why now", "The mountains are being re-valued from outside", [
-  ["6.5×", "A house in Polianytsia, Bukovel's hromada, against one in Verkhovyna (Oct 2025)"],
+  ["6.5×", "A house in Polianytsia, where Bukovel lies, against one in Verkhovyna (Oct 2025)"],
   ["×4.4", "Tourist-tax receipts in Ivano-Frankivsk oblast, 2021 to 2025"],
   ["1.5 GW", "Wind power proposed on Zakarpattia's high ridges, Svydovets among them"],
   ["+690%", "Polish farmland prices over the 12-year transition after joining the EU"],
 ], C.red, C.card, C.border,
   "The Carpathian Eight commits to cultural landscapes and shared cultural routes, yet energy is 68% of its listed project value. Culture has a sentence; it does not yet have an instrument.",
   "Sources: Zaxid.net; oblast tourism department; CEE Bankwatch; Bórawski et al. 2019; Kyiv Post · 03", C.muted,
-  "An average house was listed at about 11.7 million hryvnia in Polianytsia against 1.8 million in Verkhovyna in October 2025: that gap is what makes the corridor attractive to buyers. Oblast tourist-tax receipts rose from 10.4 million hryvnia in 2021 to 46.2 million in 2025. Wind farms are proposed on the high meadows, and the Svydovets mega-resort would cover 1,430 hectares. Accession will in time open Ukraine's land to buyers from across the Union; Poland and Romania show what that did. At the September 2026 summit, energy was 7.28 of the 10.7 billion dollars of listed projects. None of this is an argument against energy or work in the mountains; it is an argument that the mountains' future is being decided quickly, and mostly by people who will not live in them.");
+  "An average house was listed at about 11.7 million hryvnia in Polianytsia against 1.8 million in Verkhovyna in October 2025: that gap is the pressure the corridor now faces. Oblast tourist-tax receipts rose from 10.4 million hryvnia in 2021 to 46.2 million in 2025. Wind farms are proposed on the high meadows, and the Svydovets mega-resort would cover 1,430 hectares. Accession will in time open Ukraine's land to buyers from across the Union; Poland and Romania show what that did. At the September 2026 summit, energy was 7.28 of the 10.7 billion dollars of listed projects. None of this is an argument against energy or work in the mountains; it is an argument that the mountains' future is being decided quickly, and mostly by people who will not live in them.");
 statSlide(C.sand, S2, "Not wilderness", "The meadows were made, and people keep them", [
   ["−31%", "Cattle in private households of Ivano-Frankivsk oblast, 2021 to 2024"],
   ["100+", "Craft workshops in Kosiv; its painted ceramics on UNESCO's list since 2019"],
@@ -290,9 +290,9 @@ gridSlide(S4, "Guards", "What the project will not do", [
   const w = 816, H = 250;
   [
     ["The border strip", "Within 5 km of the state line, leaving a village needs a border-guard permit. No stage there until the permit route is held in writing."],
-    ["Pilgrims from abroad", "Western governments advise against travel. Each pilgrim reads their own advice; the Curator briefs them honestly first."],
-    ["Hosting from home", "Up to 30 places may be let without a business (Procedure 297). Each host answers for their own tax."],
-    ["Data", "Held in Germany under the GDPR, by explicit consent field by field; handed to no one unless the law compels it."],
+    ["Pilgrims from abroad", "Western governments advise against travel. Each pilgrim reads their own advice; the Curator briefs those who come through the Curator."],
+    ["Hosting from home", "Up to 30 places without a business, if the host declares the income and keeps a guest register (Procedure 297)."],
+    ["Data", "Held in Germany; contacts and photo shown only by the host's tick; handed to no one unless the law compels it."],
   ].forEach(([h3, p], i) => {
     const x = 128 + (i % 2) * (w + 32), y = 290 + Math.floor(i / 2) * (H + 24);
     card(s, x, y, w, H, C.cream, C.border2);
@@ -301,7 +301,7 @@ gridSlide(S4, "Guards", "What the project will not do", [
   });
   t(s, "Two legal reads come first: data protection before the first real account, tourism and tax law before the first pilgrim.", { x: 128, y: 850, w: 1600, h: 80, size: 26, color: C.navy, lh: 1.4 });
   footer(s, "Not legal advice; sources in the white paper, §10 · 12", C.muted2);
-  s.addNotes("The pilot begins in Ukraine during the war, and is designed around that fact rather than despite it. The curfew in Ivano-Frankivsk oblast runs from midnight to five; during an air-raid alert a journey pauses. In Verkhovyna raion, a border-detachment order restricts routes to Pip Ivan, Pozhyzhevska and Lake Brebeneskul. A host may register as a sole proprietor instead; whether serving meals needs a food registration is a grey zone. A payment for a bed is income whatever it is called, which is why the project takes no money and sells no tourist product. The case for inviting pilgrims at all, solidarity, income and witness, and the case against, risk to guests and a home made visible, are both real.");
+  s.addNotes("The pilot begins in Ukraine during the war, and is designed around that fact rather than despite it. The curfew in Ivano-Frankivsk oblast runs from midnight to five; during an air-raid alert a journey pauses. In Verkhovyna raion, a border-detachment order restricts routes to Pip Ivan, Pozhyzhevska and Lake Brebeneskul. Each host answers for their own tax and registrations, and may register as a sole proprietor instead; whether serving meals needs a food registration is a grey zone. A payment for a bed is income whatever it is called, which is why the project takes no money and means to sell no tourist product; whether its shape needs any licence, and which data-protection law governs it, are the first legal reads. The case for inviting pilgrims at all, solidarity, income and witness, and the case against, risk to guests and a home made visible, are both real.");
 }
 
 // 13 & 15 — two-column cards with lists
@@ -380,9 +380,9 @@ twoCol(C.cream, S6, "How we will know", "Success is not counted in pilgrims", [
     t(s, h3, { x: x + 92, y, w: w - 92, h: 50, size: 36, serif: true, color: C.navy });
     t(s, p, { x: x + 92, y: y + 60, w: w - 92, h: 130, size: 26, color: C.body, lh: 1.45 });
   });
-  t(s, "Everything is open: the documents, the code and the record of every decision.", { x: 128, y: 760, w: 1600, h: 44, size: 26, color: C.body });
+  t(s, "Open under their licences: the documents and the code. Every decision is written down with its date.", { x: 128, y: 760, w: 1600, h: 44, size: 26, color: C.body });
   footer(s, "Trans-Carpathian Pathways · 16", C.muted2);
-  s.addNotes("The pilot asks people on the ground first and software second, because the map already exists. Funding pays for finding and visiting hosts, a paid first Curator under a written arrangement, walking the corridor, the two legal reads, translation and hosting. A funder gets an open account at each gate, but no say over what is published or which journeys are suggested, and no access to hosts' or pilgrims' data. We also seek technical contributors. Communities: not endorsement but attention, a reading, and the names of people who already host, teach, herd or mow. Ukraine holds the presidency of the Carpathian Convention after its eighth conference at the end of 2026. Documents are under CC BY-SA 4.0 and code under AGPL-3.0, in the repository ubeccommon/trans_carpathian_pathways.");
+  s.addNotes("The pilot asks people on the ground first and software second, because the map already exists. Funding pays for finding and visiting hosts, a paid first Curator under a written arrangement, walking the corridor, the two legal reads, translation and hosting. A funder gets an open account at each gate, but no say over what is published or which journeys are suggested, and no access to hosts' or pilgrims' data. We also seek technical contributors. Communities: not endorsement but attention, a reading, and word passed to people who already host, teach, herd or mow that the project exists, so that they decide for themselves whether to come forward. Ukraine holds the presidency of the Carpathian Convention after its eighth conference at the end of 2026. Documents are under CC BY-SA 4.0 and code under AGPL-3.0; those published for review are on the project's site, and the record of decisions is shared with those who take part.");
 }
 
 // 17 — close
