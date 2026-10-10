@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_40"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_41"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.40"
+version: "v0.41"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -501,6 +501,19 @@ Michel's look on a phone —
 on iPhones a `geo:` link opens only an app that claims the scheme
 — and then the user manual's §6 in both languages.
 
+**The implementation plan — Michel's word, October 10, 2026.**
+A document with a very concise summary and description of the
+project whose main theme is an implementation plan — a
+step-by-step guide with to-do lists:
+`docs/IMPLEMENTATION_PLAN_v0_1.md`. The project in one page;
+eight steps from the open decisions through the body, the stack,
+the money, the test stretch, Gate 3, Gate 4, the record and open
+data, to Phase 2, each a to-do list with state (done, in
+progress, to do), holder and what it waits on; the dates from the
+long list; what not to do on the way; the next thirty days in
+order. It decides nothing and is corrected as gates close; a
+conversation that closes a gate ticks the plan too.
+
 * * *
 
 ## 3. The First Corridor
@@ -891,6 +904,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.41 — 2026-10-10 — the implementation plan v0.1 recorded.
 - v0.40 — 2026-10-09 — Gate B on the host: verify 98 of 98, the
   leak pass 525 of 525.
 - v0.39 — 2026-10-09 — open data: the two facts, and Gate B built
