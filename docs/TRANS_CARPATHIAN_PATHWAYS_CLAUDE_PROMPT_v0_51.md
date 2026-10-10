@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_50"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_51"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.50"
+version: "v0.51"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -615,9 +615,11 @@ mapservice `750dbf4`, Plai's entries scheme v0.10, its prompt
 v0.91. A label only; no column, list or check changes. The full
 name stays off the form, where the plai would read as the map.
 Carried here into the manual v0.6 (both languages) and the
-host-fields specification v0.6. Not yet on the host: `render`,
-`cache:clear`, the user copy made again and exported — and the
-manual's Figure 6, which still shows the old heading, retaken.
+host-fields specification v0.6. Closed on the host the same
+evening, Michel's run: rendered, the heading changed in the user
+copy's form, his look, the copy exported (mapservice `43d2cae`,
+recorded in its prompt v0.92). Still to come: the manual's Figure
+6, which shows the old heading, retaken from the form.
 
 * * *
 
@@ -1040,6 +1042,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.51 — 2026-10-10 — the pilgrim in Plai's form, closed on the
+  host (mapservice `43d2cae`).
 - v0.50 — 2026-10-10 — the pilgrim in Plai's form: mapservice
   `750dbf4`, "If you host pilgrims".
 - v0.49 — 2026-10-10 — the project overview: the Kosiv handout and
