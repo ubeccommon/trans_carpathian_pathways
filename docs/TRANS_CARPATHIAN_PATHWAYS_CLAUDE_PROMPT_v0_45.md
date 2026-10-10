@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_44"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_45"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.44"
+version: "v0.45"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -912,7 +912,16 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
   project's tables; FABDEM and FathomDEM set aside for their
   non-commercial licence; vertical datums checked before
   differencing; the layers themselves are Mapservice's change,
-  needed for the map from Gate 3, not Gate 5. §6.
+  needed for the map from Gate 3, not Gate 5. §6. Built in
+  `ubec_mapservice` on Michel's "commit and build" as `6bed2e0`
+  (its prompt v0.87): `tools/terrain.py` fetches both onto one
+  30 m grid in EPSG:3035 for the Ukrainian Carpathians (22.1 to
+  26.0 E, 47.7 to 49.6 N, about 0.75 GB on the host's `/data`),
+  and render draws relief, contour lines (100 m labelled, 20 m
+  between from 1:25,000) and the height of forest and buildings
+  (off by default) on Plai. A WMS or WCS from elsewhere was not
+  taken: a picture carries no heights. Checked on synthetic
+  rasters only; not yet on the host.
 - **OI-P10** — Route licence: computed and unstored, or stored
   under ODbL in `instance_sa`. §6.
 - **OI-P11** — The Phase 3 country list: the proposal names seven
@@ -945,6 +954,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.45 — 2026-10-10 — the terrain built in mapservice
+  (`6bed2e0`), not yet on the host.
 - v0.44 — 2026-10-10 — elevation: two DEMs, GEDTM30 for the
   ground and Copernicus GLO-30 for the surface; OI-P9 closed.
 - v0.43 — 2026-10-10 — the initiators: UBEC and Zhyva Khata.
