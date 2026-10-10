@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_48"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_49"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.48"
+version: "v0.49"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -542,31 +542,37 @@ the core body. Plai still links and records agreement v0.3
 (`plai/005`); asking for v0.4 there is a mapservice change of its
 own.
 
-**The presentation in Kosiv — Michel's word, October 10, 2026.**
+**The project overview — Michel's word, October 10, 2026.**
 Michel has the chance to present the project to the Department of
-Culture and Tourism in Kosiv, and asked for a handout and a
-presentation, English first, Ukrainian to follow. The handout,
-`docs/kosiv/KOSIV_HANDOUT_v0_2.md`, is drawn from the white paper
-v0.6 and the implementation plan v0.2 and decides nothing: the
-project in brief, why now (with the white paper's sources), how it
-works, regeneration against sustainable development, what it can
-mean for Kosiv, what it will not do, where it stands, and four asks
-of the Department — a reading, introductions (each person decides
-for themselves; no one is chosen for them), local guidance on home
-hosting, meals and the tourist tax, and a place in the community's
-cultural-route planning and its contact with the Carpathian Eight
-and the Convention — attention and counsel, not endorsement. Its
-editable copy is a Claude doc of the same title. The presentation
-is a twelve-slide deck with speaker notes, made in Claude's Slides;
-its source is kept in `docs/kosiv/deck/` (`deck.json` and one
-`slides/<id>.html` per slide). The cover's background is Michel's
-image *Day 70 — warm wind on the path*
-(`docs/kosiv/deck/assets/`, the SVG as given and a 1920×1080 PNG
-from it); in the slide it is referenced by the deck's own asset
-address. Basic faces only (Georgia, Verdana), by the font rule. Not
-yet: the UBEC logo on the cover; a contact for Vasyl Yuskiv; the
-Ukrainian texts; a PDF of either, which each exports from its own
-page.
+Culture and Tourism in Kosiv. A handout and a presentation were
+first written for that audience (prompt v0.47); the same day, on his
+word, the presentation is not for Kosiv: it presents the project,
+which is not only Kosiv, as an honest, comprehensive and concise
+overview, English first, Ukrainian to follow. Both were rewritten
+and moved from `docs/kosiv/` to `docs/overview/`. The handout,
+`docs/overview/PROJECT_OVERVIEW_v0_3.md`, is drawn from the white
+paper and the implementation plan and decides nothing: in brief,
+why now (with the white paper's sources), how it works,
+regeneration against sustainable development, across the arc (the
+three phases; corridors only from consent), what it will not do,
+working in wartime and within the law, where it stands (in place;
+not yet — no host named, one person holds everything, the budget
+proposed, not decided), what is not solved, how we will know, and
+what we ask of people in the mountains, partners, funders, and
+communities and institutions. Its editable copy is the Claude doc
+of the same title. The presentation is a seventeen-slide deck with
+speaker notes, made in Claude's Slides; its source is kept in
+`docs/overview/deck/` (`deck.json` and one `slides/<id>.html` per
+slide), and a LibreOffice copy,
+`docs/overview/Trans-Carpathian_Pathways_Overview.odp`, is built by
+`build/build_overview_odp.js` (pptxgenjs, then LibreOffice's
+converter) with the open DejaVu faces. The cover's background is
+Michel's image *Day 70 — warm wind on the path*
+(`docs/overview/deck/assets/`, the SVG as given and a 1920×1080 PNG
+from it); in the Slides deck it is referenced by the deck's own
+asset address. Both carry the Pilgrim of the Plai. Not yet: the
+UBEC logo on the cover; a contact for Vasyl Yuskiv; the Ukrainian
+texts.
 
 **The name for whoever walks — Michel's word, October 10, 2026.**
 Whoever comes on foot through the network is the **Pilgrim of
@@ -1025,6 +1031,9 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.49 — 2026-10-10 — the project overview: the Kosiv handout and
+  deck rewritten as an overview of the whole project, in
+  `docs/overview/`, with a LibreOffice copy of the deck.
 - v0.48 — 2026-10-10 — the Pilgrim of the Plai: the name for
   whoever walks, carried into every document.
 - v0.47 — 2026-10-10 — the handout and presentation for the
