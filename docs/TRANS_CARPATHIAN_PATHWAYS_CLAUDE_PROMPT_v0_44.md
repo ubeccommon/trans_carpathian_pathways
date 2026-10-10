@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_43"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_44"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.43"
+version: "v0.44"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -747,8 +747,12 @@ disposes. It never answers a traveler directly.
   languages, access.
 - The path network: OpenStreetMap footways, paths and tracks in
   `reference_sa.osm_line` (Plai's base map, already loaded).
-- Terrain: a DEM for ascent and descent (source and licence to
-  be recorded at load — OI-P9).
+- Terrain: two DEMs (OI-P9). Ground: GEDTM30 v1.2 (OpenGeoHub,
+  terrain model, 30 m, CC BY 4.0) for ascent, descent, contours
+  and point heights. Surface: Copernicus DEM GLO-30 (surface
+  model, 30 m) for the land as seen; surface minus ground is the
+  height of forest and buildings. Walked GNSS tracks from Gate 4
+  check both.
 - The request: start, end or loop; days; party (family, solo,
   couple, group); mode (walk, cycle, drive); month.
 
@@ -898,7 +902,17 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 - **OI-P8** — Closed, Michel's word, October 7, 2026: fixed
   contribution, suggested contribution, exchange of work, and
   `ubec-pay` or a community currency. §5.
-- **OI-P9** — DEM source and licence, at Gate 5 only.
+- **OI-P9** — Closed, Michel's word, October 10, 2026: two DEMs.
+  Ground: GEDTM30 v1.2, CC BY 4.0, cited as Ho et al. 2025,
+  PeerJ 13:e19673. Surface: Copernicus DEM GLO-30, shown with the
+  notice "produced using Copernicus WorldDEM-30 © DLR e.V.
+  2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided
+  under COPERNICUS by the European Union and ESA; all rights
+  reserved". Both shown at render time, never joined into a
+  project's tables; FABDEM and FathomDEM set aside for their
+  non-commercial licence; vertical datums checked before
+  differencing; the layers themselves are Mapservice's change,
+  needed for the map from Gate 3, not Gate 5. §6.
 - **OI-P10** — Route licence: computed and unstored, or stored
   under ODbL in `instance_sa`. §6.
 - **OI-P11** — The Phase 3 country list: the proposal names seven
@@ -931,6 +945,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.44 — 2026-10-10 — elevation: two DEMs, GEDTM30 for the
+  ground and Copernicus GLO-30 for the surface; OI-P9 closed.
 - v0.43 — 2026-10-10 — the initiators: UBEC and Zhyva Khata.
 - v0.42 — 2026-10-10 — the implementation plan in Ukrainian, and its
   PDF.
