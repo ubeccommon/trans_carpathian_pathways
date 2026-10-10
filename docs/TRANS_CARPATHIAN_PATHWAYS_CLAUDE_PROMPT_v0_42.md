@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_41"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_42"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.41"
+version: "v0.42"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -512,7 +512,12 @@ data, to Phase 2, each a to-do list with state (done, in
 progress, to do), holder and what it waits on; the dates from the
 long list; what not to do on the way; the next thirty days in
 order. It decides nothing and is corrected as gates close; a
-conversation that closes a gate ticks the plan too.
+conversation that closes a gate ticks the plan too. The same day,
+on his word, the Ukrainian text
+(`docs/IMPLEMENTATION_PLAN_UK_v0_1.md`, not yet read by anyone in
+the corridor) and the bilingual PDF
+(`docs/IMPLEMENTATION_PLAN_EN-UK.pdf`, from `build/build_plan.py`,
+which reads the latest version of each text).
 
 * * *
 
@@ -904,6 +909,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.42 — 2026-10-10 — the implementation plan in Ukrainian, and its
+  PDF.
 - v0.41 — 2026-10-10 — the implementation plan v0.1 recorded.
 - v0.40 — 2026-10-09 — Gate B on the host: verify 98 of 98, the
   leak pass 525 of 525.

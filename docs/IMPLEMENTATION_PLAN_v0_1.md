@@ -122,12 +122,14 @@ Steps 0 to 3 run in parallel now; 4 is running; 5 cannot open before 2's backups
 *Modules P1, P2, P3. Opens only after step 2's off-host backups and step 1's data-protection read; three to five hosts, entered by the route decided, one Curator named.*
 
 **Before the first visit**
+
 - ☐ Purge any test rows on Plai and run the full proof once more on an empty instance — the last time it can run there (state review F-3, review R-8). — Michel on the host
 - ☐ The Curator's kit on paper: the sign-on sheets in Ukrainian; the stage register, one sheet per stage; the border-strip rule written down, with the 31st detachment's permit route held in writing and done once before any stage near the ridge; the incident record's form; the overview of carrying capacity per host and stretch. — Michel as Curator
 - ☐ The "what we can show you" line for hosts, honest about demand: zero enquiries at Gate 3. — Michel
 - ☐ Introductions, not selection: ask the Association of Carpathian Vatahy, the Kosiv and Yavoriv craft centres and museums, Alliance of Development and the parks (I-1, I-5 to I-10) who already hosts, teaches, herds or mows — no partner chooses hosts or receives their names. — Michel
 
 **The visits**
+
 - ☐ Visit three to five people between Vorokhta and Kosiv; read the agreement with each; both sign the sheet; the host chooses where their point goes and whether it is a meeting place, and says so in the place's information. — the Curator
 - ☐ Make each host's account in Mapbender's backend (an email required); enter the place beside them, or enter it for them with their written agreement; the consent ticks field by field; the Curator publishes or holds. — the administrator, the Curator
 - ☐ Name the first stewards — walkers, trail markers, park staff or rescue volunteers — under written terms, paid (S-16); their `PLAI_STEWARD` accounts. — Michel
@@ -135,6 +137,7 @@ Steps 0 to 3 run in parallel now; 4 is running; 5 cannot open before 2's backups
 - ☐ Tell the funder, if there is one, what Gate 3 found: the open account. — Michel
 
 **Closing Gate 3**
+
 - ☐ Three to five hosts published, each able to withdraw; a Curator named; the stewards named; the leak pass through the public face passed with real rows on Plai. Closes on Michel's word.
 
 ### Step 6 — Gate 4: the corridor walked
