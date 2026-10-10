@@ -1,9 +1,9 @@
 ---
-title: "TCP_WEB_PRESENCE_START_PROMPT_v0_1"
+title: "TCP_WEB_PRESENCE_START_PROMPT_v0_2"
 subtitle: "Starting prompt — the project's presence on the web at tcp.ubec.network"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.1"
+version: "v0.2"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -139,10 +139,10 @@ bear on a public site directly, and the site must be built so that
 it does not reopen what they closed or pre-empt what waits on
 Michel's word:
 
-- **The bypass (S-1).** Every safety promise assumes a traveler
+- **The bypass (S-1).** Every safety promise assumes a pilgrim
   reaches a host through the Curator. The site therefore never
   lists, locates, pictures or links to a host. It says how a
-  traveler reaches the Curator, and that is the only door. Whether
+  pilgrim reaches the Curator, and that is the only door. Whether
   host points on Plai are public or logged-in during the pilot is
   S-1, Michel's decision, not the site's.
 - **Pathways™ (S-11, S-19).** The site is the first place the
@@ -152,7 +152,7 @@ Michel's word:
   decide, but the site states the licence on its documents (CC
   BY-SA) and the agreement's §6 line on the name.
 - **What the project can show (test 1).** The site does not
-  promise hosts an income or travelers a journey. It states the
+  promise hosts an income or pilgrims a journey. It states the
   stage: Gates 0 and 2 closed, no host yet by name, the agreement
   a draft. A page that reads as an open service misleads the first
   person who writes in.

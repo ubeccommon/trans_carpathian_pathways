@@ -1,7 +1,7 @@
 ---
 title: "tcp.ubec.network — the site"
-version: "v0.7"
-date: "2026-10-09"
+version: "v0.8"
+date: "2026-10-10"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -12,7 +12,7 @@ status: "Gate A record and the landing page; everything marked proposal waits on
 
 The project's own place on the web: a small, bilingual, static site
 that says what Trans-Carpathian Pathways is. Opened by
-`docs/prompts/TCP_WEB_PRESENCE_START_PROMPT_v0_1.md`. For now it is one
+`docs/prompts/TCP_WEB_PRESENCE_START_PROMPT_v0_2.md`. For now it is one
 landing page in two languages, with the vision and the mission.
 
 ## Gate A — what was found

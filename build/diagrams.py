@@ -68,7 +68,7 @@ def svg(w, h, title, body):
 
 # ---------------------------------------------------------------- network
 def network(L):
-    """A loop in two rows: Hosts -> Plai map -> Curator <-> Traveler -> Hosts."""
+    """A loop in two rows: Hosts -> Plai map -> Curator <-> Pilgrim -> Hosts."""
     W, GAP = 236, 128
     xL, xR = 16, 16 + 236 + 128
     VW = xR + W + 16
@@ -93,20 +93,20 @@ def network(L):
 
     hT = max(bh(L["hosts"][1]), bh(L["plai"][1]))
     y1 = y0 + hT + 76
-    hB = max(bh(L["curator"][1]), bh(L["traveler"][1]))
+    hB = max(bh(L["curator"][1]), bh(L["pilgrim"][1]))
     arrow = f'fill="none" stroke="{EDGE}" stroke-width="1.25" marker-end="url(#arrow)"'
     cL, cR = xL + W / 2, xR + W / 2
     body += [
         f'<path d="M{xL + W} {y0 + 48}H{xR}" {arrow}/>',                 # hosts -> plai
         f'<path d="M{cR} {y0 + bh(L["plai"][1])}V{y1}" {arrow}/>',       # plai -> curator
-        f'<path d="M{xR} {y1 + 34}H{xL + W}" {arrow}/>',                 # curator -> traveler
-        f'<path d="M{xL + W} {y1 + 64}H{xR}" {arrow}/>',                 # traveler -> curator
-        f'<path d="M{cL} {y1}V{y0 + bh(L["hosts"][1])}" {arrow}/>',      # traveler -> hosts
+        f'<path d="M{xR} {y1 + 34}H{xL + W}" {arrow}/>',                 # curator -> pilgrim
+        f'<path d="M{xL + W} {y1 + 64}H{xR}" {arrow}/>',                 # pilgrim -> curator
+        f'<path d="M{cL} {y1}V{y0 + bh(L["hosts"][1])}" {arrow}/>',      # pilgrim -> hosts
     ]
     body += box(xL, y0, *L["hosts"])
     body += box(xR, y0, *L["plai"])
     body += box(xR, y1, *L["curator"], main=True)
-    body += box(xL, y1, *L["traveler"])
+    body += box(xL, y1, *L["pilgrim"])
     mx = xL + W + GAP / 2
     for key in ("suggests", "asks"):
         fits(L[key], LS, "regular", GAP - 12, key)
@@ -170,7 +170,7 @@ EN = {
                               "Season, capacity, access"]),
         "curator": ("Pathway Curator", ["Knows terrain and people", "Refines the pathway",
                                         "Suggests, never prescribes"]),
-        "traveler": ("Traveler", ["Brings time, company, wish", "An afternoon to a month"]),
+        "pilgrim": ("Pilgrim of the Plai", ["Brings time, company, wish", "An afternoon to a month"]),
         "suggests": "suggests a path", "asks": "asks",
         "walks": "walks, stays, eats, learns",
     },
@@ -204,7 +204,7 @@ UK = {
                                "Сезон, місткість, доступ"]),
         "curator": ("Куратор стежки", ["Знає рельєф і людей", "Уточнює маршрут",
                                        "Радить, а не нав'язує"]),
-        "traveler": ("Мандрівник", ["Час, компанія, бажання", "Від пообіддя до місяця"]),
+        "pilgrim": ("Прочанин плаю", ["Час, компанія, бажання", "Від пообіддя до місяця"]),
         "suggests": "радить шлях", "asks": "питає",
         "walks": "іде, ночує, їсть, учиться",
     },

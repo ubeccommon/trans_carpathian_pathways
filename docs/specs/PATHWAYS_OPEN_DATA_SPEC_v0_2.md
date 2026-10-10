@@ -1,9 +1,9 @@
 ---
-title: "PATHWAYS_OPEN_DATA_SPEC_v0_1"
-subtitle: "How travelers carry the pathway into their own map apps — files, links, OpenStreetMap and an API"
+title: "PATHWAYS_OPEN_DATA_SPEC_v0_2"
+subtitle: "How pilgrims carry the pathway into their own map apps — files, links, OpenStreetMap and an API"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.1"
+version: "v0.2"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -11,15 +11,15 @@ status: "specification for Michel's word — nothing built; six decisions open (
 ---
 
 *A specification for how the pathway and its places reach the map
-apps travelers already use — Organic Maps, OsmAnd, Locus, a Garmin
+apps pilgrims already use — Organic Maps, OsmAnd, Locus, a Garmin
 — and how partners may read the open layers by machine. It belongs
 to module T1 and its connector "T1 → others" in the module map
-(`docs/TRANS_CARPATHIAN_PATHWAYS_MODULES_v0_2.md`). It is not the
+(`docs/TRANS_CARPATHIAN_PATHWAYS_MODULES_v0_3.md`). It is not the
 build: what touches Plai is built in `ubec_mapservice`, in that
 repository's own way and on Michel's word for each change, and
 where this document and the mapservice prompt disagree about the
 stack, the mapservice prompt is right. Michel's question, October
-9, 2026: can travelers integrate Plai's places and the pathways
+9, 2026: can pilgrims integrate Plai's places and the pathways
 into their apps, and which standards apply? The short answer: the
 pathway yes, openly; the hosts one at a time, never in bulk.*
 
@@ -29,7 +29,7 @@ pathway yes, openly; the hosts one at a time, never in bulk.*
 
 | Item | Decided | What it means here |
 |------|---------|--------------------|
-| No app for travelers | white paper §7, the lessons table | The project builds no app; it meets travelers in the apps they have |
+| No app for pilgrims | white paper §7, the lessons table | The project builds no app; it meets pilgrims in the apps they have |
 | S-1 | Michel's word, Oct 9 | Host points are public and clickable during the pilot |
 | S-14 | Michel's word, Oct 9 | Withdrawal removes a point from Plai, not from copies; hosts are told so |
 | A-2 | as drafted, to confirm | Entries are not released under an open licence |
@@ -52,7 +52,7 @@ here may make that easier.
 |------|------|---------|----------------|
 | **A — the pathway** | Stage lines and the corridor's route, drawn on OSM's paths | ODbL 1.0, © OpenStreetMap contributors (a work derived from OSM) | Openly: OpenStreetMap (§3.1), stage files (§3.2), the API (§3.5) |
 | **B — places nobody hosts** | A viewpoint, a spring, a shelter, a chapel, entered by the Curator or a steward | ODbL 1.0, by the entrant's choice *(proposal, §9 D-5)* | Openly: in OSM when the thing is physical and verifiable; in stage files; in the API |
-| **C — hosts** | A Plai point with at least one offer: very often a home | Not open (A-2); the host's, consented field by field | One at a time (§3.4), or in one traveler's journey file from the Curator (§3.3). **Never** in bulk, never in OSM, never in the API |
+| **C — hosts** | A Plai point with at least one offer: very often a home | Not open (A-2); the host's, consented field by field | One at a time (§3.4), or in one pilgrim's journey file from the Curator (§3.3). **Never** in bulk, never in OSM, never in the API |
 
 A host's place is never a waypoint in a public file, whatever the
 app, the partner or the purpose.
@@ -62,7 +62,7 @@ app, the partner or the purpose.
 ### 3.1 OpenStreetMap — the strongest integration
 
 Apps built on OpenStreetMap data, Organic Maps and OsmAnd among
-them, carry what is in OSM to every traveler at their next map
+them, carry what is in OSM to every pilgrim at their next map
 update, with no file and nothing from the project on the phone.
 
 - **What goes in:** the paths themselves where they are missing or
@@ -96,20 +96,20 @@ corridor, served as static files with no tracking.
 - **What each file carries:** the stage's name and description in
   its language; its version and date; the licence (`ODbL-1.0`) and
   the attribution "© OpenStreetMap contributors"; a line telling
-  the traveler that the file does not update and that the stage's
+  the pilgrim that the file does not update and that the stage's
   state is held by the Curator; where a stage lies in the border
   strip, that a permit is needed and how (S-8).
 - **What no file carries:** a host; a shelter for air-raid alerts,
-  or anything else the Curator holds (S-15); a traveler's data.
+  or anything else the Curator holds (S-15); a pilgrim's data.
 - **Names:** `tcp_<corridor>_<stage>_<lang>_v<version>.<ext>`, the
   language a BCP 47 tag (`en`, `uk`), as every file in the project.
 - **Withdrawal:** a stage or a place withdrawn is gone from the
   next version, which is published at once; the old files say on
   their face where the current version is.
 
-### 3.3 The journey file — one traveler, from the Curator
+### 3.3 The journey file — one pilgrim, from the Curator
 
-For a traveler who asks the Curator for a journey, the Curator may
+For a pilgrim who asks the Curator for a journey, the Curator may
 send one GPX file for that journey: its stages, and the hosts on it
 as waypoints, with only the fields the public map already shows for
 them (S-1). The file says, in its description, that it was made for
@@ -121,13 +121,13 @@ is kept beyond the incident record's rules.
 
 The click on a published place on Plai's public map carries a link
 in the `geo:` URI scheme (RFC 5870) — `geo:<lat>,<lon>` — which
-phones open in whatever map app the traveler uses. One place, one
+phones open in whatever map app the pilgrim uses. One place, one
 tap, nothing collected. This is the one change that serves hosts
 now, without bulk. It is a change to Plai's feature-info template,
 built in `ubec_mapservice`, and the leak pass must see that the
 link carries only the published point.
 
-### 3.5 The API — for partners, not travelers
+### 3.5 The API — for partners, not pilgrims
 
 - **Standard:** OGC API – Features, Part 1: Core, with the GeoJSON
   encoding and an OpenAPI 3 description, coordinates in CRS84. It

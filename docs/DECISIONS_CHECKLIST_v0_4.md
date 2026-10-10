@@ -1,13 +1,13 @@
 ---
-title: "DECISIONS_CHECKLIST_v0_3"
+title: "DECISIONS_CHECKLIST_v0_4"
 subtitle: "The questions waiting on Michel's word, one line each — with his answers of October 9"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.3"
+version: "v0.4"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
-status: "22 answered and carried into the documents; 10 still open, marked ☐"
+status: "22 answered and carried into the documents; 10 still open, marked ☐; one decided since (the name, October 10)"
 ---
 
 *Michel's answers of October 9, 2026, written against each
@@ -23,9 +23,9 @@ manual v0.4, prompt v0.29.*
 
 - ☑ **S-1 — The bypass.** Host points are public during the
       pilot and the public may click them for more about the
-      host; a traveler need not contact the Curator before
+      host; a pilgrim need not contact the Curator before
       visiting; the Curator is not a middle person.
-      → agreement (host and traveler parts), prompt §4, §7.
+      → agreement (host and pilgrim parts), prompt §4, §7.
 - ☑ **S-11 / A-1 — Who answers for the project.** Michel
       personally for now; a core body to be formed in the near
       future, which will hold the Plai instance, the marks and
@@ -41,7 +41,7 @@ manual v0.4, prompt v0.29.*
 ## Money
 
 - ☑ **S-2 / A-3 / OI-P13 — How payment passes.** Directly from
-      traveler to host. → agreement §8; proposal; prompt §5, §9.
+      pilgrim to host. → agreement §8; proposal; prompt §5, §9.
 - ☑ **S-3 / OI-P8 — ubec-pay.** Kept, and defined in one
       paragraph (Claude's wording, for his word). → agreement §8.
 - ☑ **S-16 — Contribution.** Defined in one paragraph (Claude's
@@ -58,7 +58,7 @@ manual v0.4, prompt v0.29.*
 ## Hosts and their homes
 
 - ☑ **S-4 / OI-P7 — The meeting place.** The Curator does not
-      propose; travelers decide which host to visit; a host may
+      propose; pilgrims decide which host to visit; a host may
       place the point at a nearby meeting place and must say so
       plainly in the place's information. → agreement §7, host
       part; manual §3, §7; prompt §5.
@@ -79,13 +79,13 @@ manual v0.4, prompt v0.29.*
       stretch are their close relatives, so that a stretch made
       of one family is visible — stress test 3, scenario A.)*
 
-## Travelers and safety
+## Pilgrims and safety
 
-- ☑ **S-5 / OI-P12 — The briefing.** Travelers from abroad are
+- ☑ **S-5 / OI-P12 — The briefing.** Pilgrims from abroad are
       responsible for their own preparation and travel and inform
       themselves, in their own country, about advisories,
       insurance, martial law, cash and permits; the agreement's
-      traveler part says so. → agreement traveler part; proposal
+      pilgrim part says so. → agreement pilgrim part; proposal
       safety; prompt OI-P12 closed.
 - ☑ **S-8 — The border strip.** No stage inside the strip is
       suggested to anyone until the Curator holds in writing how
@@ -103,7 +103,7 @@ manual v0.4, prompt v0.29.*
       → agreement §5, §7; proposal; prompt §7.
 - ☑ **S-13 / S-20 — Incidents and identity.** A minimal incident
       record kept by the Curator and the deputy, retention under
-      A-6: yes. A traveler's identity seen before a journey: no.
+      A-6: yes. A pilgrim's identity seen before a journey: no.
       → agreement §5, §9, Curator part.
 
 ## Governance and the corridor
@@ -145,6 +145,16 @@ manual v0.4, prompt v0.29.*
 - ☑ **S-24 — The white paper.** Stays a draft; changes may still
       come; no v0.4 now.
 
+## Decided since
+
+- ☑ **The name for whoever walks.** The Pilgrim of the Plai, in
+      Ukrainian *прочанин плаю* (*прочанка плаю*), not
+      "traveler"; *pilgrim* and *прочанин* in running text.
+      *Michel's word, October 10, 2026; "Plaiar" weighed and
+      not taken.* → every document; prompt §2; white paper
+      §4.3; reasoning T-3, which stays open only on whether the
+      project says it borrows no one's faith.
+
 ## Already due, from the project review of October 8
 
 - ☑ **D-1** — Gate 1 closed in prompt §8 with the date of the
@@ -157,7 +167,7 @@ manual v0.4, prompt v0.29.*
       To confirm.
 - ☐ **A-5** — Governing law and the last step of a dispute.
 - ☐ **A-6** — Retention: a withdrawn place never sent again; a
-      traveler's details after the journey; the incident record.
+      pilgrim's details after the journey; the incident record.
 - ☑ **A-7** — Hosts sign on paper with the Curator, in Ukrainian.
       → agreement Part III.
 

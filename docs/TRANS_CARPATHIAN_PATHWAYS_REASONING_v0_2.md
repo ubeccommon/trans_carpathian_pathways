@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_REASONING_v0_1"
+title: "TRANS_CARPATHIAN_PATHWAYS_REASONING_v0_2"
 subtitle: "Why the project exists, and the reasons behind its principles"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.1"
+version: "v0.2"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -165,7 +165,7 @@ sustained a way of life has moved elsewhere.
 **Why encounter answers both.** Knowledge of a craft, a meadow or
 a path passes from person to person, by doing it beside someone;
 it cannot be kept in a museum without becoming something else. A
-traveler who sleeps under someone's roof, eats at their table and
+pilgrim who sleeps under someone's roof, eats at their table and
 learns how something is made leaves money and attention where they
 are needed, in the hands of the person who holds the knowledge. A
 host who shares what they actually have gains a reason to keep it,
@@ -208,12 +208,15 @@ gives a community the means to say what its land is worth before
 others decide it for them, it has done its work.
 
 **The pilgrimage.** This is what the journey is to. There is no
-shrine at the end of the path. A traveler walks into a
+shrine at the end of the path. A pilgrim walks into a
 relationship between people and land that has lasted centuries, is
 received into it for a night or a month, and leaves having taken
 part in it rather than having looked at it. The pilgrimage is to
-the relationship itself. *(Claude's proposal for the wording;
-whether "pilgrimage" is kept is Michel's word, §7, T-3.)*
+the relationship itself. *(Claude's proposal for the wording.
+"Pilgrimage" is kept, on Michel's word of October 10, 2026:
+whoever comes is the Pilgrim of the Plai, in Ukrainian *прочанин
+плаю*. The plai is the old path through the high pastures, and
+the pilgrimage is to it and to the people who keep it. §7, T-3.)*
 
 **A footing others recognise.** The vision has a vocabulary that
 governments and funders already use. IUCN's Category V, the
@@ -239,7 +242,7 @@ unless it cites a decision.
 
 **Honest offer.** Hosts offer only what they actually have, and
 describe it as it is.
-*Why:* a traveler who comes for a bed and finds a bed, for a meal
+*Why:* a pilgrim who comes for a bed and finds a bed, for a meal
 and finds the meal of that house, has met the place; one who comes
 for a promise has met an advertisement. *Rules out:* inflating an
 offer, borrowing a neighbour's craft, describing a place as it
@@ -253,7 +256,7 @@ demonstrations without a use.
 
 **Organic growth.** The network grows from the inside, host by
 host, not from a plan drawn above it.
-*Why:* a route drawn in advance chooses villages for travelers; a
+*Why:* a route drawn in advance chooses villages for pilgrims; a
 route that grows from hosts follows where people actually want to
 receive. *Rules out:* assigning stages before hosts exist,
 recruiting hosts to fill a planned route. *(T-5 asks how this
@@ -263,18 +266,18 @@ holds when the project began from outside.)*
 proposes; a person decides.
 *Why:* who can receive whom, and when, in which family's season
 and grief and harvest, is knowledge only a neighbour has. *Rules
-out:* an algorithm answering a traveler, a booking engine, the
+out:* an algorithm answering a pilgrim, a booking engine, the
 stage planner deciding anything.
 
-**The traveler arrives.** A journey is undergone, not consumed.
-*Why:* a traveler who arrives is changed by the place; a traveler
+**The pilgrim arrives.** A journey is undergone, not consumed.
+*Why:* a pilgrim who arrives is changed by the place; a pilgrim
 who consumes it changes the place. *Rules out:* itineraries sold
 as products, checklists of sights.
 
 **Off the beaten path.** Where people live, not where tourists are
 sent.
 *Why:* the resorts are already paid for; the villages are not.
-*Rules out:* routing travelers to the places that already earn
+*Rules out:* routing pilgrims to the places that already earn
 from them.
 
 **A pathway of relationships.** Person to person, person to land.
@@ -319,8 +322,8 @@ public.
 **Safety first, and the Curator holds it.** In wartime and in the
 mountains, safety comes before any journey; shelter, border-zone
 rules and the state of each stage are the Curator's to hold, not
-the traveler's to find.
-*Why:* a traveler from far away cannot know what a neighbour
+the pilgrim's to find.
+*Why:* a pilgrim from far away cannot know what a neighbour
 knows, and published safety knowledge can be used against the
 people it protects.
 
@@ -328,7 +331,7 @@ people it protects.
 home included, is shown at the point entered, once a Curator has
 published it (OI-P7, Michel's word, October 7, 2026). A host may
 place their point at a nearby meeting place instead and tell
-travelers the rest in person (agreement §7).
+pilgrims the rest in person (agreement §7).
 *Why — as the record shows it:* the host, not the project, decides
 where they are to be found. *Michel's own reason for the decision
 is to be written here; the record holds the decision and the risk
@@ -339,7 +342,7 @@ named before it ("the point is an address"), not the reason.*
 ## 6. What Success and Failure Look Like
 
 *Claude's proposal, for Michel's word.* Neither is counted in
-travelers.
+pilgrims.
 
 **Signs that it works**
 - Hosts are still hosting after three seasons, on their own terms,
@@ -348,20 +351,20 @@ travelers.
   because the path brought them together.
 - The Curators and stewards are people of the corridor, and choose
   the next corridor themselves.
-- Money that travelers leave stays in the villages and is spent
+- Money that pilgrims leave stays in the villages and is spent
   there.
 - A community uses what the pathway shows to speak for its own
   land in a decision about it.
 
 **Signs that it fails**
 - Hosts begin to perform: costumes, staged meals, offers that grow
-  to match what travelers ask for.
+  to match what pilgrims ask for.
 - Prices along the pathway rise faster than around it; houses on
   the map are bought by people who found them there.
 - One village is saturated while others see no one.
-- The Curator becomes an agent: travelers sold, hosts favoured, a
+- The Curator becomes an agent: pilgrims sold, hosts favoured, a
   fee taken.
-- The project is described by how many travelers it moved.
+- The project is described by how many pilgrims it moved.
 
 * * *
 
@@ -383,17 +386,18 @@ what follows.
 forms of payment chosen by the host per offer — fixed, suggested,
 exchange of work, ubec-pay or a community currency (OI-P8,
 OI-P13); no figure on the map; no commission and no fee for
-sending travelers (agreement §8). *Open:* what makes a
+sending pilgrims (agreement §8). *Open:* what makes a
 contribution different from a price, in words a host and a
-traveler would both recognise; and why gift, the fifth form, was
+pilgrim would both recognise; and why gift, the fifth form, was
 not among the four — Michel's reason to be written. How payment
 passes stays open (OI-P13, A-3).
 
 **T-3 — Pilgrimage, to what?** There is no shrine, and the Hutsul
 region has real places of religious pilgrimage. *Answered in part
 by §4:* the pilgrimage is to the relationship between people and
-land. *Open:* whether "pilgrimage" is kept, and whether the
-project says plainly that it borrows no one's faith.
+land. *Decided,* Michel's word, October 10, 2026: the word is
+kept, in the name Pilgrim of the Plai (*прочанин плаю*). *Open:*
+whether the project says plainly that it borrows no one's faith.
 
 **T-4 — The Curator's power.** The Curator publishes, suggests
 journeys and holds safety knowledge: the memory of the path, and
@@ -411,14 +415,14 @@ corridor are asked how the project is governed before Phase 2
 opens (agreement §4). *Open:* what passes to the corridor and when
 — for example, the corridor's Curators choosing the next corridor.
 
-**T-6 — Inviting travelers into a country at war.** For:
+**T-6 — Inviting pilgrims into a country at war.** For:
 solidarity, income where it is needed, witness. Against: risk to
 guests, burden on hosts, a host's home made visible. *Already
 answers:* safety held by the Curator; alerts first; anyone may
-stop; travelers briefed (agreement §7). *Open:* OI-P12 — what the
-project says to a traveler from abroad, and who says it.
+stop; pilgrims briefed (agreement §7). *Open:* OI-P12 — what the
+project says to a pilgrim from abroad, and who says it.
 
-**T-7 — Enough.** How many travelers a host, or a village, can
+**T-7 — Enough.** How many pilgrims a host, or a village, can
 receive before the encounter turns into throughput. *Already
 answers:* capacity per offer on every host point; the Curator
 suggests only hosts with room. *Open:* a limit for a village or a
@@ -443,7 +447,7 @@ speaks of them.
 **T-10 — Consent for the corridors.** A host agreed to be shown on
 a map, not to become evidence for a protection corridor. The
 agreement says the data is kept to put the network on the map, let
-the Curator suggest journeys and let travelers find hosts, "for
+the Curator suggest journeys and let pilgrims find hosts, "for
 nothing else" (agreement §5). So the corridors of §4 cannot draw
 on hosts' places until the agreement says so, and a change in how
 data is used needs each person's consent again (agreement §13).

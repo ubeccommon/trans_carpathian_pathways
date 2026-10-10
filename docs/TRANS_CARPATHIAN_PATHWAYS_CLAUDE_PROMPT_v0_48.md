@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_47"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_48"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.47"
+version: "v0.48"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -125,7 +125,7 @@ curator's form, the public popup on a published place, and the
 
 **The co-creator agreement — Michel's word, October 8, 2026.**
 One agreement for every role that builds the project — host,
-pathway steward, Curator, traveler, contributor, partner
+pathway steward, Curator, pilgrim, contributor, partner
 initiative, funder, and the administrator — English and
 Ukrainian, built to one A4 PDF like the proposal:
 `docs/agreement/`, built by `build/build_agreement.py`. It is a
@@ -160,7 +160,7 @@ the curator see.
 
 **The reasoning — Michel's word, October 9, 2026.** Why the
 project exists and the reasons behind its principles, in
-`docs/TRANS_CARPATHIAN_PATHWAYS_REASONING_v0_1.md`, English first,
+`docs/TRANS_CARPATHIAN_PATHWAYS_REASONING_v0_2.md`, English first,
 Ukrainian once it settles. His direction, recorded there: the two
 forces — the mountains re-valued from outside (tourism and
 property, energy on the high meadows, EU accession, the Carpathian
@@ -253,7 +253,8 @@ now §6–§13; the stress-test review cites v0.1/v0.2 numbers.
 `Trans-Carpathian_Pathways_White_Paper_UK.md`, a translation of the
 English v0.3 made the same day in seven parts against one glossary
 drawn from the Ukrainian proposal and agreement (господар,
-доглядач стежки, Куратор, мандрівник, угода співтворців, перехід,
+доглядач стежки, Куратор, мандрівник (since October 10,
+прочанин плаю), угода співтворців, перехід,
 внесок, регенерація, сталий розвиток, тяглий ландшафт, Карпатська
 вісімка), checked for structure against the English — the same
 17 sections, 29 subsections, 38 table rows, 169 paragraphs and
@@ -268,7 +269,7 @@ in the end come from them.
 
 **The site — Michel's word, October 9, 2026.** A presence on the
 web at `tcp.ubec.network`, opened by its own conversation from
-`docs/prompts/TCP_WEB_PRESENCE_START_PROMPT_v0_1.md`: a small,
+`docs/prompts/TCP_WEB_PRESENCE_START_PROMPT_v0_2.md`: a small,
 bilingual, static site that says what the project is, carries the
 documents as PDFs and pages, names how to take part, and links to
 Plai and the field writing; never a map, a directory of hosts, a
@@ -303,7 +304,7 @@ Carried into agreement v0.3, proposal v0.3 and manual v0.4 (both
 languages, PDFs rebuilt) and recorded in `docs/DECISIONS_CHECKLIST_v0_2.md`
 with what stays open. Decided:
 - **S-1** — host points are public during the pilot, and the
-  public may click them; a traveler need not contact the Curator
+  public may click them; a pilgrim need not contact the Curator
   before visiting. The Curator is not a gatekeeper. (§4, §7.)
 - **S-11 / A-1** — Michel personally for now; a core body is to be
   formed in the near future and will hold the Plai instance, the
@@ -314,7 +315,7 @@ with what stays open. Decided:
 - **S-9** — the first Curator is Michel for now, named before the
   first hosts; the core body decides thereafter, and later
   Curators are named by all co-creators.
-- **S-2 / A-3 / OI-P13** — payment passes directly from traveler to
+- **S-2 / A-3 / OI-P13** — payment passes directly from pilgrim to
   host. Closed.
 - **S-3 / OI-P8** — ubec-pay kept among the four forms and defined
   in one paragraph (agreement §8; Claude's wording for his word).
@@ -336,15 +337,15 @@ with what stays open. Decided:
 - **S-6** — no fixed ceiling; the Curator keeps an overview of the
   carrying capacity of each host, each stretch and the pathway.
 - **S-17** — a hold beyond 30 days carries a written reason.
-- **S-5 / OI-P12** — travelers from abroad are responsible for
+- **S-5 / OI-P12** — pilgrims from abroad are responsible for
   their own preparation and are told so in the agreement's
-  traveler part. Closed.
+  pilgrim part. Closed.
 - **S-8** — no stage inside the border strip is suggested to
   anyone until the permit route is held in writing and done once;
   a stage register, one sheet per stage.
 - **S-15** — Plai holds no confidential information.
 - **S-13 / S-20** — a minimal incident record kept by the Curator
-  and the deputy, retention under A-6; a traveler's identity is
+  and the deputy, retention under A-6; a pilgrim's identity is
   not seen before a journey.
 - **S-18** — the first corridor's co-creators decide Phase 2
   governance; the first corridor gets a partnership note of its
@@ -383,7 +384,7 @@ defined); A-2 (read as the drafted option, to confirm); A-5; A-6.
 **Partners — Michel's word, October 9, 2026.** The search for
 those who would fund, help build, help run and scientifically
 report the first corridor's prototype opens in its own
-conversation from `docs/prompts/TCP_PARTNERS_START_PROMPT_v0_1.md`:
+conversation from `docs/prompts/TCP_PARTNERS_START_PROMPT_v0_2.md`:
 four kinds of partner (funders, creators, implementers, scientific
 reporters), four gates (the needs, a sourced long list, a short
 list with each one's fit and conditions, the material to approach
@@ -394,7 +395,7 @@ as proposal v0.3 sets it out, measured by whether the co-creators
 could do their part and wanted to go on.
 
 **Partners, Gates A and B — Michel's word, October 9, 2026.** The
-needs (`docs/partners/NEEDS_v0_2.md`): nine with a cost line, five
+needs (`docs/partners/NEEDS_v0_3.md`): nine with a cost line, five
 without. Michel's additions: the concept is being tested now on a
 short stretch between two places he named, kept unnamed in the
 documents since either may be a host's place; his two candidates,
@@ -429,7 +430,7 @@ first Ukrainian mountain shelter (Plisce, 1933–35). The same review
 rewrote the long list's trail-marking entry (v0.2).
 
 **The modules, adopted — Michel's word, October 9, 2026.** All six
-points of the module map, as proposed (`docs/TRANS_CARPATHIAN_PATHWAYS_MODULES_v0_2.md`):
+points of the module map, as proposed (`docs/TRANS_CARPATHIAN_PATHWAYS_MODULES_v0_3.md`):
 the four blocks and twelve modules are how the project describes
 itself; active now P1, P2, P3, T1, T2, G1, T3 and T4, and named H1,
 H2, G2, G3 — a named module opens on a gate's need and a holder, on his
@@ -458,20 +459,20 @@ purchase made a last resort. Three rows in the lessons table: keep the
 living part of the vision, a federation of section-keepers, a corridor
 from consent. Sources 91–93.
 
-**Open data for travelers' apps — Michel's question, October 9,
-2026.** Can travelers carry Plai's places and the pathways into
+**Open data for pilgrims' apps — Michel's question, October 9,
+2026.** Can pilgrims carry Plai's places and the pathways into
 their own apps (Organic Maps and others), and which standards? The
-specification, for his word: `docs/specs/PATHWAYS_OPEN_DATA_SPEC_v0_1.md`.
+specification, for his word: `docs/specs/PATHWAYS_OPEN_DATA_SPEC_v0_2.md`.
 Three kinds of data: the pathway (OSM-derived, ODbL) and places
 nobody hosts travel openly — OpenStreetMap by survey, stage files in
 GPX 1.1, GeoJSON (RFC 7946) and KML 2.3, an OGC API – Features
 service for partners when one asks; hosts travel one at a time, by a
-`geo:` link (RFC 5870) in the map's click, or in one traveler's
+`geo:` link (RFC 5870) in the map's click, or in one pilgrim's
 journey file from the Curator — never in bulk, never in OSM, never
 in the API. Six decisions open (D-1 to D-6), among them OI-P10.
 Its development and build open in their own conversation, on
 Michel's word the same day, from
-`docs/prompts/TCP_OPEN_DATA_START_PROMPT_v0_1.md`: six gates — the
+`docs/prompts/TCP_OPEN_DATA_START_PROMPT_v0_2.md`: six gates — the
 decisions and two facts (the MapServer version, the click's
 template); the `geo:` link; the export tool and validator on
 invented data; the stages stored and published after Gate 4; the
@@ -545,7 +546,7 @@ own.
 Michel has the chance to present the project to the Department of
 Culture and Tourism in Kosiv, and asked for a handout and a
 presentation, English first, Ukrainian to follow. The handout,
-`docs/kosiv/KOSIV_HANDOUT_v0_1.md`, is drawn from the white paper
+`docs/kosiv/KOSIV_HANDOUT_v0_2.md`, is drawn from the white paper
 v0.6 and the implementation plan v0.2 and decides nothing: the
 project in brief, why now (with the white paper's sources), how it
 works, regeneration against sustainable development, what it can
@@ -566,6 +567,42 @@ address. Basic faces only (Georgia, Verdana), by the font rule. Not
 yet: the UBEC logo on the cover; a contact for Vasyl Yuskiv; the
 Ukrainian texts; a PDF of either, which each exports from its own
 page.
+
+**The name for whoever walks — Michel's word, October 10, 2026.**
+Whoever comes on foot through the network is the **Pilgrim of
+the Plai** — in Ukrainian *прочанин плаю*, *прочанка плаю* — and
+no longer the traveler. The name stands in full in role tables,
+Part II and III of the agreement, headings and the first mention
+in a document; *pilgrim* and *прочанин* (plural *прочани*,
+genitive *прочан*) in running text. *Plai* in the name is the path —
+the Hutsul and Romanian word for the old way through the high
+pastures — from which the map takes its name; the agreement, the
+proposal and the white paper gloss it once so that the two are
+not read as one. *Прочанин* is from *проща*, the pilgrimage still
+walked in the region and set apart there from tourism as inner
+work, and is related to *прощати*, to forgive. The proposal
+"Plaiar" (*плаяр*) was weighed and not taken: no person-word on
+*плай* is recorded in Hutsul speech, and *-ар* names a trade —
+the steward's, not the guest's. Carried into the agreement v0.5,
+the proposal v0.5, the white paper v0.7 (§4.3 gives the name and
+its roots), the manual v0.5, the reasoning v0.2 (T-3), the module
+map v0.3, the decisions checklist v0.4, the implementation plan
+v0.3, the Kosiv handout v0.2 and the deck's source, the
+open-data specification v0.2, the partners' needs and long list
+v0.3, the three starting prompts v0.2, the site's landing page
+v0.4 and the diagrams; PDFs rebuilt. Left as they were:
+"traveler" where a text speaks of travel in general (the
+critique of extractive travel, travel advisories), of the
+literature (Goodwin & Santilli), of other projects (Via
+Transilvanica) or quotes the law; Plai's screen label "If you
+host travelers", which the manual and the host-fields spec
+quote — changing it is a mapservice change, open for his word;
+the reviews, which are dated records; and every changelog. The
+deck in Claude's Slides and the handout's Claude doc are their own
+copies and follow the repository. Still open: whether the project
+says outright that it borrows no one's faith (T-3, white paper
+§12). Not yet heard: the name said aloud in the corridor, to
+Vasyl Yuskiv and the first hosts.
 
 * * *
 
@@ -609,13 +646,13 @@ Before any stage is published:
 | Host            | enters their own place, or has it entered | `PLAI_ENTRANT`, or none |
 | Pathway steward | cares for a stretch; enters for a host, adds places along the way | `PLAI_STEWARD` |
 | Curator         | publishes or holds; also enters        | `PLAI_CURATOR` and `PLAI_ENTRANT` |
-| Traveler        | sees published points; may go directly | no account                |
+| Pilgrim of the Plai | sees published points; may go directly | no account          |
 
 **The Curator is not a gatekeeper — Michel's word, October 9,
 2026 (S-1):** host points are public and clickable during the
-pilot; a traveler may ask the Curator for a journey or find a
+pilot; a pilgrim may ask the Curator for a journey or find a
 published host and go directly. Every Curator duty towards
-travelers in the agreement applies to those who come through the
+pilgrims in the agreement applies to those who come through the
 Curator. The first Curator is Michel, named before the first hosts;
 the core body, once formed, decides thereafter, and later Curators
 are named by all co-creators (S-9). Curators and stewards are paid
@@ -716,7 +753,7 @@ them. Who chooses among the four — Michel's word, October 7,
 2026 (OI-P13, first half): the host, per offer, so each offer on
 a point says which forms the host accepts. OI-P13's second half closed —
 Michel's word, October 9, 2026: payment passes directly from
-traveler to host; the project, its Curators and its stewards hold
+pilgrim to host; the project, its Curators and its stewards hold
 no money for stays and take no share (agreement §8).
 
 **Published location of a private home — Michel's word,
@@ -743,7 +780,7 @@ pin"); proposal v0.2, October 7, corrects it in both languages.
 proposes nothing about where a point goes. A host may place the
 point at a nearby meeting place instead of the house, and must
 then say so plainly in the place's own information (the
-description), so a traveler knows the point is not the house.
+description), so a pilgrim knows the point is not the house.
 Nothing in Plai changes; the manual v0.4 and the agreement v0.3
 say it. And the host is told, in the agreement and on the sign-on
 sheet, that a published point may be copied and that withdrawal
@@ -766,7 +803,7 @@ has enough hosts to need it — with five hosts, the Curator plans
 on paper.
 
 **What it is for:** the Curator. It proposes; the Curator
-disposes. It never answers a traveler directly.
+disposes. It never answers a pilgrim directly.
 
 **Input**
 - Published host points with their offers, season, capacity,
@@ -822,7 +859,7 @@ From the proposal §8, binding:
 - **Organic growth** — the network grows from the inside out.
 - **Curator as memory** — the human holds what the algorithm
   cannot; the planner is the Curator's tool.
-- **The traveler arrives** — the journey is undergone, not
+- **The pilgrim arrives** — the journey is undergone, not
   consumed.
 - **Off the beaten path** — where people live, not where tourists
   are sent.
@@ -840,14 +877,14 @@ Added here:
   host places it, the Curator publishes or holds the entry.
 - **No calendar.** Availability beyond season stays a
   conversation with the Curator.
-- **Safety is the Curator's to hold**, not the traveler's to
+- **Safety is the Curator's to hold**, not the pilgrim's to
   find: shelter, the state of each stage, alerts — off the
   platform. **Plai holds no confidential information** (Michel's
   word, October 9, 2026, S-15). The border-zone rules are public
-  law and are told to every traveler in writing.
+  law and are told to every pilgrim in writing.
 - **The Curator is not a gatekeeper** (Michel's word, October 9,
-  2026, S-1): travelers may find a published host and go
-  directly; travelers are responsible for their own preparation
+  2026, S-1): pilgrims may find a published host and go
+  directly; pilgrims are responsible for their own preparation
   (S-5).
 - **No one speaks for a community** and **Not wilderness**
   (Michel's direction, October 9, 2026; reasoning §5), now in the
@@ -894,7 +931,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
   implements (its review's F5; state review v0.1 §2).
 - **Gate 4 — First walk.** The corridor walked end to end. What
   is recorded: walked distance and time per stage, what was
-  missing, what a traveler needed and did not have. And settled
+  missing, what a pilgrim needed and did not have. And settled
   here, after the walk (Michel's word, October 9, 2026): whether
   the pathway is marked, and to which standard.
 - **Gate 5 — Planner, if needed.** Built only if Gate 4 shows the
@@ -962,11 +999,11 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
   countries; the Outlook boundary that sets Plai's extent
   reaches nine, Austria and Bulgaria included (mapservice
   prompt §3).
-- **OI-P12** — Closed, Michel's word, October 9, 2026: a traveler
+- **OI-P12** — Closed, Michel's word, October 9, 2026: a pilgrim
   from abroad is responsible for their own preparation and travel
   and informs themselves, in their own country, about advisories,
   insurance, martial law, cash and permits; the agreement's
-  traveler part says so, and the Curator repeats it to those who
+  pilgrim part says so, and the Curator repeats it to those who
   come through them.
 - **OI-P15** — Closed, Michel's word, October 8, 2026:
   `PLAI_STEWARD` is a group of its own. Built in mapservice
@@ -982,12 +1019,14 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
   word.
 - **OI-P13** — Closed. First half, Michel's word, October 7, 2026:
   the host chooses, per offer. Second half, Michel's word,
-  October 9, 2026: payment passes directly from traveler to host.
+  October 9, 2026: payment passes directly from pilgrim to host.
   §5.
 
 * * *
 
 *Changelog*
+- v0.48 — 2026-10-10 — the Pilgrim of the Plai: the name for
+  whoever walks, carried into every document.
 - v0.47 — 2026-10-10 — the handout and presentation for the
   Department of Culture and Tourism in Kosiv, English.
 - v0.46 — 2026-10-10 — the terrain on Plai, closed on the host.

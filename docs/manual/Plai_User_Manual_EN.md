@@ -1,11 +1,12 @@
 ---
 title: "Plai — User Manual (EN)"
-version: "v0.4"
+version: "v0.5"
 date: "October 2026"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
 changelog:
+  - "v0.5 — 2026-10-10 — Michel's word, October 10: whoever walks is the Pilgrim of the Plai, not the traveler: *pilgrims* in the manual's own text. Plai's screen label \"If you host travelers\" is quoted as it stands, and the heading and figure that name it keep it."
   - "v0.4 — 2026-10-09 — Michel's word: a host may place the point at a nearby meeting place and then says so in the description; the curator checks that the point is where the host chose to be found; a published point may be copied, and withdrawal removes it from Plai, not from copies."
   - "v0.3 — 2026-10-08 — Michel's screenshots of the landing page, the login page, the toolbar, My places and the form, in both languages; required fields are outlined in red on screen; Select by current extent only."
   - "v0.2 — 2026-10-08 — the co-creator agreement in the form (mapservice plai/004, entries scheme v0.8, Michel's word): a link and a required tick above the state; the curator's tick when entering for a host."
@@ -76,7 +77,7 @@ The zoom buttons are on the right edge of the map. Drag the map to move it; use 
 ## 3. Entering a place
 
 1. Click the **pencil**. The "Entries" panel opens on the left, showing "My places": the list of everything you have entered.
-2. Zoom in on the map until you can see exactly where the place is. The point is published where you put it, so take care. You may put it at a nearby meeting place — a crossroads, a chapel, a shop — instead of your house; if you do, say so in the description, so a traveler knows the point is not the house. A point once published may be copied by others: withdrawing it later removes it from Plai, not from copies.
+2. Zoom in on the map until you can see exactly where the place is. The point is published where you put it, so take care. You may put it at a nearby meeting place — a crossroads, a chapel, a shop — instead of your house; if you do, say so in the description, so a pilgrim knows the point is not the house. A point once published may be copied by others: withdrawing it later removes it from Plai, not from copies.
 3. In the panel, click **"Draw point"**. Then click once on the map where the place is.
 4. A form opens, titled "A place on the map". Fill it in (chapter 4).
 5. At the bottom of the form, choose the **"State"** (chapter 5) and click **"Save"**.
@@ -110,7 +111,7 @@ Required fields are outlined in red on screen until they are filled in; the form
 | "Category — what this place mainly is" \* | What the place is mainly for: food and produce, lodging, crafts, guiding and walks, and so on. Choose one |
 | "Offering" | In your own words, what you offer or what is here. Keep it honest and specific |
 
-The type says what the place is; the category says what it is mainly for. A farm (type) may be mainly about food and produce (category) and still offer a bed to travelers, which goes below.
+The type says what the place is; the category says what it is mainly for. A farm (type) may be mainly about food and produce (category) and still offer a bed to pilgrims, which goes below.
 
 ### If you host travelers
 
@@ -124,7 +125,7 @@ Leave this part empty if you do not host anyone.
 | "Beds" | How many people you can put up for the night |
 | "People at a meal", "People on a walk", "People at a workshop" | How many people you can take at once, for each offer |
 | "… — how you are paid" | For each offer, the forms you accept: Fixed contribution, Suggested contribution, Exchange of work, ubec-pay or a community currency. Optional: leave it empty and the Curator will give your terms |
-| "Months you are open" | The months you can receive people. Leave it empty if you would rather travelers ask the Curator |
+| "Months you are open" | The months you can receive people. Leave it empty if you would rather pilgrims ask the Curator |
 | "Languages you speak" | Every language you can welcome people in |
 | "How to reach this place" | On foot only, By car, With a pram, With a wheelchair. "On foot only" and "By car" cannot both be chosen |
 
@@ -144,7 +145,7 @@ A photo is public only if you tick "My photo may be shown on the public map" **a
 
 | Field | What to put |
 | --- | --- |
-| "Contact name" | The name travelers should ask for |
+| "Contact name" | The name pilgrims should ask for |
 | "Email" \* | An address where the Curator can reach you about this place |
 | "Mobile" | A phone number, if you want one shown |
 | "I agree that these contact details are stored with this entry" \* | Your agreement that Plai keeps these details. Required |

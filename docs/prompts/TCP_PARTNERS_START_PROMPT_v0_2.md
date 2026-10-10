@@ -1,9 +1,9 @@
 ---
-title: "TCP_PARTNERS_START_PROMPT_v0_1"
+title: "TCP_PARTNERS_START_PROMPT_v0_2"
 subtitle: "Starting prompt — partners to fund, build, run and study the first corridor's prototype"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.1"
+version: "v0.2"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -45,9 +45,9 @@ corridor walked end to end in two seasons; the record kept — Gates
 3 and 4 of the starting prompt; eighteen months from the first
 hosts; about €25,700 as recommended, not yet decided. "Support and
 facilitate the co-creator actors" means the prototype's measure is
-whether the people in it — hosts, stewards, Curator, travelers,
+whether the people in it — hosts, stewards, Curator, pilgrims,
 contributors — could do their part and wanted to go on, not how
-many travelers came. The white paper's §12 says what success and
+many pilgrims came. The white paper's §12 says what success and
 failure look like; the regenerative test behind both is whether
 the place is more alive and more able to go on than before the
 pathway.
@@ -94,12 +94,12 @@ changes, the site, the planner only if needed); translation;
 hosting and security; two legal reads (data protection in Germany,
 tourism and tax law in Ukraine) and the forming of the core body;
 contingency. The budget is a recommendation for Michel's word.
-Nothing is budgeted for hosts' income, software for travelers or a
+Nothing is budgeted for hosts' income, software for pilgrims or a
 second corridor.
 
 **What binds any partnership**, from the agreement: a funder gives
 no say over what is published or which journeys are suggested, and
-gets no access to hosts' or travelers' data; what came in and what
+gets no access to hosts' or pilgrims' data; what came in and what
 it was spent on is reported at each gate; a partner initiative
 keeps Part I's commitments on data, consent, safety and money
 (whether §3 too — no calendar, no ratings, no commission — is

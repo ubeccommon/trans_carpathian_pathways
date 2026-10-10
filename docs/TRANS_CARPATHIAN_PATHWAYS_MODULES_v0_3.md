@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_MODULES_v0_2"
+title: "TRANS_CARPATHIAN_PATHWAYS_MODULES_v0_3"
 subtitle: "The project as building blocks and the connectors between them — a map for Michel's word"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.2"
+version: "v0.3"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -69,7 +69,7 @@ it is the question each module answers at its gate.
 |---|---|---|---|---|
 | **P — The corridor** | **P1 Hosts and encounter** | Hosts found, signed on paper, entered with the Curator beside them; the honest offer; contribution | Agreement v0.3 and sign-on sheet drafted; no host; the concept under test on a short stretch | Michel; introductions I-1, I-8, I-9 |
 | | **P2 Pathway and stewardship** | Stewards per stretch; walking, marking or not marking; the stage register | Role and Plai group defined; no steward | C-4, I-5, I-6, I-7; funds F-5 |
-| | **P3 Curation and safety** | The Curator's overview of capacity; the border-strip rule; alerts; incidents; the traveler's briefing | Decided in the agreement (S-1, S-5, S-6, S-8, S-13, S-15); Curator is Michel | Michel; contacts: mountain rescue, border service |
+| | **P3 Curation and safety** | The Curator's overview of capacity; the border-strip rule; alerts; incidents; the pilgrim's briefing | Decided in the agreement (S-1, S-5, S-6, S-8, S-13, S-15); Curator is Michel | Michel; contacts: mountain rescue, border service |
 | **H — Heritage** | **H1 Cultural heritage** | Crafts, the polonyna's work, cheese, song and speech — passed on by doing, beside someone who knows | In the white paper (§2.3, §3); nothing operational | C-5, I-8, I-9, I-10; funds F-6, F-7 |
 | | **H2 Natural heritage and land** | Meadows kept by mowing and grazing; a meadow baseline; corridors as fuzzy bands; a watch on land sold | In the white paper (§2, §9); corridor consent decided in part (S-14) | SR-4, SR-5, SR-6, I-7; funds F-5 |
 | **T — Infrastructure** | **T1 Plai and GIS** | The map: base, entry, host fields, the published view; a stage planner only if Gate 4 shows need | In place and proven (Gates 1–2) | Michel; C-1, C-2, C-3 |
@@ -94,7 +94,7 @@ built. All of the table's proposals were decided on his word, October 9,
 | T1 ↔ OpenStreetMap | The base map credited; no host's place ever written to OSM; data combined at render, never joined | ODbL; licence recorded at use | Decided (Mapservice rule) |
 | T2 → everyone · keeping the data | Encrypted backups with a copy off the server, a restore tested; retention set | The agreement §5; A-6 | Off-host copy **not built**; A-6 open |
 | P2 → the ground · a stretch and its marks | Whether the pathway is marked, and to which standard; who keeps the marks | Slovak STN 01 8025 or the Czech system already used in the oblast [2] — or no marks, an emergent path told in person | Decided: settled at Gate 4, after walking |
-| P3 → traveler | The border strip, alerts, preparation, in writing | The agreement's traveler part; the stage register, one sheet per stage | Decided |
+| P3 → pilgrim | The border strip, alerts, preparation, in writing | The agreement's pilgrim part; the stage register, one sheet per stage | Decided |
 | H1, H2, G3 → hosts · a study, a record, a corridor | A separate, revocable consent for any use beyond the map; no host identifiable; locations generalised; findings shown to the co-creators first | CARE principles for the people; FAIR for the data that may be open; S-14 | S-14 in part; the rest decided October 9 (CARE, FAIR) |
 | T3 → all modules · words | One glossary; the Ukrainian from the corridor in the end | The glossary of the white paper's translation; BCP 47 language tags in every file | Decided; tags in every document, page, PDF and diagram |
 | T4 → visitors | No third-party request; no form; no host listed | The site's Gate A rules; WCAG 2.2 AA | Decided; checked by the build |

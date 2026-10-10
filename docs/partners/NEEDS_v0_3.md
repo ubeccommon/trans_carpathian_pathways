@@ -1,9 +1,9 @@
 ---
-title: "NEEDS_v0_2"
+title: "NEEDS_v0_3"
 subtitle: "Gate A — what the first corridor's prototype needs, and from which kind of partner"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.2"
+version: "v0.3"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -30,7 +30,7 @@ hosts), not yet decided. Four kinds of partner: **F** funder,
 | N-5 | Development: Plai changes, the site, the planner only if needed | €3,000 | **C** — developers and designers; **F** | The stack's own rules; nothing on any page names or locates a host |
 | N-6 | Translation and materials | €1,500 | **C** — a Ukrainian editor from the corridor, translators | That the Ukrainian should in the end come from the corridor (white paper §12) |
 | N-7 | Hosting and security | €900 | **F**; **C** in kind | Gate 3 waits on the off-host backup copy, not yet built (prompt §8, F5) |
-| N-8 | Two legal reads (data protection in Germany; tourism and tax law in Ukraine) and the forming of the core body | €4,000 | **F**; **C** — lawyers or law clinics working pro bono | Both reads come before the first real account and the first traveler (agreement, open list) |
+| N-8 | Two legal reads (data protection in Germany; tourism and tax law in Ukraine) and the forming of the core body | €4,000 | **F**; **C** — lawyers or law clinics working pro bono | Both reads come before the first real account and the first pilgrim (agreement, open list) |
 | N-9 | Contingency | €2,300 | **F** | — |
 
 ## 2. Needs with no cost line

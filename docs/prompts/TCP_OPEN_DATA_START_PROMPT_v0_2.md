@@ -1,9 +1,9 @@
 ---
-title: "TCP_OPEN_DATA_START_PROMPT_v0_1"
+title: "TCP_OPEN_DATA_START_PROMPT_v0_2"
 subtitle: "Starting prompt — developing and implementing the open-data specification"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.1"
+version: "v0.2"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -13,7 +13,7 @@ status: "to paste as the first message of a new conversation"
 *Paste everything below the line as the first message of a new
 conversation in the Claude Project "Trans Carpathian Pathway". It
 develops and builds `docs/specs/PATHWAYS_OPEN_DATA_SPEC` — how
-travelers carry the pathway into the map apps they already use,
+pilgrims carry the pathway into the map apps they already use,
 and how partners read the open layers by machine. It works in this
 repository and, for named changes on Michel's word, in
 `ubec_mapservice`. It never puts a host into a file, a feed, an API
@@ -28,7 +28,7 @@ of it is built. Its answer to Michel's question: the pathway and
 the places nobody hosts travel openly — through OpenStreetMap, as
 stage files in GPX, GeoJSON and KML, and through an OGC API –
 Features service for partners; the hosts travel one at a time, by
-a `geo:` link in the map's click, or in one traveler's journey file
+a `geo:` link in the map's click, or in one pilgrim's journey file
 from the Curator, and never in bulk.
 
 This conversation takes it from paper to the ground, gate by gate,
@@ -135,7 +135,7 @@ placeholder.
 - **No tracking.** No keys, accounts, cookies or analytics on any
   file or service; logs as short as abuse control needs.
 - **Nothing confidential** (S-15): no shelter for alerts, no stage
-  state, no traveler's data in any file.
+  state, no pilgrim's data in any file.
 - **The border strip** (S-8): no stage inside it in a public file
   until the permit route is held in writing and done once.
 - **Licence in the file.** Every file and collection carries its

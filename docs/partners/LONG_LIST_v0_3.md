@@ -1,18 +1,18 @@
 ---
-title: "LONG_LIST_v0_2"
+title: "LONG_LIST_v0_3"
 subtitle: "Gate B — a review of the project as a partner would read it, and the long list of partners"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.2"
+version: "v0.3"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
 status: "for Michel to strike and add — nobody on this list has been approached"
 ---
 
-*Gate B of `docs/prompts/TCP_PARTNERS_START_PROMPT_v0_1.md`, opened on
+*Gate B of `docs/prompts/TCP_PARTNERS_START_PROMPT_v0_2.md`, opened on
 Michel's word, October 9, 2026: "everything is open". Read against
-the needs list (`NEEDS_v0_2.md`), the module map
+the needs list (`NEEDS_v0_3.md`), the module map
 (`TRANS_CARPATHIAN_PATHWAYS_MODULES_v0_1.md`), prompt v0.34, white paper v0.3,
 proposal v0.3, agreement v0.3, the stress tests and the decisions
 checklist v0.3. Research the same day in English, German and
@@ -29,12 +29,12 @@ is a judgement on any organisation; "fit" is the project's reading.*
 
 **What a partner will find strong.** The thinking is unusually
 honest: the white paper names its own failure modes with sources,
-refuses to count success in travelers, and keeps open items open.
+refuses to count success in pilgrims, and keeps open items open.
 The map is not a promise: Plai exists, with consent as columns,
 withdrawal, export and a leak test, so a funder's money goes mostly
 to people rather than to software. The design already carries the
 lessons comparable projects paid for — a named steward per stretch,
-no booking layer, payment direct from traveler to host. And its
+no booking layer, payment direct from pilgrim to host. And its
 frame — the meadows made and kept by mowing and grazing, heritage
 and nature as one — is the frame the grassland science, IUCN
 Category V and UNESCO's continuing landscape already use.
@@ -175,7 +175,7 @@ to ask for something Michel would refuse in advance.
 | I-6 | **Hutsulshchyna National Nature Park** | 322 km² around Kosiv; keeps "traditions, rituals and folk crafts"; 13 trails; a Hutsul horse centre [S25] | The Kosiv end of the walk | Use of its trails · which stretches cross it | hutsulshchyna-park.in.ua · none | W | — |
 | I-7 | **Verkhovynskyi National Nature Park** | Chyvchyn mountains on the border [S26]; an undated partner profile lists preserving meadows by introducing horse grazing [S26] | The public body closest to "not wilderness" | Border-regime compliance · a conversation on grazing and meadows | verkhovynskyi-park.in.ua · none | — | Border strip |
 | I-8 | **Association of Carpathian Vatahy**, Verkhovyna | Manages the Hutsul cow brynza geographical indication; six polonynas certified 2020 [S27]; ~20 members seeking grants in 2023 [S27]. No source after 2023 | The people who make and keep the polonynas | Fair treatment of brynza · whether members want to host, one by one | No web presence; through Verkhovyna · none | — | ⚑ one association, many polonynas |
-| I-9 | **Kosiv Museum of Hutsul Folk Art and Life** | Interactive ceramics exhibition [S48] and weaving exhibition [S30]; new exhibition June 2026 [S28] | A stop where travelers learn what they will see in workshops | Visitors; credit · a stage note | Through Kosiv council · none | — | — |
+| I-9 | **Kosiv Museum of Hutsul Folk Art and Life** | Interactive ceramics exhibition [S48] and weaving exhibition [S30]; new exhibition June 2026 [S28] | A stop where pilgrims learn what they will see in workshops | Visitors; credit · a stage note | Through Kosiv council · none | — | — |
 | I-10 | **Kylymarka** Carpathian Culture Centre, Kosiv | A 2020 concept: residencies, summer schools, a database of craftspeople [S29]; an oblast-made brand in 2025 [S30] (link to the 2020 concept unverified) | A venue for host meetings at the Kosiv end | Listing in its database; co-branding · a room | Through Kosiv council · none | P | ✕ a craftspeople database; brand |
 | I-11 | **Ivano-Frankivsk oblast tourism office** | Runs iftourism.com: interactive map, catalogues, a partner programme with logos [S30] | Money and marking for mountain hromadas | ✕ the corridor on its map; its logo; catalogues · at most marking on public paths | ums@if.gov.ua · none | N | ✕ the Pathways™ scenario |
 | I-12 | **Union of Rural Green Tourism of Ukraine** | A homestead quality mark with categories and logo rules; an academy; one listed homestead in the oblast [S31] | Host-training material | ✕ membership, categorisation, logo · training material only | info@greentour.com.ua · none | P, N | ✕ categories work as ratings |

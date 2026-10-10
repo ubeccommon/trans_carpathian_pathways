@@ -1,9 +1,9 @@
 ---
-title: "IMPLEMENTATION_PLAN_v0_2"
+title: "IMPLEMENTATION_PLAN_v0_3"
 subtitle: "The project in one page, and the step-by-step plan to the first corridor walked — with its to-do lists"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.2"
+version: "v0.3"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -16,7 +16,7 @@ status: "working plan, read against prompt v0.40 — states as of October 10, 20
 
 ## 1. The project in one page
 
-**Summary.** Trans-Carpathian Pathways is a living network of hosts in the Carpathians — people who offer a bed, a meal, guidance or a craft from where they actually live — a pathway that emerges from where those hosts are, pathway stewards who care for each stretch, and a local Curator who holds the whole and suggests, never sells, a journey. It runs on Plai, a consent-controlled map of the whole Carpathian range that UBEC operates on its own server in the EU. No booking calendar, no ratings, no commission; payment passes directly from traveler to host in forms the host chooses; every host owns their own entry and can withdraw it. The first corridor runs from Vorokhta through Verkhovyna to Kosiv in the Hutsul highlands of western Ukraine. Initiated by UBEC (Ubuntu Bioregional Economic Commons), led by Michel Garand, and Zhyva Khata, led by Vasyl Yuskiv.
+**Summary.** Trans-Carpathian Pathways is a living network of hosts in the Carpathians — people who offer a bed, a meal, guidance or a craft from where they actually live — a pathway that emerges from where those hosts are, pathway stewards who care for each stretch, and a local Curator who holds the whole and suggests, never sells, a journey to each Pilgrim of the Plai — whoever comes on foot to meet them. It runs on Plai, a consent-controlled map of the whole Carpathian range that UBEC operates on its own server in the EU. No booking calendar, no ratings, no commission; payment passes directly from pilgrim to host in forms the host chooses; every host owns their own entry and can withdraw it. The first corridor runs from Vorokhta through Verkhovyna to Kosiv in the Hutsul highlands of western Ukraine. Initiated by UBEC (Ubuntu Bioregional Economic Commons), led by Michel Garand, and Zhyva Khata, led by Vasyl Yuskiv.
 
 **Why.** The Carpathians are being re-valued from outside faster than from within — resort property, wind farms on the high meadows, EU accession opening the land market, the Carpathian Eight planning the region's future with energy as the headline — while the people who hold the old way of life grow old and the knowledge that made the meadows goes with them. The meadows degrade when left alone: neutral is not enough where the land was made. The project stands with the second movement — the families, initiatives and newcomers already keeping the landscape and the crafts — and offers an alternative that earns: encounter rather than extraction, regeneration rather than sustainability. Its measure is whether a place is more alive and more able to go on than before the pathway.
 
@@ -46,12 +46,12 @@ Steps 0 to 3 run in parallel now; 4 is running; 5 cannot open before 2's backups
 
 ### Step 0 — Take the decisions still open
 
-*From `docs/DECISIONS_CHECKLIST_v0_3.md`. Each one holds back a later step; the first four hold back the most.*
+*From `docs/DECISIONS_CHECKLIST_v0_4.md`. Each one holds back a later step; the first four hold back the most.*
 
 - ☐ **S-10** — When Phase 1 ends: Gate 4 walked, the tenth host, or 24 months after Gate 3. *Holds back step 8.* — Michel
 - ☐ **A-2** — Rights in entries: confirm the drafted option (the entrant keeps them, UBEC holds a revocable permission). *Holds back the agreement's closing.* — Michel
 - ☐ **A-5** — Governing law and the last step of a dispute. — Michel, with the legal read of step 1
-- ☐ **A-6** — Retention: a withdrawn place never sent again; a traveler's details; the incident record. — Michel, with the legal read of step 1
+- ☐ **A-6** — Retention: a withdrawn place never sent again; a pilgrim's details; the incident record. — Michel, with the legal read of step 1
 - ☐ **S-7** — What Gate 4 records: enquiries, journeys, host-nights, earnings aggregated, Curator hours and pay, houses sold on the corridor, hosts by village; and a stop rule. *Holds back steps 4, 6 and 7.* — Michel; the research partner of step 7 may propose
 - ☐ **S-17** — After how many days a hold on a host's place is reviewed by someone other than the Curator; whether Curators declare kin among their hosts. — Michel
 - ☐ **S-18** — Which clauses are entrenched when the corridor's co-creators decide Phase 2 (proposed: §5 data and §9 conduct only). — Michel
@@ -69,7 +69,7 @@ Steps 0 to 3 run in parallel now; 4 is running; 5 cannot open before 2's backups
 - ☐ Form the core body: its form, its founding members, its founding document stating that Phase 1 ends at a named event and that Phase 2 governance is decided by the first corridor's co-creators. — Michel; *waits on* S-10, S-18
 - ☐ Name the deputy administrator with a backend account, a sealed copy of the backup key and the hoster and registrar credentials; verify the stewardship mailbox reaches them. — the core body, or Michel until then (A-4)
 - ☐ Register the name and the Plai emblem as marks, in Ukraine and the EU, under a policy that permits use by signed co-creators and partners; the documents stay CC BY-SA. — the core body
-- ☐ The two legal reads: data protection in Germany (agreement §5, the privacy notice in Plai's form; whether a Ukraine-based controller collecting EU travelers' data needs an EU representative) before the first real account; tourism and tax law in Ukraine (agreement §8, §10; Procedure 297; meals; exchange of work for foreigners) before the first traveler. Budget line N-8, €4,000; pro bono candidates C-7, C-8. — Michel to commission
+- ☐ The two legal reads: data protection in Germany (agreement §5, the privacy notice in Plai's form; whether a Ukraine-based controller collecting EU pilgrims' data needs an EU representative) before the first real account; tourism and tax law in Ukraine (agreement §8, §10; Procedure 297; meals; exchange of work for foreigners) before the first pilgrim. Budget line N-8, €4,000; pro bono candidates C-7, C-8. — Michel to commission
 - ☐ Write the Curator's and the stewards' arrangements: who pays, how much, for how long, what happens when a grant ends. — Michel; *waits on* step 3
 
 ### Step 2 — The stack ready for real people
@@ -111,9 +111,9 @@ Steps 0 to 3 run in parallel now; 4 is running; 5 cannot open before 2's backups
 
 *Running now, on Michel's word of October 9, between two places kept unnamed. Modules P1 to P3 in miniature.*
 
-- ◐ The concept tried on a short stretch: a host, a traveler, the honest offer, the contribution. — Michel
+- ◐ The concept tried on a short stretch: a host, a pilgrim, the honest offer, the contribution. — Michel
 - ☐ Decide whether the test enters anyone's place on Plai — which would bring Gate 3's backup condition with it — or stays off the platform until step 2's backups exist. — Michel
-- ☐ Decide what the test records (S-7 in miniature): what the host needed, what the traveler needed and did not have, what a contribution came to in practice, how long the Curator's part took. — Michel
+- ☐ Decide what the test records (S-7 in miniature): what the host needed, what the pilgrim needed and did not have, what a contribution came to in practice, how long the Curator's part took. — Michel
 - ☐ Read the agreement's host part and the sign-on sheet, in Ukrainian, with the test's host: the first reading in the corridor (N-13). — Michel
 - ☐ Write what was learned into the prompt's §2 and, where it changes a document, into that document. — the next conversation, on Michel's word
 
@@ -144,7 +144,7 @@ Steps 0 to 3 run in parallel now; 4 is running; 5 cannot open before 2's backups
 
 *Modules P2, P3; the record of G3 in its first form. Two seasons, as the budget assumes.*
 
-- ☐ Walk Vorokhta → Verkhovyna → Kosiv end to end as a traveler would, once per season; the Curator or a steward keeps the stage register as they go: walked distance and time per stage, whether the stage lies in the border strip, what permit it needs, current closures, what was missing, what a traveler needed and did not have. — the Curator and the stewards
+- ☐ Walk Vorokhta → Verkhovyna → Kosiv end to end as a pilgrim would, once per season; the Curator or a steward keeps the stage register as they go: walked distance and time per stage, whether the stage lies in the border strip, what permit it needs, current closures, what was missing, what a pilgrim needed and did not have. — the Curator and the stewards
 - ☐ Record the money (S-7): enquiries, journeys, host-nights, earnings aggregated and anonymous, Curator hours and pay, houses sold on the corridor and whether they were on the map, hosts by village. — the Curator
 - ☐ Decide marking: whether the pathway is marked at all, and to which standard (the Czech system already used in the oblast, or Slovakia's), or stays an emergent path told in person. Settled here, not before. — Michel, after the walk
 - ☐ Decide whether the stage planner is needed at all (Gate 5 opens only if the Curator cannot plan on paper). — Michel
@@ -177,13 +177,13 @@ Steps 0 to 3 run in parallel now; 4 is running; 5 cannot open before 2's backups
 
 From the stress tests, so a hurried step does not undo a settled one.
 
-- Do not fund a paid Curator before confirming travelers exist beyond the test; the first grant is planning and legal.
+- Do not fund a paid Curator before confirming pilgrims exist beyond the test; the first grant is planning and legal.
 - Do not let a funder's logo, a partner's booking layer, ratings, a commission or an exclusive in by the side door; the long list drops such candidates on sight.
 - Do not list, picture or locate a host on the site, in a report, in a study or in OpenStreetMap; the `geo:` link serves one published place at a time to the person who clicked it.
 - Do not suggest a stage inside the five-kilometre border strip to anyone until the permit route is held in writing and done once.
 - Do not present a corridor as what a community wants; it is the places of named hosts, with their separate consent.
 - Do not open a named module — heritage, research, funding beyond the pilot — without a gate that needs it and a person who holds it.
-- Do not count success in travelers.
+- Do not count success in pilgrims.
 
 ## 5. The next thirty days, in order
 

@@ -1,9 +1,9 @@
 ---
-title: "KOSIV_HANDOUT_v0_1"
+title: "KOSIV_HANDOUT_v0_2"
 subtitle: "Trans-Carpathian Pathways — project handout for the Department of Culture and Tourism, Kosiv"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.1"
+version: "v0.2"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -43,8 +43,8 @@ Three things interlock: hosts who offer what is real, a pathway that emerges bet
 | --- | --- |
 | Host | Offers one or more of an overnight stay, a meal, local guidance or a workshop, described as it is. Sets their own months, capacity, languages and how the place is reached. |
 | Pathway steward | Cares for a stretch of path, knows its hosts and places, may enter a place for a host who cannot. |
-| Curator | A person of the corridor — often a farmer, teacher or walker — who reads every place before it is published, holds the safety knowledge, and suggests (never sells) a journey to each traveler. |
-| Traveler | Walks a stretch, for an afternoon or a month, to learn rather than to look. |
+| Curator | A person of the corridor — often a farmer, teacher or walker — who reads every place before it is published, holds the safety knowledge, and suggests (never sells) a journey to each pilgrim. |
+| Pilgrim of the Plai | Walks a stretch of the plai — the old path through the high pastures — for an afternoon or a month, to learn rather than to look, and arrives as a guest. |
 
 **The pathway is not drawn from above.** Each host becomes a point; the paths between them follow existing trails; the Curator adjusts for terrain, season and capacity. Springs, viewpoints and other places worth arriving at are mapped along the way.
 
@@ -65,10 +65,10 @@ The project's own test is one question, asked at every stage: is this place more
 
 ## What it can mean for Kosiv
 
-Kosiv is the corridor's craft end, and the pathway is built to carry travelers to people who make things, not past them.
+Kosiv is the corridor's craft end, and the pathway is built to carry pilgrims to people who make things, not past them.
 
-- **Workshops as encounters.** A potter, weaver or carver can offer a workshop from where they work. The traveler learns by doing beside someone who knows; the maker gains a reason, and a means, to keep the craft.
-- **Income that stays in the village.** Research on village tourism finds meals and workshops carry as much local income as lodging ([ODI](https://cdn.odi.org/media/documents/110_yFKzu3c.pdf)). Payment goes from traveler to host, in forms the host chooses; the project takes no share.
+- **Workshops as encounters.** A potter, weaver or carver can offer a workshop from where they work. The pilgrim learns by doing beside someone who knows; the maker gains a reason, and a means, to keep the craft.
+- **Income that stays in the village.** Research on village tourism finds meals and workshops carry as much local income as lodging ([ODI](https://cdn.odi.org/media/documents/110_yFKzu3c.pdf)). Payment goes from pilgrim to host, in forms the host chooses; the project takes no share.
 - **A living route, not a display.** Pathways is one concrete form of the shared cultural routes the Carpathian Eight declaration calls for, built from the people outward.
 - **Newcomers and those who stayed.** Families arriving to learn the Hutsul way of life can find the people who hold it, on the same honest terms.
 - **Evidence the community owns.** Over time the places hosts share can show where culture, landscape and nature still hold together — a map a community can use when decisions about its land are made.
@@ -79,7 +79,7 @@ Each refusal guards against the ways community tourism has failed elsewhere.
 
 - **No booking calendar.** Availability is a conversation with the Curator; a calendar turns a host into a supplier with slots to fill.
 - **No ratings.** A score teaches a host to perform for the score.
-- **No commission.** The project, its Curators and stewards take no share of what a traveler pays a host.
+- **No commission.** The project, its Curators and stewards take no share of what a pilgrim pays a host.
 - **No staged tradition.** The encounter is real or it is nothing.
 - **No one speaks for a community.** A host speaks for their own place, a Curator for what they publish, the project for itself.
 - **No data sold, lent or tracked.** Each person decides what is shown, field by field, and can withdraw at any time.
@@ -91,14 +91,14 @@ The map and the documents exist; the hosts do not yet. Each gate opens when its 
 | Stage | State | What it holds |
 | --- | --- | --- |
 | Gates 0 to 2: decisions and the map | Done | Decisions recorded; host fields and consent built and tested on Plai (October 2026) |
-| A test of the concept | Under way | A host, a traveler, the honest offer and the contribution, tried on a short stretch of the corridor |
+| A test of the concept | Under way | A host, a pilgrim, the honest offer and the contribution, tried on a short stretch of the corridor |
 | Gate 3: the first hosts | Next | Three to five hosts entered with the Curator beside them; opens after off-host backups and the data-protection read |
-| Gate 4: the corridor walked | Then | Vorokhta to Kosiv end to end, once per season, for two seasons; distance, time and what a traveler needed recorded per stage |
+| Gate 4: the corridor walked | Then | Vorokhta to Kosiv end to end, once per season, for two seasons; distance, time and what a pilgrim needed recorded per stage |
 | Phase 2: the corridor decides | Later | The corridor's hosts, stewards and Curators choose how the project is governed, and which corridor comes next |
 
 **In place.** The proposal, white paper, co-creator agreement and user manual in English and Ukrainian; Plai with the host fields and consent built in. A test of the concept is under way on a short stretch of the corridor.
 
-**Still to come.** Off-host backups before the first real account; legal reads on data protection and on Ukrainian tourism and tax rules before the first traveler; a legal body for the project; funding for the pilot.
+**Still to come.** Off-host backups before the first real account; legal reads on data protection and on Ukrainian tourism and tax rules before the first pilgrim; a legal body for the project; funding for the pilot.
 
 ## What we ask of the Department
 

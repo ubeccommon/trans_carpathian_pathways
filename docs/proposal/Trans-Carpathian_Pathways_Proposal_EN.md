@@ -1,11 +1,12 @@
 ---
 title: "Trans-Carpathian Pathways — Proposal (EN)"
-version: "v0.4"
+version: "v0.5"
 date: "October 2026"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
 changelog:
+  - "v0.5 — 2026-10-10 — Michel's word, October 10: whoever walks is the Pilgrim of the Plai, not the traveler: the name in the summary and in \"Who it serves\", with the plai glossed; *pilgrim* in running text; the network diagram's label. Nothing else changed."
   - "v0.4 — 2026-10-10 — Michel's word, October 10: the project is initiated by two — UBEC, led by Michel Garand, and Zhyva Khata, led by Vasyl Yuskiv; the initiator line replaced. Nothing else changed."
   - "v0.3 — 2026-10-09 — the four drifts of the project review (D-2 the pathway steward; D-3 a Curator or steward may enter for a host; D-4 the contact address; D-6 one list of principles, the reasoning document's) and Michel's decisions of October 9: payment passes directly; the Curator is not a gatekeeper; a host who places the point at a meeting place says so; Curators and stewards paid roles once financing is secured; a budget recommendation and a pilot length, Claude's for his word; the white paper and the agreement named."
   - "v0.2 — 2026-10-07 — corrected to Michel's decisions of October 7: a place, a home included, is shown where its host puts it (OI-P7); each host enters with their own account, the Curator beside them, so no assisted entry (OI-P4); payment forms settled, how payment passes still open (OI-P8, OI-P13); the photo moved to what is in place (Plai step B)."
@@ -22,7 +23,7 @@ October 2026 · UBEC / Carpathian Hub Initiative
 
 ## Summary
 
-Trans-Carpathian Pathways connects the people who still keep Carpathian mountain life alive with travelers who want to meet them, slowly and on foot. It is a living network of hosts, a pathway that grows from where those hosts are, pathway stewards who care for each stretch of it, and local Curators who hold the whole.
+Trans-Carpathian Pathways connects the people who still keep Carpathian mountain life alive with the Pilgrims of the Plai: people who want to meet them, slowly and on foot. It is a living network of hosts, a pathway that grows from where those hosts are, pathway stewards who care for each stretch of it, and local Curators who hold the whole.
 
 The first corridor is in the Hutsul highlands of western Ukraine, between Vorokhta, Verkhovyna and Kosiv. The project runs on Plai, the Carpathian hub of UBEC Mapservice: a self-hosted map service in the EU that already carries a base map of the whole Carpathian range and a consent-controlled way for people to place themselves on it.
 
@@ -45,15 +46,15 @@ Two problems meet in the Carpathians, and they share one answer: genuine encount
 
 **Mountain communities are thinning out.** Across the Carpathian arc, villages face depopulation, the loss of traditional knowledge and economic marginalisation. A way of life that took centuries to build is disappearing quietly. The people who still keep it are rarely on any tourist map, and they do not advertise.
 
-A traveler who sleeps under someone's roof, eats at their table and learns how something is made leaves money and attention where they are needed. A host who shares what they actually have, without performing it, gains a reason and a means to keep it.
+A pilgrim who sleeps under someone's roof, eats at their table and learns how something is made leaves money and attention where they are needed. A host who shares what they actually have, without performing it, gains a reason and a means to keep it.
 
 ## The response
 
 Trans-Carpathian Pathways builds three interlocking things: a network of hosts, a living pathway between them, and the people who hold it — stewards for each stretch, a Curator for the whole.
 
-![How the network works: hosts, map, Curator, traveler](assets/network_en.svg)
+![How the network works: hosts, map, Curator, pilgrim](assets/network_en.svg)
 
-Hosts place themselves on the map; the pathway grows from where they are; the Curator turns that map into a journey for each traveler.
+Hosts place themselves on the map; the pathway grows from where they are; the Curator turns that map into a journey for each pilgrim.
 
 **A network of hosts.** People across the arc who choose to share something real. A host offers one or more of:
 
@@ -68,21 +69,21 @@ Hosts are not service providers. The offer is honest and specific, with no perfo
 
 **A living pathway.** The route is not designed from above. It emerges as hosts join: each host becomes a point on the map, the paths between them are traced over the mountain trail network, and the Curator adjusts the result for terrain, season, host capacity and the human logic of a journey. It grows as the network grows and contracts when hosts are away.
 
-**The Pathway Curator.** The memory of the path, usually a local farmer, teacher or walker. The Curator knows a stretch of the pathway and its hosts, listens to each traveler's time, company and wish, suggests a route rather than prescribing one, and keeps track of who can receive whom, and when. The Curator is not a travel agent but a guide to the whole — and not a gatekeeper: a traveler may also find a published host on the map and go directly. Beside the Curator, a **pathway steward** cares for one stretch: walks it, knows its hosts and places, may enter a place for a host who cannot and add places along the way, and leaves publishing to the Curator.
+**The Pathway Curator.** The memory of the path, usually a local farmer, teacher or walker. The Curator knows a stretch of the pathway and its hosts, listens to each pilgrim's time, company and wish, suggests a route rather than prescribing one, and keeps track of who can receive whom, and when. The Curator is not a travel agent but a guide to the whole — and not a gatekeeper: a pilgrim may also find a published host on the map and go directly. Beside the Curator, a **pathway steward** cares for one stretch: walks it, knows its hosts and places, may enter a place for a host who cannot and add places along the way, and leaves publishing to the Curator.
 
 ## Who it serves
 
-The pathway holds anyone ready to slow down, for an afternoon or a month. Length and intensity are the traveler's choice; the Curator shapes the route around them.
+The pathway holds anyone ready to slow down, for an afternoon or a month. Whoever comes is a **Pilgrim of the Plai**. The plai is the old Carpathian path through the high pastures, and the map takes its name from it. The pilgrimage is to the mountain and the people who keep it alive, not to a shrine, and the pilgrim arrives as a guest. Length and intensity are the pilgrim's choice; the Curator shapes the route around them.
 
-| Traveler | A typical journey |
+| Who comes | A typical journey |
 | --- | --- |
 | Family with small children | A few hours: one host, one meal, one view |
-| Solo traveler | Days or weeks of deep immersion |
+| Solo pilgrim | Days or weeks of deep immersion |
 | Couple | Slow travel at a chosen depth |
 | Group of friends | Shared or split experiences along one stretch |
 | Someone in transition | The pilgrimage as a personal threshold |
 
-**Hosts** gain a fair, direct connection to travelers who come for what they actually offer, without needing to market themselves.
+**Hosts** gain a fair, direct connection to pilgrims who come for what they actually offer, without needing to market themselves.
 
 **Communities** gain income that stays local, and a reason for younger people to see value in knowledge that is otherwise being lost.
 
@@ -105,7 +106,7 @@ Work in the corridor during the pilot:
 1. Find and connect the first hosts: people who offer a bed, a meal, guidance or a craft.
 2. Help them place themselves on Plai, each with their own account — or, for a host who cannot, have the Curator or a steward enter the place for them with their agreement — with their consent and on their terms.
 3. Establish the first Curator and the first stewards: local people who hold the path.
-4. Walk the corridor end to end as a traveler would.
+4. Walk the corridor end to end as a pilgrim would.
 5. Record what worked, what was missing and what the next corridor needs.
 
 ## Technical foundation
@@ -139,7 +140,7 @@ These principles are operational, not aspirational: they decide every design and
 - **No performance.** The encounter is real or it is nothing.
 - **Organic growth.** The network grows from the inside, host by host, not from a plan drawn above it.
 - **The Curator as memory.** People hold what no tool can; a tool proposes, a person decides.
-- **The traveler arrives.** The journey is undergone, not consumed.
+- **The pilgrim arrives.** The journey is undergone, not consumed.
 - **Off the beaten path.** Where people live, not where tourists are sent.
 - **A pathway of relationships.** Person to person, person to land.
 - **No one speaks for a community.** A host speaks for their own place, a Curator for what they publish, the project for itself.
@@ -160,8 +161,8 @@ The pilot begins in Ukraine during the war, and the project is designed around t
 
 - **The host places the point.** A place, a home included, is shown where its host puts it on the map — or where the Curator or a steward put it with the host's agreement — and only once the Curator has published it. A host may place the point at a nearby meeting place instead of the house, and then says so in the place's information. The host can withdraw it at any time; a point once published may have been copied, and withdrawal removes it from Plai, not from copies.
 - **Contact details are gated.** A name, email, phone number or photo is published only where the host has agreed and the Curator has chosen to show it.
-- **The Curator holds safety knowledge, off the platform.** The nearest shelter during air-raid alerts and the current state of each stage are kept with the Curator, never on Plai and never published; the rules of the border zone near the Romanian border are public law and are told to every traveler in writing.
-- **Travelers are responsible for their own preparation.** A traveler from abroad informs themselves, in their own country, about travel advisories, insurance, martial law, cash and the permits the border zone requires; the project tells them what it knows and promises no more.
+- **The Curator holds safety knowledge, off the platform.** The nearest shelter during air-raid alerts and the current state of each stage are kept with the Curator, never on Plai and never published; the rules of the border zone near the Romanian border are public law and are told to every pilgrim in writing.
+- **Pilgrims are responsible for their own preparation.** A pilgrim from abroad informs themselves, in their own country, about travel advisories, insurance, martial law, cash and the permits the border zone requires; the project tells them what it knows and promises no more.
 - **Data is held in the EU,** on UBEC's own server, separate from any other project's data.
 
 A pilot that works under these conditions will work anywhere on the arc.
@@ -188,7 +189,7 @@ Support for the pilot would go to people on the ground first and software second
 | Hosting and security | Server, backups and the safeguards that keep host data private |
 | Legal | The two legal reads — data protection in Germany, tourism and tax law in Ukraine — and the forming of the core body |
 
-How a host is paid is settled: each host chooses, for each offer, among a fixed contribution, a suggested contribution, exchange of work, and ubec-pay or a community currency; and payment passes directly from traveler to host — the project, its Curators and its stewards hold no money for stays and take no share (decided October 9, 2026). The co-creator agreement says what each of these means.
+How a host is paid is settled: each host chooses, for each offer, among a fixed contribution, a suggested contribution, exchange of work, and ubec-pay or a community currency; and payment passes directly from pilgrim to host — the project, its Curators and its stewards hold no money for stays and take no share (decided October 9, 2026). The co-creator agreement says what each of these means.
 
 **A budget, recommended.** The figures below are Claude's recommendation for Michel's word, not yet a decision: a pilot of eighteen months from the first hosts, so that the corridor is walked in two seasons, at about €25,700.
 
@@ -205,7 +206,7 @@ How a host is paid is settled: each host chooses, for each offer, among a fixed 
 | Contingency | €2,300 | ten per cent |
 | **Total** | **about €25,700** | |
 
-The pay figures assume local rates in the corridor and should be checked against them; the legal figures assume two short written opinions. Nothing is budgeted for hosts' income, software for travelers, or a second corridor, which the stress tests say should wait until the first corridor has been walked and its record published.
+The pay figures assume local rates in the corridor and should be checked against them; the legal figures assume two short written opinions. Nothing is budgeted for hosts' income, software for pilgrims, or a second corridor, which the stress tests say should wait until the first corridor has been walked and its record published.
 
 ## How to take part
 
