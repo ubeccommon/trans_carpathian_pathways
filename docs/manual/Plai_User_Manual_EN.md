@@ -1,11 +1,12 @@
 ---
 title: "Plai — User Manual (EN)"
-version: "v0.6"
+version: "v0.7"
 date: "October 2026"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
 changelog:
+  - "v0.7 — 2026-10-10 — Michel's screenshots of the form taken again the same evening: Figure 5 (the top of the form, over the map with its relief and contours) and Figure 6 (the host group under its new heading, \"If you host pilgrims\"), cropped and without metadata. The text unchanged."
   - "v0.6 — 2026-10-10 — Plai's form now heads the host group \"If you host pilgrims\" (mapservice 750dbf4, entries scheme v0.10); the heading and Figure 6's caption follow. The screenshot still shows the old heading until it is retaken."
   - "v0.5 — 2026-10-10 — Michel's word, October 10: whoever walks is the Pilgrim of the Plai, not the traveler: *pilgrims* in the manual's own text. Plai's screen label \"If you host travelers\" is quoted as it stands, and the heading and figure that name it keep it."
   - "v0.4 — 2026-10-09 — Michel's word: a host may place the point at a nearby meeting place and then says so in the description; the curator checks that the point is where the host chose to be found; a published point may be copied, and withdrawal removes it from Plai, not from copies."

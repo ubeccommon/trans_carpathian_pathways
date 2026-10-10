@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_51"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_52"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.51"
+version: "v0.52"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -618,8 +618,9 @@ Carried here into the manual v0.6 (both languages) and the
 host-fields specification v0.6. Closed on the host the same
 evening, Michel's run: rendered, the heading changed in the user
 copy's form, his look, the copy exported (mapservice `43d2cae`,
-recorded in its prompt v0.92). Still to come: the manual's Figure
-6, which shows the old heading, retaken from the form.
+recorded in its prompt v0.92). The manual's Figures 5 and 6
+retaken from the form by Michel the same evening, both showing
+the new heading; manual v0.7.
 
 * * *
 
@@ -1042,6 +1043,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.52 — 2026-10-10 — the manual's Figures 5 and 6 retaken with
+  the new heading; manual v0.7.
 - v0.51 — 2026-10-10 — the pilgrim in Plai's form, closed on the
   host (mapservice `43d2cae`).
 - v0.50 — 2026-10-10 — the pilgrim in Plai's form: mapservice
