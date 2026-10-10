@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_46"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_47"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.46"
+version: "v0.47"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -541,6 +541,32 @@ the core body. Plai still links and records agreement v0.3
 (`plai/005`); asking for v0.4 there is a mapservice change of its
 own.
 
+**The presentation in Kosiv — Michel's word, October 10, 2026.**
+Michel has the chance to present the project to the Department of
+Culture and Tourism in Kosiv, and asked for a handout and a
+presentation, English first, Ukrainian to follow. The handout,
+`docs/kosiv/KOSIV_HANDOUT_v0_1.md`, is drawn from the white paper
+v0.6 and the implementation plan v0.2 and decides nothing: the
+project in brief, why now (with the white paper's sources), how it
+works, regeneration against sustainable development, what it can
+mean for Kosiv, what it will not do, where it stands, and four asks
+of the Department — a reading, introductions (each person decides
+for themselves; no one is chosen for them), local guidance on home
+hosting, meals and the tourist tax, and a place in the community's
+cultural-route planning and its contact with the Carpathian Eight
+and the Convention — attention and counsel, not endorsement. Its
+editable copy is a Claude doc of the same title. The presentation
+is a twelve-slide deck with speaker notes, made in Claude's Slides;
+its source is kept in `docs/kosiv/deck/` (`deck.json` and one
+`slides/<id>.html` per slide). The cover's background is Michel's
+image *Day 70 — warm wind on the path*
+(`docs/kosiv/deck/assets/`, the SVG as given and a 1920×1080 PNG
+from it); in the slide it is referenced by the deck's own asset
+address. Basic faces only (Georgia, Verdana), by the font rule. Not
+yet: the UBEC logo on the cover; a contact for Vasyl Yuskiv; the
+Ukrainian texts; a PDF of either, which each exports from its own
+page.
+
 * * *
 
 ## 3. The First Corridor
@@ -962,6 +988,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.47 — 2026-10-10 — the handout and presentation for the
+  Department of Culture and Tourism in Kosiv, English.
 - v0.46 — 2026-10-10 — the terrain on Plai, closed on the host.
 - v0.45 — 2026-10-10 — the terrain built in mapservice
   (`6bed2e0`), not yet on the host.
