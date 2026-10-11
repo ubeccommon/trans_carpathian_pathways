@@ -1,11 +1,12 @@
 ---
 title: "Trans-Carpathian Pathways — Proposal (EN)"
-version: "v0.6"
+version: "v0.7"
 date: "October 2026"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
 changelog:
+  - "v0.7 — 2026-10-10 — Michel's word, October 11: no ratings without the consent of those rated (D-7). Nothing else changed."
   - "v0.6 — 2026-10-10 — the public-drafts stress tests (docs/reviews/PUBLIC_DRAFTS_STRESS_TESTS_v0_1.md), corrections taken in: the host fields moved to what is in place, Plai's English screens said plainly, the corridor table without \"the first known hosts\" and with Kosiv's ceramics, distances, each instance its own database, the border rules for those who come directly, how to recognise the project, hosts' own tax duty, the existing guest-receiving tradition acknowledged, the budget's authorship note and decision dates. Nothing decided changed."
   - "v0.5 — 2026-10-10 — Michel's word, October 10: whoever walks is the Pilgrim of the Plai, not the traveler: the name in the summary and in \"Who it serves\", with the plai glossed; *pilgrim* in running text; the network diagram's label. Nothing else changed."
   - "v0.4 — 2026-10-10 — Michel's word, October 10: the project is initiated by two — UBEC, led by Michel Garand, and Zhyva Khata, led by Vasyl Yuskiv; the initiator line replaced. Nothing else changed."
@@ -149,7 +150,7 @@ These principles are operational, not aspirational: they decide every design and
 - **Not wilderness.** People and land are one and the same; what needs protecting is the relationship.
 - **Data stays with the people.** Each person decides what is shown about them, can take it back, and can take it with them.
 - **No calendar.** Availability beyond the season is a conversation with the Curator, never a booking grid.
-- **No ratings.** Hosts are not scored, ranked or reviewed in public.
+- **No ratings.** Hosts are not scored, ranked or reviewed in public without their consent.
 - **Safety first.** In wartime and in the mountains, safety comes before any journey; what keeps people safe is held by the Curator, off the platform.
 - **A place is shown where its host puts it.** The host places the point; the Curator publishes or holds the entry.
 

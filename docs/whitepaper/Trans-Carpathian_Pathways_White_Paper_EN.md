@@ -1,12 +1,13 @@
 ---
 title: "Trans-Carpathian Pathways — White Paper (EN)"
-version: "v0.8"
+version: "v0.9"
 date: "October 2026"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
 status: "draft for Michel's word — English first, Ukrainian once it settles"
 changelog:
+  - "v0.9 — 2026-10-10 — Michel's word, October 11: the record is public, in the public repository (D-3); no ratings unless those rated consent (D-7). Nothing else changed."
   - "v0.8 — 2026-10-10 — the public-drafts stress tests (docs/reviews/PUBLIC_DRAFTS_STRESS_TESTS_v0_1.md), corrections taken in: decisions of October 9 carried in (payment direct, no commission, OI-P12, S-4, S-6, S-9, S-14 corridors), §11 as of October 10, section references, the Package Travel Directive quoted exactly, the cattle and Svydovets figures held to their sources, advocacy sources attributed, the Bukovel forgery case separated from its owners, the record described as it is, the toloka, the polonynas, the displaced, the newcomer and the councils' names reworded. Nothing decided by Michel changed."
   - "v0.7 — 2026-10-10 — Michel's word, October 10: whoever walks is the Pilgrim of the Plai, not the traveler: §4.3 gives the name and its roots, the summary and the roles table carry it, §12's open question on pilgrimage narrowed to whether the project says it borrows no one's faith; *pilgrim* in running text; the regenerative-loop diagram's label. \"Traveler\" kept where the paper speaks of travel in general, of the literature or of other projects."
   - "v0.6 — 2026-10-10 — Michel's word, October 10: the project is initiated by two — UBEC, led by Michel Garand, and Zhyva Khata, led by Vasyl Yuskiv; §11's line on the legal body names both. Nothing else changed."
@@ -23,7 +24,7 @@ changelog:
 
 *A living network of hosts, paths and Curators across the Carpathian arc — the case, the evidence and the design*
 
-October 2026 · UBEC / Carpathian Hub Initiative · White Paper, draft v0.8
+October 2026 · UBEC / Carpathian Hub Initiative · White Paper, draft v0.9
 
 ## How to read this paper
 
@@ -206,7 +207,7 @@ The project does not start from zero. Plai is the Carpathian hub of UBEC Mapserv
 
 **No calendar.** Availability beyond the season is a conversation with the Curator, never a booking grid, because a calendar is the first step to a booking service and a booking service turns a host into a supplier with slots to fill.
 
-**No ratings** (draft agreement §3, proposed; not yet decided). Hosts are not scored, ranked or reviewed in public, because a score teaches a host to perform for the score.
+**No ratings** (decided October 11, 2026). Hosts are not scored, ranked or reviewed in public unless they consent to it, because a score teaches a host to perform for the score.
 
 **No commission** (agreement §8; decided October 9, 2026). The project, its Curators and its stewards collect no payment for stays, meals, guidance or workshops and take no share; a Curator takes nothing from a host for sending pilgrims. A host chooses, for each offer, among a fixed contribution, a suggested contribution, an exchange of work, and ubec-pay or a community currency (decided October 7, 2026); the form of payment is shown on the map, while the amount is told to the Curator and never shown, and the Curator never holds the money. Payment passes directly from pilgrim to host (decided October 9, 2026; A-3 closed); why gift is not among the forms remains open (§12).
 
@@ -352,11 +353,11 @@ The project keeps its tensions in view rather than resolving them on paper. The 
 
 **Of the Carpathian Eight and the Carpathian Convention.** The C8 declaration commits its signatories to cultural landscapes, the traditional way of life of mountain communities and shared cultural routes; the Convention has treated nature and culture together since 2003 and Ukraine will hold its presidency after COP8. Pathways is one concrete form that commitment can take, built from the communities outward, and it asks to be heard as such: as the places of named hosts and the paths between them, shown with their consent and speaking for no one else — never as what a community wants, which only a community can say.
 
-**Of anyone.** The documents published for review and the code are open under their licences, and every decision is written down with its date in the project's record, which is shared with those who take part; its agreement is written in plain words on purpose; and anyone may propose. Contact: Michel Garand — stewardship@ubec.network.
+**Of anyone.** The project's documents, its code and the record of every decision, with its date, are open in the public repository `ubeccommon/trans_carpathian_pathways`; its agreement is written in plain words on purpose; and anyone may propose. Contact: Michel Garand — stewardship@ubec.network.
 
 ## Appendix A — The project's documents, reviewed
 
-Kept in the project's record, documents under CC BY-SA 4.0 and code under AGPL-3.0-or-later. Read for this paper on October 9, 2026, at the versions below; the record holds the current ones.
+All in the public repository `ubeccommon/trans_carpathian_pathways`, documents under CC BY-SA 4.0 and code under AGPL-3.0-or-later. Read for this paper on October 9, 2026, at the versions below; the repository holds the current ones.
 
 | Document | Version | What it holds |
 | --- | --- | --- |

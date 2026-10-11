@@ -316,9 +316,9 @@ booking service turns a host into a supplier with slots to fill
 (OI-P6).
 
 **No ratings.** Hosts are not scored, ranked or reviewed in
-public.
+public without their consent.
 *Why:* a score teaches a host to perform for the score.
-*(Agreement §3.)*
+*(Agreement §3; decided, Michel's word, October 11, 2026.)*
 
 **Safety first, and the Curator holds it.** In wartime and in the
 mountains, safety comes before any journey; shelter, border-zone
@@ -540,6 +540,8 @@ Read October 9, 2026.
 * * *
 
 *Changelog*
+- v0.3, amended 2026-10-11 — no ratings without consent, decided
+  (Michel's word).
 - v0.3 — 2026-10-10 — the public-drafts stress tests
   (docs/reviews/PUBLIC_DRAFTS_STRESS_TESTS_v0_1.md): the decisions
   of October 9 carried into T-2, T-4, T-6, T-7 and T-8; the

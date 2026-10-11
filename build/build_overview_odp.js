@@ -227,7 +227,7 @@ function tableSlide(bg, sec, eyebrow, title, rows, colW, size, rowH, opts) {
 }
 gridSlide(S4, "Guards", "What the project will not do", [
   ["No booking calendar", "Availability is a conversation with the Curator, not slots to fill."],
-  ["No ratings", "A score teaches a host to perform for the score."],
+  ["No ratings", "None without the host's consent: a score teaches a host to perform for the score."],
   ["No commission", "The project takes no share of what a pilgrim pays a host."],
   ["No staged tradition", "The encounter is real, or it is nothing."],
   ["No one speaks for a community", "A host speaks for their own place; the project for itself."],
@@ -324,7 +324,7 @@ twoCol(C.cream, S6, "Where it stands · October 2026", "The map is ready; the pe
     "Proposal, white paper, co-creator agreement and manual, in English and Ukrainian",
     "Plai with host fields, consent and terrain",
     "Decisions on record; Gates 0 to 2 closed",
-    "A test of the concept on a short stretch",
+    "A test of the concept, with the public review",
   ]],
   ["Not yet", C.red, [
     "Any host, steward or Curator by name",
@@ -380,9 +380,9 @@ twoCol(C.cream, S6, "How we will know", "Success is not counted in pilgrims", [
     t(s, h3, { x: x + 92, y, w: w - 92, h: 50, size: 36, serif: true, color: C.navy });
     t(s, p, { x: x + 92, y: y + 60, w: w - 92, h: 130, size: 26, color: C.body, lh: 1.45 });
   });
-  t(s, "Open under their licences: the documents and the code. Every decision is written down with its date.", { x: 128, y: 760, w: 1600, h: 44, size: 26, color: C.body });
+  t(s, "Everything is open: the documents, the code and the record of every decision.", { x: 128, y: 760, w: 1600, h: 44, size: 26, color: C.body });
   footer(s, "Trans-Carpathian Pathways · 16", C.muted2);
-  s.addNotes("The pilot asks people on the ground first and software second, because the map already exists. Funding pays for finding and visiting hosts, a paid first Curator under a written arrangement, walking the corridor, the two legal reads, translation and hosting. A funder gets an open account at each gate, but no say over what is published or which journeys are suggested, and no access to hosts' or pilgrims' data. We also seek technical contributors. Communities: not endorsement but attention, a reading, and word passed to people who already host, teach, herd or mow that the project exists, so that they decide for themselves whether to come forward. Ukraine holds the presidency of the Carpathian Convention after its eighth conference at the end of 2026. Documents are under CC BY-SA 4.0 and code under AGPL-3.0; those published for review are on the project's site, and the record of decisions is shared with those who take part.");
+  s.addNotes("The pilot asks people on the ground first and software second, because the map already exists. Funding pays for finding and visiting hosts, a paid first Curator under a written arrangement, walking the corridor, the two legal reads, translation and hosting. A funder gets an open account at each gate, but no say over what is published or which journeys are suggested, and no access to hosts' or pilgrims' data. We also seek technical contributors. Communities: not endorsement but attention, a reading, and word passed to people who already host, teach, herd or mow that the project exists, so that they decide for themselves whether to come forward. Ukraine holds the presidency of the Carpathian Convention after its eighth conference at the end of 2026. Documents are under CC BY-SA 4.0 and code under AGPL-3.0; all of them, and the record of every decision, are in the public repository ubeccommon/trans_carpathian_pathways.");
 }
 
 // 17 — close

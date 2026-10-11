@@ -78,7 +78,7 @@ Over time, the places hosts share can trace **corridors** where culture, landsca
 Each refusal guards against the ways community tourism has failed elsewhere.
 
 - **No booking calendar.** Availability is a conversation with the Curator; a calendar turns a host into a supplier with slots to fill.
-- **No ratings.** A score teaches a host to perform for the score.
+- **No ratings.** None without the host's consent; a score teaches a host to perform for the score.
 - **No commission.** The project, its Curators and stewards take no share of what a pilgrim pays a host.
 - **No staged tradition.** The encounter is real or it is nothing.
 - **No one speaks for a community.** A host speaks for their own place, a Curator for what they publish, the project for itself.
@@ -102,12 +102,12 @@ The map and the documents exist; the hosts do not yet. Each gate opens when its 
 | Stage | State | What it holds |
 | --- | --- | --- |
 | Gates 0 to 2: decisions and the map | Done | Decisions recorded; host fields and consent built and tested on Plai (October 2026) |
-| A test of the concept | Under way | A host, a pilgrim, the honest offer and the contribution, tried on a short stretch of the corridor |
+| A test of the concept | With the public review | A host, a pilgrim, the honest offer and the contribution, tried on a short stretch of the corridor once the drafts are out for review, and changed as it learns |
 | Gate 3: the first hosts | Next | Three to five hosts entered with the Curator beside them; opens after off-host backups and the data-protection read |
 | Gate 4: the corridor walked | Then | Vorokhta to Kosiv end to end, once per season, for two seasons; distance, time and what a pilgrim needed recorded per stage |
 | Phase 2: the corridor decides | Later | The corridor's hosts, stewards and Curators choose how the project is governed, and which corridor comes next |
 
-**In place.** The proposal, white paper, co-creator agreement and user manual in English and Ukrainian; Plai with the host fields, consent and terrain built in; Gates 0 to 2 closed. A test of the concept is under way on a short stretch of the corridor.
+**In place.** The proposal, white paper, co-creator agreement and user manual in English and Ukrainian; Plai with the host fields, consent and terrain built in; Gates 0 to 2 closed. A test of the concept on a short stretch of the corridor runs with the public review and changes as it learns.
 
 **Not yet.** Any host, steward or Curator by name. Off-host backups, the condition for the first real account. A legal body: today one person holds the data, the server and every promise. Money: a pilot budget of about €25,700 over eighteen months is proposed, not decided, and waits on a grantee. A reading of the Ukrainian texts by people in the corridor.
 
@@ -146,7 +146,7 @@ The project needs people on the ground first and software second, because the ma
 3. **Funders.** A small planning-and-legal grant first, then the pilot. Funding gives no say over what is published or which journeys are suggested, and no access to hosts' or pilgrims' data; what came in and how it was spent is reported at each gate.
 4. **Communities and institutions.** Not endorsement but attention: a reading, word passed to people who already host, teach, herd or mow that the project exists and how to reach it, so that they decide for themselves whether to come forward, and a place for Pathways as one concrete form of the cultural landscapes and shared routes that the Carpathian Eight and the Carpathian Convention name — heard as the places of named hosts, never as what a community wants.
 
-The documents published for review and the code are open under their licences; every decision is written down with its date, and the record is shared with those who take part.
+The documents, the code and the record of every decision, with its date, are open in the public repository `ubeccommon/trans_carpathian_pathways`.
 
 ## Contact
 
@@ -159,6 +159,7 @@ The white paper and proposal are available in English and Ukrainian on request. 
 * * *
 
 *Changelog*
+- v0.4, amended 2026-10-11 — Michel's word: the record is public (D-3); the test of the concept runs with the public review (D-4); no ratings without consent (D-7).
 - v0.4 — 2026-10-10 — the public-drafts stress tests (docs/reviews/PUBLIC_DRAFTS_STRESS_TESTS_v0_1.md), corrections taken in: payment direct, Bukovel's hromada and the buyers line, the displaced apart from the second movement, data and consent stated as they are, hosts' conditions under Procedure 297, the Curator's choosing (S-9), the councils asked to pass word rather than names, the record described as it is. The deck's slides and its LibreOffice copy follow.
 - v0.3 — 2026-10-10 — Michel's word: the presentation is not for Kosiv; it presents the project, which is not only Kosiv, as an honest, comprehensive and concise overview. Renamed from the Kosiv handout and moved from `docs/kosiv/` to `docs/overview/`. "What it can mean for Kosiv" replaced by "Across the arc"; "Working in wartime, within the law", "What we have not solved" and "How we will know" added; "Still to come" became "Not yet", stating that no host is named, one person holds everything and the budget is not decided; the asks of the Department became asks of people in the mountains, partners, funders, and communities and institutions. Carries the Pilgrim of the Plai (prompt v0.48). The roadmap, a drawing in the doc, is a table here.
 - v0.2 — 2026-10-10 — the Pilgrim of the Plai, on Michel's word (prompt v0.48).

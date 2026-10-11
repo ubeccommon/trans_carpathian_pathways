@@ -219,10 +219,16 @@ Before the drafts go out:
 - **D-3 — The record.** Keep the repository private (the texts now
   say so) or publish a mirror of the outward documents. If the
   whole repository is ever made public, the reviews, the README,
-  the prompt and the plan are scrubbed first.
+  the prompt and the plan are scrubbed first. *Taken, October 11,
+  2026: the record is public. Checked before the texts said so: no
+  address, password, token or key anywhere in the history; what
+  remains is operational detail — the host's name and users, the
+  paths, the backup plan, the October 9 scenarios.*
 - **D-4 — The test of the concept.** Say what it is — off the
   platform, among people the project already knows, no pilgrim
-  from abroad — or take it out of the overview.
+  from abroad — or take it out of the overview. *Taken, October
+  11, 2026: the test runs with the public review and changes as
+  it learns.*
 - **D-5 — The first Curator.** "No Curator by name" against S-9's
   "the first Curator is Michel": one wording for the white paper,
   the overview and the plan.
@@ -230,7 +236,10 @@ Before the drafts go out:
   off-host backups do not exist yet, or only that they are the
   condition of the first real account.
 - **D-7 — No ratings.** Confirm it as decided, or mark it as
-  proposed in the proposal and the overview too.
+  proposed in the proposal and the overview too. *Taken, October
+  11, 2026: no ratings unless those rated consent. The agreement
+  carries it, and the public record, at its next version; v0.7,
+  on Plai, stays true meanwhile.*
 - **D-8 — The agreement on Plai.** Plai records v0.3. Ask for a
   Plai migration linking the current version before review, or
   keep the note now in the agreement. *Taken, October 11, 2026:
@@ -273,6 +282,8 @@ holds only once they are.
 * * *
 
 *Changelog*
+- v0.1, amended 2026-10-11 — D-3, D-4 and D-7 marked taken
+  (Michel's word).
 - v0.1, amended 2026-10-11 — D-8 marked taken: agreement draft v0.7
   on Plai.
 - v0.1 — 2026-10-10 — three stress tests of the drafts proposed for

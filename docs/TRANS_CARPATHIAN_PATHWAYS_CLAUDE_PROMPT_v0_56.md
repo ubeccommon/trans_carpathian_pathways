@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_55"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_56"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.55"
+version: "v0.56"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -640,7 +640,7 @@ LibreOffice copy too), reasoning v0.3, open-data specification
 v0.3, manual v0.8 (the password line); PDFs rebuilt. Among them:
 S-14's corridor consent drafted at last in agreement §5 and as an
 optional tick; the three D-6 principles in the agreement's list;
-the record described as it is, the repository being private;
+the record described as it then was, the repository being private;
 how to recognise the project, and that nobody from it asks for
 money in advance, a password or a passport; the deputy as not yet
 named; the border rules for those who come directly; the Bukovel
@@ -668,6 +668,22 @@ earlier draft keeps it; no real entry exists. Closed on the host
 the same morning, Michel's run: `007` applied, the user copy
 exported with the v0.7 link (mapservice `74e6f03`), `verify plai vt`
 98 of 98 with the agreement checks proving v0.7 (its prompt v0.94).
+
+**Three of the review's decisions — Michel's word, October 11,
+2026.** *The record is public* (D-3): the repository
+`ubeccommon/trans_carpathian_pathways` is the project's record;
+the white paper v0.9 and the overview say so. Checked first: no
+address, password, token or key anywhere in its history; what
+publishing shows is operational detail — the host's name and
+users, paths, the backup plan, the October 9 scenarios. The
+switch to public is Michel's, on GitHub. *The test of the
+concept* (D-4) runs with the public review and changes as it
+learns; the overview says so. *No ratings* (D-7) unless those
+rated consent: white paper §6.3, proposal v0.7, reasoning §5,
+the overview and its deck. The agreement stays at v0.7, which Plai
+links: both its lines stay true, and its next version carries the
+new wording with the decisions still to come. The rest of the
+review's §5 is decided in due course, on his word.
 
 * * *
 
@@ -1092,6 +1108,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.56 — 2026-10-11 — D-3, D-4, D-7 on Michel's word: the record
+  public, the test with the review, no ratings without consent.
 - v0.55 — 2026-10-11 — the agreement at draft v0.7 closed on the
   host: `verify plai vt` 98 of 98.
 - v0.54 — 2026-10-11 — the agreement at draft v0.7, and on Plai

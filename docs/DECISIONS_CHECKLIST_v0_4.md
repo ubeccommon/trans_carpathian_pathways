@@ -7,7 +7,7 @@ version: "v0.4"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
-status: "22 answered and carried into the documents; 10 still open, marked ☐; one decided since (the name, October 10)"
+status: "22 answered and carried into the documents; 10 still open, marked ☐; four decided since (the name, October 10; the record, the test, ratings, October 11)"
 ---
 
 *Michel's answers of October 9, 2026, written against each
@@ -154,6 +154,15 @@ manual v0.4, prompt v0.29.*
       not taken.* → every document; prompt §2; white paper
       §4.3; reasoning T-3, which stays open only on whether the
       project says it borrows no one's faith.
+- ☑ **D-3 — The record.** Public: the repository is the record.
+      *Michel's word, October 11, 2026.* → white paper §13 and
+      Appendix A, overview; the agreement at its next version.
+- ☑ **D-4 — The test of the concept.** Runs with the public review
+      and changes as it learns. *Michel's word, October 11, 2026.*
+      → overview.
+- ☑ **D-7 — Ratings.** None unless those rated consent. *Michel's
+      word, October 11, 2026.* → white paper §6.3, proposal,
+      reasoning §5, overview; the agreement at its next version.
 
 ## Already due, from the project review of October 8
 
