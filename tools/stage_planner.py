@@ -104,6 +104,7 @@ A corridor from stretches, each a file `route` wrote:
         stretch_1.geojson stretch_2.geojson --out corridor.geojson
 
 Changelog:
+  v0.11, amended 2026-10-11 — the preview says which version drew it.
   v0.11 — 2026-10-11 — towns and villages, Michel's word: inside a
          built-up area the direct way through on streets, to the next
          path or trail — no richness sought, no trunk road or
@@ -1787,7 +1788,8 @@ def write_html(path: Path, geojson_path: Path, summary: dict,
             "min of the route")
     html = (HTML.replace("__TITLE__", title)
             .replace("__SUM__", text)
-            .replace("__NOTICE__", " · ".join(summary["notices"]))
+            .replace("__NOTICE__", " · ".join(
+                summary["notices"] + [f"drawn by {summary['tool']}"]))
             .replace("__WMS__", PLAI_WMS)
             .replace("__WMS_LAYERS__", ",".join(PLAI_WMS_LAYERS))
             .replace("__DATA__", data))
