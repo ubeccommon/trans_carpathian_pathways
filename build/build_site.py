@@ -42,6 +42,14 @@ Needs pandoc on the PATH, and Python 3 alone; deploy needs rsync and ssh.
 SPDX-License-Identifier: AGPL-3.0-or-later
 
 Changelog:
+  v0.11 — 2026-10-11 — German and Polish (Michel's word): a landing page in
+         each, the menu in each, the documents shown in English to both;
+         the two-way switch replaced by a list of the four languages, each
+         by its own name; hreflang for all four and x-default; a note on
+         each German and Polish page that it is a translation not yet read
+         by a speaker of the language. A document not in the page's
+         language carries a small EN in the menu, and the words for a
+         screen reader.
   v0.10 — 2026-10-11 — the field writing opens in a new tab too (Michel's
          word), as the map does.
   v0.9 — 2026-10-11 — the map opens in a new tab (Michel's word), with
@@ -110,33 +118,34 @@ WRITING = "https://pilgrims.ubec.network/"
 # The documents on the site, in the menu's order. `src` is a glob in docs/
 # per language; the latest version wins. `toc` says which headings the
 # menu lists: "h2" the chapters; "h2+roles" the parts and, under Part II,
-# each role. A document with no Ukrainian file is shown in English to both.
+# each role. A document with no file in a language is shown in English.
 DOCS = [
     {"slug": "overview",
      "src": {"en": "overview/PROJECT_OVERVIEW_v*.md"},
      "pdf": None,
-     "label": {"en": "Overview", "uk": "Огляд"},
+     "label": {"en": "Overview", "uk": "Огляд", "de": "Überblick", "pl": "Przegląd"},
      "kind": {"en": "Project overview", "uk": "Огляд проєкту"},
      "toc": None},
     {"slug": "proposal",
      "src": {"en": "proposal/Trans-Carpathian_Pathways_Proposal_EN.md",
              "uk": "proposal/Trans-Carpathian_Pathways_Proposal_UK.md"},
      "pdf": "proposal/Trans-Carpathian_Pathways_Proposal_EN-UK.pdf",
-     "label": {"en": "Proposal", "uk": "Пропозиція"},
+     "label": {"en": "Proposal", "uk": "Пропозиція", "de": "Projektvorschlag", "pl": "Propozycja"},
      "kind": {"en": "Project summary and proposal", "uk": "Опис проєкту та пропозиція"},
      "toc": None},
     {"slug": "whitepaper",
      "src": {"en": "whitepaper/Trans-Carpathian_Pathways_White_Paper_EN.md",
              "uk": "whitepaper/Trans-Carpathian_Pathways_White_Paper_UK.md"},
      "pdf": "whitepaper/Trans-Carpathian_Pathways_White_Paper.pdf",
-     "label": {"en": "White paper", "uk": "Біла книга"},
+     "label": {"en": "White paper", "uk": "Біла книга", "de": "Weißbuch", "pl": "Biała księga"},
      "kind": {"en": "White paper", "uk": "Біла книга"},
      "toc": "h2"},
     {"slug": "agreement",
      "src": {"en": "agreement/Trans-Carpathian_Pathways_Co-Creator_Agreement_EN.md",
              "uk": "agreement/Trans-Carpathian_Pathways_Co-Creator_Agreement_UK.md"},
      "pdf": "agreement/Trans-Carpathian_Pathways_Co-Creator_Agreement_EN-UK.pdf",
-     "label": {"en": "Co-creator agreement", "uk": "Угода співтворців"},
+     "label": {"en": "Co-creator agreement", "uk": "Угода співтворців",
+               "de": "Mitgestaltungsvereinbarung", "pl": "Porozumienie współtwórców"},
      "kind": {"en": "Co-creator agreement", "uk": "Угода співтворців"},
      "toc": "h2+roles"},
 ]
@@ -148,18 +157,51 @@ WORDS = {
            "in_en": "", "doc_pdf": "Download the PDF (English and Ukrainian)",
            "built": "This page is the text of {file}, {version}, in the project's record",
            "record": "on GitHub", "licence": "Text CC BY-SA 4.0.", "contents": "Contents",
-           "new_tab": " (opens in a new tab)"},
+           "new_tab": " (opens in a new tab)", "language": "Language"},
     "uk": {"hub": "Ініціатива Карпатського хабу", "skip": "До тексту", "version": "Сторінка",
            "nav": "Сайт", "about": "Про проєкт", "map": "Мапа — Плай", "writing": "Польові записи",
            "whole": "Увесь текст", "pdf": "PDF, англійською та українською", "table": "Таблиця",
            "in_en": " (англійською)", "doc_pdf": "Завантажити PDF (англійською та українською)",
            "built": "Ця сторінка — текст файлу {file}, {version}, у записі проєкту",
            "record": "на GitHub", "licence": "Тексти — CC BY-SA 4.0.", "contents": "Зміст",
-           "new_tab": " (відкривається в новій вкладці)"},
+           "new_tab": " (відкривається в новій вкладці)", "language": "Мова"},
+    "de": {"hub": "Karpaten-Hub-Initiative", "skip": "Zum Text", "version": "Seite",
+           "nav": "Website", "about": "Über das Projekt", "map": "Karte – Plai", "writing": "Feldnotizen",
+           "whole": "Der ganze Text", "pdf": "PDF, Englisch und Ukrainisch", "table": "Tabelle",
+           "in_en": " (auf Englisch)", "doc_pdf": "PDF herunterladen (Englisch und Ukrainisch)",
+           "built": "Diese Seite ist der Text von {file}, {version}, im Projektarchiv",
+           "record": "auf GitHub", "licence": "Texte: CC BY-SA 4.0.", "contents": "Inhalt",
+           "new_tab": " (öffnet in einem neuen Tab)", "language": "Sprache"},
+    "pl": {"hub": "Inicjatywa Karpackiego Hubu", "skip": "Przejdź do treści", "version": "Strona",
+           "nav": "Witryna", "about": "O projekcie", "map": "Mapa – Plai", "writing": "Zapiski z terenu",
+           "whole": "Cały tekst", "pdf": "PDF, po angielsku i ukraińsku", "table": "Tabela",
+           "in_en": " (po angielsku)", "doc_pdf": "Pobierz PDF (po angielsku i ukraińsku)",
+           "built": "Ta strona to tekst pliku {file}, {version}, w zapisie projektu",
+           "record": "na GitHubie", "licence": "Teksty: CC BY-SA 4.0.", "contents": "Spis treści",
+           "new_tab": " (otwiera się w nowej karcie)", "language": "Język"},
 }
+
+# The site's languages, in the order the language list shows them, each by its
+# own name. English is the root; every other language lives under /<tag>/.
+LANGS = ["en", "uk", "de", "pl"]
+LANG_NAMES = {"en": "English", "uk": "Українська", "de": "Deutsch", "pl": "Polski"}
+# Under the name in the picture, each page shows the name in one other language:
+# English and Ukrainian show each other's; German and Polish show the Ukrainian,
+# the corridor's own.
+OTHER = {"en": "uk", "uk": "en", "de": "uk", "pl": "uk"}
 # Until the Ukrainian has been read in the corridor (D-2, open), every
 # Ukrainian page says so, in one line.
 UK_NOTE = "Українських текстів ще не читали люди з коридору."
+# The German and Polish pages are Claude's translations of the English (Michel's
+# word, October 11, 2026, for German and Polish); until a speaker of each has
+# read them, they say so, and say that the documents are in English and Ukrainian.
+NOTES = {
+    "uk": UK_NOTE,
+    "de": "Diese Seite ist aus dem Englischen übersetzt und noch nicht von Muttersprachlerinnen "
+          "und Muttersprachlern geprüft. Die Dokumente gibt es auf Englisch und Ukrainisch.",
+    "pl": "Ta strona jest przetłumaczona z angielskiego i nie została jeszcze sprawdzona przez "
+          "rodzimych użytkowników języka. Dokumenty są dostępne po angielsku i ukraińsku.",
+}
 
 # The landing page's picture is Michel's "Warm wind on the path" (day 70),
 # static/assets/warm_wind_on_the_path.svg, 1600 x 900, with the name set
@@ -187,7 +229,7 @@ PAGE = """<!doctype html>
 <header class="head">
   <div class="bar">
     <a class="brand" href="{up}{home}"><img src="{up}{v_mark}" alt="" width="42" height="42"><span>UBEC · {hub}</span></a>
-    <a class="switch" href="{up}{other_href}" hreflang="{other_lang}" lang="{other_lang}">{switch}</a>
+{langs}
   </div>
 {nav}
 {top}
@@ -367,27 +409,49 @@ def doc_lang(d: dict, lang: str) -> str:
 def doc_path(d: dict, lang: str) -> str:
     """The document's page, from the site's root, without a leading slash."""
     l = doc_lang(d, lang)
-    return f"{'uk/' if l == 'uk' else ''}{d['slug']}/"
+    return f"{'' if l == 'en' else l + '/'}{d['slug']}/"
+
+
+def home_path(lang: str) -> str:
+    return "" if lang == "en" else f"{lang}/"
+
+
+def lang_list(lang: str, up: str, targets: dict) -> str:
+    """The language list: the page's own language named, the others a click away.
+    `targets` gives, for each language, the page to go to from the site's root."""
+    items = []
+    for l in LANGS:
+        if l not in targets:
+            continue
+        cur = ' aria-current="true"' if l == lang else ""
+        items.append(f'<li><a href="{up}{targets[l]}" hreflang="{l}" lang="{l}"{cur}>{LANG_NAMES[l]}</a></li>')
+    return (f'    <details class="langs" name="menu"><summary>'
+            f'<span class="vh">{WORDS[lang]["language"]}: </span>{LANG_NAMES[lang]}</summary>'
+            f'<ul class="panel">{"".join(items)}</ul></details>')
 
 
 def nav(lang: str, up: str, current: str, tocs: dict) -> str:
     w = WORDS[lang]
-    home = "uk/" if lang == "uk" else ""
+    home = home_path(lang)
 
-    def item(label, href, here, attrs=""):
+    def item(label, href, here, attrs="", raw=False):
         cur = ' aria-current="page"' if here else ""
         cls = ' class="here"' if here else ""
-        return f'<li{cls}><a href="{href}"{cur}{attrs}>{html.escape(label)}</a></li>'
+        return f'<li{cls}><a href="{href}"{cur}{attrs}>{label if raw else html.escape(label)}</a></li>'
 
     items = [item(w["about"], f"{up}{home}", current == "home")]
     for d in DOCS:
         l = doc_lang(d, lang)
-        label = d["label"][lang] + (w["in_en"] if l != lang else "")
+        # A document not in the page's language: a small EN for the eye, the
+        # words in full for a screen reader.
+        label = html.escape(d["label"][lang]) + (
+            f'<span class="tag" aria-hidden="true">EN</span><span class="vh">{w["in_en"]}</span>'
+            if l != lang else "")
         attrs = f' hreflang="{l}"' if l != lang else ""
         href = f"{up}{doc_path(d, lang)}"
         toc = tocs.get((d["slug"], l))
         if not toc:
-            items.append(item(label, href, current == d["slug"], attrs))
+            items.append(item(label, href, current == d["slug"], attrs, raw=True))
             continue
         here = current == d["slug"]
         cur = ' aria-current="page"' if here else ""
@@ -397,9 +461,11 @@ def nav(lang: str, up: str, current: str, tocs: dict) -> str:
         if d["pdf"]:
             entries.append(f'<li class="pdf"><a href="{up}{v("files/" + Path(d["pdf"]).name)}" '
                            f'type="application/pdf">{w["pdf"]}</a></li>')
+        # A panel of chapters in another language says which.
+        panel_lang = f' lang="{l}"' if l != lang else ""
         items.append(f'<li class="drop{" here" if here else ""}"><details name="menu">'
-                     f'<summary>{html.escape(label)}</summary>'
-                     f'<ul class="panel">{"".join(entries)}</ul></details></li>')
+                     f'<summary>{label}</summary>'
+                     f'<ul class="panel"{panel_lang}>{"".join(entries)}</ul></details></li>')
     items.append(item(w["map"], MAP, False))
     items.append(item(w["writing"], WRITING, False))
     return (f'  <nav class="menu" aria-label="{w["nav"]}">\n    <ul>\n      '
@@ -433,8 +499,9 @@ def build():
     for path in sorted(CONTENT.glob("*.md")):
         meta, body = front_matter(path)
         pages[meta["lang"]] = (meta, body)
-    if set(pages) != {"en", "uk"}:
-        raise SystemExit(f"site/content: expected en and uk, found {sorted(pages)}")
+    if "en" not in pages or not set(pages) <= set(LANGS):
+        raise SystemExit(f"site/content: expected en and any of {LANGS}, found {sorted(pages)}")
+    pages = {l: pages[l] for l in LANGS if l in pages}
 
     # The documents first: their tables of contents go into every page's menu.
     docs, tocs = {}, {}
@@ -458,11 +525,12 @@ def build():
 
     # The landing page, in each language.
     for lang, (meta, body) in pages.items():
-        other_lang = "uk" if lang == "en" else "en"
+        other_lang = OTHER[lang]
         other = pages[other_lang][0]
         up = "../" * meta["path"].strip("/").count("/") + ("../" if meta["path"].strip("/") else "")
         alternates = "\n".join(
-            f'<link rel="alternate" hreflang="{l}" href="{ORIGIN}{pages[l][0]["path"]}">' for l in ("en", "uk"))
+            [f'<link rel="alternate" hreflang="{l}" href="{ORIGIN}{pages[l][0]["path"]}">' for l in pages]
+            + [f'<link rel="alternate" hreflang="x-default" href="{ORIGIN}/">'])
         top = HERO.format(up=up, v_art=v("assets/warm_wind_on_the_path.svg"), image_alt=e(meta["image_alt"]),
                           title=e(meta["title"]), other_lang=other_lang, other_title=e(other["title"]),
                           tagline=e(meta["tagline"]))
@@ -471,9 +539,9 @@ def build():
             title_full=e(f'{meta["title"]} — {other["title"]}'),
             description=e(meta["description"]), canonical=ORIGIN + meta["path"],
             alternates=alternates, skip=WORDS[lang]["skip"], hub=WORDS[lang]["hub"],
-            other_href=other["path"].lstrip("/"), other_lang=other_lang, switch=e(meta["switch"]),
+            langs=lang_list(lang, up, {l: home_path(l) for l in pages}),
             nav=nav(lang, up, "home", tocs).replace("{up}", up), top=top,
-            note=f'<p class="note">{UK_NOTE}</p>\n' if lang == "uk" else "",
+            note=f'<p class="note">{NOTES[lang]}</p>\n' if lang in NOTES else "",
             body=markdown(body).replace("{up}", up).replace("assets/plai_emblem.svg", v("assets/plai_emblem.svg")),
             initiative=e(meta["initiative"]), licence=e(meta["licence"]), privacy=e(meta["privacy"]),
             sources=e(f'{meta["sources"]} {WORDS[lang]["version"]} {meta["version"]}.'), **common))
@@ -482,11 +550,12 @@ def build():
     for (slug, lang), doc in docs.items():
         d = next(x for x in DOCS if x["slug"] == slug)
         meta = pages[lang][0]
-        langs = sorted(d["src"])
-        other_lang = "uk" if lang == "en" else "en"
+        langs = [l for l in LANGS if l in d["src"]]
         rel = doc_path(d, lang)
         up = "../" * rel.strip("/").count("/") + "../"
-        other_href = doc_path(d, other_lang) if other_lang in d["src"] else pages[other_lang][0]["path"].lstrip("/")
+        # From a document, each language leads to the same document in it, or to
+        # that language's landing page when the document has no text in it.
+        targets = {l: doc_path(d, l) if l in d["src"] else home_path(l) for l in pages}
         alternates = "\n".join(
             f'<link rel="alternate" hreflang="{l}" href="{ORIGIN}/{doc_path(d, l)}">' for l in langs)
         file = doc["path"].relative_to(ROOT).as_posix()
@@ -497,13 +566,13 @@ def build():
                                      else f'{doc["dateline"]} · {doc["version"]}'), pdf=pdf)
         built = WORDS[lang]["built"].format(file=file, version=doc["version"])
         write(rel, PAGE.format(
-            lang=lang, up=up, home="uk/" if lang == "uk" else "",
+            lang=lang, up=up, home=home_path(lang),
             title_full=e(f'{d["label"][lang]} — {meta["title"]}'),
             description=e(doc["subtitle"] or meta["description"]), canonical=f"{ORIGIN}/{rel}",
             alternates=alternates, skip=WORDS[lang]["skip"], hub=WORDS[lang]["hub"],
-            other_href=other_href, other_lang=other_lang, switch=e(meta["switch"]),
+            langs=lang_list(lang, up, targets),
             nav=nav(lang, up, slug, tocs).replace("{up}", up), top=top,
-            note=f'<p class="note">{UK_NOTE}</p>\n' if lang == "uk" else "",
+            note=f'<p class="note">{NOTES[lang]}</p>\n' if lang in NOTES else "",
             body=f'<article class="doc">\n{doc["html"].replace("{up}", up)}\n</article>',
             initiative=e(meta["initiative"]), licence=WORDS[lang]["licence"], privacy=e(meta["privacy"]),
             sources=f'{e(built)} <a href="{RECORD}/blob/main/{file}">{WORDS[lang]["record"]}</a>.',
@@ -525,7 +594,7 @@ CONTRAST = [
     ("cream", "night", 4.5, "the head, the menu"),
     ("cream-2", "night", 4.5, "the head, the document's band"),
     ("ochre", "night", 4.5, "the other language's name, narrow; the menu's current page; links in the band"),
-    ("night", "cream", 4.5, "the language switch, hovered; a menu item, hovered"),
+    ("night", "cream", 4.5, "the language list, hovered or open; a menu item, hovered"),
     ("night", "cream-2", 4.5, "a link in the menu's panel, hovered"),
     ("night", "paper", 3.0, "focus outline, also in the menu's panel"),
     ("night", "cream-2", 3.0, "focus outline in the stage block"),
@@ -674,9 +743,10 @@ def check(dist: Path = DIST) -> None:
         if open_:
             problems.append(f"{rel}: left open: {open_}")
         problems += [f"{rel}: {e}" for e in p.errors]
-        if not p.langs or p.langs[0] not in ("en", "uk"):
-            problems.append(f"{rel}: the page's language is not en or uk")
-        problems += [f"{rel}: not a BCP 47 tag: '{t}'" for t in p.langs if not BCP47.match(t)]
+        if not p.langs or p.langs[0] not in LANGS:
+            problems.append(f"{rel}: the page's language is not one of {LANGS}")
+        # hreflang="x-default" names the page for any other language; it is not a tag.
+        problems += [f"{rel}: not a BCP 47 tag: '{t}'" for t in p.langs if t != "x-default" and not BCP47.match(t)]
         if p.headings.count(1) != 1:
             problems.append(f"{rel}: {p.headings.count(1)} h1, not one")
         for before, after in zip(p.headings, p.headings[1:]):
@@ -740,7 +810,7 @@ def verify(origin: str) -> None:
     origin = origin.rstrip("/")
     own = urlparse(origin).netloc
     hosts, problems = set(), []
-    seen, queue = set(), [origin + "/", origin + "/uk/"]
+    seen, queue = set(), [origin + "/"] + [f"{origin}/{l}/" for l in LANGS if l != "en"]
 
     def get(url):
         req = urllib.request.Request(url, headers={"User-Agent": "tcp-site-verify/0.2"})

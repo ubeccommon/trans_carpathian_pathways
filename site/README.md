@@ -1,6 +1,6 @@
 ---
 title: "tcp.ubec.network — the site"
-version: "v0.14"
+version: "v0.15"
 date: "2026-10-11"
 lang: "en"
 license: "CC BY-SA 4.0"
@@ -57,6 +57,36 @@ languages, under one menu.
   go anywhere over https; nothing on any page loads from another
   server, and nothing links to a point on Plai. *(Claude's proposal,
   in place until Michel's word.)*
+
+**On the host — Michel's "looks good", October 11, 2026:** the menu,
+the documents' pages, the map in its own tab, deployed from schiff and
+looked at.
+
+## German and Polish — Michel's word, October 11, 2026
+
+- **A landing page in each** (`/de/`, `/pl/`), Claude's translation of
+  the English page v0.6, and the menu in each. Every German and Polish
+  page says, in one line, that it is a translation not yet read by
+  someone whose language it is, and that the documents are in English
+  and Ukrainian.
+- **The documents stay in English and Ukrainian.** In the German and
+  Polish menus each carries a small EN tag; a screen reader hears
+  «auf Englisch» or «po angielsku».
+- **The name stays English** in both: «Transkarpatien» in German and
+  «Zakarpacie» in Polish name Zakarpattia oblast, the same misreading
+  the review found in «Транскарпатські» (D-1). Under the name, the
+  German and Polish pages show the Ukrainian name, the corridor's own.
+- **The words chosen**, recorded in each file's changelog: German
+  place names in German transliteration (Worochta, Werchowyna, Kossiw),
+  the pathway steward as Wegepatin and Wegepate, paired forms for
+  people (Gastgebende, Kuratorinnen und Kuratoren); Polish place names
+  in their Polish forms (Worochta, Werchowyna, Kosów), the pilgrim as
+  *pielgrzym płaju* — *płaj* is a word of the Polish Carpathians too —
+  and the steward as *opiekun szlaku*. *(Claude's proposals, for a
+  speaker of each language.)*
+- **The language switch is now a list** of the four, each by its own
+  name, in the old switch's place; `hreflang` for all four and
+  `x-default` on every landing page.
 
 Still open, from the landing-page prompt §5 and Gate A put to Michel
 on October 11: the landing page's own text (the mission and "Where we
@@ -297,6 +327,9 @@ site's own, and logged no policy violation.
 * * *
 
 *Changelog*
+- v0.15 — 2026-10-11 — German and Polish, Michel's word; his "looks
+  good" on the menu as deployed. Build v0.11, stylesheet v0.7, landing
+  pages en and uk v0.6, de and pl v0.1.
 - v0.14 — 2026-10-11 — the field writing opens in a new tab too, Michel's
   word. Build v0.10.
 - v0.13 — 2026-10-11 — the map opens in a new tab, Michel's word. Build

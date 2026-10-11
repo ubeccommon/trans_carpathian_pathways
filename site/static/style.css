@@ -1,4 +1,4 @@
-/* Trans-Carpathian Pathways — tcp.ubec.network, v0.6
+/* Trans-Carpathian Pathways — tcp.ubec.network, v0.7
  * SPDX-License-Identifier: AGPL-3.0-or-later
  *
  * The palette and type of the project's PDFs (build/build_pdf.py):
@@ -11,6 +11,10 @@
  * pairs listed in its CONTRAST table against the colours below.
  *
  * Changelog:
+ *   v0.7 — 2026-10-11 — German and Polish: the language switch becomes a
+ *          list of four, a <details> in the old switch's pill, its panel
+ *          under it at the right; a small EN tag in the menu for a document
+ *          not in the page's language.
  *   v0.6 — 2026-10-11 — a link that opens a new tab carries an arrow, and
  *          its words for a screen reader are hidden from the eye (.vh).
  *   v0.5 — 2026-10-11 — the menu above the picture (Michel's word), its
@@ -79,9 +83,19 @@ a:focus-visible { outline: 3px solid var(--night); outline-offset: 3px; border-r
          text-decoration: none; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; }
 .brand:hover { color: #fff; }
 .brand img { width: 2.6rem; height: 2.6rem; display: block; }
-.switch { color: var(--cream); font-size: .9rem; font-weight: 600; text-decoration: none;
-          border: 1px solid rgba(232, 220, 184, .45); border-radius: 999px; padding: .3rem .9rem; }
-.switch:hover { color: var(--night); background: var(--cream); }
+.langs { position: relative; }
+.langs summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; min-height: 2.25rem;
+                 color: var(--cream); font-size: .9rem; font-weight: 600;
+                 border: 1px solid rgba(232, 220, 184, .45); border-radius: 999px; padding: .3rem .9rem; }
+.langs summary::-webkit-details-marker { display: none; }
+.langs summary::after { content: "▾"; content: "▾" / ""; margin-left: .4rem; font-size: .8em; }
+.langs summary:hover, .langs[open] summary { color: var(--night); background: var(--cream); }
+.langs summary:focus-visible { outline: 3px solid var(--ochre); outline-offset: 2px; }
+.langs .panel { left: auto; right: 0; min-width: 11rem; }
+.langs .panel li:first-child a { font-weight: 400; }
+.langs .panel a[aria-current] { font-weight: 600; }
+.menu .tag { margin-left: .4rem; padding: 0 .28rem; border: 1px solid currentColor; border-radius: 3px;
+             font-size: .66rem; font-weight: 600; letter-spacing: .06em; line-height: 1.4; }
 
 /* The picture is 1600 x 900 inside its own ochre frame. The name sits in
    its sky: left of the moon (from 68% of the width) and above the ridge
@@ -252,5 +266,5 @@ footer { border-top: 1px solid var(--line); background: var(--paper); }
 }
 
 @media print {
-  .switch, .skip, .menu { display: none; }
+  .langs, .skip, .menu { display: none; }
 }

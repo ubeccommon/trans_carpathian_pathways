@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_59"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_60"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.59"
+version: "v0.60"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -713,7 +713,13 @@ logical order — About, Overview, Proposal, White paper, Co-creator
 agreement, Plai, Field writing, the same in both languages; the map
 link opens the Pathways application `ubec_plai_hub_tcp` on the
 corridor around Verkhovyna; and the overview v0.5 points to the site
-in place of "available on request".
+in place of "available on request". The menu closed on the host on
+his "looks good". Then, on his word, German and Polish: a landing page
+in each (Claude's translation, said so on the page), the menu in each,
+the documents in English and Ukrainian with an EN tag; the name kept
+in English, «Transkarpatien» and «Zakarpacie» naming the oblast as
+«Транскарпатські» does (D-1); a list of four languages in place of the
+switch. Recorded in `site/README.md` v0.15.
 
 * * *
 
@@ -1138,6 +1144,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.60 — 2026-10-11 — the menu closed on the host; German and Polish on the site, Michel's word.
 - v0.59 — 2026-10-11 — the menu's order, the map link to the Pathways application, the overview v0.5 pointing to the site; Michel's word.
 - v0.58 — 2026-10-11 — the site's menu and the documents' pages, Michel's word: our own build, not Ghost.
 - v0.57 — 2026-10-11 — the starting prompt for the landing page.
