@@ -1003,6 +1003,12 @@ and the places passed, stewards' finds included. Time is reported
 as a limit, never the measure. Weights are Claude's proposal until
 Michel has looked at a corridor drawn with them (engine v0.6).
 
+**Obvious connections (Michel's word, October 11, 2026):** a path
+end is joined within 10 m to the nearest way, and up to 80 m where
+the path, carried on, meets another way across no river or stream;
+every gap a route walks is listed and marked, for a steward to check
+and for OSM to be mended.
+
 **Criteria besides:** trunk roads are not walked, a marked trail is
 a path unless it runs on a main road; a marked trail and passing near a place preferred a
 little — "the logic of encounter, not just efficiency"; the
@@ -1231,6 +1237,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.64, amended 2026-10-11 — obvious connections joined up to 80 m, gaps listed for stewards, Michel's word; engine v0.8.
 - v0.64, amended 2026-10-11 — footpaths first, before marked routes, Michel's word; engine v0.7.
 - v0.64, amended 2026-10-11 — the pathway is the way, Michel's word: the least road, then the richest way on paths within an allowance; time a limit, never the measure; engine v0.6.
 - v0.64, amended 2026-10-11 — after the first run (Verkhovyna – Zhiva Khata – Tepla Gora – Kosiv, 46 km), Michel's word: hiking paths first, roads for vehicles only when there is no other way; engine v0.5.

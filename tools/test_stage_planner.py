@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Trans-Carpathian Pathways — tests for the stage planner, v0.7
+# Trans-Carpathian Pathways — tests for the stage planner, v0.8
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """A made-up valley near Verkhovyna, built in a temporary folder:
 a secondary road on the valley floor, contour paths on both slopes
@@ -203,9 +203,48 @@ def test_footpaths_first():
     assert sp.route_between(net, c, b) is not None, "short path joined"
 
 
+def test_obvious_gaps():
+    """A path stopping 50 m short of a track, heading at it: joined.
+    Heading past it: not joined. With a stream in the gap: not
+    joined."""
+    from shapely.geometry import LineString, MultiLineString
+    W = lambda oid, coords, **tags: sp.Way(oid, None, tags,
+                                           MultiLineString([coords]))
+    box = (-100, -400, 1100, 400)
+
+    def joined(ways, water=None):
+        net = sp.build_network(ways, sp.Ground(None, box),
+                               sp.PARTY["couple"], None, sp.Landscape(),
+                               water)
+        a, _ = sp.snap(net, sp.Point(0, 0))
+        b, _ = sp.snap(net, sp.Point(550, 300))
+        r = sp.route_between(net, a, b)
+        return r, net
+
+    track = W("t", [(550, -300), (550, 300)], highway="track")
+    r, net = joined([W("p", [(0, 0), (500, 0)], highway="path"), track])
+    assert r is not None, "a 50 m gap ahead of the path is joined"
+    gaps = sp.gaps_on(net, r)
+    assert len(gaps) == 1 and gaps[0]["gap_m"] == 50, gaps
+    # heading north, the track 50 m to the side: no obvious connection
+    side = [W("p", [(0, 0), (500, 0), (500, 200)], highway="path"),
+            W("t", [(550, 100), (550, 300)], highway="track")]
+    net = sp.build_network(side, sp.Ground(None, box), sp.PARTY["couple"],
+                           None, sp.Landscape())
+    assert net.G.number_of_nodes() <= 3, "the sideways track stays apart"
+    # a stream in the gap
+    stream = LineString([(525, -400), (525, 400)])
+    _, net = joined([W("p", [(0, 0), (500, 0)], highway="path"), track],
+                    water=stream)
+    assert not any(d["highway"] == "gap"
+                   for _, _, d in net.G.edges(data=True)), \
+        "no gap joined across a stream"
+
+
 def main() -> int:
     test_the_way()
     test_footpaths_first()
+    test_obvious_gaps()
     # DIN 33466 by hand
     assert sp.din_minutes(4000, 0, 0) == 60
     assert sp.din_minutes(0, 300, 0) == 60

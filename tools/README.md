@@ -1,6 +1,6 @@
 # tools/
 
-## stage_planner.py — `route`, `corridor`, `find` and `inspect`, v0.7
+## stage_planner.py — `route`, `corridor`, `find` and `inspect`, v0.8
 
 The stage planner (starting prompt §6; spec
 `docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_3.md`). Public, on
@@ -43,6 +43,12 @@ python3 /tmp/stage_planner.py inspect "<lat,lon of a point on the path>"
 
 A click on the preview's map gives that point and the command,
 ready to copy.
+
+Paths that stop short of the way they meet are joined: within 10 m
+always, and up to 80 m where the path, carried on, meets the other
+way and the gap crosses no river or stream. Every gap a route walks
+is printed with its place and drawn as a ring on the map — a steward
+checks it on the ground, and OSM can be mended.
 
 It names the ways within 150 m of the point, and for each whether
 the party walks it and, if not, why (too hard by its `sac_scale`,

@@ -100,6 +100,13 @@ every rule and number. In short:
   the "quickest way" is no longer shown. The weights are Claude's
   proposal until Michel has looked at a corridor drawn with them
   (engine v0.6).
+- **Obvious connections.** *Michel's word, October 11, 2026:* OSM
+  paths often stop short of the way they meet. A path end is joined
+  within 10 m to the nearest way, and up to 80 m where the
+  connection is obvious: the path, carried on the way it was
+  heading, meets the other way, and the gap crosses no river or
+  stream. Every gap a route walks is listed and marked on the map,
+  for a steward to check on the ground and for OSM to be mended.
 - **Criteria besides:** trunk roads are not walked; a marked trail
   is a path, unless it runs on a main road; a marked trail and
   passing near a place preferred a little; the party's SAC grade
@@ -300,6 +307,8 @@ built, until Michel says to revise them (SP-6):
 
 ## Changelog
 
+- v0.3, amended 2026-10-11 — §3: obvious connections joined up to
+  80 m, each gap listed for a steward; Michel's word.
 - v0.3, amended 2026-10-11 — §3: footpaths first, before marked
   routes, Michel's word.
 - v0.3, amended 2026-10-11 — §3, the measure, Michel's word: the

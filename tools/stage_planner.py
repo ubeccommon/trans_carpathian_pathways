@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Trans-Carpathian Pathways — stage planner, `route`, `corridor`, `find` and `inspect`, v0.7
+# Trans-Carpathian Pathways — stage planner, `route`, `corridor`, `find` and `inspect`, v0.8
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """Stage planner — one route from a start to an end, a fuzzy band
 along it, and the places a pilgrim can reach from it; and a
@@ -103,6 +103,10 @@ A corridor from stretches, each a file `route` wrote:
         stretch_1.geojson stretch_2.geojson --out corridor.geojson
 
 Changelog:
+  v0.8 — 2026-10-11 — obvious connections, Michel's word: a path end
+         is joined across up to 80 m where the path, carried on the
+         way it was heading, meets another way and crosses no river
+         or stream; every gap a route walks is listed and marked.
   v0.7, amended 2026-10-11 — a click on the preview's map gives that
          point as lat,lon with its `inspect` command, ready to copy.
   v0.7 — 2026-10-11 — footpaths first, Michel's word: a path or
@@ -174,7 +178,7 @@ from shapely.geometry import (LineString, MultiLineString, Point,
 from shapely.ops import substring, unary_union
 from shapely.strtree import STRtree
 
-VERSION = "0.7"
+VERSION = "0.8"
 
 # ── Criteria ───────────────────────────────────────────────────
 # The party's paces and limits, the band and the reach are as
@@ -255,6 +259,15 @@ ENCOUNTER_SPAN_M = 200.0
 # end within JOIN_GAP_M of another way is joined to it, so a path is
 # not a dead end only because it was drawn short.
 JOIN_GAP_M = 10.0
+# Michel's word, October 11, 2026, looking at a dotted path that
+# stopped short of Zhiva Khata's: join an obvious connection within a
+# search radius. A path end is joined across up to JOIN_OBVIOUS_M when
+# the path, carried on the way it was heading, meets the other way
+# (within JOIN_ANGLE_DEG) and the gap crosses no river or stream.
+# Every gap a route uses is listed and marked, for a steward to check
+# on the ground and for OSM to be mended.
+JOIN_OBVIOUS_M = 80.0
+JOIN_ANGLE_DEG = 60.0
 SETTLEMENT_RADIUS_M = {"city": 2500.0, "town": 1200.0,
                        "village": 500.0, "hamlet": 250.0,
                        "suburb": 500.0}
@@ -531,6 +544,17 @@ class PostgisSource:
                 geom = wkb.loads(bytes(g))
                 yield Way(oid, name, tags, geom)
 
+    def waterways(self, bbox):
+        """Rivers and streams, which a joined gap may not cross."""
+        with self.fw.cursor() as cur:
+            cur.execute("""
+                SELECT ST_AsBinary(geom) FROM reference_sa.osm_line
+                 WHERE geom && ST_MakeEnvelope(%s, %s, %s, %s, 3035)
+                   AND tags->>'waterway' IN ('river', 'stream', 'canal')""",
+                        bbox)
+            geoms = [wkb.loads(bytes(g)) for (g,) in cur]
+        return unary_union(geoms) if geoms else None
+
     def osm_places(self, bbox):
         sql = """
             SELECT osm_id, name, tags, ST_AsBinary(geom)
@@ -719,6 +743,17 @@ class FileSource:
             yield Way(str(props.get("osm_id", f"f{i}")),
                       tags.get("name"), tags, g)
 
+    def waterways(self, bbox):
+        box = _box(bbox)
+        geoms = []
+        for f in self._features(self.paths):
+            tags = self._tags(f.get("properties") or {})
+            if tags.get("waterway") in ("river", "stream", "canal"):
+                g = to_3035(shape(f["geometry"]))
+                if g.intersects(box):
+                    geoms.append(g)
+        return unary_union(geoms) if geoms else None
+
     def _all_places(self):
         if self._places is None:
             self._places = []
@@ -872,37 +907,68 @@ def _insert_vertex(coords: list, pt: Point) -> tuple:
     return coords[-1]
 
 
-def join_dangling(parts: list) -> int:
-    """Join each path end that meets nothing to another way within
-    JOIN_GAP_M, with a short connector. parts are [coords, tags,
-    osm_id, kind] and are changed in place; returns how many."""
+def _heading(coords: list, at_end: bool):
+    """The direction a line leaves by at one end, as a unit vector,
+    measured over its last 30 m or so."""
+    pts = coords[::-1] if at_end else coords
+    x0, y0 = pts[0]
+    for x, y in pts[1:]:
+        if math.dist((x0, y0), (x, y)) >= 30.0:
+            break
+    d = math.dist((x0, y0), (x, y))
+    return None if d < 0.5 else ((x0 - x) / d, (y0 - y) / d)
+
+
+def join_dangling(parts: list, water=None) -> int:
+    """Join path ends that meet nothing. Within JOIN_GAP_M, to the
+    nearest way; within JOIN_OBVIOUS_M, only an obvious connection:
+    ahead of the path (JOIN_ANGLE_DEG) and across no water. parts are
+    [coords, tags, osm_id, kind], changed in place; a connector is a
+    way of highway "gap". Returns how many were joined."""
     count: dict = {}
     for coords, *_ in parts:
         for c in {_key(c) for c in coords}:
             count[c] = count.get(c, 0) + 1
     lines = [LineString(c) for c, *_ in parts]
     tree = STRtree(lines)
+    if water is not None and not water.is_empty:
+        shapely.prepare(water)
+    else:
+        water = None
+    cos_max = math.cos(math.radians(JOIN_ANGLE_DEG))
     joined = []
     for i, (coords, tags, oid, kind) in enumerate(parts):
-        for end in (coords[0], coords[-1]):
+        for at_end, end in ((False, coords[0]), (True, coords[-1])):
             if count.get(_key(end), 0) > 1:
                 continue
             pt = Point(end)
-            best = None
+            heading = _heading(coords, at_end)
+            options = []
             for j in tree.query(pt, predicate="dwithin",
-                                distance=JOIN_GAP_M):
+                                distance=JOIN_OBVIOUS_M):
                 if j == i:
                     continue
-                d = lines[j].distance(pt)
-                if best is None or d < best[0]:
-                    best = (d, j)
-            if best is None:
+                on = lines[j].interpolate(lines[j].project(pt))
+                d = on.distance(pt)
+                if d > JOIN_GAP_M:
+                    if kind != "path" or heading is None:
+                        continue
+                    vx, vy = (on.x - pt.x) / d, (on.y - pt.y) / d
+                    if vx * heading[0] + vy * heading[1] < cos_max:
+                        continue
+                    if water is not None and water.intersects(
+                            LineString([end, (on.x, on.y)])):
+                        continue
+                options.append((d, j))
+            if not options:
                 continue
-            at = _insert_vertex(parts[best[1]][0], pt)
+            d, j = min(options)
+            at = _insert_vertex(parts[j][0], pt)
             if math.dist(at, end) >= 0.1:
                 joined.append([[tuple(end), tuple(at)],
-                               {"highway": "path", "joined": "yes"},
-                               f"join:{oid}", "path"])
+                               {"highway": "gap",
+                                "gap_m": round(math.dist(at, end))},
+                               f"gap:{oid}", "path"])
             count[_key(end)] = 2
     parts.extend(joined)
     return len(joined)
@@ -1035,7 +1101,7 @@ def way_cost(d: dict, lam: float) -> float:
 
 
 def build_network(ways, ground: Ground, party: Party,
-                  strip, land: Landscape) -> Network:
+                  strip, land: Landscape, water=None) -> Network:
     marked = []
     parts = []                   # (LineString, tags, osm_id, kind)
     for w in ways:
@@ -1051,7 +1117,7 @@ def build_network(ways, ground: Ground, party: Party,
                 parts.append([list(ls.coords), w.tags, w.osm_id, kind])
     land.marked = unary_union(marked).buffer(10) if marked else None
     land.prepare()
-    join_dangling(parts)
+    join_dangling(parts, water)
     parts = [(LineString(c), t, o, k) for c, t, o, k in parts]
 
     # Nodes where ways meet: any vertex used by two or more lines,
@@ -1202,6 +1268,19 @@ def make_route(net: Network, nodes: list) -> Route:
                                          "kinds", "length")})
     return Route(nodes, LineString(coords), length, minutes, up, down,
                  along, legs)
+
+
+def gaps_on(net: Network, r: Route) -> list[dict]:
+    """The joined gaps a route walks: length and where."""
+    out = []
+    for u, v in zip(r.nodes, r.nodes[1:]):
+        d = net.G[u][v]
+        if d["highway"] == "gap":
+            mid = net.lines[d["eid"]].interpolate(0.5, normalized=True)
+            lon, lat = TO_4326.transform(mid.x, mid.y)
+            out.append({"gap_m": round(d["length"]),
+                        "lat": round(lat, 5), "lon": round(lon, 5)})
+    return out
 
 
 def what_the_way_holds(r: Route) -> dict:
@@ -1431,6 +1510,11 @@ def write_geojson(path: Path, routes, rings, places, summary, ends=()):
     for role, label, pt, off in ends:
         feats.append(feature(pt, role=role, name=label,
                              off_path_m=round(off)))
+    for g in summary.get("gaps", []):
+        feats.append({"type": "Feature",
+                      "geometry": {"type": "Point",
+                                   "coordinates": [g["lon"], g["lat"]]},
+                      "properties": {"role": "gap", **g}})
     fc = {"type": "FeatureCollection", "features": feats,
           "properties": summary}
     path.write_text(json.dumps(fc, ensure_ascii=False, indent=1),
@@ -1480,11 +1564,15 @@ const layer = L.geoJSON(data, {
   const r = f.properties.role;
   if (r === 'start' || r === 'end') return L.circleMarker(ll, {radius:9, color:'#fff', weight:2.5,
    fillColor: r === 'start' ? '#15803d' : '#9a3412', fillOpacity:1});
+  if (r === 'gap') return L.circleMarker(ll, {radius:6, color:'#c2410c', weight:2,
+   fillColor:'#fff', fillOpacity:1});
   return L.circleMarker(ll, {radius:6, color:'#fff', weight:1.5,
    fillColor: f.properties.is_host ? '#b45309' : '#1d4ed8', fillOpacity:1}); },
  onEachFeature: (f, l) => { const p = f.properties;
   if (p.role === 'start' || p.role === 'end') l.bindPopup(`<b>${p.role === 'start' ? 'Start' : 'End'}:</b> ${p.name}`
    + (p.off_path_m > 1 ? `<br>${p.off_path_m} m from the nearest path` : ''));
+  if (p.role === 'gap') l.bindPopup(`A gap of ${p.gap_m} m joined here — `
+   + 'the paths do not meet on the map. Check it on the ground.');
   if (p.role === 'place') l.bindPopup(`<b>${p.name}</b><br>${p.kind}<br>`
    + `${p.detour_min} min off the route at km ${p.route_km}`); }
 }).addTo(map);
@@ -1577,7 +1665,7 @@ def cmd_inspect(args) -> int:
         return 1
     box = (pt.x - 3000, pt.y - 3000, pt.x + 3000, pt.y + 3000)
     net = build_network(src.ways(box), Ground(None, box), party, None,
-                        Landscape())
+                        Landscape(), src.waterways(box))
     lines = [net.lines[d["eid"]] for _, _, d in net.G.edges(data=True)]
     tree = STRtree(lines) if lines else None
     ways.sort(key=lambda w: w.geom.distance(pt))
@@ -1671,7 +1759,7 @@ def cmd_corridor(args) -> int:
         stretches.append((path, fc, props))
 
     by_min: dict = {}
-    lines, places, rows, ends = [], {}, [], {}
+    lines, places, rows, ends, gaps = [], {}, [], {}, []
     offset_km = offset_min = 0.0
     notices = {OSM_NOTICE}
     prev_end = None
@@ -1694,6 +1782,8 @@ def cmd_corridor(args) -> int:
                 if prev_end is not None:
                     gap = round(Point(g.coords[0]).distance(prev_end))
                 prev_end = Point(g.coords[-1])
+            elif p["role"] == "gap":
+                gaps.append(f)
             elif p["role"] in ("start", "end"):
                 ends.setdefault(p["role"], [])
                 ends[p["role"]].append((g, p))
@@ -1751,6 +1841,7 @@ def cmd_corridor(args) -> int:
                                 "down_m")}))
     for p in found:
         feats.append(place_feature(p))
+    feats.extend(gaps)
     for role, pick in (("start", 0), ("end", -1)):
         if ends.get(role):
             g, p = ends[role][pick]
@@ -1834,7 +1925,8 @@ def cmd_route(args) -> int:
     if land.canopy is not None and land.canopy.known:
         notices.append("Forest and open land: canopy height from the "
                        "ground and surface models")
-    net = build_network(src.ways(bbox), ground, party, strip, land)
+    net = build_network(src.ways(bbox), ground, party, strip, land,
+                        src.waterways(bbox))
     a, a_off = snap(net, a_pt)
     b, b_off = snap(net, b_pt)
     for label, off in (("start", a_off), ("end", b_off)):
@@ -1871,6 +1963,7 @@ def cmd_route(args) -> int:
                   "time": hm(best.minutes),
                   "up_m": round(best.up), "down_m": round(best.down)},
         "the_way": what_the_way_holds(best),
+        "gaps": gaps_on(net, best),
         "alternatives": [{"km": round(r.length / 1000, 2),
                           "time": hm(r.minutes), "up_m": round(r.up),
                           "down_m": round(r.down),
@@ -1903,6 +1996,9 @@ def cmd_route(args) -> int:
           f"{w['plai_km']} km over the plai, {w['forest_km']} km in "
           f"forest, {w['meadow_km']} km over meadows; "
           f"{w['roads_km']} km on roads for vehicles")
+    for g in summary["gaps"]:
+        print(f"  a gap of {g['gap_m']} m joined at {g['lat']},{g['lon']} "
+              "— check it on the ground")
     for i, r in enumerate(summary["alternatives"], 1):
         print(f"  alternative {i}: {r['km']} km, {r['time']}, "
               f"↑{r['up_m']} m ↓{r['down_m']} m — {r['footpath_km']} km "
