@@ -978,7 +978,11 @@ valley (`tools/test_stage_planner.py`); not yet run on Plai's data
   `terrain/ground.tif` (OI-P9), sampled at 30 m along each
   segment, per direction.
 - The border: `reference.admin_unit`, Ukraine at country level.
-- The request: start, end; party (solo, couple, group, family);
+- The request: start, end — each a host's name, a place
+  published on Plai, a named place in OSM, or otherwise coordinates
+  typed as `lat,lon` or a point placed on the map (Michel's word,
+  October 11, 2026); a route to a host ends at the host's published
+  point; party (solo, couple, group, family);
   month; reach in minutes (5 to 10).
 
 **Edge cost — walking:** DIN 33466 hiking time: 4 km/h on the
@@ -1213,6 +1217,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.64, amended 2026-10-11 — what a start or end may be, Michel's word: a host's name, a Plai place, an OSM place, coordinates or a point on the map; a route to a host ends at its published point.
 - v0.64, amended 2026-10-11 — the engine at v0.4 after the first run on ubec-common: Latin names find Cyrillic ones, `find`.
 - v0.64 — 2026-10-11 — SP-4 to SP-7, Michel's word: the numbers as proposed; the first real run Verkhovyna – Zhyva Khata – Tepla Gora – Kosiv; the public documents when he says so; a stretch's name and note in English first, until a multilingual Mapservice is explored. Spec v0.3, start prompt v0.2.
 - v0.63 — 2026-10-11 — SP-1 to SP-3, Michel's word: a steward saves drafts, the Curator publishes; the page and service on Plai before Gate 3; the public answer names hosts with their detour time only. Spec v0.2, engine v0.3, the start prompt for the build on Plai.

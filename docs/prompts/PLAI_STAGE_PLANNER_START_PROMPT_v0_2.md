@@ -86,6 +86,12 @@ multi-day `stages` piece; the white paper, proposal or plan
   migration `plai/008`; a stretch saved by a steward
   (`PLAI_STEWARD`) or a Curator (`PLAI_CURATOR`) is a draft until
   a Curator publishes it; the list of places is never stored.
+- **A start and an end** (Michel's word, October 11, 2026): a
+  host's name, a place published on Plai, a named place in OSM, or
+  otherwise coordinates typed as `lat,lon` or a point placed on the
+  map. The page offers all of them; the engine already takes the
+  first four, and a point placed on the map reaches it as
+  `lat,lon`.
 - **Before Gate 3** there are few hosts or none: the page must be
   worth opening with open places only, and say that hosts appear
   as they join.
@@ -158,6 +164,7 @@ Michel decides, and nothing of Claude's is recorded as decided.
 * * *
 
 *Changelog*
+- v0.2, amended 2026-10-11 — a start and an end: a host's name, a Plai or OSM place, coordinates or a point placed on the map.
 - v0.2 — 2026-10-11 — SP-4 to SP-7, Michel's word: Gate A is
   Verkhovyna – Zhyva Khata – Tepla Gora – Kosiv as one corridor;
   a stretch's name and note in English first; the page's languages

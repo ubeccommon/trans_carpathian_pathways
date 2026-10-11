@@ -66,10 +66,17 @@ Curator publishes it.
 Built as `tools/stage_planner.py` v0.4; its opening comment holds
 every rule and number. In short:
 
-- **In:** a start and an end — a published Plai place, a village
-  in OSM, or a point as `lat,lon`; the party (solo, couple, group,
-  family); the month; how far off the route to look (5 to 10
-  minutes).
+- **In:** a start and an end, each as the user enters it —
+  *Michel's word, October 11, 2026:* a host's name, a place
+  published on Plai, a named place in OpenStreetMap (a village, a
+  peak), or otherwise coordinates as `lat,lon` or a point placed on
+  the map; the party (solo, couple, group, family); the month; how
+  far off the route to look (5 to 10 minutes). A route asked for to
+  or from a host ends at the host's published point: the host
+  placed it (OI-P7), and it is one host the user chose, as Plai's
+  "Open in your map app" link serves one place at a time — the list
+  along the way still names other hosts with their detour time
+  only (§5).
 - **Network:** OpenStreetMap's paths, tracks and roads from
   `reference_sa.osm_line`, read across, never joined.
 - **Time:** DIN 33466 from GEDTM30 ground heights, per direction;
@@ -158,7 +165,8 @@ specified:
   Curator's save; the abuse-control thresholds of the vhost; no
   per-viewer log beyond what abuse control needs (logs short).
 - **A page** in Plai's Pathways application (`ubec_plai_hub_tcp`):
-  two points on the map or two names, the party and the month; the
+  a start and an end — typed as a name or coordinates, or placed
+  on the map — the party and the month; the
   band, the route, the list beside it; a download. Logged in, a
   steward or a Curator also saves; a Curator publishes. Its
   languages: open for the build (start prompt §4) — English first,
@@ -270,6 +278,10 @@ built, until Michel says to revise them (SP-6):
 
 ## Changelog
 
+- v0.3, amended 2026-10-11 — §3: what a start or end may be, on
+  Michel's word: a host's name, a Plai place, an OSM place, or
+  coordinates typed or a point placed on the map; a route to a host
+  ends at the host's published point. §6: the page takes either.
 - v0.3 — 2026-10-11 — SP-4 to SP-7 decided on Michel's word: the
   numbers as proposed; the first real run Verkhovyna – Zhyva Khata
   – Tepla Gora – Kosiv; the public documents revised when he says
