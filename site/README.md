@@ -1,6 +1,6 @@
 ---
 title: "tcp.ubec.network — the site"
-version: "v0.16"
+version: "v0.18"
 date: "2026-10-11"
 lang: "en"
 license: "CC BY-SA 4.0"
@@ -22,7 +22,7 @@ languages, under one menu.
 - **Our own build, not Ghost.** Asked whether the site should move to
   Ghost, Michel chose to build on what the site has: the static build
   in this tree. Ghost stays where it is, for the field writing at
-  `pilgrims.ubec.network`. What weighed: Ghost keeps its pages in a
+  `soilandpeace.ubec.network`. What weighed: Ghost keeps its pages in a
   database on the server, not in the record; by default it loads
   scripts and offers a sign-up form; it has no paired pages in two
   languages; and it is one more service for one person to keep.
@@ -39,6 +39,11 @@ languages, under one menu.
   its diagrams and its committed PDF copied in. The page names the
   file and version it was built from and links to it in the record.
   The site holds no copy of a document's words of its own.
+- **The field writing** — in the menu and on the landing page — is
+  Soil and Peace at `https://soilandpeace.ubec.network/` (Michel's
+  word, October 11; the first pages linked `pilgrims.ubec.network`,
+  another of his blogs). The build allows that host and no longer the
+  other.
 - **The map link** — in the menu and on the landing page — opens the
   Pathways application on Plai, `ubec_plai_hub_tcp`, on the first
   corridor around Verkhovyna (Michel's word, October 11). The check
@@ -82,6 +87,11 @@ looked at.
   its official German and Polish texts. Every translation says, on the
   page and on the PDF's cover, that nobody whose language it is has read
   it yet.
+- **On the host — Michel's "looks good", October 11, 2026:** deployed
+  from `main` at `1ea198a`, 17 pages, the four German and Polish PDFs
+  among the 53 files `verify` fetched from the site's own name alone;
+  his look at the German and Polish documents, their PDFs and the
+  language list.
 - **The co-creator agreement stays in English and Ukrainian** until it
   has settled and a native reader is lined up: in the German and Polish
   menus it carries a small EN tag, and a screen reader hears «auf
@@ -341,6 +351,10 @@ site's own, and logged no policy violation.
 * * *
 
 *Changelog*
+- v0.18 — 2026-10-11 — the field writing at soilandpeace.ubec.network,
+  Michel's word. Build v0.13, landing pages en/uk v0.7, de/pl v0.2.
+- v0.17 — 2026-10-11 — the German and Polish documents closed on the host,
+  Michel's "looks good".
 - v0.16 — 2026-10-11 — the overview, the proposal and the white paper
   in German and Polish, Michel's word. Build v0.12.
 - v0.15 — 2026-10-11 — German and Polish, Michel's word; his "looks

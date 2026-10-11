@@ -1,6 +1,6 @@
 ---
 lang: de
-version: v0.1
+version: v0.2
 date: 2026-10-11
 path: /de/
 title: Trans-Carpathian Pathways
@@ -11,7 +11,7 @@ initiative: Initiiert von UBEC (Ubuntu Bioregional Economic Commons) unter der L
 licence: Texte und Zeichen: CC BY-SA 4.0.
 privacy: Diese Website setzt keine Cookies, lädt nichts von anderen Servern und verfolgt ihre Besucherinnen und Besucher nicht.
 sources: Nach dem Weißbuch v0.3 und dem Projektvorschlag v0.2, Oktober 2026; übersetzt aus der englischen Seite v0.6.
-changelog: v0.1 — 2026-10-11 — erste Fassung, auf Michels Wort: die Startseite auf Deutsch, von Claude aus der englischen Seite v0.6 übersetzt; noch von niemandem mit Deutsch als Muttersprache gelesen. Der Name bleibt englisch, weil „Transkarpatien“ im Deutschen die Oblast Sakarpattja bezeichnet. Ortsnamen nach der deutschen Umschrift (Worochta, Werchowyna, Kossiw); der „pathway steward“ als Wegepatin und Wegepate, wie in den deutschen Wandervereinen.
+changelog: v0.2 — 2026-10-11 — auf Michels Wort: die Feldnotizen unter soilandpeace.ubec.network. v0.1 — 2026-10-11 — erste Fassung, auf Michels Wort: die Startseite auf Deutsch, von Claude aus der englischen Seite v0.6 übersetzt; noch von niemandem mit Deutsch als Muttersprache gelesen. Der Name bleibt englisch, weil „Transkarpatien“ im Deutschen die Oblast Sakarpattja bezeichnet. Ortsnamen nach der deutschen Umschrift (Worochta, Werchowyna, Kossiw); der „pathway steward“ als Wegepatin und Wegepate, wie in den deutschen Wandervereinen.
 ---
 
 ::: {#vision .block}
@@ -45,7 +45,7 @@ Die Karte ist gebaut; das Netz noch nicht. Noch sind weder Gastgebende noch Wege
 
 - [Die Karte – Plai](https://mapservice.ubec.network/application/ubec_plai_hub_tcp?#34377@24.81486/48.15413r0@EPSG:3857){.plai}
   Der Karpaten-Hub von UBEC Mapservice: die Karte des ganzen Gebirges, auf der nichts ohne Einwilligung erscheint – die Grundlage des Projekts.
-- [Feldnotizen – Soil and Peace](https://pilgrims.ubec.network/)
+- [Feldnotizen – Soil and Peace](https://soilandpeace.ubec.network/)
   Carpathian Dispatch: Michel Garands Texte aus dem Korridor, auf Englisch.
 - [Schreiben Sie uns – stewardship@ubec.network](mailto:stewardship@ubec.network)
   Um mitzumachen, Partner zu werden oder etwas zu fragen.
