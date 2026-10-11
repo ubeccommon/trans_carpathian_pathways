@@ -103,6 +103,8 @@ A corridor from stretches, each a file `route` wrote:
         stretch_1.geojson stretch_2.geojson --out corridor.geojson
 
 Changelog:
+  v0.7, amended 2026-10-11 — a click on the preview's map gives that
+         point as lat,lon with its `inspect` command, ready to copy.
   v0.7 — 2026-10-11 — footpaths first, Michel's word: a path or
          footway (the dotted brown line on Plai's map) counts most
          among the qualities, a marked route (the red line) a little;
@@ -1487,6 +1489,16 @@ const layer = L.geoJSON(data, {
    + `${p.detour_min} min off the route at km ${p.route_km}`); }
 }).addTo(map);
 map.fitBounds(layer.getBounds(), {padding:[20,20]});
+// A click anywhere gives that point, and the command that asks the
+// planner what way lies there.
+map.on('click', e => {
+ if (e.originalEvent && e.originalEvent.target && e.originalEvent.target.closest
+     && e.originalEvent.target.closest('.leaflet-interactive')) return;
+ const ll = `${e.latlng.lat.toFixed(5)},${e.latlng.lng.toFixed(5)}`;
+ L.popup().setLatLng(e.latlng).setContent(
+  `<b>${ll}</b><br><code style="font-size:12px;user-select:all">`
+  + `python3 /tmp/stage_planner.py inspect "${ll}"</code>`).openOn(map);
+});
 const ol = document.getElementById('list');
 for (const f of data.features.filter(f => f.properties.role === 'place')) {
  const p = f.properties, li = document.createElement('li');

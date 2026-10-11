@@ -38,8 +38,11 @@ When a route passes by a path you expected it to take, ask what
 the planner knows of that path:
 
 ```bash
-python3 /tmp/stage_planner.py inspect "48.1523,24.8714"
+python3 /tmp/stage_planner.py inspect "<lat,lon of a point on the path>"
 ```
+
+A click on the preview's map gives that point and the command,
+ready to copy.
 
 It names the ways within 150 m of the point, and for each whether
 the party walks it and, if not, why (too hard by its `sac_scale`,
