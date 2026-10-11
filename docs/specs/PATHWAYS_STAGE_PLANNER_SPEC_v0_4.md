@@ -184,9 +184,17 @@ says how much of the way is on ways walked or saved.
 
 ## 3b. The Pathway Editor
 
-For stewards and Curators, on the planner's page on Plai (§6),
-logged in. Built in `ubec_mapservice` with the page; *specified
-here, Claude's proposal for Michel's word at Gate B of the build:*
+*Michel's word, October 11, 2026: the editor is integrated in the
+map service.* It is not a page of its own: it lives inside Plai's
+Pathways application (`ubec_plai_hub_tcp`), on the same map, behind
+the same login, beside the tools entrants and Curators already use —
+Mapbender's Digitizer, which Plai's entries are made with today, for
+drawing a via point, an avoid point or a line of one's own onto a
+stretch's layers, and the planner as a tool of that application that
+routes again through what was drawn. Built in `ubec_mapservice`;
+which Mapbender element does what is settled at Gate B of the build,
+against Mapbender's own source. The tools, *Claude's proposal for
+Michel's word at Gate B:*
 
 | Tool | What it does | Engine |
 |---|---|---|
@@ -274,7 +282,9 @@ specified:
   role's rights and Plai's published view, writing nothing but a
   Curator's save; the abuse-control thresholds of the vhost; no
   per-viewer log beyond what abuse control needs (logs short).
-- **A page** in Plai's Pathways application (`ubec_plai_hub_tcp`):
+- **Inside the map service, not a page of its own** (Michel's word,
+  October 11, 2026): the planner and the editor are tools of Plai's
+  Pathways application (`ubec_plai_hub_tcp`):
   a start and an end — typed as a name or coordinates, or placed
   on the map — the party and the month; the
   band, the route, the list beside it; a download. Logged in, a
@@ -391,6 +401,9 @@ built, until Michel says to revise them (SP-6):
 
 ## Changelog
 
+- v0.4, amended 2026-10-11 — §3b, §6: the editor and the planner
+  integrated in the map service, inside Plai's Pathways application,
+  with Mapbender's Digitizer for what is drawn; Michel's word.
 - v0.4 — 2026-10-11 — the three steps and the pathway editor, Michel's
   word (§3a, §3b): the planner proposes and says where it doubts; the
   steward or Curator edits with via points, avoid points, own lines

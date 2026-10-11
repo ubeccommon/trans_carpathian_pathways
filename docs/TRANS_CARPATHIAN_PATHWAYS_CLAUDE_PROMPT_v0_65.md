@@ -961,8 +961,10 @@ as the last resort, towns crossed); the steward or Curator edits —
 via points, avoid points, a line of their own, a walked GPS track;
 what was walked and what was saved becomes the planner's best
 knowledge, a way even where OSM has none, preferred above all, so
-the network grows from what people walk. The editor is specified in
-spec v0.4 §3b and built with the page on Plai. AI on demand a
+the network grows from what people walk. The editor is integrated in
+the map service — inside Plai's Pathways application, with Mapbender's
+Digitizer for what is drawn, not a page of its own (Michel's word the
+same evening); specified in spec v0.4 §3b. AI on demand a
 helper for the Curator, never the router (Claude's proposal).
 
 **The engine:** `tools/stage_planner.py` v0.13, Python with
@@ -1259,6 +1261,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.65, amended 2026-10-11 — the editor integrated in the map service, Michel's word.
 - v0.65 — 2026-10-11 — the three steps and the pathway editor, Michel's word: the planner proposes, the steward or Curator edits, walked and saved ways become its best knowledge; engine v0.13 (via, avoid, known); spec v0.4, start prompt v0.3.
 - v0.64, amended 2026-10-11 — a road link measured on the route itself; engine v0.12.
 - v0.64, amended 2026-10-11 — through towns and villages the direct way, Michel's word; engine v0.11.

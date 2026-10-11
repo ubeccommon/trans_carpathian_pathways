@@ -186,8 +186,10 @@ manual v0.4, prompt v0.29.*
       edits — via points, avoid points, own lines, walked tracks;
       what was walked and saved becomes its best knowledge.
       *Michel's word, October 11, 2026.* → spec v0.4 §3a, §3b;
-      prompt v0.65 §6; start prompt v0.3; engine v0.13. Open: the
-      editor's tools, at Gate B of the build.
+      prompt v0.65 §6; start prompt v0.3; engine v0.13. The editor
+      integrated in the map service, inside the Pathways application
+      (his word the same evening). Open: the editor's tools, at
+      Gate B of the build.
 - ☑ **SP-4 — The numbers.** As proposed; the first real run and
       Gate 4 test them. *Michel's word, October 11, 2026.* Changed
       after the first run, his word the same day: hiking paths

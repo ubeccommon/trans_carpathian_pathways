@@ -119,8 +119,13 @@ Michel decides, and nothing of Claude's is recorded as decided.
   - `plai/008`: the three tables, their guards and grants, and how
     a save reaches them with the saver's Mapbender identity and
     group;
-  - the page: inside the Pathways application or beside it; what
-    a visitor sees, in the languages decided (§4), WCAG 2.2 AA;
+  - the planner and the editor inside the Pathways application —
+    integrated in the map service, not a page of their own (Michel's
+    word, October 11, 2026): which Mapbender elements carry them,
+    read at the pinned tag; the Digitizer, as Plai's entries use it,
+    for via points, avoid points and own lines on a stretch's
+    layers; what a visitor sees, in the languages decided (§4),
+    WCAG 2.2 AA;
   - the pathway editor for stewards and Curators (spec §3b): via
     and avoid points on the map, a line of one's own, a GPX upload,
     the gap and road checks, notes, save and publish, history — and
@@ -170,6 +175,7 @@ Michel decides, and nothing of Claude's is recorded as decided.
 * * *
 
 *Changelog*
+- v0.3, amended 2026-10-11 — the editor and the planner integrated in the map service, inside the Pathways application, Michel's word.
 - v0.3 — 2026-10-11 — the three steps and the pathway editor, Michel's word: Gate B designs the editor (spec v0.4 §3b), Gate D walks it.
 - v0.2, amended 2026-10-11 — a start and an end: a host's name, a Plai or OSM place, coordinates or a point placed on the map.
 - v0.2 — 2026-10-11 — SP-4 to SP-7, Michel's word: Gate A is
