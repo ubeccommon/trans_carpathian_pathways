@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_61"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_62"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.61"
+version: "v0.62"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -921,16 +921,21 @@ can use it. The Curator can create a route, save it and manage
 it; these stretches can be combined to create a corridor. This
 replaces "for the Curator only, never answering a pilgrim, built
 only if needed". The specification:
-`docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_1.md`; seven items open
-there (SP-1 to SP-7).
+`docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_2.md`. Decided there on
+Michel's word the same day: a steward may save a draft, and only
+the Curator publishes it (SP-1); the public page and service run
+on Plai and come before the first hosts (SP-2); the public answer
+names published hosts with only their detour time (SP-3). Open:
+SP-4 to SP-7.
 
 **What stays:** a tool proposes, a person decides. Anyone may ask
-for a way; only a Curator makes a way the project's, by saving it,
-and only a Curator joins stretches into a corridor. Nothing the
+for a way; a steward may save it as a draft; only a Curator makes a
+way the project's, by publishing it, and only a Curator joins
+stretches into a corridor. Nothing the
 planner says is a booking, a promise that a host will receive, or
 a statement that a path is safe today.
 
-**The engine:** `tools/stage_planner.py` v0.2, Python with
+**The engine:** `tools/stage_planner.py` v0.3, Python with
 networkx, in memory, writing nothing but its answer. `route`: from
 a start and an end (a published place, a village in OSM, or
 `lat,lon`), the route by the criteria below, up to two
@@ -972,10 +977,13 @@ reported is always the real DIN time; the criteria steer, they do
 not shorten. Every number is a proposal until Michel or the
 Curator sets it (SP-4).
 
-**Hosts in what it says:** the public answer lists no host, so no
-file anyone may pass on carries a host's place (open data spec
-§2); hosts stay on Plai's map, public and clickable (S-1). The
-Curator's answer lists them. Proposed; SP-3.
+**Hosts in what it says (SP-3, Michel's word, October 11):** the
+public answer names each published host within reach by their
+published name and one-way detour time, in route order, and
+nothing else — no place, no offer, no kind, no kilometre, no
+geometry — so no file anyone may pass on carries a host's place
+(open data spec §2); the place stays on Plai's map, public and
+clickable (S-1). The Curator's answer lists hosts in full.
 
 **Licence (OI-P10, closed by Michel's word of October 11):** an
 answer is computed and gone; a saved stretch is stored in Plai's
@@ -989,8 +997,11 @@ has no pgRouting, and none is proposed. By hand today, on
 ubec-common in Mapservice's environment (`tools/README.md`). For
 anyone to use it: a small service and a page in the Pathways
 application, and `instance_sa.stretch`, `corridor` and
-`corridor_stretch` as Plai migration `plai/008` — Mapservice's
-changes, on Michel's word for each (SP-2), behind the leak pass.
+`corridor_stretch` as Plai migration `plai/008`. *SP-2, Michel's
+word, October 11, 2026:* the page and service run on Plai and come
+before the first hosts (Gate 3); Mapservice's changes, built there
+from `docs/prompts/PLAI_STAGE_PLANNER_START_PROMPT_v0_1.md`, behind
+the leak pass.
 
 **Multi-day stages** — each day ending at a host with an overnight
 offer, open that month, with capacity for the party, under the
@@ -1088,9 +1099,11 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
   here, after the walk (Michel's word, October 9, 2026): whether
   the pathway is marked, and to which standard.
 - **Gate 5 — The planner public.** No longer "if needed" (Michel's
-  word, October 11, 2026, §6): the engine is built; its page and
-  saved stretches open on Mapservice's changes (SP-2), and the
-  stages actually walked at Gate 4 are its test cases.
+  word, October 11, 2026, §6), and no longer last: it comes before
+  Gate 3's first hosts (SP-2), keeping its number. Closes when the
+  page, the service and saving run on Plai behind the leak pass and
+  Michel has looked at a real route on it. The stages walked at
+  Gate 4 are then its test cases.
 
 * * *
 
@@ -1180,6 +1193,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.62 — 2026-10-11 — SP-1 to SP-3, Michel's word: a steward saves drafts, the Curator publishes; the page and service on Plai before Gate 3; the public answer names hosts with their detour time only. Spec v0.2, engine v0.3, the start prompt for the build on Plai.
 - v0.61 — 2026-10-11 — the planner public, Michel's word: anyone plans; the Curator saves and manages stretches; stretches make a corridor. §6 rewritten, §7 and Gate 5 with it; OI-P10 closed; the engine at `tools/stage_planner.py` v0.2; the spec v0.1 with SP-1 to SP-7.
 - v0.60 — 2026-10-11 — the menu closed on the host; German and Polish on the site, Michel's word.
 - v0.59 — 2026-10-11 — the menu's order, the map link to the Pathways application, the overview v0.5 pointing to the site; Michel's word.

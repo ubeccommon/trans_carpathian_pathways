@@ -1,9 +1,9 @@
 # tools/
 
-## stage_planner.py — `route` and `corridor`, v0.2
+## stage_planner.py — `route` and `corridor`, v0.3
 
 The stage planner (starting prompt §6; spec
-`docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_1.md`). Public, on
+`docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_2.md`). Public, on
 Michel's word of October 11, 2026: anyone plans with it; the
 Curator saves a route as a stretch and joins stretches into a
 corridor. `route`, from a
@@ -22,8 +22,9 @@ writes nothing but its files; saving a stretch is Plai's, once
 `plai/008` is built (spec §4). Every file carries the ODbL notice
 and the GEDTM30 credit.
 
-`--audience public` (the default) lists no host; `--audience
-curator` lists them, for the Curator's own planning.
+`--audience public` (the default) names published hosts with their
+detour time only (SP-3); `--audience
+curator` lists them in full, for the Curator's own planning.
 
 ### Test, anywhere
 

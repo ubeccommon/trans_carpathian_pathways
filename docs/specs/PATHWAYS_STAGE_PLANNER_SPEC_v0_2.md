@@ -1,13 +1,13 @@
 ---
-title: "PATHWAYS_STAGE_PLANNER_SPEC_v0_1"
+title: "PATHWAYS_STAGE_PLANNER_SPEC_v0_2"
 subtitle: "The planner anyone may use, the stretches a Curator saves, and the corridors made of them"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.1"
+version: "v0.2"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
-status: "specification for Michel's word — the engine built and tested on a made-up valley (tools/stage_planner.py v0.2); not yet run on Plai's data; saving, corridors on Plai and the public page not built; seven items open (§9)"
+status: "specification — SP-1, SP-2 and SP-3 decided (Michel's word, October 11, 2026); the engine built and tested on a made-up valley (tools/stage_planner.py v0.3); not yet run on Plai's data; the page, the service and saving on Plai not built — they come before Gate 3; four items open (§9)"
 ---
 
 *A specification for the stage planner — the proposal's "spatial
@@ -51,12 +51,15 @@ openly.
 
 | Who | Plans | Downloads the answer | Saves a stretch | Joins stretches into a corridor | Publishes or withdraws |
 |---|---|---|---|---|---|
-| Anyone, the pilgrim included | yes | yes, without hosts (§5) | no | no | no |
-| Pathway steward | yes | yes, without hosts | open (SP-1) | no | no |
-| Curator | yes, and may list hosts | yes | yes | yes | yes, their own |
+| Anyone, the pilgrim included | yes | yes, hosts by name and detour time only (§5) | no | no | no |
+| Pathway steward | yes | yes, hosts by name and detour time only | a draft (SP-1) | no | no |
+| Curator | yes, and may list hosts in full | yes | yes | yes | yes — their own stretches and the drafts stewards save |
 
-The Curator works from their Plai account, in `PLAI_CURATOR`;
-nobody else needs an account to plan (minimal accounts).
+The Curator works from their Plai account, in `PLAI_CURATOR`; a
+steward saves drafts from theirs, in `PLAI_STEWARD`; nobody else
+needs an account to plan (minimal accounts). *SP-1, Michel's word,
+October 11, 2026:* the steward may save a draft, and only the
+Curator publishes it.
 
 ## 3. What the Planner Does
 
@@ -101,9 +104,10 @@ A route the Curator saves. Proposed for Plai, as one migration in
 | `from_label`, `to_label`, `start_geom`, `end_geom` | as entered |
 | `criteria` | the party, the numbers and the planner's version it was made with (jsonb), so it can be remade the same way |
 | `km`, `minutes`, `up_m`, `down_m` | as the planner reported |
-| `state` | Plai's publication vocabulary: a stretch is public only once its Curator publishes it, and leaves every service on withdrawal |
-| `curator` | the account that saved it |
-| `steward` | who cares for it, if anyone (SP-1) |
+| `state` | Plai's publication vocabulary: a stretch saved by a steward or a Curator is a draft, public only once a Curator publishes it, and it leaves every service on withdrawal |
+| `saved_by` | the account that saved it, a steward's or a Curator's |
+| `curator` | the Curator who published it |
+| `steward` | who cares for it, if anyone |
 | `note` | the Curator's own words, e.g. the state of a ford — public only if the Curator chooses |
 
 **Never stored with a stretch: its list of places.** The list is
@@ -111,30 +115,42 @@ asked for again each time it is shown, from what is published that
 day. A host who withdraws leaves every stretch at once; a stored
 list would keep them.
 
-The engine already writes what a stretch carries (`route` v0.2:
-the `stretch` block of its output). Saving is Plai's: the Curator
-saves from the planner's page while logged in (§6).
+The engine already writes what a stretch carries (`route` v0.3:
+the `stretch` block of its output). Saving is Plai's: a steward or
+the Curator saves from the planner's page while logged in (§6);
+the Curator publishes from the same page or the backend.
 
 ## 5. Hosts in What the Planner Says
 
-Proposed, from the open data spec §2 — a host's place is never a
-waypoint in a public file:
+*SP-3, Michel's word, October 11, 2026:* the public answer names
+published hosts with only their detour time.
 
-- **The public answer lists no host**, in the file or the list
-  (`--audience public`, the default). Hosts stay where they
-  already are: on Plai's map, public and clickable (S-1), one at a
-  time.
-- **The Curator's answer lists them** (`--audience curator`), with
-  their offers and whether open in the month, for the Curator's own
-  planning and for one pilgrim's journey file (open data spec §3.3).
-
-Whether the public list should name published hosts too is SP-3.
+- **The public answer** (`--audience public`, the default) names
+  each published host within reach by the name they published and
+  their one-way detour in minutes, in the order the route meets
+  them — and nothing else: no place, no offer, no kind, no
+  kilometre along the route, no geometry (in the file, a feature
+  with a null geometry, RFC 7946 §3.2). So a host is never a
+  waypoint in a public file (open data spec §2), while a pilgrim
+  learns that someone receives near the way. The host's place
+  stays where it already is: on Plai's map, public and clickable
+  (S-1), one at a time.
+- **The Curator's answer** (`--audience curator`) lists hosts in
+  full — place, offers, whether open in the month — for the
+  Curator's own planning and for one pilgrim's journey file (open
+  data spec §3.3).
+- A host who withdraws leaves every answer at once: the list is
+  never stored (§4).
 
 ## 6. Where It Runs
 
 The engine runs today on ubec-common in Mapservice's environment,
-by hand (`tools/README.md`). For anyone to use it, it needs a page
-and a service, which are Mapservice's change. Proposed:
+by hand (`tools/README.md`). *SP-2, Michel's word, October 11,
+2026:* the public page and service run on Plai, and they come
+before the first hosts (Gate 3). They are Mapservice's change,
+built in `ubec_mapservice` in its own way, from the start prompt
+`docs/prompts/PLAI_STAGE_PLANNER_START_PROMPT_v0_1.md`. As
+specified:
 
 - **A small service** on ubec-common behind the system nginx,
   calling the engine, reading `reference_sa` with the render
@@ -143,8 +159,12 @@ and a service, which are Mapservice's change. Proposed:
   per-viewer log beyond what abuse control needs (logs short).
 - **A page** in Plai's Pathways application (`ubec_plai_hub_tcp`):
   two points on the map or two names, the party and the month; the
-  band, the route, the list beside it; a download. Ukrainian and
-  English first (BCP 47), WCAG 2.2 AA.
+  band, the route, the list beside it; a download. Logged in, a
+  steward or a Curator also saves; a Curator publishes. Ukrainian
+  and English first (BCP 47), WCAG 2.2 AA.
+- **With few hosts or none:** before Gate 3 the list holds open
+  places only — viewpoints, springs, huts, chapels — and the page
+  says that hosts appear as they join.
 - **Before it faces anyone:** Mapservice's leak pass over every
   endpoint and answer — exposure is a decision.
 
@@ -196,14 +216,13 @@ Curator. Proposed for Plai, in the same migration:
 
 ## 9. Open — for Michel
 
-- **SP-1** — May a steward save a stretch, or edit the one they
-  care for? Proposed: a steward may save a draft for their own
-  stretch; only the Curator publishes.
-- **SP-2** — The service and page of §6 as Mapservice's change: yes
-  or no, and when — before or after Gate 3's first hosts.
-- **SP-3** — The public list: no hosts (proposed, §5), or published
-  hosts by name and detour only, with their place left to Plai's
-  map.
+- **SP-1** — *Decided, Michel's word, October 11, 2026:* a steward
+  may save a draft; only the Curator publishes it. §2, §4.
+- **SP-2** — *Decided, Michel's word, October 11, 2026:* the public
+  page and service run on Plai, and come before the first hosts
+  (Gate 3). §6.
+- **SP-3** — *Decided, Michel's word, October 11, 2026:* the public
+  answer names published hosts with only their detour time. §5.
 - **SP-4** — The numbers: the road penalties, the party paces and
   SAC limits, the reach rings. Proposed: as in the engine, until
   the first real run and a walk with a GNSS track (Gate 4) test
@@ -219,7 +238,8 @@ Curator. Proposed for Plai, in the same migration:
 ## 10. Documents That Still Say Otherwise
 
 Changed with this specification: the starting prompt v0.61 (§6,
-§7, OI-P10), the decisions checklist v0.5, the reasoning v0.4.
+§7, OI-P10) and v0.62 (SP-1 to SP-3, Gate order), the decisions
+checklist v0.5 and v0.6, the reasoning v0.4.
 
 Still saying the planner is the Curator's alone, or may never be
 built, until their next version (SP-6):
@@ -236,6 +256,11 @@ built, until their next version (SP-6):
 
 ## Changelog
 
+- v0.2 — 2026-10-11 — SP-1, SP-2 and SP-3 decided on Michel's word:
+  a steward saves drafts, the Curator publishes; the page and
+  service on Plai before Gate 3, from their start prompt; the public
+  answer names hosts with their detour time only. The engine at
+  v0.3.
 - v0.1 — 2026-10-11 — initial, from Michel's word of the same day:
   public, the Curator saves and manages stretches, stretches make a
   corridor; OI-P10 settled by it; the engine at v0.2.

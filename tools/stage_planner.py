@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Trans-Carpathian Pathways — stage planner, `route` and `corridor`, v0.2
+# Trans-Carpathian Pathways — stage planner, `route` and `corridor`, v0.3
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """Stage planner — one route from a start to an end, a fuzzy band
 along it, and the places a pilgrim can reach from it; and a
@@ -48,16 +48,20 @@ The criteria (starting prompt §6, §7; decisions S-8, S-15):
 
 Who uses it — Michel's word, October 11, 2026: it is public.
 A pilgrim, a steward, a Curator, anyone, plans directly. The
-Curator may save a route as a stretch and manage it, and stretches
+Curator may save a route as a stretch and manage it, a steward may
+save a draft that only the Curator publishes (SP-1), and stretches
 are combined into a corridor (`corridor`). Saving is Plai's change,
 not this tool's: the tool writes files and nothing else (spec
-`docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_1.md`).
+`docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_2.md`).
 
-`--audience public` (the default) lists no host, so nothing it
-writes puts a host's place in a file anyone may pass on (open data
-spec §2: a host is never a waypoint in a public file); hosts stay
-on Plai's map, where they are public and clickable (S-1).
-`--audience curator` lists them, for the Curator's own planning.
+`--audience public` (the default) names a published host with its
+detour time only — Michel's word, October 11, 2026 (SP-3): no
+place, no offer, no kind, no point along the route in kilometres,
+and no geometry, so nothing it writes puts a host's place in a file
+anyone may pass on (open data spec §2: a host is never a waypoint
+in a public file); the host's place stays on Plai's map, public and
+clickable (S-1). `--audience curator` lists hosts in full, for the
+Curator's own planning.
 
 Licence (OI-P10, closed by the same word): a route is a work
 derived from OpenStreetMap. Unsaved, it is an answer, computed and
@@ -94,6 +98,9 @@ A corridor from stretches, each a file `route` wrote:
         stretch_1.geojson stretch_2.geojson --out corridor.geojson
 
 Changelog:
+  v0.3 — 2026-10-11 — SP-3, Michel's word: the public answer names
+         published hosts with their detour time only; every place
+         carries its order along the route.
   v0.2 — 2026-10-11 — public by default, Michel's word: the
          audiences are public and curator; `route` writes a stretch
          (its ends, party and criteria with it); `corridor` joins
@@ -121,7 +128,7 @@ from shapely.geometry import (LineString, MultiLineString, Point,
 from shapely.ops import substring, unary_union
 from shapely.strtree import STRtree
 
-VERSION = "0.2"
+VERSION = "0.3"
 
 # ── Criteria ───────────────────────────────────────────────────
 # Every number here is a proposal until Michel or the Curator sets
@@ -787,13 +794,26 @@ def band(net: Network, route: Route, dist: dict) -> list:
     return rings
 
 
+def public_host(entry: dict) -> dict:
+    """What the public answer says of a host (SP-3): their name and
+    their detour time, nothing else — no place, no offer, no kind,
+    no kilometre along the route."""
+    return {"name": entry["name"], "is_host": True,
+            "detour_min": entry["detour_min"],
+            "order": entry.get("order", 0)}
+
+
+def for_audience(entries: list[dict], audience: str) -> list[dict]:
+    if audience == "curator":
+        return entries
+    return [public_host(e) if e.get("is_host") else e for e in entries]
+
+
 def places_along(net: Network, route: Route, places: list[Place],
                  dist: dict, origin: dict, outer, reach_min: float,
                  strip, audience: str, month: str | None) -> list[dict]:
     out = []
     for p in places:
-        if audience == "public" and p.is_host:
-            continue
         if strip is not None and p.geom.intersects(strip):
             continue
         if not p.geom.intersects(outer):
@@ -828,7 +848,9 @@ def places_along(net: Network, route: Route, places: list[Place],
             **{k: v for k, v in p.extra.items() if v},
         })
     out.sort(key=lambda d: (d["route_km"], d["detour_min"]))
-    return out
+    for i, d in enumerate(out):
+        d["order"] = i
+    return for_audience(out, audience)
 
 
 # ── Output ─────────────────────────────────────────────────────
@@ -841,6 +863,23 @@ def hm(minutes: float) -> str:
 def feature(geom, **props):
     return {"type": "Feature", "geometry": mapping(to_4326(geom)),
             "properties": props}
+
+
+def place_feature(p: dict) -> dict:
+    """A place as a feature; a host in the public answer has no
+    geometry at all (RFC 7946 §3.2 allows null)."""
+    geom = ({"type": "Point", "coordinates": [p["lon"], p["lat"]]}
+            if "lon" in p else None)
+    return {"type": "Feature", "geometry": geom,
+            "properties": {**p, "role": "place"}}
+
+
+def describe(p: dict) -> str:
+    where = ("on the way" if p.get("on_the_way")
+             else f"{p['detour_min']:.0f} min off")
+    km = f"km {p['route_km']:>5.1f}" if "route_km" in p else " " * 8
+    kind = f" ({p['kind']})" if p.get("kind") else " (host)"
+    return f"  {km}  {where:>12}  {p['name']}{kind}"
 
 
 def write_geojson(path: Path, routes, rings, places, summary):
@@ -861,10 +900,7 @@ def write_geojson(path: Path, routes, rings, places, summary):
                              time=hm(r.minutes), up_m=round(r.up),
                              down_m=round(r.down)))
     for p in places:
-        feats.append({"type": "Feature",
-                      "geometry": {"type": "Point",
-                                   "coordinates": [p["lon"], p["lat"]]},
-                      "properties": {"role": "place", **p}})
+        feats.append(place_feature(p))
     fc = {"type": "FeatureCollection", "features": feats,
           "properties": summary}
     path.write_text(json.dumps(fc, ensure_ascii=False, indent=1),
@@ -914,7 +950,8 @@ map.fitBounds(layer.getBounds(), {padding:[20,20]});
 const ol = document.getElementById('list');
 for (const f of data.features.filter(f => f.properties.role === 'place')) {
  const p = f.properties, li = document.createElement('li');
- li.innerHTML = `<b>${p.name}</b> — ${p.kind}<br><small>km ${p.route_km} · `
+ li.innerHTML = `<b>${p.name}</b> — ${p.kind || 'host'}<br><small>`
+  + (p.route_km === undefined ? '' : `km ${p.route_km} · `)
   + (p.on_the_way ? 'on the way' : `${p.detour_min} min off the route, one way`) + '</small>';
  ol.appendChild(li);
 }
@@ -987,7 +1024,7 @@ def cmd_corridor(args) -> int:
     offset_km = offset_min = 0.0
     notices = {OSM_NOTICE}
     prev_end = None
-    for path, fc, props in stretches:
+    for pos, (path, fc, props) in enumerate(stretches):
         notices.update(props.get("notices", []))
         st = props["route"]
         km = st["km"]
@@ -1005,15 +1042,18 @@ def cmd_corridor(args) -> int:
                     gap = round(Point(g.coords[0]).distance(prev_end))
                 prev_end = Point(g.coords[-1])
             elif p["role"] == "place":
-                if args.audience == "public" and p.get("is_host"):
-                    continue
-                q = dict(p)
-                q["route_km"] = round(q["route_km"] + offset_km, 2)
-                q["route_min"] = round(q["route_min"] + offset_min)
-                q["stretch"] = props["stretch"].get("name") or path
-                old = places.get(q["id"])
+                q = {k: v for k, v in p.items() if k != "role"}
+                if args.audience == "public" and q.get("is_host"):
+                    q = public_host(q)
+                else:
+                    q["route_km"] = round(q["route_km"] + offset_km, 2)
+                    q["route_min"] = round(q["route_min"] + offset_min)
+                    q["stretch"] = props["stretch"].get("name") or path
+                q["_at"] = (pos, q.get("order", 0))
+                key = q.get("id") or ("host", q["name"])
+                old = places.get(key)
                 if old is None or q["detour_min"] < old["detour_min"]:
-                    places[q["id"]] = q
+                    places[key] = q
         rows.append({"stretch": props["stretch"].get("name") or path,
                      "from": props["stretch"]["from"],
                      "to": props["stretch"]["to"], **st,
@@ -1027,8 +1067,9 @@ def cmd_corridor(args) -> int:
         rings.append((T, opacity, unary_union(polys)))
     if not rings:
         sys.exit("stage_planner: the stretches carry no band")
-    found = sorted(places.values(),
-                   key=lambda d: (d["route_km"], d["detour_min"]))
+    found = sorted(places.values(), key=lambda d: d.pop("_at"))
+    for i, d in enumerate(found):
+        d["order"] = i
     total = {"km": round(sum(r["km"] for r in rows), 2),
              "time": hm(offset_min),
              "up_m": sum(r["up_m"] for r in rows),
@@ -1053,10 +1094,7 @@ def cmd_corridor(args) -> int:
             k: row[k] for k in ("stretch", "km", "time", "up_m",
                                 "down_m")}))
     for p in found:
-        feats.append({"type": "Feature",
-                      "geometry": {"type": "Point",
-                                   "coordinates": [p["lon"], p["lat"]]},
-                      "properties": p})
+        feats.append(place_feature(p))
     out = Path(args.out)
     out.write_text(json.dumps({"type": "FeatureCollection",
                                "features": feats,
@@ -1077,10 +1115,7 @@ def cmd_corridor(args) -> int:
               f"{r['time']}{note}")
     print(f"Places within reach: {len(found)}")
     for p in found:
-        where = ("on the way" if p.get("on_the_way")
-                 else f"{p['detour_min']:.0f} min off")
-        print(f"  km {p['route_km']:>5.1f}  {where:>12}  {p['name']} "
-              f"({p['kind']})")
+        print(describe(p))
     print(f"Written: {out}" + (f", {args.html}" if args.html else ""))
     return 0
 
@@ -1196,10 +1231,7 @@ def cmd_route(args) -> int:
           f"↓{f['down_m']} m")
     print(f"Places within {args.reach:g} min of the route: {len(found)}")
     for p in found:
-        where = ("on the way" if p["on_the_way"]
-                 else f"{p['detour_min']:.0f} min off")
-        print(f"  km {p['route_km']:>5.1f}  {where:>12}  {p['name']} "
-              f"({p['kind']})")
+        print(describe(p))
     print(f"Written: {out}" + (f", {args.html}" if args.html else ""))
     return 0
 

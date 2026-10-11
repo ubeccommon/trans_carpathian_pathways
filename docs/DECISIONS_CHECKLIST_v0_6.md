@@ -1,13 +1,13 @@
 ---
-title: "DECISIONS_CHECKLIST_v0_5"
+title: "DECISIONS_CHECKLIST_v0_6"
 subtitle: "The questions waiting on Michel's word, one line each — with his answers of October 9"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.5"
+version: "v0.6"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
-status: "22 answered and carried into the documents; 10 still open, marked ☐; five decided since (the name, October 10; the record, the test, ratings, the planner public, October 11)"
+status: "22 answered and carried into the documents; 10 still open, marked ☐; five decided since (the name, October 10; the record, the test, ratings, the planner public and its SP-1 to SP-3, October 11)"
 ---
 
 *Michel's answers of October 9, 2026, written against each
@@ -171,6 +171,19 @@ manual v0.4, prompt v0.29.*
       11, 2026.* → prompt v0.61 §6, §7, Gate 5; stage planner spec
       v0.1, with SP-1 to SP-7 open; reasoning §5; the white paper,
       proposal, plan and module map at their next versions (SP-6).
+- ☑ **SP-1 — Stewards.** A steward may save a draft; only the
+      Curator publishes it. *Michel's word, October 11, 2026.* →
+      spec v0.2 §2, §4; prompt v0.62 §6.
+- ☑ **SP-2 — The page and service.** On Plai, before the first
+      hosts (Gate 3). *Michel's word, October 11, 2026.* → spec
+      v0.2 §6; prompt v0.62 §6 and Gate 5; the start prompt for
+      the build in `ubec_mapservice`.
+- ☑ **SP-3 — Hosts in the public answer.** Named, with only their
+      detour time. *Michel's word, October 11, 2026.* → spec v0.2
+      §5; `tools/stage_planner.py` v0.3.
+- ☐ **SP-4 to SP-7** — the numbers; the first real run; the public
+      documents now or at their next versions; a stretch's
+      languages. → spec v0.2 §9.
 
 ## Already due, from the project review of October 8
 
@@ -191,6 +204,7 @@ manual v0.4, prompt v0.29.*
 * * *
 
 *Changelog*
+- v0.6 — 2026-10-11 — SP-1 to SP-3 decided, SP-4 to SP-7 listed, Michel's word.
 - v0.5 — 2026-10-11 — the planner public, Michel's word, under "Decided since".
 - v0.3 — 2026-10-09 — S-23 built in mapservice; the host run
   pending.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Trans-Carpathian Pathways — tests for the stage planner, v0.2
+# Trans-Carpathian Pathways — tests for the stage planner, v0.3
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """A made-up valley near Verkhovyna, built in a temporary folder:
 a secondary road on the valley floor, contour paths on both slopes
@@ -174,12 +174,17 @@ def main() -> int:
         assert fc["properties"]["stored"].startswith("nothing")
         assert fc["properties"]["stretch"]["criteria"]["party"] == "couple"
 
-        # public, the default: no host in anything written
+        # public, the default: a host by name and detour time only
         fc = run(tmp, "--party", "family")
-        names = {x["properties"]["name"] for x in fc["features"]
-                 if x["properties"]["role"] == "place"}
-        assert "Hutsul house" not in names, names
-        assert "Hutsul" not in json.dumps(fc)
+        hosts = [x for x in fc["features"]
+                 if x["properties"].get("is_host")]
+        assert len(hosts) == 1, hosts
+        assert hosts[0]["geometry"] is None
+        assert set(hosts[0]["properties"]) == {
+            "name", "is_host", "detour_min", "order", "role"}, hosts
+        orders = [x["properties"]["order"] for x in fc["features"]
+                  if x["properties"]["role"] == "place"]
+        assert orders == sorted(orders) == list(range(len(orders)))
 
         # two stretches joined into a corridor
         mid = "{1},{0}".format(*ll(4000, 600))
@@ -189,6 +194,7 @@ def main() -> int:
         b = run(tmp, "--audience", "curator", "--name", "East",
                 "--from", mid, "--to", end, out_name="east.geojson")
         for aud, host in (("curator", True), ("public", False)):
+            # host: whether the host's place may be in the answer
             cmd = [sys.executable, str(HERE / "stage_planner.py"),
                    "corridor", "--name", "Test corridor",
                    "--audience", aud, str(tmp / "west.geojson"),
@@ -207,7 +213,11 @@ def main() -> int:
             names = {x["properties"]["name"] for x in c["features"]
                      if x["properties"].get("role") == "place"}
             assert {"Kamin", "Dzherelo"} <= names, names
-            assert ("Hutsul house" in names) == host, names
+            assert "Hutsul house" in names, names
+            h = next(x for x in c["features"]
+                     if x["properties"].get("is_host"))
+            assert (h["geometry"] is not None) == host, h
+            assert ("route_km" in h["properties"]) == host, h
             bands = sorted((x for x in c["features"]
                             if x["properties"]["role"] == "band"),
                            key=lambda x: x["properties"]["minutes"])
