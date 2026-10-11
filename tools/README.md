@@ -1,6 +1,6 @@
 # tools/
 
-## stage_planner.py — `route`, `corridor` and `find`, v0.4
+## stage_planner.py — `route`, `corridor` and `find`, v0.5
 
 The stage planner (starting prompt §6; spec
 `docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_3.md`). Public, on

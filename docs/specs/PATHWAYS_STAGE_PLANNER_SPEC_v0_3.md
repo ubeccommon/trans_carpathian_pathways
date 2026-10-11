@@ -81,8 +81,10 @@ every rule and number. In short:
   `reference_sa.osm_line`, read across, never joined.
 - **Time:** DIN 33466 from GEDTM30 ground heights, per direction;
   the party scales it.
-- **Criteria:** off the beaten path (village roads cost a little,
-  main roads much, trunk roads are not walked); a marked trail and
+- **Criteria:** hiking paths first; roads for vehicles only when
+  there is no other way (a road counts four to fifteen times its
+  walking time; trunk roads are not walked; a marked trail is a
+  path, unless it runs on a main road); a marked trail and
   passing near a place preferred a little; the party's SAC grade
   and trail visibility; never inside the five-kilometre border
   strip (S-8); never an air-raid shelter listed.
@@ -237,7 +239,10 @@ Curator. Proposed for Plai, in the same migration:
   the road penalties, the party paces and SAC limits, the reach
   rings, as the engine holds them. The first real run and the walk
   with a GNSS track (Gate 4) test them; a change is Michel's or the
-  Curator's word.
+  Curator's word. *Changed after the first run, Michel's word the
+  same day:* hiking paths first, roads for vehicles only when there
+  is no other way — roads now count four to fifteen times their
+  walking time instead of 1.3 to 4 (engine v0.5).
 - **SP-5** — *Michel's word, October 11, 2026: the first real run is
   Verkhovyna – Zhyva Khata – Tepla Gora – Kosiv: three stretches,
   Verkhovyna to Zhyva Khata, Zhyva Khata to Tepla Gora, Tepla Gora to Kosiv, joined as one corridor, on ubec-common, for Michel's look
@@ -278,6 +283,9 @@ built, until Michel says to revise them (SP-6):
 
 ## Changelog
 
+- v0.3, amended 2026-10-11 — SP-4 changed after the first run, on
+  Michel's word: hiking paths first, roads for vehicles only when
+  there is no other way.
 - v0.3, amended 2026-10-11 — §3: what a start or end may be, on
   Michel's word: a host's name, a Plai place, an OSM place, or
   coordinates typed or a point placed on the map; a route to a host

@@ -205,6 +205,28 @@ def main() -> int:
                   if x["properties"]["role"] == "place"]
         assert orders == sorted(orders) == list(range(len(orders)))
 
+        # a point beside a long path joins it there, not at a junction
+        side = "{1},{0}".format(*ll(2500, 640))
+        fc = run(tmp, "--from", side, out_name="side.geojson")
+        r = next(x for x in fc["features"]
+                 if x["properties"]["role"] == "route")
+        line = sp.to_3035(shape(r["geometry"]))
+        first, joined = (sp.Point(line.coords[0]),
+                         sp.Point(line.coords[1]))
+        start = sp.to_3035(shape({"type": "Point",
+                                  "coordinates": ll(2500, 640)}))
+        assert first.distance(start) < 1, "the route reaches the point"
+        assert joined.distance(sp.to_3035(shape(
+            {"type": "Point", "coordinates": ll(2500, 600)}))) < 2, \
+            "joined mid-path, not at a junction"
+        roles = {x["properties"]["role"] for x in fc["features"]}
+        assert {"start", "end"} <= roles, roles
+        assert_geojson(fc)
+        # a road is walked where nothing else reaches the point
+        onroad = "{1},{0}".format(*ll(4500, 0))
+        fc = run(tmp, "--from", onroad, out_name="onroad.geojson")
+        assert fc["properties"]["route"]["km"] > 0
+
         # a Latin name finds a Cyrillic place
         fc = run(tmp, "--to", "Tepla Gora", out_name="tg.geojson")
         assert fc["properties"]["route"]["km"] > 4

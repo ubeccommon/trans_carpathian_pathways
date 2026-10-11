@@ -182,8 +182,10 @@ manual v0.4, prompt v0.29.*
       detour time. *Michel's word, October 11, 2026.* → spec v0.2
       §5; `tools/stage_planner.py` v0.3.
 - ☑ **SP-4 — The numbers.** As proposed; the first real run and
-      Gate 4 test them. *Michel's word, October 11, 2026.* → spec
-      v0.3 §9; prompt v0.64 §6.
+      Gate 4 test them. *Michel's word, October 11, 2026.* Changed
+      after the first run, his word the same day: hiking paths
+      first, roads for vehicles only when there is no other way. →
+      spec v0.3 §3, §9; prompt v0.64 §6; engine v0.5.
 - ☑ **SP-5 — The first real run.** Verkhovyna – Zhyva Khata – Tepla
       Gora – Kosiv: three stretches joined as a corridor. *Michel's
       word, October 11, 2026.* → spec v0.3 §9; start prompt v0.2,

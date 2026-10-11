@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Trans-Carpathian Pathways — stage planner, `route`, `corridor` and `find`, v0.4
+# Trans-Carpathian Pathways — stage planner, `route`, `corridor` and `find`, v0.5
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """Stage planner — one route from a start to an end, a fuzzy band
 along it, and the places a pilgrim can reach from it; and a
@@ -101,6 +101,14 @@ A corridor from stretches, each a file `route` wrote:
         stretch_1.geojson stretch_2.geojson --out corridor.geojson
 
 Changelog:
+  v0.5 — 2026-10-11 — after Michel's look at the first corridor:
+         hiking paths first, roads for vehicles only when there is
+         no other way (roads 4 to 15 times their walking time; a
+         marked trail is a path, unless it runs on a main road);
+         a start or end joins the nearest point on the nearest
+         path, not the nearest junction, and the route is drawn on
+         to the point itself; the start and the end are marked; how
+         much of the route is on roads is said.
   v0.4, amended 2026-10-11 — after the first run on ubec-common:
          the boundary is written as a LineString, not a LinearRing,
          which is no GeoJSON type and stopped the map page; a
@@ -147,7 +155,7 @@ from shapely.geometry import (LineString, MultiLineString, Point,
 from shapely.ops import substring, unary_union
 from shapely.strtree import STRtree
 
-VERSION = "0.4"
+VERSION = "0.5"
 
 # ── Criteria ───────────────────────────────────────────────────
 # Every number here is as proposed and adopted on Michel's word,
@@ -161,20 +169,39 @@ DIN_DOWN_MH = 500.0
 
 # Preference on walking time: 1.0 neutral, higher avoided, None
 # never walked. The reported time is always the real DIN time.
+# Hiking paths first; roads for vehicles only when there is no other
+# way — Michel's word, October 11, 2026, after the first run, where a
+# village road at 1.3 was taken whenever it saved a little time. A
+# road costs four to fifteen times its walking time, so the planner
+# walks a path even when it takes several times as long, and takes a
+# road where no path joins the two ends.
 HIGHWAY_FACTOR: dict[str, float | None] = {
-    "path": 1.0, "footway": 1.0, "bridleway": 1.0, "track": 1.0,
-    "steps": 1.1, "pedestrian": 1.1, "cycleway": 1.2,
-    "living_street": 1.2, "service": 1.2, "unclassified": 1.3,
-    "residential": 1.3, "road": 1.5,
-    "tertiary": 1.6, "tertiary_link": 1.6,
-    "secondary": 2.5, "secondary_link": 2.5,
-    "primary": 4.0, "primary_link": 4.0,
+    # paths
+    "path": 1.0, "footway": 1.0, "bridleway": 1.0, "steps": 1.1,
+    "pedestrian": 1.2,
+    # forest and field tracks: few vehicles, walked by everyone here
+    "track": 1.2,
+    "cycleway": 1.5,
+    # roads for vehicles
+    "living_street": 4.0, "service": 4.0, "unclassified": 4.0,
+    "residential": 4.0, "road": 4.0,
+    "tertiary": 6.0, "tertiary_link": 6.0,
+    "secondary": 10.0, "secondary_link": 10.0,
+    "primary": 15.0, "primary_link": 15.0,
     "trunk": None, "trunk_link": None,
     "motorway": None, "motorway_link": None,
     "construction": None, "proposed": None, "abandoned": None,
     "raceway": None, "bus_guideway": None, "platform": None,
 }
-MARKED_FACTOR = 0.85        # on a hiking or foot route relation
+UNKNOWN_HIGHWAY_FACTOR = 4.0   # a highway value not listed: a road
+PAVED_TRACK_FACTOR = 4.0       # a track of grade1 is a paved road
+# A marked hiking or foot route is a hiking path, whatever it runs on,
+# unless it runs on a main road: a minor road or track it follows
+# costs no more than MARKED_ROAD_CAP, and everything marked is then
+# preferred by MARKED_FACTOR.
+MARKED_FACTOR = 0.85
+MARKED_ROAD_CAP = 1.2
+MARKED_CAP_UPTO = 4.0          # roads dearer than this keep their cost
 ENCOUNTER_FACTOR = 0.90     # passes within ENCOUNTER_M of a place
 ENCOUNTER_M = 100.0
 MIN_FACTOR = 0.70           # floor on the product of preferences
@@ -646,9 +673,11 @@ def walkable(tags: dict, party: Party) -> float | None:
     hw = tags.get("highway")
     if hw is None:
         return None
-    factor = HIGHWAY_FACTOR.get(hw, 1.3)
+    factor = HIGHWAY_FACTOR.get(hw, UNKNOWN_HIGHWAY_FACTOR)
     if factor is None:
         return None
+    if hw == "track" and tags.get("tracktype") == "grade1":
+        factor = PAVED_TRACK_FACTOR
     foot = tags.get("foot")
     if foot == "no":
         return None
@@ -677,6 +706,8 @@ class Network:
     lines: dict                  # edge id -> LineString (u to v)
     tree: STRtree
     node_ids: list
+    ground: "Ground" = None
+    pace: float = 1.0
 
 
 def build_network(ways, ground: Ground, party: Party,
@@ -731,6 +762,8 @@ def build_network(ways, ground: Ground, party: Party,
                 up, down = climb(seg, ground)
                 f = factor
                 if marked_u is not None and seg.within(marked_u):
+                    if f <= MARKED_CAP_UPTO:
+                        f = min(f, MARKED_ROAD_CAP)
                     f *= MARKED_FACTOR
                 if places_u is not None and seg.intersects(places_u):
                     f *= ENCOUNTER_FACTOR
@@ -744,7 +777,7 @@ def build_network(ways, ground: Ground, party: Party,
                     old = G.get_edge_data(a, b)
                     if old is None or old["cost"] > cost:
                         G.add_edge(a, b, eid=eid, dir=d, time=t,
-                                   cost=cost, length=seg.length,
+                                   cost=cost, factor=f, length=seg.length,
                                    up=rise, down=fall,
                                    highway=tags.get("highway"),
                                    name=tags.get("name"), osm=oid)
@@ -756,7 +789,7 @@ def build_network(ways, ground: Ground, party: Party,
     G = G.subgraph(biggest).copy()
     node_ids = list(G.nodes)
     tree = STRtree([Point(xy[n]) for n in node_ids])
-    return Network(G, xy, lines, tree, node_ids)
+    return Network(G, xy, lines, tree, node_ids, ground, party.pace)
 
 
 def climb(seg: LineString, ground: Ground) -> tuple[float, float]:
@@ -772,9 +805,53 @@ def climb(seg: LineString, ground: Ground) -> tuple[float, float]:
 
 
 def snap(net: Network, p: Point) -> tuple:
-    i = net.tree.nearest(p)
-    n = net.node_ids[i]
-    return n, Point(net.xy[n]).distance(p)
+    """Join a point to the nearest point on the nearest path: split
+    that path there with a new node, so a route reaches a house in
+    the middle of a long path, not the junction at its end. Returns
+    the node and the distance from the point to the path."""
+    G = net.G
+    eids = sorted({d["eid"] for _, _, d in G.edges(data=True)})
+    tree = STRtree([net.lines[e] for e in eids])
+    e = eids[tree.nearest(p)]
+    line = net.lines[e]
+    d = line.project(p)
+    on = line.interpolate(d)
+    off = on.distance(p)
+    u, v = _key(line.coords[0]), _key(line.coords[-1])
+    if d < 2.0:
+        return u, off + d
+    if line.length - d < 2.0:
+        return v, off + line.length - d
+    # the attributes of the path, either way it was kept
+    fwd, back = G.get_edge_data(u, v), G.get_edge_data(v, u)
+    if fwd is None or fwd["eid"] != e:
+        fwd = None
+    if back is None or back["eid"] != e:
+        back = None
+    base = fwd or back
+    w = _key((on.x, on.y))
+    net.xy[w] = (on.x, on.y)
+    first, second = substring(line, 0, d), substring(line, d, line.length)
+    for x, y in ((u, v), (v, u)):
+        if G.has_edge(x, y) and G[x][y]["eid"] == e:
+            G.remove_edge(x, y)
+    for seg in (first, second):
+        a, b = _key(seg.coords[0]), _key(seg.coords[-1])
+        up, down = climb(seg, net.ground)
+        new = max(net.lines) + 1
+        net.lines[new] = seg
+        for x, y, rise, fall, dr, kept in ((a, b, up, down, 1, fwd),
+                                           (b, a, down, up, -1, back)):
+            if kept is None:
+                continue
+            t = din_minutes(seg.length, rise, fall) * net.pace
+            G.add_edge(x, y, **{**base, "eid": new, "dir": dr, "time": t,
+                                "cost": t * base["factor"],
+                                "length": seg.length, "up": rise,
+                                "down": fall})
+    net.node_ids.append(w)
+    net.tree = STRtree([Point(net.xy[n]) for n in net.node_ids])
+    return w, off
 
 
 # ── Route, band, places ────────────────────────────────────────
@@ -816,6 +893,22 @@ def make_route(net: Network, nodes: list) -> Route:
         legs.append({k: e[k] for k in ("highway", "name", "osm")})
     return Route(nodes, LineString(coords), length, minutes, up, down,
                  along, legs)
+
+
+def reach_points(r: Route, a_pt: Point, b_pt: Point):
+    """Draw a route on to its start and end where they lie off the
+    path, and count those metres at the off-path pace."""
+    coords = list(r.line.coords)
+    extra = 0.0
+    if Point(coords[0]).distance(a_pt) > 1.0:
+        extra += Point(coords[0]).distance(a_pt)
+        coords.insert(0, (a_pt.x, a_pt.y))
+    if Point(coords[-1]).distance(b_pt) > 1.0:
+        extra += Point(coords[-1]).distance(b_pt)
+        coords.append((b_pt.x, b_pt.y))
+    r.line = LineString(coords)
+    r.length += extra
+    r.minutes += extra / OFF_PATH_M_PER_MIN
 
 
 def alternatives(net: Network, a, b, best: Route, n: int,
@@ -996,7 +1089,7 @@ def describe(p: dict) -> str:
     return f"  {km}  {where:>12}  {p['name']}{kind}"
 
 
-def write_geojson(path: Path, routes, rings, places, summary):
+def write_geojson(path: Path, routes, rings, places, summary, ends=()):
     feats = []
     for T, opacity, poly in reversed(rings):
         feats.append(feature(poly, role="band", minutes=T,
@@ -1015,6 +1108,9 @@ def write_geojson(path: Path, routes, rings, places, summary):
                              down_m=round(r.down)))
     for p in places:
         feats.append(place_feature(p))
+    for role, label, pt, off in ends:
+        feats.append(feature(pt, role=role, name=label,
+                             off_path_m=round(off)))
     fc = {"type": "FeatureCollection", "features": feats,
           "properties": summary}
     path.write_text(json.dumps(fc, ensure_ascii=False, indent=1),
@@ -1060,9 +1156,15 @@ const layer = L.geoJSON(data, {
   if (p.role === 'alternative') return {color:'#9a3412', weight:2.5, opacity:.6, dashArray:'6 6'};
   return {};
  },
- pointToLayer: (f, ll) => L.circleMarker(ll, {radius:6, color:'#fff', weight:1.5,
-  fillColor: f.properties.is_host ? '#b45309' : '#1d4ed8', fillOpacity:1}),
+ pointToLayer: (f, ll) => {
+  const r = f.properties.role;
+  if (r === 'start' || r === 'end') return L.circleMarker(ll, {radius:9, color:'#fff', weight:2.5,
+   fillColor: r === 'start' ? '#15803d' : '#9a3412', fillOpacity:1});
+  return L.circleMarker(ll, {radius:6, color:'#fff', weight:1.5,
+   fillColor: f.properties.is_host ? '#b45309' : '#1d4ed8', fillOpacity:1}); },
  onEachFeature: (f, l) => { const p = f.properties;
+  if (p.role === 'start' || p.role === 'end') l.bindPopup(`<b>${p.role === 'start' ? 'Start' : 'End'}:</b> ${p.name}`
+   + (p.off_path_m > 1 ? `<br>${p.off_path_m} m from the nearest path` : ''));
   if (p.role === 'place') l.bindPopup(`<b>${p.name}</b><br>${p.kind}<br>`
    + `${p.detour_min} min off the route at km ${p.route_km}`); }
 }).addTo(map);
@@ -1183,7 +1285,7 @@ def cmd_corridor(args) -> int:
         stretches.append((path, fc, props))
 
     by_min: dict = {}
-    lines, places, rows = [], {}, []
+    lines, places, rows, ends = [], {}, [], {}
     offset_km = offset_min = 0.0
     notices = {OSM_NOTICE}
     prev_end = None
@@ -1206,6 +1308,9 @@ def cmd_corridor(args) -> int:
                 if prev_end is not None:
                     gap = round(Point(g.coords[0]).distance(prev_end))
                 prev_end = Point(g.coords[-1])
+            elif p["role"] in ("start", "end"):
+                ends.setdefault(p["role"], [])
+                ends[p["role"]].append((g, p))
             elif p["role"] == "place":
                 q = {k: v for k, v in p.items() if k != "role"}
                 if args.audience == "public" and q.get("is_host"):
@@ -1260,6 +1365,10 @@ def cmd_corridor(args) -> int:
                                 "down_m")}))
     for p in found:
         feats.append(place_feature(p))
+    for role, pick in (("start", 0), ("end", -1)):
+        if ends.get(role):
+            g, p = ends[role][pick]
+            feats.append(feature(g, **p))
     out = Path(args.out)
     out.write_text(json.dumps({"type": "FeatureCollection",
                                "features": feats,
@@ -1338,7 +1447,7 @@ def cmd_route(args) -> int:
     for label, off in (("start", a_off), ("end", b_off)):
         if off > SNAP_WARN_M:
             print(f"stage_planner: the {label} is {off:.0f} m from the "
-                  "nearest path", file=sys.stderr)
+                  "nearest path — check the point", file=sys.stderr)
 
     best = route_between(net, a, b)
     if best is None:
@@ -1346,6 +1455,9 @@ def cmd_route(args) -> int:
                  "with this party's limits")
     routes = [best] + alternatives(net, a, b, best, args.alternatives)
     fastest = route_between(net, a, b, weight="time")
+    # The last metres off the path, drawn to the points themselves.
+    for r in routes + [fastest]:
+        reach_points(r, a_pt, b_pt)
 
     dist, origin = reach_from(net, best, max(BAND_MINUTES[-1],
                                              args.reach))
@@ -1363,8 +1475,7 @@ def cmd_route(args) -> int:
         "audience": args.audience, "party": args.party,
         "month": args.month, "reach_min": args.reach,
         "route": {"km": round(best.length / 1000, 2),
-                  "time": hm(best.minutes + (a_off + b_off)
-                             / OFF_PATH_M_PER_MIN),
+                  "time": hm(best.minutes),
                   "up_m": round(best.up), "down_m": round(best.down)},
         "alternatives": [{"km": round(r.length / 1000, 2),
                           "time": hm(r.minutes), "up_m": round(r.up),
@@ -1380,7 +1491,8 @@ def cmd_route(args) -> int:
     }
 
     out = Path(args.out)
-    write_geojson(out, routes, rings, found, summary)
+    ends = [("start", args.start, a_pt, a_off), ("end", args.end, b_pt, b_off)]
+    write_geojson(out, routes, rings, found, summary, ends)
     if args.html:
         write_html(Path(args.html), out, summary,
                    args.name or "Route preview")
@@ -1388,6 +1500,15 @@ def cmd_route(args) -> int:
     s = summary["route"]
     print(f"Route: {s['km']} km, {s['time']} walking, ↑{s['up_m']} m "
           f"↓{s['down_m']} m ({args.party})")
+    print(f"  start {a_off:.0f} m and end {b_off:.0f} m from the "
+          "nearest path")
+    on_roads = sum(net.lines[net.G[u][v]["eid"]].length
+                   for u, v in zip(best.nodes, best.nodes[1:])
+                   if (HIGHWAY_FACTOR.get(net.G[u][v]["highway"],
+                                          UNKNOWN_HIGHWAY_FACTOR) or 99)
+                   >= UNKNOWN_HIGHWAY_FACTOR)
+    print(f"  on roads for vehicles: {on_roads / 1000:.1f} km of "
+          f"{best.length / 1000:.1f}")
     for i, r in enumerate(summary["alternatives"], 1):
         print(f"  alternative {i}: {r['km']} km, {r['time']}, "
               f"↑{r['up_m']} m ↓{r['down_m']} m")
