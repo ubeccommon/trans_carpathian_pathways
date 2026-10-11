@@ -105,7 +105,9 @@ Changelog:
          the boundary is written as a LineString, not a LinearRing,
          which is no GeoJSON type and stopped the map page; a
          corridor reads a public stretch whose host has no geometry;
-         a place without a name is not named twice by its kind.
+         a place without a name is not named twice by its kind;
+         the preview's base map is Plai's own WMS, since OpenStreetMap's
+         tile servers refuse a page opened from a file.
   v0.4 — 2026-10-11 — after the first run on ubec-common: a Latin
          name finds a Cyrillic one (Zhyva Khata, Жива Хата), on
          Plai or in OSM, peaks and hills too; several equal matches
@@ -209,6 +211,11 @@ BORDER_STRIP_M = 5000.0     # S-8
 SAMPLE_M = 30.0             # the DEM's own resolution
 
 OSM_NOTICE = "© OpenStreetMap contributors, ODbL 1.0"
+
+# The base map under a preview: Plai's WMS, bottom layer first.
+PLAI_WMS = "https://mapservice.ubec.network/wms/?map=plai"
+PLAI_WMS_LAYERS = ("osm_area", "terrain_hillshade", "osm_line",
+                   "osm_route", "osm_names")
 GEDTM_CREDIT = ("Ground heights: GEDTM30 v1.2, Ho et al. 2025, "
                 "PeerJ 13:e19673, CC BY 4.0")
 
@@ -1036,8 +1043,14 @@ HTML = """<!doctype html>
 <script>
 const data = __DATA__;
 const map = L.map('map');
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',
- {maxZoom: 18, attribution: '© OpenStreetMap contributors'}).addTo(map);
+// Plai's own base map, the one the Pathways application shows:
+// OpenStreetMap drawn by Mapservice, with the ground model's relief.
+// OpenStreetMap's tile servers refuse a page opened from a file.
+L.tileLayer.wms('__WMS__', {
+ layers: '__WMS_LAYERS__', format: 'image/png', version: '1.3.0',
+ tileSize: 512, zoomOffset: 0, maxZoom: 18,
+ attribution: '© OpenStreetMap contributors, ODbL · relief GEDTM30 · Plai, UBEC Mapservice'
+}).addTo(map);
 const layer = L.geoJSON(data, {
  style: f => {
   const p = f.properties;
@@ -1077,6 +1090,8 @@ def write_html(path: Path, geojson_path: Path, summary: dict,
     html = (HTML.replace("__TITLE__", title)
             .replace("__SUM__", text)
             .replace("__NOTICE__", " · ".join(summary["notices"]))
+            .replace("__WMS__", PLAI_WMS)
+            .replace("__WMS_LAYERS__", ",".join(PLAI_WMS_LAYERS))
             .replace("__DATA__", data))
     path.write_text(html, encoding="utf-8")
 
