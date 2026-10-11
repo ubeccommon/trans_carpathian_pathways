@@ -329,7 +329,25 @@ def test_through_town():
     assert r.length > 1030, "a street before a main road"
 
 
+def test_tiny_overlap():
+    """Two ways overlapping for a few centimetres, and a way given
+    twice: the network builds, and both ends are joined."""
+    from shapely.geometry import MultiLineString
+    W = lambda oid, coords, **tags: sp.Way(oid, None, tags,
+                                           MultiLineString([coords]))
+    ways = [W("a", [(0, 0), (500, 0), (500.03, 0)], highway="path"),
+            W("b", [(500, 0), (500.03, 0), (1000, 0)], highway="path"),
+            W("c", [(0, 0), (500, 0)], highway="path"),
+            W("d", [(0, 0), (500, 0)], highway="path")]
+    net = sp.build_network(ways, sp.Ground(None, (-100, -100, 1100, 100)),
+                           sp.PARTY["couple"], None, sp.Landscape())
+    a, _ = sp.snap(net, sp.Point(0, 0))
+    b, _ = sp.snap(net, sp.Point(1000, 0))
+    assert sp.route_between(net, a, b) is not None
+
+
 def main() -> int:
+    test_tiny_overlap()
     test_the_way()
     test_footpaths_first()
     test_obvious_gaps()

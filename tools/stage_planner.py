@@ -104,6 +104,13 @@ A corridor from stretches, each a file `route` wrote:
         stretch_1.geojson stretch_2.geojson --out corridor.geojson
 
 Changelog:
+  v0.12, amended 2026-10-11 — after the run of 16:56: in town the
+         main street weighs 1.15 (was 1.5) and a primary road 1.5
+         (was 4), so the way through Verkhovyna is direct, not a
+         zig-zag up and down side streets; a piece of a way under
+         0.5 m is neither added nor split — two ways overlapping
+         for a few centimetres sent the parallel-way split into
+         endless halving (Tepla Gora – Kosiv).
   v0.12 — 2026-10-11 — a road link is measured on the route itself:
          any continuous run of road longer than 300 m that a route
          walks is weighed as the last resort and the way looked for
@@ -319,7 +326,7 @@ JOIN_ANGLE_DEG = 60.0
 # not followed.
 URBAN_PLACES = {"city", "town", "village", "suburb"}
 URBAN_SHARE = 0.5            # share of a segment inside to count it
-URBAN_ROAD_WEIGHT = {"minor": 1.0, "main": 1.5, "primary": 4.0}
+URBAN_ROAD_WEIGHT = {"minor": 1.0, "main": 1.15, "primary": 1.5}
 SETTLEMENT_RADIUS_M = {"city": 2500.0, "town": 1200.0,
                        "village": 500.0, "hamlet": 250.0,
                        "suburb": 500.0}
@@ -1147,6 +1154,8 @@ def add_segment(G, net_lines, xy, eid, seg, kind, oid, tags, ground,
                 land, pace, marked_ok=True):
     """One segment, both ways, with its time, its kind and how rich."""
     u, v = _key(seg.coords[0]), _key(seg.coords[-1])
+    if u == v or seg.length < 0.5:
+        return                   # a piece too small to walk or to split
     if G.has_edge(u, v) and G[u][v]["eid"] != eid:
         # Another way already joins these two junctions — a street and
         # a footway leaving and meeting at the same corners. Give this
