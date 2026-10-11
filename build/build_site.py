@@ -42,6 +42,8 @@ Needs pandoc on the PATH, and Python 3 alone; deploy needs rsync and ssh.
 SPDX-License-Identifier: AGPL-3.0-or-later
 
 Changelog:
+  v0.10 — 2026-10-11 — the field writing opens in a new tab too (Michel's
+         word), as the map does.
   v0.9 — 2026-10-11 — the map opens in a new tab (Michel's word), with
          rel="noopener", an arrow, and "opens in a new tab" for a screen
          reader; the check refuses a new tab with an opener.
@@ -405,15 +407,17 @@ def nav(lang: str, up: str, current: str, tocs: dict) -> str:
 
 
 def new_tab(page: str) -> str:
-    """The map opens in a new tab (Michel's word, October 11, 2026), and says so:
-    an arrow for the eye, the words for a screen reader, and no opener for the map."""
+    """The map and the field writing open in a new tab (Michel's word, October 11,
+    2026), and say so: an arrow for the eye, the words for a screen reader, and no
+    opener for the page they open."""
     lang = re.search(r'<html lang="([a-z]+)"', page).group(1)
     said = WORDS[lang]["new_tab"]
 
     def one(m):
         return (f'<a href="{m.group(1)}"{m.group(2)} target="_blank" rel="noopener">'
                 f'{m.group(3)}<span class="vh">{said}</span></a>')
-    return re.sub(r'<a href="(https://mapservice\.ubec\.network/[^"]*)"([^>]*)>(.*?)</a>', one, page, flags=re.S)
+    return re.sub(r'<a href="(https://(?:mapservice|pilgrims)\.ubec\.network/[^"]*)"([^>]*)>(.*?)</a>',
+                  one, page, flags=re.S)
 
 
 # ---- the build ----
