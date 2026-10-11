@@ -7,7 +7,7 @@ version: "v0.3"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
-status: "specification — all seven items decided (Michel's word, October 11, 2026); the engine built and tested on a made-up valley (tools/stage_planner.py v0.3); the first real run, Verkhovyna to Kosiv, next; the page, the service and saving on Plai not built — they come before Gate 3"
+status: "specification — all seven items decided (Michel's word, October 11, 2026); the engine built and tested on a made-up valley (tools/stage_planner.py v0.4); the first real run, Verkhovyna to Kosiv, next; the page, the service and saving on Plai not built — they come before Gate 3"
 ---
 
 *A specification for the stage planner — the proposal's "spatial
@@ -63,7 +63,7 @@ Curator publishes it.
 
 ## 3. What the Planner Does
 
-Built as `tools/stage_planner.py` v0.3; its opening comment holds
+Built as `tools/stage_planner.py` v0.4; its opening comment holds
 every rule and number. In short:
 
 - **In:** a start and an end — a published Plai place, a village
@@ -115,7 +115,7 @@ asked for again each time it is shown, from what is published that
 day. A host who withdraws leaves every stretch at once; a stored
 list would keep them.
 
-The engine already writes what a stretch carries (`route` v0.3:
+The engine already writes what a stretch carries (`route` v0.3 and later:
 the `stretch` block of its output). Saving is Plai's: a steward or
 the Curator saves from the planner's page while logged in (§6);
 the Curator publishes from the same page or the backend.

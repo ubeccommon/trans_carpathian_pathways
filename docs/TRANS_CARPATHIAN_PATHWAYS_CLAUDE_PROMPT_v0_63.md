@@ -939,7 +939,7 @@ stretches into a corridor. Nothing the
 planner says is a booking, a promise that a host will receive, or
 a statement that a path is safe today.
 
-**The engine:** `tools/stage_planner.py` v0.3, Python with
+**The engine:** `tools/stage_planner.py` v0.4, Python with
 networkx, in memory, writing nothing but its answer. `route`: from
 a start and an end (a published place, a village in OSM, or
 `lat,lon`), the route by the criteria below, up to two
@@ -1198,6 +1198,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.63, amended 2026-10-11 — the engine at v0.4 after the first run on ubec-common: Latin names find Cyrillic ones, `find`.
 - v0.63 — 2026-10-11 — SP-4 to SP-7, Michel's word: the numbers as proposed; the first real run Verkhovyna – Zhyva Khata – Tepla Gora – Kosiv; the public documents when he says so; a stretch's name and note in English first, until a multilingual Mapservice is explored. Spec v0.3, start prompt v0.2.
 - v0.62 — 2026-10-11 — SP-1 to SP-3, Michel's word: a steward saves drafts, the Curator publishes; the page and service on Plai before Gate 3; the public answer names hosts with their detour time only. Spec v0.2, engine v0.3, the start prompt for the build on Plai.
 - v0.61 — 2026-10-11 — the planner public, Michel's word: anyone plans; the Curator saves and manages stretches; stretches make a corridor. §6 rewritten, §7 and Gate 5 with it; OI-P10 closed; the engine at `tools/stage_planner.py` v0.2; the spec v0.1 with SP-1 to SP-7.

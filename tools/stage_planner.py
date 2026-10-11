@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Trans-Carpathian Pathways — stage planner, `route` and `corridor`, v0.3
+# Trans-Carpathian Pathways — stage planner, `route`, `corridor` and `find`, v0.4
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """Stage planner — one route from a start to an end, a fuzzy band
 along it, and the places a pilgrim can reach from it; and a
@@ -90,7 +90,10 @@ Usage:
         --out route.geojson --html route.html
 
 A point is "lat,lon" as a map app copies it, or a name: a
-published Plai place's title, or a village or hamlet in OSM.
+published Plai place's title, or a village, peak or other named
+place in OSM, in Latin or Cyrillic. To see what a name matches:
+
+    python3 tools/stage_planner.py find "Tepla Gora"
 
 A corridor from stretches, each a file `route` wrote:
 
@@ -98,6 +101,12 @@ A corridor from stretches, each a file `route` wrote:
         stretch_1.geojson stretch_2.geojson --out corridor.geojson
 
 Changelog:
+  v0.4 — 2026-10-11 — after the first run on ubec-common: a Latin
+         name finds a Cyrillic one (Zhyva Khata, Жива Хата), on
+         Plai or in OSM, peaks and hills too; several equal matches
+         are listed instead of guessed; `find` shows what a name
+         matches; `corridor` says plainly when a stretch file is
+         missing.
   v0.3, amended 2026-10-11 — SP-4: the numbers adopted as proposed;
          the spec's path, v0.3; a name finds a Plai title that
          contains it, the exact title first.
@@ -131,7 +140,7 @@ from shapely.geometry import (LineString, MultiLineString, Point,
 from shapely.ops import substring, unary_union
 from shapely.strtree import STRtree
 
-VERSION = "0.3"
+VERSION = "0.4"
 
 # ── Criteria ───────────────────────────────────────────────────
 # Every number here is as proposed and adopted on Michel's word,
@@ -272,6 +281,74 @@ def din_minutes(length_m: float, up_m: float, down_m: float) -> float:
     th = length_m / 1000.0 / DIN_FLAT_KMH
     tv = up_m / DIN_UP_MH + down_m / DIN_DOWN_MH
     return 60.0 * (max(th, tv) + min(th, tv) / 2.0)
+
+
+# ── Names ──────────────────────────────────────────────────────
+# A Latin spelling finds a Cyrillic name: both are brought to one
+# loose key. Cyrillic is transliterated (the Ukrainian national
+# system of 2010, with the Russian letters a map may carry), then
+# the spellings that differ between systems are folded together —
+# h and g ("Hora", "Gora"), kh and h, zh and z, y and i — so
+# "Tepla Gora" meets Тепла Гора and "Zhyva Khata" meets Жива Хата.
+
+TRANSLIT = {
+    "а": "a", "б": "b", "в": "v", "г": "h", "ґ": "g", "д": "d",
+    "е": "e", "є": "ie", "ж": "zh", "з": "z", "и": "y", "і": "i",
+    "ї": "i", "й": "i", "к": "k", "л": "l", "м": "m", "н": "n",
+    "о": "o", "п": "p", "р": "r", "с": "s", "т": "t", "у": "u",
+    "ф": "f", "х": "kh", "ц": "ts", "ч": "ch", "ш": "sh",
+    "щ": "shch", "ь": "", "ю": "iu", "я": "ia", "'": "", "’": "",
+    "ʼ": "", "ы": "y", "э": "e", "ё": "e", "ъ": "",
+}
+FOLD = (("shch", "s"), ("kh", "h"), ("zh", "z"), ("ts", "c"),
+        ("ch", "c"), ("sh", "s"), ("g", "h"), ("w", "v"),
+        ("y", "i"), ("j", "i"), ("ie", "e"), ("iu", "u"),
+        ("ia", "a"))
+
+
+def loose(text: str) -> str:
+    import unicodedata
+    t = "".join(TRANSLIT.get(c, c) for c in text.lower())
+    t = unicodedata.normalize("NFKD", t)
+    t = "".join(c for c in t if c.isascii() and c.isalnum())
+    for a, b in FOLD:
+        t = t.replace(a, b)
+    return t
+
+
+@dataclass
+class Candidate:
+    names: list                  # every name it carries
+    kind: str
+    source: str
+    geom: Point                  # EPSG:3035
+
+    def score(self, text: str) -> int:
+        """3 a name exactly; 2 the same loose key; 1 a name that
+        contains it; 0 no match."""
+        low, key = text.strip().lower(), loose(text)
+        names = [n for n in self.names if n]
+        if any(n.lower() == low for n in names):
+            return 3
+        keys = [loose(n) for n in names]
+        if key and key in keys:
+            return 2
+        if key and len(key) >= 4 and any(key in k for k in keys):
+            return 1
+        return 0
+
+
+def ranked(cands: list, text: str) -> list:
+    scored = [(c.score(text), c) for c in cands]
+    scored = [(sc, c) for sc, c in scored if sc > 0]
+    scored.sort(key=lambda x: (-x[0], x[1].source != "plai",
+                               len(x[1].names[0] or "")))
+    return scored
+
+
+def latlon(p: Point) -> str:
+    lon, lat = TO_4326.transform(p.x, p.y)
+    return f"{lat:.5f},{lon:.5f}"
 
 
 # ── Data ───────────────────────────────────────────────────────
@@ -418,39 +495,50 @@ class PostgisSource:
             return None
         return wkb.loads(bytes(row[0]))
 
-    def find_place(self, name: str) -> Point | None:
-        like = name.strip()
+    # Plai's extent in the Ukrainian Carpathians (tools/terrain.py),
+    # where a name is looked for.
+    EXTENT = (22.1, 47.7, 26.0, 49.6)
+
+    def candidates(self, text: str) -> list:
+        out = []
         try:
             conn = self.psycopg.connect(dbname=self.inst_db,
                                         connect_timeout=5)
             with conn, conn.cursor() as cur:
-                # The title as typed first; then a title containing
-                # it ("Zhyva Khata" finds "Zhyva Khata homestead"),
-                # the shortest such title.
-                cur.execute("""SELECT ST_AsBinary(ST_Transform(geom, 3035))
-                                 FROM instance.entry_public
-                                WHERE title ILIKE %s
-                                   OR title ILIKE '%%' || %s || '%%'
-                                ORDER BY title ILIKE %s DESC,
-                                         length(title) LIMIT 1""",
-                            (like, like, like))
-                row = cur.fetchone()
-                if row:
-                    return wkb.loads(bytes(row[0]))
-        except self.psycopg.Error:
-            pass
+                cur.execute("""SELECT title, location_type,
+                                      ST_AsBinary(ST_Transform(geom, 3035))
+                                 FROM instance.entry_public""")
+                for title, ltype, g in cur:
+                    out.append(Candidate([title], ltype or "Plai place",
+                                         "plai", wkb.loads(bytes(g))))
+        except self.psycopg.Error as e:
+            print(f"stage_planner: Plai places not read ({e})",
+                  file=sys.stderr)
+        x0, y0 = TO_3035.transform(self.EXTENT[0], self.EXTENT[1])
+        x1, y1 = TO_3035.transform(self.EXTENT[2], self.EXTENT[3])
         with self.fw.cursor() as cur:
             cur.execute("""
-                SELECT ST_AsBinary(geom) FROM reference_sa.osm_point
-                 WHERE tags ? 'place'
-                   AND (name ILIKE %s OR tags->>'name:uk' ILIKE %s
-                        OR tags->>'name:en' ILIKE %s
-                        OR tags->>'name:de' ILIKE %s)
-                 ORDER BY CASE tags->>'place' WHEN 'village' THEN 1
-                          WHEN 'town' THEN 1 WHEN 'hamlet' THEN 2
-                          ELSE 3 END LIMIT 1""", (like,) * 4)
-            row = cur.fetchone()
-        return wkb.loads(bytes(row[0])) if row else None
+                SELECT name, tags->>'name:uk', tags->>'name:en',
+                       tags->>'name:ru', tags->>'alt_name',
+                       tags->>'old_name',
+                       coalesce(tags->>'place', tags->>'natural',
+                                tags->>'tourism', tags->>'historic',
+                                tags->>'amenity'),
+                       ST_AsBinary(geom)
+                  FROM reference_sa.osm_point
+                 WHERE geom && ST_MakeEnvelope(%s, %s, %s, %s, 3035)
+                   AND name IS NOT NULL
+                   AND (tags ? 'place'
+                        OR tags->>'natural' IN ('peak', 'hill', 'saddle',
+                                                'ridge', 'spring')
+                        OR tags ? 'tourism' OR tags ? 'historic'
+                        OR tags->>'amenity' = 'place_of_worship')""",
+                        (min(x0, x1), min(y0, y1), max(x0, x1),
+                         max(y0, y1)))
+            for (*names, kind, g) in cur:
+                out.append(Candidate(names, kind or "place", "osm",
+                                     wkb.loads(bytes(g))))
+        return out
 
 
 class FileSource:
@@ -518,17 +606,20 @@ class FileSource:
         return unary_union([to_3035(shape(f["geometry"]))
                             for f in self._features(self.strip_f)])
 
-    def find_place(self, name: str) -> Point | None:
-        """A place's title or any feature's name, villages included."""
-        low = name.strip().lower()
+    def candidates(self, text: str) -> list:
+        out = []
         for f in self._features(self.places_f) if self.places_f else []:
             props = f.get("properties") or {}
             tags = self._tags(props)
-            names = {props.get("title"), tags.get("name"),
-                     tags.get("name:uk"), tags.get("name:en")}
-            if low in {n.lower() for n in names if n}:
-                return to_3035(shape(f["geometry"]))
-        return None
+            names = [props.get("title"), tags.get("name"),
+                     tags.get("name:uk"), tags.get("name:en")]
+            if any(names):
+                out.append(Candidate(
+                    [n for n in names if n],
+                    tags.get("place") or props.get("kind") or "place",
+                    props.get("source", "file"),
+                    to_3035(shape(f["geometry"]))))
+        return out
 
 
 def _box(bbox):
@@ -986,13 +1077,50 @@ def write_html(path: Path, geojson_path: Path, summary: dict,
 # ── Command ────────────────────────────────────────────────────
 
 def resolve(src, text: str) -> Point:
+    """A point from "lat,lon" or a name. A name is taken when one
+    place matches it best; when several match equally, they are
+    listed and the planner stops, rather than guess."""
     p = parse_latlon(text)
-    if p is None:
-        p = src.find_place(text)
-    if p is None:
-        sys.exit(f"stage_planner: no place called {text!r} — give "
-                 "\"lat,lon\" or a published place's name")
-    return p
+    if p is not None:
+        return p
+    found = ranked(src.candidates(text), text)
+    if not found:
+        sys.exit(f"stage_planner: no place called {text!r} on Plai or "
+                 "in OSM — give it as \"lat,lon\" (a map app copies "
+                 "it), or try `find`")
+    best = found[0][0]
+    top = [c for sc, c in found if sc == best]
+    # Two points under 300 m apart are one place mapped twice.
+    if len(top) > 1 and any(c.geom.distance(top[0].geom) > 300
+                            for c in top[1:]):
+        lines = "\n".join(f"  {c.names[0]} ({c.kind}, {c.source}) "
+                          f"{latlon(c.geom)}" for c in top[:10])
+        sys.exit(f"stage_planner: {len(top)} places match {text!r}; "
+                 f"give the one you mean as \"lat,lon\":\n{lines}")
+    c = top[0]
+    if best < 3:
+        print(f"stage_planner: {text!r} taken as {c.names[0]} "
+              f"({c.kind}, {c.source}) at {latlon(c.geom)}",
+              file=sys.stderr)
+    return c.geom
+
+
+def cmd_find(args) -> int:
+    src = (PostgisSource(args.instance_db) if args.source == "postgis"
+           else FileSource(Path(args.paths or "/dev/null"),
+                           Path(args.places) if args.places else None,
+                           None))
+    found = ranked(src.candidates(args.text), args.text)
+    if not found:
+        print(f"Nothing called {args.text!r} on Plai or in OSM.")
+        return 1
+    label = {3: "exact", 2: "same name", 1: "contains"}
+    for sc, c in found[:args.limit]:
+        others = [n for n in c.names[1:] if n and n != c.names[0]]
+        also = f" — also {', '.join(dict.fromkeys(others))}" if others else ""
+        print(f"  {latlon(c.geom):>20}  {label[sc]:<9}  {c.names[0]} "
+              f"({c.kind}, {c.source}){also}")
+    return 0
 
 
 def _lonlat(p: Point) -> list:
@@ -1022,6 +1150,9 @@ def cmd_corridor(args) -> int:
     (S-14)."""
     stretches = []
     for path in args.stretches:
+        if not Path(path).exists():
+            sys.exit(f"stage_planner: {path} does not exist — did "
+                     "`route` stop before writing it?")
         fc = json.loads(Path(path).read_text(encoding="utf-8"))
         props = fc.get("properties") or {}
         if "stretch" not in props:
@@ -1285,9 +1416,19 @@ def main(argv=None) -> int:
                    default="public")
     c.add_argument("--out", default="corridor.geojson")
     c.add_argument("--html", help="also write a map preview here")
+    f = sub.add_parser("find", help="which places a name matches")
+    f.add_argument("text", help="a name, in Latin or Cyrillic")
+    f.add_argument("--limit", type=int, default=15)
+    f.add_argument("--source", choices=("postgis", "files"),
+                   default="postgis")
+    f.add_argument("--instance-db", default="ubec_i_plai")
+    f.add_argument("--paths", help=argparse.SUPPRESS)
+    f.add_argument("--places", help="files: GeoJSON of places")
     args = ap.parse_args(argv)
     if args.cmd == "corridor":
         return cmd_corridor(args)
+    if args.cmd == "find":
+        return cmd_find(args)
     if not 1 <= args.reach <= 30:
         ap.error("--reach is minutes, 1 to 30")
     return cmd_route(args)

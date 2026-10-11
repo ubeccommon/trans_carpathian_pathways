@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Trans-Carpathian Pathways — tests for the stage planner, v0.3
+# Trans-Carpathian Pathways — tests for the stage planner, v0.4
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """A made-up valley near Verkhovyna, built in a temporary folder:
 a secondary road on the valley floor, contour paths on both slopes
@@ -82,6 +82,9 @@ def build(tmp: Path):
         pt(4000, 2600, tags={"tourism": "viewpoint", "name": "Far"}),
         pt(2000, -1300, tags={"tourism": "viewpoint", "name": "Ridge"}),
         pt(0, 0, tags={"place": "village", "name": "Startove"}),
+        pt(4000, 600, tags={"place": "hamlet", "name": "Тепла Гора"}),
+        pt(1000, 300, tags={"place": "hamlet", "name": "Dvi Khaty"}),
+        pt(7000, 300, tags={"place": "hamlet", "name": "Dvi Khaty"}),
     ]
     (tmp / "places.geojson").write_text(json.dumps(
         {"type": "FeatureCollection", "features": places}))
@@ -132,6 +135,10 @@ def main() -> int:
     assert sp.din_minutes(0, 300, 0) == 60
     assert sp.din_minutes(0, 0, 500) == 60
     assert sp.din_minutes(4000, 300, 0) == 90
+    # a Latin spelling meets the Cyrillic name
+    for a, b in (("Zhyva Khata", "Жива Хата"), ("Tepla Gora", "Тепла Гора"),
+                 ("Verkhovyna", "Верховина"), ("Kosiv", "Косів")):
+        assert sp.loose(a) == sp.loose(b), (a, b)
 
     with tempfile.TemporaryDirectory() as d:
         tmp = Path(d)
@@ -185,6 +192,32 @@ def main() -> int:
         orders = [x["properties"]["order"] for x in fc["features"]
                   if x["properties"]["role"] == "place"]
         assert orders == sorted(orders) == list(range(len(orders)))
+
+        # a Latin name finds a Cyrillic place
+        fc = run(tmp, "--to", "Tepla Gora", out_name="tg.geojson")
+        assert fc["properties"]["route"]["km"] > 4
+        # two places of one name far apart: listed, not guessed
+        res = subprocess.run(
+            [sys.executable, str(HERE / "stage_planner.py"), "route",
+             "--source", "files", "--paths", str(tmp / "paths.geojson"),
+             "--places", str(tmp / "places.geojson"),
+             "--from", "Dvi Khaty", "--to", "Startove"],
+            capture_output=True, text=True)
+        assert res.returncode != 0 and "2 places match" in res.stderr, \
+            res.stderr
+        # find
+        res = subprocess.run(
+            [sys.executable, str(HERE / "stage_planner.py"), "find",
+             "tepla hora", "--source", "files",
+             "--places", str(tmp / "places.geojson")],
+            capture_output=True, text=True)
+        assert res.returncode == 0 and "Тепла Гора" in res.stdout, res
+        # a missing stretch file is said plainly
+        res = subprocess.run(
+            [sys.executable, str(HERE / "stage_planner.py"), "corridor",
+             str(tmp / "nope.geojson")], capture_output=True, text=True)
+        assert "does not exist" in res.stderr and "Traceback" not in \
+            res.stderr, res.stderr
 
         # two stretches joined into a corridor
         mid = "{1},{0}".format(*ll(4000, 600))

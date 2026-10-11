@@ -1,6 +1,6 @@
 # tools/
 
-## stage_planner.py — `route` and `corridor`, v0.3
+## stage_planner.py — `route`, `corridor` and `find`, v0.4
 
 The stage planner (starting prompt §6; spec
 `docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_3.md`). Public, on
@@ -68,11 +68,18 @@ python3 /tmp/stage_planner.py corridor --name "Verkhovyna – Kosiv" \
     --out /tmp/corridor.geojson --html /tmp/corridor.html
 ```
 
-A point is a published Plai place's title, a village or town's
-name in OSM, or `"lat,lon"` as a map app copies it. If a name is
-not found — Zhyva Khata, if it is not yet a published place — the
-planner says so; give that point as `"lat,lon"` instead, the same
-in both stretches it joins. Add `--audience curator` to see hosts in
+A point is a published Plai place's title, a village, peak or other
+named place in OSM — in Latin or Cyrillic, "Tepla Gora" finds Тепла
+Гора — or `"lat,lon"` as a map app copies it. Before the run, see
+what each name matches:
+
+```bash
+python3 /tmp/stage_planner.py find "Zhyva Khata"
+python3 /tmp/stage_planner.py find "Tepla Gora"
+```
+
+If a name matches nothing, or several places far apart, give that
+point as `"lat,lon"` instead, the same in both stretches it joins. Add `--audience curator` to see hosts in
 full.
 
 Then, on schiff, bring the previews back and open them:

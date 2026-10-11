@@ -25,7 +25,7 @@ the page and service run on Plai and come before the first hosts
 The stage planner is public: anybody plans with it; a steward may
 save a draft; only a Curator publishes a stretch, and joins
 stretches into a corridor. Its engine exists and is tested on a
-made-up valley — `tools/stage_planner.py` v0.3 in the Pathways
+made-up valley — `tools/stage_planner.py` v0.4 in the Pathways
 tree — but runs today only by hand on ubec-common. This
 conversation gives it a page and a service on Plai, and gives a
 saved stretch somewhere to live.
