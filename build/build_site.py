@@ -42,6 +42,9 @@ Needs pandoc on the PATH, and Python 3 alone; deploy needs rsync and ssh.
 SPDX-License-Identifier: AGPL-3.0-or-later
 
 Changelog:
+  v0.8 — 2026-10-11 — the overview second in the menu, in both languages,
+         as the logical order (Michel's word): About, Overview, Proposal,
+         White paper, Co-creator agreement, Plai, Field writing.
   v0.7 — 2026-10-11 — the map link opens the Pathways application on
          Plai, ubec_plai_hub_tcp, on the corridor around Verkhovyna
          (Michel's word); the check allows that application's path and
@@ -104,6 +107,12 @@ WRITING = "https://pilgrims.ubec.network/"
 # menu lists: "h2" the chapters; "h2+roles" the parts and, under Part II,
 # each role. A document with no Ukrainian file is shown in English to both.
 DOCS = [
+    {"slug": "overview",
+     "src": {"en": "overview/PROJECT_OVERVIEW_v*.md"},
+     "pdf": None,
+     "label": {"en": "Overview", "uk": "Огляд"},
+     "kind": {"en": "Project overview", "uk": "Огляд проєкту"},
+     "toc": None},
     {"slug": "proposal",
      "src": {"en": "proposal/Trans-Carpathian_Pathways_Proposal_EN.md",
              "uk": "proposal/Trans-Carpathian_Pathways_Proposal_UK.md"},
@@ -125,12 +134,6 @@ DOCS = [
      "label": {"en": "Co-creator agreement", "uk": "Угода співтворців"},
      "kind": {"en": "Co-creator agreement", "uk": "Угода співтворців"},
      "toc": "h2+roles"},
-    {"slug": "overview",
-     "src": {"en": "overview/PROJECT_OVERVIEW_v*.md"},
-     "pdf": None,
-     "label": {"en": "Overview", "uk": "Огляд"},
-     "kind": {"en": "Project overview", "uk": "Огляд проєкту"},
-     "toc": None},
 ]
 
 WORDS = {

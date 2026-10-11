@@ -1,6 +1,6 @@
 ---
 title: "tcp.ubec.network — the site"
-version: "v0.11"
+version: "v0.12"
 date: "2026-10-11"
 lang: "en"
 license: "CC BY-SA 4.0"
@@ -26,12 +26,12 @@ languages, under one menu.
   database on the server, not in the record; by default it loads
   scripts and offers a sign-up form; it has no paired pages in two
   languages; and it is one more service for one person to keep.
-- **A menu above the picture, on every page:** About (the landing
-  page), the proposal, the white paper with its chapters in a
-  drop-down (the proposal before the white paper, Michel's word the
-  same morning), the co-creator agreement with its parts and the roles of
-  Part II in a drop-down, the overview, the map (Plai) and the field
-  writing. The drop-downs are `<details name="menu">`: no script, one
+- **A menu above the picture, on every page,** in the logical order
+  (Michel's word the same morning): About (the landing page), the
+  overview, the proposal, the white paper with its chapters in a
+  drop-down, the co-creator agreement with its parts and the roles of
+  Part II in a drop-down, the map (Plai) and the field writing. The
+  same order in both languages. The drop-downs are `<details name="menu">`: no script, one
   open at a time, reached by keyboard.
 - **A page per document and language** (`/whitepaper/`, `/proposal/`,
   `/agreement/`, `/overview/`, and under `/uk/`), built by
@@ -295,6 +295,8 @@ site's own, and logged no policy violation.
 * * *
 
 *Changelog*
+- v0.12 — 2026-10-11 — the overview second in the menu, in both
+  languages, Michel's word. Build v0.8.
 - v0.11 — 2026-10-11 — the map link opens the Pathways application on
   the corridor, Michel's word. Build v0.7, landing page v0.5.
 - v0.10 — 2026-10-11 — the proposal before the white paper in the
