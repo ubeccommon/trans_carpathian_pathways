@@ -274,7 +274,7 @@ by hand (`tools/README.md`). *SP-2, Michel's word, October 11,
 2026:* the public page and service run on Plai, and they come
 before the first hosts (Gate 3). They are Mapservice's change,
 built in `ubec_mapservice` in its own way, from the start prompt
-`docs/prompts/PLAI_STAGE_PLANNER_START_PROMPT_v0_3.md`. As
+`docs/prompts/PLAI_STAGE_PLANNER_START_PROMPT_v0_4.md`. As
 specified:
 
 - **A small service** on ubec-common behind the system nginx,

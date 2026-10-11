@@ -1068,7 +1068,7 @@ application, and `instance_sa.stretch`, `corridor` and
 `corridor_stretch` as Plai migration `plai/008`. *SP-2, Michel's
 word, October 11, 2026:* the page and service run on Plai and come
 before the first hosts (Gate 3); Mapservice's changes, built there
-from `docs/prompts/PLAI_STAGE_PLANNER_START_PROMPT_v0_3.md`, behind
+from `docs/prompts/PLAI_STAGE_PLANNER_START_PROMPT_v0_4.md`, behind
 the leak pass.
 
 **Multi-day stages** — each day ending at a host with an overnight
