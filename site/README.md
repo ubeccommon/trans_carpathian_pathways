@@ -1,6 +1,6 @@
 ---
 title: "tcp.ubec.network — the site"
-version: "v0.10"
+version: "v0.11"
 date: "2026-10-11"
 lang: "en"
 license: "CC BY-SA 4.0"
@@ -39,6 +39,11 @@ languages, under one menu.
   its diagrams and its committed PDF copied in. The page names the
   file and version it was built from and links to it in the record.
   The site holds no copy of a document's words of its own.
+- **The map link** — in the menu and on the landing page — opens the
+  Pathways application on Plai, `ubec_plai_hub_tcp`, on the first
+  corridor around Verkhovyna (Michel's word, October 11). The check
+  allows that application and the map service's front page, and no
+  other path on it: never a link to a point.
 - **The overview** exists in English only; the Ukrainian menu shows it
   as «Огляд (англійською)» and leads to the English page.
 - **Every Ukrainian page says, in one line,** that the Ukrainian texts
@@ -290,6 +295,8 @@ site's own, and logged no policy violation.
 * * *
 
 *Changelog*
+- v0.11 — 2026-10-11 — the map link opens the Pathways application on
+  the corridor, Michel's word. Build v0.7, landing page v0.5.
 - v0.10 — 2026-10-11 — the proposal before the white paper in the
   menu, Michel's word. Build v0.6.
 - v0.9 — 2026-10-11 — Michel's word: our own build, not Ghost; a menu

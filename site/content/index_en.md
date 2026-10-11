@@ -1,7 +1,7 @@
 ---
 lang: en
-version: v0.4
-date: 2026-10-10
+version: v0.5
+date: 2026-10-11
 path: /
 title: Trans-Carpathian Pathways
 image_alt: Night over the Carpathian ridges under a full moon; a path winds from bands of Hutsul embroidery up into the mountains.
@@ -12,7 +12,7 @@ initiative: Initiated by UBEC (Ubuntu Bioregional Economic Commons), led by Mich
 licence: Text and marks CC BY-SA 4.0.
 privacy: This site sets no cookies, loads nothing from any other server and does not track its visitors.
 sources: Drawn from the white paper v0.3 and the proposal v0.2, October 2026.
-changelog: v0.4 — 2026-10-10 — Michel's word: whoever walks is a Pilgrim of the Plai, not a traveler. v0.3 — 2026-10-10 — Michel's word: the initiator line names both initiators, UBEC led by Michel Garand and Zhyva Khata led by Vasyl Yuskiv. v0.2 — 2026-10-09 — Michel's picture "Warm wind on the path" in the head. v0.1 — 2026-10-09 — initial, Michel's word: a landing page with the vision and the mission. Drafted from the white paper v0.3 (summary, §5, §9, §11) and the proposal v0.2 (summary, cover); for his word.
+changelog: v0.5 — 2026-10-11 — Michel's word: the map link opens the Pathways application on Plai, on the corridor around Verkhovyna. v0.4 — 2026-10-10 — Michel's word: whoever walks is a Pilgrim of the Plai, not a traveler. v0.3 — 2026-10-10 — Michel's word: the initiator line names both initiators, UBEC led by Michel Garand and Zhyva Khata led by Vasyl Yuskiv. v0.2 — 2026-10-09 — Michel's picture "Warm wind on the path" in the head. v0.1 — 2026-10-09 — initial, Michel's word: a landing page with the vision and the mission. Drafted from the white paper v0.3 (summary, §5, §9, §11) and the proposal v0.2 (summary, cover); for his word.
 ---
 
 ::: {#vision .block}
@@ -44,7 +44,7 @@ The map is built; the network is not yet. No host, steward or Curator is named, 
 ::: {#links .links}
 ## Elsewhere
 
-- [The map — Plai](https://mapservice.ubec.network/){.plai}
+- [The map — Plai](https://mapservice.ubec.network/application/ubec_plai_hub_tcp?#34377@24.81486/48.15413r0@EPSG:3857){.plai}
   The Carpathian hub of UBEC Mapservice: the consent-controlled map of the whole range that the project runs on.
 - [Field writing — Soil and Peace](https://pilgrims.ubec.network/)
   Carpathian Dispatch: Michel Garand's writing from the corridor.

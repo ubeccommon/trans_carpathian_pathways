@@ -42,6 +42,10 @@ Needs pandoc on the PATH, and Python 3 alone; deploy needs rsync and ssh.
 SPDX-License-Identifier: AGPL-3.0-or-later
 
 Changelog:
+  v0.7 — 2026-10-11 — the map link opens the Pathways application on
+         Plai, ubec_plai_hub_tcp, on the corridor around Verkhovyna
+         (Michel's word); the check allows that application's path and
+         the front page, nothing else on the map service.
   v0.6 — 2026-10-11 — the proposal before the white paper in the menu
          (Michel's word): About, Proposal, White paper, Co-creator
          agreement, Overview, Plai, Field writing.
@@ -87,7 +91,12 @@ LINKS_OUT = {"mapservice.ubec.network", "pilgrims.ubec.network"}
 # Hosts the site's own pages may link to only under one path: the record.
 LINKS_OUT_PATHS = {"github.com": "/ubeccommon/trans_carpathian_pathways"}
 MAILTO = {"stewardship@ubec.network"}
-MAP = "https://mapservice.ubec.network/"
+# The map: the Pathways application on Plai, opened on the first corridor
+# around Verkhovyna (Michel's word, October 11, 2026).
+MAP = "https://mapservice.ubec.network/application/ubec_plai_hub_tcp?#34377@24.81486/48.15413r0@EPSG:3857"
+# The only paths on the map service a page may link to: its front page and
+# the Pathways application. Never a point on it.
+MAP_PATHS = {"", "/", "/application/ubec_plai_hub_tcp"}
 WRITING = "https://pilgrims.ubec.network/"
 
 # The documents on the site, in the menu's order. `src` is a glob in docs/
@@ -603,8 +612,8 @@ def link_problem(page: Path, ref: str, in_doc: bool):
     if u.scheme in ("http", "https"):
         if u.netloc == urlparse(ORIGIN).netloc:
             return None
-        if u.netloc == "mapservice.ubec.network" and u.path not in ("", "/"):
-            return f"links into the map, never to a point on it: {ref}"
+        if u.netloc == "mapservice.ubec.network" and u.path not in MAP_PATHS:
+            return f"links into the map beyond its front page and the Pathways application: {ref}"
         if u.scheme == "https" and u.netloc in LINKS_OUT:
             return None
         if u.scheme == "https" and u.netloc in LINKS_OUT_PATHS and \
