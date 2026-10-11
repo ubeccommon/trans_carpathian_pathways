@@ -1,6 +1,6 @@
 ---
 title: "tcp.ubec.network — the site"
-version: "v0.17"
+version: "v0.18"
 date: "2026-10-11"
 lang: "en"
 license: "CC BY-SA 4.0"
@@ -22,7 +22,7 @@ languages, under one menu.
 - **Our own build, not Ghost.** Asked whether the site should move to
   Ghost, Michel chose to build on what the site has: the static build
   in this tree. Ghost stays where it is, for the field writing at
-  `pilgrims.ubec.network`. What weighed: Ghost keeps its pages in a
+  `soilandpeace.ubec.network`. What weighed: Ghost keeps its pages in a
   database on the server, not in the record; by default it loads
   scripts and offers a sign-up form; it has no paired pages in two
   languages; and it is one more service for one person to keep.
@@ -39,6 +39,11 @@ languages, under one menu.
   its diagrams and its committed PDF copied in. The page names the
   file and version it was built from and links to it in the record.
   The site holds no copy of a document's words of its own.
+- **The field writing** — in the menu and on the landing page — is
+  Soil and Peace at `https://soilandpeace.ubec.network/` (Michel's
+  word, October 11; the first pages linked `pilgrims.ubec.network`,
+  another of his blogs). The build allows that host and no longer the
+  other.
 - **The map link** — in the menu and on the landing page — opens the
   Pathways application on Plai, `ubec_plai_hub_tcp`, on the first
   corridor around Verkhovyna (Michel's word, October 11). The check
@@ -346,6 +351,8 @@ site's own, and logged no policy violation.
 * * *
 
 *Changelog*
+- v0.18 — 2026-10-11 — the field writing at soilandpeace.ubec.network,
+  Michel's word. Build v0.13, landing pages en/uk v0.7, de/pl v0.2.
 - v0.17 — 2026-10-11 — the German and Polish documents closed on the host,
   Michel's "looks good".
 - v0.16 — 2026-10-11 — the overview, the proposal and the white paper

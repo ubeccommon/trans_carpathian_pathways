@@ -42,6 +42,10 @@ Needs pandoc on the PATH, and Python 3 alone; deploy needs rsync and ssh.
 SPDX-License-Identifier: AGPL-3.0-or-later
 
 Changelog:
+  v0.13 — 2026-10-11 — the field writing at soilandpeace.ubec.network
+         (Michel's word), in the menu, the landing pages and the list of
+         hosts a page may link to; pilgrims.ubec.network, another blog,
+         no longer allowed.
   v0.12 — 2026-10-11 — the overview, the proposal and the white paper in
          German and Polish (Michel's word): their pages under /de/ and /pl/,
          each with its own PDF; a document's PDF chosen by its language; the
@@ -108,7 +112,7 @@ EMBLEM = ROOT / "docs" / "proposal" / "assets" / "plai_emblem_mark.svg"
 
 ORIGIN = "https://tcp.ubec.network"
 RECORD = "https://github.com/ubeccommon/trans_carpathian_pathways"
-LINKS_OUT = {"mapservice.ubec.network", "pilgrims.ubec.network"}
+LINKS_OUT = {"mapservice.ubec.network", "soilandpeace.ubec.network"}
 # Hosts the site's own pages may link to only under one path: the record.
 LINKS_OUT_PATHS = {"github.com": "/ubeccommon/trans_carpathian_pathways"}
 MAILTO = {"stewardship@ubec.network"}
@@ -118,7 +122,9 @@ MAP = "https://mapservice.ubec.network/application/ubec_plai_hub_tcp?#34377@24.8
 # The only paths on the map service a page may link to: its front page and
 # the Pathways application. Never a point on it.
 MAP_PATHS = {"", "/", "/application/ubec_plai_hub_tcp"}
-WRITING = "https://pilgrims.ubec.network/"
+# The field writing, Soil and Peace (Michel's word, October 11, 2026: its own
+# address; pilgrims.ubec.network is another of his blogs).
+WRITING = "https://soilandpeace.ubec.network/"
 
 # The documents on the site, in the menu's order. `src` is a glob in docs/
 # per language; the latest version wins. `toc` says which headings the
@@ -502,7 +508,7 @@ def new_tab(page: str) -> str:
     def one(m):
         return (f'<a href="{m.group(1)}"{m.group(2)} target="_blank" rel="noopener">'
                 f'{m.group(3)}<span class="vh">{said}</span></a>')
-    return re.sub(r'<a href="(https://(?:mapservice|pilgrims)\.ubec\.network/[^"]*)"([^>]*)>(.*?)</a>',
+    return re.sub(r'<a href="(https://(?:mapservice|soilandpeace)\.ubec\.network/[^"]*)"([^>]*)>(.*?)</a>',
                   one, page, flags=re.S)
 
 

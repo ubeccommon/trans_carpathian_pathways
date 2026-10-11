@@ -1,6 +1,6 @@
 ---
 lang: pl
-version: v0.1
+version: v0.2
 date: 2026-10-11
 path: /pl/
 title: Trans-Carpathian Pathways
@@ -11,7 +11,7 @@ initiative: Inicjatorzy – UBEC (Ubuntu Bioregional Economic Commons), którym 
 licence: Teksty i znaki: CC BY-SA 4.0.
 privacy: Ta strona nie zapisuje plików cookie, niczego nie pobiera z innych serwerów i nie śledzi odwiedzających.
 sources: Na podstawie białej księgi v0.3 i propozycji v0.2, październik 2026; przetłumaczone z angielskiej strony v0.6.
-changelog: v0.1 — 2026-10-11 — pierwsza wersja, na słowo Michela: strona główna po polsku, przetłumaczona przez Claude z angielskiej strony v0.6; nie czytał jej jeszcze nikt, dla kogo polski jest językiem ojczystym. Nazwa zostaje angielska, bo „Zakarpacie” to po polsku obwód zakarpacki. Nazwy miejscowości w polskiej postaci (Worochta, Werchowyna, Kosów); „Pilgrim of the Plai” jako pielgrzym płaju – płaj to słowo znane w polskich Karpatach; „pathway steward” jako opiekun szlaku, jak w PTTK.
+changelog: v0.2 — 2026-10-11 — na słowo Michela: zapiski z terenu pod adresem soilandpeace.ubec.network. v0.1 — 2026-10-11 — pierwsza wersja, na słowo Michela: strona główna po polsku, przetłumaczona przez Claude z angielskiej strony v0.6; nie czytał jej jeszcze nikt, dla kogo polski jest językiem ojczystym. Nazwa zostaje angielska, bo „Zakarpacie” to po polsku obwód zakarpacki. Nazwy miejscowości w polskiej postaci (Worochta, Werchowyna, Kosów); „Pilgrim of the Plai” jako pielgrzym płaju – płaj to słowo znane w polskich Karpatach; „pathway steward” jako opiekun szlaku, jak w PTTK.
 ---
 
 ::: {#vision .block}
@@ -45,7 +45,7 @@ Mapa jest gotowa; sieci jeszcze nie ma. Nie wskazano jeszcze żadnego gospodarza
 
 - [Mapa – Plai](https://mapservice.ubec.network/application/ubec_plai_hub_tcp?#34377@24.81486/48.15413r0@EPSG:3857){.plai}
   Karpacki hub UBEC Mapservice: mapa całych Karpat, na której nic nie pojawia się bez zgody – podstawa projektu.
-- [Zapiski z terenu – Soil and Peace](https://pilgrims.ubec.network/)
+- [Zapiski z terenu – Soil and Peace](https://soilandpeace.ubec.network/)
   Carpathian Dispatch: teksty Michela Garanda z korytarza, po angielsku.
 - [Napisz do nas – stewardship@ubec.network](mailto:stewardship@ubec.network)
   Aby dołączyć, zostać partnerem albo o coś zapytać.
