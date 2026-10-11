@@ -1,4 +1,4 @@
-/* Trans-Carpathian Pathways — tcp.ubec.network, v0.5
+/* Trans-Carpathian Pathways — tcp.ubec.network, v0.6
  * SPDX-License-Identifier: AGPL-3.0-or-later
  *
  * The palette and type of the project's PDFs (build/build_pdf.py):
@@ -11,6 +11,8 @@
  * pairs listed in its CONTRAST table against the colours below.
  *
  * Changelog:
+ *   v0.6 — 2026-10-11 — a link that opens a new tab carries an arrow, and
+ *          its words for a screen reader are hidden from the eye (.vh).
  *   v0.5 — 2026-10-11 — the menu above the picture (Michel's word), its
  *          drop-downs as <details>, no script: one open at a time, the
  *          panel on paper with night text and a night focus outline; the
@@ -224,6 +226,12 @@ strong { font-weight: 600; color: var(--night); }
 .doc table { border-collapse: collapse; width: 100%; font-size: .9rem; line-height: 1.45; }
 .doc th, .doc td { text-align: left; vertical-align: top; padding: .5rem .6rem; border-bottom: 1px solid var(--line); }
 .doc th { background: var(--cream-2); color: var(--ink); font-weight: 600; }
+
+/* ---- a link that opens a new tab ---- */
+
+.vh { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden;
+      clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0; }
+a[target="_blank"]::after { content: "\2197"; content: "\2197" / ""; margin-left: .3em; font-size: .85em; }
 
 /* ---- the foot ---- */
 

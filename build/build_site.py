@@ -42,6 +42,9 @@ Needs pandoc on the PATH, and Python 3 alone; deploy needs rsync and ssh.
 SPDX-License-Identifier: AGPL-3.0-or-later
 
 Changelog:
+  v0.9 — 2026-10-11 — the map opens in a new tab (Michel's word), with
+         rel="noopener", an arrow, and "opens in a new tab" for a screen
+         reader; the check refuses a new tab with an opener.
   v0.8 — 2026-10-11 — the overview second in the menu, in both languages,
          as the logical order (Michel's word): About, Overview, Proposal,
          White paper, Co-creator agreement, Plai, Field writing.
@@ -142,13 +145,15 @@ WORDS = {
            "whole": "The whole text", "pdf": "PDF, English and Ukrainian", "table": "Table",
            "in_en": "", "doc_pdf": "Download the PDF (English and Ukrainian)",
            "built": "This page is the text of {file}, {version}, in the project's record",
-           "record": "on GitHub", "licence": "Text CC BY-SA 4.0.", "contents": "Contents"},
+           "record": "on GitHub", "licence": "Text CC BY-SA 4.0.", "contents": "Contents",
+           "new_tab": " (opens in a new tab)"},
     "uk": {"hub": "Ініціатива Карпатського хабу", "skip": "До тексту", "version": "Сторінка",
            "nav": "Сайт", "about": "Про проєкт", "map": "Мапа — Плай", "writing": "Польові записи",
            "whole": "Увесь текст", "pdf": "PDF, англійською та українською", "table": "Таблиця",
            "in_en": " (англійською)", "doc_pdf": "Завантажити PDF (англійською та українською)",
            "built": "Ця сторінка — текст файлу {file}, {version}, у записі проєкту",
-           "record": "на GitHub", "licence": "Тексти — CC BY-SA 4.0.", "contents": "Зміст"},
+           "record": "на GitHub", "licence": "Тексти — CC BY-SA 4.0.", "contents": "Зміст",
+           "new_tab": " (відкривається в новій вкладці)"},
 }
 # Until the Ukrainian has been read in the corridor (D-2, open), every
 # Ukrainian page says so, in one line.
@@ -399,6 +404,18 @@ def nav(lang: str, up: str, current: str, tocs: dict) -> str:
             + "\n      ".join(items) + "\n    </ul>\n  </nav>")
 
 
+def new_tab(page: str) -> str:
+    """The map opens in a new tab (Michel's word, October 11, 2026), and says so:
+    an arrow for the eye, the words for a screen reader, and no opener for the map."""
+    lang = re.search(r'<html lang="([a-z]+)"', page).group(1)
+    said = WORDS[lang]["new_tab"]
+
+    def one(m):
+        return (f'<a href="{m.group(1)}"{m.group(2)} target="_blank" rel="noopener">'
+                f'{m.group(3)}<span class="vh">{said}</span></a>')
+    return re.sub(r'<a href="(https://mapservice\.ubec\.network/[^"]*)"([^>]*)>(.*?)</a>', one, page, flags=re.S)
+
+
 # ---- the build ----
 
 def build():
@@ -429,6 +446,7 @@ def build():
     common = dict(v_css=v("style.css"), v_mark=v("assets/ubec_mark.svg"))
 
     def write(rel_path: str, doc_text: str):
+        doc_text = new_tab(doc_text)
         out = DIST / rel_path.lstrip("/") / "index.html"
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(doc_text, encoding="utf-8")
@@ -570,6 +588,8 @@ class Refs(HTMLParser):
                 self.loads.append(a["src"])
         if tag == "link" and a.get("href"):
             (self.links if a.get("rel") in ("canonical", "alternate") else self.loads).append(a["href"])
+        if tag == "a" and a.get("target") == "_blank" and "noopener" not in (a.get("rel") or ""):
+            self.errors.append(f"a new tab with an opener: {a.get('href')}")
         if tag == "a" and a.get("href"):
             # A link inside a document's own text may go to the sources it cites.
             (self.doc_links if "article" in self.stack else self.links).append(a["href"])

@@ -1,6 +1,6 @@
 ---
 title: "tcp.ubec.network — the site"
-version: "v0.12"
+version: "v0.13"
 date: "2026-10-11"
 lang: "en"
 license: "CC BY-SA 4.0"
@@ -43,7 +43,9 @@ languages, under one menu.
   Pathways application on Plai, `ubec_plai_hub_tcp`, on the first
   corridor around Verkhovyna (Michel's word, October 11). The check
   allows that application and the map service's front page, and no
-  other path on it: never a link to a point.
+  other path on it: never a link to a point. It opens in a new tab
+  (Michel's word, the same morning), with `rel="noopener"`, an arrow
+  after its name, and "opens in a new tab" for a screen reader.
 - **The overview** exists in English only; the Ukrainian menu shows it
   as «Огляд (англійською)» and leads to the English page.
 - **Every Ukrainian page says, in one line,** that the Ukrainian texts
@@ -295,6 +297,8 @@ site's own, and logged no policy violation.
 * * *
 
 *Changelog*
+- v0.13 — 2026-10-11 — the map opens in a new tab, Michel's word. Build
+  v0.9, stylesheet v0.6.
 - v0.12 — 2026-10-11 — the overview second in the menu, in both
   languages, Michel's word. Build v0.8.
 - v0.11 — 2026-10-11 — the map link opens the Pathways application on
