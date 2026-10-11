@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_56"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_57"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.56"
+version: "v0.57"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -685,6 +685,16 @@ links: both its lines stay true, and its next version carries the
 new wording with the decisions still to come. The rest of the
 review's §5 is decided in due course, on his word.
 
+**The landing page for the public review — Michel's word, October
+11, 2026.** A conversation of its own reworks the landing page of
+`tcp.ubec.network` into the front door of the public review: the
+drafts to read and how to answer them, the stage, how to recognise
+the project, the border rules for those who come directly (which
+the agreement and the proposal now promise the site publishes), and
+the public record. Opened from
+`docs/prompts/TCP_LANDING_PAGE_START_PROMPT_v0_1.md`; four gates,
+its open items for Michel at Gate A; nothing in `ubec_mapservice`.
+
 * * *
 
 ## 3. The First Corridor
@@ -1108,6 +1118,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.57 — 2026-10-11 — the starting prompt for the landing page.
 - v0.56 — 2026-10-11 — D-3, D-4, D-7 on Michel's word: the record
   public, the test with the review, no ratings without consent.
 - v0.55 — 2026-10-11 — the agreement at draft v0.7 closed on the
