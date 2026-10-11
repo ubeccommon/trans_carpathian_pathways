@@ -22,6 +22,12 @@ Lora fonts installed, and requirements.txt.
 SPDX-License-Identifier: AGPL-3.0-or-later
 
 Changelog:
+  v0.4 — 2026-10-11 — German and Polish (Michel's word): one PDF per
+         translation, Trans-Carpathian_Pathways_White_Paper_{DE,PL}.pdf, its
+         cover and footers in its own language, and under its title the
+         line that it is a translation not yet read by a speaker of the
+         language. The EN-UK PDF is unchanged. The diagrams are drawn in
+         all four languages.
   v0.3 — 2026-10-09 — the document says its language: lang="en" on the root,
          lang="uk" on the Ukrainian cover lines (BCP 47; Michel's word).
   v0.2 — 2026-10-09 — draws the diagrams first.
@@ -53,6 +59,27 @@ LANGS = [
     {"code": "uk", "md": f"{STEM}_UK.md", "label": "Українська",
      "footer": "Транскарпатські стежки — біла книга",
      "draft": "Проєкт {v}"},
+]
+
+# The translations: one PDF each (Michel's word, October 11, 2026).
+TRANSLATIONS = [
+    {"code": "de", "md": f"{STEM}_DE.md", "label": "Deutsch",
+     "footer": "Trans-Carpathian Pathways — Weißbuch", "draft": "Entwurf {v}",
+     "cover": "Weißbuch",
+     "tag": "Ein lebendiges Netz aus Gastgebenden, Pfaden und Kuratorinnen und Kuratoren "
+            "entlang des Karpatenbogens – Begründung, Belege und Entwurf",
+     "meta": "Oktober 2026 · UBEC / Karpaten-Hub-Initiative",
+     "for": "Entwurf {v} – zur Diskussion",
+     "note": "Übersetzung der englischen Fassung durch Claude; noch von niemandem "
+             "mit Deutsch als Muttersprache gelesen."},
+    {"code": "pl", "md": f"{STEM}_PL.md", "label": "Polski",
+     "footer": "Trans-Carpathian Pathways — biała księga", "draft": "wersja robocza {v}",
+     "cover": "Biała księga",
+     "tag": "Żywa sieć gospodarzy, ścieżek i kuratorów wzdłuż łuku Karpat – argumenty, dowody i koncepcja",
+     "meta": "Październik 2026 · UBEC / Inicjatywa Karpackiego Hubu",
+     "for": "Wersja robocza {v} – do dyskusji",
+     "note": "Tłumaczenie angielskiej wersji wykonane przez Claude; nie czytał go jeszcze "
+             "nikt, dla kogo polski jest językiem ojczystym."},
 ]
 
 # What the white paper adds: numbered sources that may break across
@@ -88,6 +115,7 @@ def section(lang, v):
     html = re.sub(r'<ol start="(\d+)"',
                   lambda m: f'<ol start="{m[1]}" style="counter-reset: list-item {int(m[1]) - 1}"', html)
     footer = f"{lang['footer']} · {lang['draft'].format(v=v)}"
+    note = f'<p class="byline note">{lang["note"]}</p>' if lang.get("note") else ""
     return f"""
 <section class="lang" id="{lang['code']}" lang="{lang['code']}">
   <div class="footer-text">{footer}</div>
@@ -98,6 +126,7 @@ def section(lang, v):
       <h1>{title}</h1>
       <p class="subtitle">{subtitle}</p>
       <p class="byline">{byline}</p>
+      {note}
     </div>
   </header>
   {html}
@@ -131,6 +160,31 @@ def main():
     HTML_OUT.write_text(doc, encoding="utf-8")
     HTML(string=doc, base_url=str(WP)).write_pdf(OUT)
     print("wrote", OUT.relative_to(ROOT))
+    for t in TRANSLATIONS:
+        if (WP / t["md"]).exists():
+            translation(t, v)
+
+
+def translation(t, v):
+    """One translation, one PDF, its cover and footers in its own language."""
+    cover = f"""
+<section class="cover">
+  <img class="logo" src="{LOGO}" alt="Trans-Carpathian Pathways">
+  <h1>{t["cover"]}</h1>
+  <p class="tag">{t["tag"]}</p>
+  <div class="rule"></div>
+  <p class="meta">Trans-Carpathian Pathways</p>
+  <p class="meta">{t["meta"]}</p>
+  <p class="draft">{t["for"].format(v=v)}</p>
+  <p class="meta note">{t["note"]}</p>
+</section>"""
+    doc = (f'<!doctype html><html lang="{t["code"]}"><head><meta charset="utf-8">'
+           '<meta name="author" content="Michel Garand">'
+           f'<title>Trans-Carpathian Pathways — {t["cover"]}</title>'
+           f'<style>{CSS}{EXTRA_CSS}{WP_CSS} .cover .note {{ margin: 8mm 32mm 0; line-height: 1.5; color: #5d5a52; }}</style></head><body>{cover}{section(t, v)}</body></html>')
+    out = WP / t["md"].replace(".md", ".pdf")
+    HTML(string=doc, base_url=str(WP)).write_pdf(out)
+    print("wrote", out.relative_to(ROOT))
 
 
 if __name__ == "__main__":

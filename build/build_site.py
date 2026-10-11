@@ -42,6 +42,11 @@ Needs pandoc on the PATH, and Python 3 alone; deploy needs rsync and ssh.
 SPDX-License-Identifier: AGPL-3.0-or-later
 
 Changelog:
+  v0.12 — 2026-10-11 — the overview, the proposal and the white paper in
+         German and Polish (Michel's word): their pages under /de/ and /pl/,
+         each with its own PDF; a document's PDF chosen by its language; the
+         EN tag left only where a document has no text in the page's
+         language; Anhang and Załącznik take the appendix's id.
   v0.11 — 2026-10-11 — German and Polish (Michel's word): a landing page in
          each, the menu in each, the documents shown in English to both;
          the two-way switch replaced by a list of the four languages, each
@@ -121,29 +126,41 @@ WRITING = "https://pilgrims.ubec.network/"
 # each role. A document with no file in a language is shown in English.
 DOCS = [
     {"slug": "overview",
-     "src": {"en": "overview/PROJECT_OVERVIEW_v*.md"},
-     "pdf": None,
+     "src": {"en": "overview/PROJECT_OVERVIEW_v*.md",
+             "de": "overview/PROJECT_OVERVIEW_DE_v*.md",
+             "pl": "overview/PROJECT_OVERVIEW_PL_v*.md"},
+     "pdf": {},
      "label": {"en": "Overview", "uk": "Огляд", "de": "Überblick", "pl": "Przegląd"},
-     "kind": {"en": "Project overview", "uk": "Огляд проєкту"},
+     "kind": {"en": "Project overview", "uk": "Огляд проєкту", "de": "Überblick über das Projekt",
+              "pl": "Przegląd projektu"},
      "toc": None},
     {"slug": "proposal",
      "src": {"en": "proposal/Trans-Carpathian_Pathways_Proposal_EN.md",
-             "uk": "proposal/Trans-Carpathian_Pathways_Proposal_UK.md"},
-     "pdf": "proposal/Trans-Carpathian_Pathways_Proposal_EN-UK.pdf",
+             "uk": "proposal/Trans-Carpathian_Pathways_Proposal_UK.md",
+             "de": "proposal/Trans-Carpathian_Pathways_Proposal_DE.md",
+             "pl": "proposal/Trans-Carpathian_Pathways_Proposal_PL.md"},
+     "pdf": {"en": ("proposal/Trans-Carpathian_Pathways_Proposal_EN-UK.pdf", "en-uk"), "uk": ("proposal/Trans-Carpathian_Pathways_Proposal_EN-UK.pdf", "en-uk"),
+             "de": ("proposal/Trans-Carpathian_Pathways_Proposal_DE.pdf", "own"),
+             "pl": ("proposal/Trans-Carpathian_Pathways_Proposal_PL.pdf", "own")},
      "label": {"en": "Proposal", "uk": "Пропозиція", "de": "Projektvorschlag", "pl": "Propozycja"},
-     "kind": {"en": "Project summary and proposal", "uk": "Опис проєкту та пропозиція"},
+     "kind": {"en": "Project summary and proposal", "uk": "Опис проєкту та пропозиція",
+              "de": "Projektbeschreibung und Vorschlag", "pl": "Opis i propozycja projektu"},
      "toc": None},
     {"slug": "whitepaper",
      "src": {"en": "whitepaper/Trans-Carpathian_Pathways_White_Paper_EN.md",
-             "uk": "whitepaper/Trans-Carpathian_Pathways_White_Paper_UK.md"},
-     "pdf": "whitepaper/Trans-Carpathian_Pathways_White_Paper.pdf",
+             "uk": "whitepaper/Trans-Carpathian_Pathways_White_Paper_UK.md",
+             "de": "whitepaper/Trans-Carpathian_Pathways_White_Paper_DE.md",
+             "pl": "whitepaper/Trans-Carpathian_Pathways_White_Paper_PL.md"},
+     "pdf": {"en": ("whitepaper/Trans-Carpathian_Pathways_White_Paper.pdf", "en-uk"), "uk": ("whitepaper/Trans-Carpathian_Pathways_White_Paper.pdf", "en-uk"),
+             "de": ("whitepaper/Trans-Carpathian_Pathways_White_Paper_DE.pdf", "own"),
+             "pl": ("whitepaper/Trans-Carpathian_Pathways_White_Paper_PL.pdf", "own")},
      "label": {"en": "White paper", "uk": "Біла книга", "de": "Weißbuch", "pl": "Biała księga"},
-     "kind": {"en": "White paper", "uk": "Біла книга"},
+     "kind": {"en": "White paper", "uk": "Біла книга", "de": "Weißbuch", "pl": "Biała księga"},
      "toc": "h2"},
     {"slug": "agreement",
      "src": {"en": "agreement/Trans-Carpathian_Pathways_Co-Creator_Agreement_EN.md",
              "uk": "agreement/Trans-Carpathian_Pathways_Co-Creator_Agreement_UK.md"},
-     "pdf": "agreement/Trans-Carpathian_Pathways_Co-Creator_Agreement_EN-UK.pdf",
+     "pdf": {"en": ("agreement/Trans-Carpathian_Pathways_Co-Creator_Agreement_EN-UK.pdf", "en-uk"), "uk": ("agreement/Trans-Carpathian_Pathways_Co-Creator_Agreement_EN-UK.pdf", "en-uk")},
      "label": {"en": "Co-creator agreement", "uk": "Угода співтворців",
                "de": "Mitgestaltungsvereinbarung", "pl": "Porozumienie współtwórców"},
      "kind": {"en": "Co-creator agreement", "uk": "Угода співтворців"},
@@ -157,28 +174,28 @@ WORDS = {
            "in_en": "", "doc_pdf": "Download the PDF (English and Ukrainian)",
            "built": "This page is the text of {file}, {version}, in the project's record",
            "record": "on GitHub", "licence": "Text CC BY-SA 4.0.", "contents": "Contents",
-           "new_tab": " (opens in a new tab)", "language": "Language"},
+           "new_tab": " (opens in a new tab)", "language": "Language", "pdf_own": "PDF", "doc_pdf_own": "Download the PDF"},
     "uk": {"hub": "Ініціатива Карпатського хабу", "skip": "До тексту", "version": "Сторінка",
            "nav": "Сайт", "about": "Про проєкт", "map": "Мапа — Плай", "writing": "Польові записи",
            "whole": "Увесь текст", "pdf": "PDF, англійською та українською", "table": "Таблиця",
            "in_en": " (англійською)", "doc_pdf": "Завантажити PDF (англійською та українською)",
            "built": "Ця сторінка — текст файлу {file}, {version}, у записі проєкту",
            "record": "на GitHub", "licence": "Тексти — CC BY-SA 4.0.", "contents": "Зміст",
-           "new_tab": " (відкривається в новій вкладці)", "language": "Мова"},
+           "new_tab": " (відкривається в новій вкладці)", "language": "Мова", "pdf_own": "PDF", "doc_pdf_own": "Завантажити PDF"},
     "de": {"hub": "Karpaten-Hub-Initiative", "skip": "Zum Text", "version": "Seite",
            "nav": "Website", "about": "Über das Projekt", "map": "Karte – Plai", "writing": "Feldnotizen",
            "whole": "Der ganze Text", "pdf": "PDF, Englisch und Ukrainisch", "table": "Tabelle",
            "in_en": " (auf Englisch)", "doc_pdf": "PDF herunterladen (Englisch und Ukrainisch)",
            "built": "Diese Seite ist der Text von {file}, {version}, im Projektarchiv",
            "record": "auf GitHub", "licence": "Texte: CC BY-SA 4.0.", "contents": "Inhalt",
-           "new_tab": " (öffnet in einem neuen Tab)", "language": "Sprache"},
+           "new_tab": " (öffnet in einem neuen Tab)", "language": "Sprache", "pdf_own": "PDF (Deutsch)", "doc_pdf_own": "PDF herunterladen"},
     "pl": {"hub": "Inicjatywa Karpackiego Hubu", "skip": "Przejdź do treści", "version": "Strona",
            "nav": "Witryna", "about": "O projekcie", "map": "Mapa – Plai", "writing": "Zapiski z terenu",
            "whole": "Cały tekst", "pdf": "PDF, po angielsku i ukraińsku", "table": "Tabela",
            "in_en": " (po angielsku)", "doc_pdf": "Pobierz PDF (po angielsku i ukraińsku)",
            "built": "Ta strona to tekst pliku {file}, {version}, w zapisie projektu",
            "record": "na GitHubie", "licence": "Teksty: CC BY-SA 4.0.", "contents": "Spis treści",
-           "new_tab": " (otwiera się w nowej karcie)", "language": "Język"},
+           "new_tab": " (otwiera się w nowej karcie)", "language": "Język", "pdf_own": "PDF (po polsku)", "doc_pdf_own": "Pobierz PDF"},
 }
 
 # The site's languages, in the order the language list shows them, each by its
@@ -197,10 +214,12 @@ UK_NOTE = "Українських текстів ще не читали люди
 # read them, they say so, and say that the documents are in English and Ukrainian.
 NOTES = {
     "uk": UK_NOTE,
-    "de": "Diese Seite ist aus dem Englischen übersetzt und noch nicht von Muttersprachlerinnen "
-          "und Muttersprachlern geprüft. Die Dokumente gibt es auf Englisch und Ukrainisch.",
-    "pl": "Ta strona jest przetłumaczona z angielskiego i nie została jeszcze sprawdzona przez "
-          "rodzimych użytkowników języka. Dokumenty są dostępne po angielsku i ukraińsku.",
+    "de": "Diese Seiten sind aus dem Englischen übersetzt und noch nicht von Muttersprachlerinnen "
+          "und Muttersprachlern geprüft. Die Mitgestaltungsvereinbarung gibt es bisher nur auf "
+          "Englisch und Ukrainisch.",
+    "pl": "Te strony są przetłumaczone z angielskiego i nie zostały jeszcze sprawdzone przez "
+          "rodzimych użytkowników języka. Porozumienie współtwórców jest na razie dostępne tylko "
+          "po angielsku i ukraińsku.",
 }
 
 # The landing page's picture is Michel's "Warm wind on the path" (day 70),
@@ -338,7 +357,7 @@ def heading_ids(md: str) -> str:
         p = re.match(r"(?:Part|Частина) (III|II|I)\b", text)
         if p:
             return f"{hashes} {text} {{#part-{len(p.group(1))}}}"
-        a = re.match(r"(?:Appendix|Додаток) ([AАBВ])\b", text)
+        a = re.match(r"(?:Appendix|Додаток|Anhang|Załącznik) ([AАBВ])\b", text)
         if a:
             return f"{hashes} {text} {{#appendix-{'a' if a.group(1) in 'AА' else 'b'}}}"
         return m.group(0)
@@ -458,9 +477,10 @@ def nav(lang: str, up: str, current: str, tocs: dict) -> str:
         entries = [f'<li><a href="{href}"{cur}>{w["whole"]}</a></li>']
         for level, hid, text in toc:
             entries.append(f'<li class="l{level}"><a href="{href}#{hid}">{html.escape(text)}</a></li>')
-        if d["pdf"]:
-            entries.append(f'<li class="pdf"><a href="{up}{v("files/" + Path(d["pdf"]).name)}" '
-                           f'type="application/pdf">{w["pdf"]}</a></li>')
+        if l in d["pdf"]:
+            path, kind = d["pdf"][l]
+            entries.append(f'<li class="pdf"><a href="{up}{v("files/" + Path(path).name)}" '
+                           f'type="application/pdf">{w["pdf"] if kind == "en-uk" else w["pdf_own"]}</a></li>')
         # A panel of chapters in another language says which.
         panel_lang = f' lang="{l}"' if l != lang else ""
         items.append(f'<li class="drop{" here" if here else ""}"><details name="menu">'
@@ -506,8 +526,8 @@ def build():
     # The documents first: their tables of contents go into every page's menu.
     docs, tocs = {}, {}
     for d in DOCS:
-        if d["pdf"]:
-            shutil.copyfile(ROOT / "docs" / d["pdf"], DIST / "files" / Path(d["pdf"]).name)
+        for path, _ in set(d["pdf"].values()):
+            shutil.copyfile(ROOT / "docs" / path, DIST / "files" / Path(path).name)
         for l, pattern in d["src"].items():
             doc = read_doc(latest(pattern))
             doc["html"], tocs[(d["slug"], l)] = doc_html(doc, d, l)
@@ -559,8 +579,11 @@ def build():
         alternates = "\n".join(
             f'<link rel="alternate" hreflang="{l}" href="{ORIGIN}/{doc_path(d, l)}">' for l in langs)
         file = doc["path"].relative_to(ROOT).as_posix()
-        pdf = (f' · <a href="{up}{v("files/" + Path(d["pdf"]).name)}" type="application/pdf">'
-               f'{WORDS[lang]["doc_pdf"]}</a>') if d["pdf"] else ""
+        pdf = ""
+        if lang in d["pdf"]:
+            path, kind = d["pdf"][lang]
+            pdf = (f' · <a href="{up}{v("files/" + Path(path).name)}" type="application/pdf">'
+                   f'{WORDS[lang]["doc_pdf"] if kind == "en-uk" else WORDS[lang]["doc_pdf_own"]}</a>')
         top = BAND.format(kind=e(d["kind"][lang]), title=e(meta["title"]), subtitle=e(doc["subtitle"].strip("*")),
                           dateline=e(doc["dateline"] if doc["version"] in doc["dateline"]
                                      else f'{doc["dateline"]} · {doc["version"]}'), pdf=pdf)

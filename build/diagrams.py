@@ -230,6 +230,76 @@ UK = {
 }
 
 
+DE = {
+    "network": {
+        "title": "Gastgebende schaffen die Karte; wer kuratiert, macht eine Reise daraus",
+        "hosts": ("Gastgebende", ["Tragen sich selbst in die Karte ein", "Bett, Essen, Begleitung, Handwerk",
+                                  "Einwilligung, Feld für Feld"]),
+        "plai": ("Karte Plai", ["Gastgebende werden Punkte", "Wege zwischen ihnen gezogen",
+                                "Saison, Kapazität, Zugang"]),
+        "curator": ("Kuratorin, Kurator", ["Kennt Gelände und Menschen", "Verfeinert den Pfad",
+                                           "Schlägt vor, schreibt nie vor"]),
+        "pilgrim": ("Pilgerin, Pilger des Plai", ["Bringt Zeit, Gesellschaft, Wunsch",
+                                                  "Ein Nachmittag bis ein Monat"]),
+        "suggests": "schlägt Wege vor", "asks": "fragt",
+        "walks": "geht, übernachtet, isst, lernt",
+    },
+    "roadmap": {
+        "title": "Zuerst der Pilotkorridor; der ganze Karpatenbogen folgt",
+        "phases": [
+            ("Phase 1 – Prototyp", "Huzulischer Korridor · jetzt",
+             ["Die ersten Gastgebenden finden und verbinden", "Werkzeuge für Gastgebende auf Plai",
+              "Die erste Kuratorin, den ersten Kurator finden", "Den Korridor ganz begehen",
+              "Dokumentieren und verfeinern"]),
+            ("Phase 2 – Erste Erweiterung", "Ukrainische Karpaten",
+             ["Kuratorinnen, Kuratoren in Nachbarkorridoren", "Etappenplaner aus Pilotdaten",
+              "Eintrag für Gastgebende breiter geöffnet", "Eingabeformulare in Landessprachen"]),
+            ("Phase 3 – Über die Karpaten", "Über die Länder des Bogens",
+             ["Partnerinitiativen in jedem Land", "Ein grenzübergreifendes Kuratorennetz",
+              "Ein Pfad über den ganzen Bogen"]),
+        ],
+        "gates": [("Schwelle: der Korridor begangen und dokumentiert",
+                   "Phase 2 beginnt, wenn sich der Pilot vor Ort bewährt hat"),
+                  ("Schwelle: der ukrainische Bogen kuratiert",
+                   "Phase 3 beginnt, wenn Partner im Ausland gefunden sind")],
+    },
+}
+
+PL = {
+    "network": {
+        "title": "Gospodarze tworzą mapę; kurator zamienia ją w podróż",
+        "hosts": ("Gospodarze", ["Sami nanoszą się na mapę", "Nocleg, jadło, przewodnik, fach",
+                                 "Zgoda – pole po polu"]),
+        "plai": ("Mapa Plai", ["Gospodarze stają się punktami", "Ścieżki wytyczone między nimi",
+                               "Sezon, liczba miejsc, dojazd"]),
+        "curator": ("Kurator szlaku", ["Zna teren i ludzi", "Dopracowuje ścieżkę",
+                                       "Podsuwa, nigdy nie narzuca"]),
+        "pilgrim": ("Pielgrzym płaju", ["Czas, towarzystwo, pragnienie", "Od popołudnia do miesiąca"]),
+        "suggests": "podsuwa drogę", "asks": "pyta",
+        "walks": "idzie, nocuje, je, uczy się",
+    },
+    "roadmap": {
+        "title": "Najpierw korytarz pilotażowy, potem cały łuk Karpat",
+        "phases": [
+            ("Faza 1 – Prototyp", "Korytarz huculski · teraz",
+             ["Znaleźć i połączyć pierwszych gospodarzy", "Narzędzia dla gospodarzy w Plai",
+              "Wyłonić pierwszego kuratora", "Przejść korytarz od początku do końca",
+              "Udokumentować i dopracować"]),
+            ("Faza 2 – Pierwsze rozszerzenie", "Ukraińskie Karpaty",
+             ["Kuratorzy w sąsiednich korytarzach", "Planer etapów z danych pilotażu",
+              "Szerszy dostęp dla gospodarzy", "Formularze w językach lokalnych"]),
+            ("Faza 3 – Przez Karpaty", "Przez kraje całego łuku",
+             ["Inicjatywy partnerskie w każdym kraju", "Transgraniczna sieć kuratorów",
+              "Jedna ścieżka przez cały łuk"]),
+        ],
+        "gates": [("Próg: korytarz przebyty i udokumentowany",
+                   "Faza 2 zaczyna się, gdy pilotaż sprawdzi się w terenie"),
+                  ("Próg: ukraiński łuk ma kuratorów",
+                   "Faza 3 zaczyna się, gdy znajdą się partnerzy za granicą")],
+    },
+}
+
+
 def tagged(svg_text, lang):
     """Each diagram says its language (BCP 47), as every document does."""
     return svg_text.replace("<svg ", f'<svg lang="{lang}" ', 1)
@@ -237,7 +307,7 @@ def tagged(svg_text, lang):
 
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
-    for lang, L in (("en", EN), ("uk", UK)):
+    for lang, L in (("en", EN), ("uk", UK), ("de", DE), ("pl", PL)):
         (OUT / f"network_{lang}.svg").write_text(tagged(network(L["network"]), lang), encoding="utf-8")
         (OUT / f"roadmap_{lang}.svg").write_text(tagged(roadmap(L["roadmap"]), lang), encoding="utf-8")
         print("wrote diagrams", lang)

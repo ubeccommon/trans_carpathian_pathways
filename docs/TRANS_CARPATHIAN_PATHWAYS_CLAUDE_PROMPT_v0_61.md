@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_60"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_61"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.60"
+version: "v0.61"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -721,6 +721,21 @@ in English, «Transkarpatien» and «Zakarpacie» naming the oblast as
 «Транскарпатські» does (D-1); a list of four languages in place of the
 switch. Recorded in `site/README.md` v0.15.
 
+**The overview, the proposal and the white paper in German and Polish —
+Michel's word, October 11, 2026.** Translated by Claude from overview
+v0.5, proposal v0.7 and white paper v0.9, beside their sources in
+`docs/`, with diagrams in both languages and a PDF each for the proposal
+and the white paper; the EN-UK PDFs unchanged. One glossary for all six,
+`docs/translations/GLOSSARY_DE_PL_v0_1.md`: the name kept in English;
+Gate as *Schwelle* / *próg*; the pilgrim as *Pilgerin, Pilger des Plai*
+/ *pielgrzym płaju*; people and organisations under the names they write
+themselves. Checked by script and by a separate reader in each language;
+their findings taken in. Every translation says it has not been read by
+someone whose language it is. The co-creator agreement stays in English
+and Ukrainian until it settles. When an English document changes, its
+German and Polish follow, or say which English version they translate.
+Recorded in `site/README.md` v0.16.
+
 * * *
 
 ## 3. The First Corridor
@@ -1144,6 +1159,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.61 — 2026-10-11 — the overview, the proposal and the white paper in German and Polish, Michel's word.
 - v0.60 — 2026-10-11 — the menu closed on the host; German and Polish on the site, Michel's word.
 - v0.59 — 2026-10-11 — the menu's order, the map link to the Pathways application, the overview v0.5 pointing to the site; Michel's word.
 - v0.58 — 2026-10-11 — the site's menu and the documents' pages, Michel's word: our own build, not Ghost.
