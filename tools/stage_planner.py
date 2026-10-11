@@ -104,7 +104,8 @@ Changelog:
   v0.4, amended 2026-10-11 — after the first run on ubec-common:
          the boundary is written as a LineString, not a LinearRing,
          which is no GeoJSON type and stopped the map page; a
-         corridor reads a public stretch whose host has no geometry.
+         corridor reads a public stretch whose host has no geometry;
+         a place without a name is not named twice by its kind.
   v0.4 — 2026-10-11 — after the first run on ubec-common: a Latin
          name finds a Cyrillic one (Zhyva Khata, Жива Хата), on
          Plai or in OSM, peaks and hills too; several equal matches
@@ -983,7 +984,8 @@ def describe(p: dict) -> str:
     where = ("on the way" if p.get("on_the_way")
              else f"{p['detour_min']:.0f} min off")
     km = f"km {p['route_km']:>5.1f}" if "route_km" in p else " " * 8
-    kind = f" ({p['kind']})" if p.get("kind") else " (host)"
+    kind = (f" ({p['kind']})" if p.get("kind") and p["kind"] != p["name"]
+            else "" if p.get("kind") else " (host)")
     return f"  {km}  {where:>12}  {p['name']}{kind}"
 
 
@@ -1055,7 +1057,8 @@ map.fitBounds(layer.getBounds(), {padding:[20,20]});
 const ol = document.getElementById('list');
 for (const f of data.features.filter(f => f.properties.role === 'place')) {
  const p = f.properties, li = document.createElement('li');
- li.innerHTML = `<b>${p.name}</b> — ${p.kind || 'host'}<br><small>`
+ const kind = p.kind ? (p.kind === p.name ? '' : ` — ${p.kind}`) : ' — host';
+ li.innerHTML = `<b>${p.name}</b>${kind}<br><small>`
   + (p.route_km === undefined ? '' : `km ${p.route_km} · `)
   + (p.on_the_way ? 'on the way' : `${p.detour_min} min off the route, one way`) + '</small>';
  ol.appendChild(li);
