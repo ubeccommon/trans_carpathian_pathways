@@ -1,6 +1,6 @@
 ---
 title: "tcp.ubec.network — the site"
-version: "v0.9"
+version: "v0.10"
 date: "2026-10-11"
 lang: "en"
 license: "CC BY-SA 4.0"
@@ -27,8 +27,9 @@ languages, under one menu.
   scripts and offers a sign-up form; it has no paired pages in two
   languages; and it is one more service for one person to keep.
 - **A menu above the picture, on every page:** About (the landing
-  page), the white paper with its chapters in a drop-down, the
-  proposal, the co-creator agreement with its parts and the roles of
+  page), the proposal, the white paper with its chapters in a
+  drop-down (the proposal before the white paper, Michel's word the
+  same morning), the co-creator agreement with its parts and the roles of
   Part II in a drop-down, the overview, the map (Plai) and the field
   writing. The drop-downs are `<details name="menu">`: no script, one
   open at a time, reached by keyboard.
@@ -289,6 +290,8 @@ site's own, and logged no policy violation.
 * * *
 
 *Changelog*
+- v0.10 — 2026-10-11 — the proposal before the white paper in the
+  menu, Michel's word. Build v0.6.
 - v0.9 — 2026-10-11 — Michel's word: our own build, not Ghost; a menu
   above the picture on every page; a page per document and language,
   built from `docs/`, with its PDF. Build v0.5, stylesheet v0.5. (v0.8

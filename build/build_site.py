@@ -42,6 +42,9 @@ Needs pandoc on the PATH, and Python 3 alone; deploy needs rsync and ssh.
 SPDX-License-Identifier: AGPL-3.0-or-later
 
 Changelog:
+  v0.6 — 2026-10-11 — the proposal before the white paper in the menu
+         (Michel's word): About, Proposal, White paper, Co-creator
+         agreement, Overview, Plai, Field writing.
   v0.5 — 2026-10-11 — a menu above the picture on every page (Michel's
          word): About, the white paper with its chapters, the proposal,
          the co-creator agreement with its parts and roles, the overview,
@@ -92,13 +95,6 @@ WRITING = "https://pilgrims.ubec.network/"
 # menu lists: "h2" the chapters; "h2+roles" the parts and, under Part II,
 # each role. A document with no Ukrainian file is shown in English to both.
 DOCS = [
-    {"slug": "whitepaper",
-     "src": {"en": "whitepaper/Trans-Carpathian_Pathways_White_Paper_EN.md",
-             "uk": "whitepaper/Trans-Carpathian_Pathways_White_Paper_UK.md"},
-     "pdf": "whitepaper/Trans-Carpathian_Pathways_White_Paper.pdf",
-     "label": {"en": "White paper", "uk": "Біла книга"},
-     "kind": {"en": "White paper", "uk": "Біла книга"},
-     "toc": "h2"},
     {"slug": "proposal",
      "src": {"en": "proposal/Trans-Carpathian_Pathways_Proposal_EN.md",
              "uk": "proposal/Trans-Carpathian_Pathways_Proposal_UK.md"},
@@ -106,6 +102,13 @@ DOCS = [
      "label": {"en": "Proposal", "uk": "Пропозиція"},
      "kind": {"en": "Project summary and proposal", "uk": "Опис проєкту та пропозиція"},
      "toc": None},
+    {"slug": "whitepaper",
+     "src": {"en": "whitepaper/Trans-Carpathian_Pathways_White_Paper_EN.md",
+             "uk": "whitepaper/Trans-Carpathian_Pathways_White_Paper_UK.md"},
+     "pdf": "whitepaper/Trans-Carpathian_Pathways_White_Paper.pdf",
+     "label": {"en": "White paper", "uk": "Біла книга"},
+     "kind": {"en": "White paper", "uk": "Біла книга"},
+     "toc": "h2"},
     {"slug": "agreement",
      "src": {"en": "agreement/Trans-Carpathian_Pathways_Co-Creator_Agreement_EN.md",
              "uk": "agreement/Trans-Carpathian_Pathways_Co-Creator_Agreement_UK.md"},
