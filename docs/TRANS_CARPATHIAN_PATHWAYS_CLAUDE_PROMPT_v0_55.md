@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_54"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_55"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.54"
+version: "v0.55"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -664,9 +664,10 @@ on Plai: mapservice `c9c253c`, `plai/007` setting
 `agreement_version` to v0.7 with the two version checks, Plai's
 entries scheme v0.11 linking the v0.7 PDF, proven on a throwaway
 PostgreSQL 16 (its prompt v0.93). An entry that accepted an
-earlier draft keeps it; no real entry exists. Not yet on the host:
-`migrate plai`, `render`, `cache:clear`, `verify plai`, the link in
-the user copy, the export.
+earlier draft keeps it; no real entry exists. Closed on the host
+the same morning, Michel's run: `007` applied, the user copy
+exported with the v0.7 link (mapservice `74e6f03`), `verify plai vt`
+98 of 98 with the agreement checks proving v0.7 (its prompt v0.94).
 
 * * *
 
@@ -1091,6 +1092,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.55 — 2026-10-11 — the agreement at draft v0.7 closed on the
+  host: `verify plai vt` 98 of 98.
 - v0.54 — 2026-10-11 — the agreement at draft v0.7, and on Plai
   (mapservice `c9c253c`, `plai/007`); D-8 taken.
 - v0.53 — 2026-10-10 — the drafts for public review stress-tested;
