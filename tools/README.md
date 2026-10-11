@@ -1,6 +1,6 @@
 # tools/
 
-## stage_planner.py — `route`, `corridor` and `find`, v0.6
+## stage_planner.py — `route`, `corridor`, `find` and `inspect`, v0.7
 
 The stage planner (starting prompt §6; spec
 `docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_3.md`). Public, on
@@ -29,8 +29,21 @@ curator` lists them in full, for the Curator's own planning.
 The measure is the way, not the time (Michel's word, October 11,
 2026): the least road for vehicles first, then the richest way on
 paths within `--allowance` (0.5: up to half again the most direct
-way on paths). Each run says what the way holds — km on marked
-trails, over the plai, in forest, over meadows, and on roads.
+way on paths). Footpaths come first — the dotted brown line on
+Plai's map before the red line of a marked route. Each run says
+what the way holds — km on footpaths, on marked trails, over the
+plai, in forest, over meadows, and on roads.
+
+When a route passes by a path you expected it to take, ask what
+the planner knows of that path:
+
+```bash
+python3 /tmp/stage_planner.py inspect "48.1523,24.8714"
+```
+
+It names the ways within 150 m of the point, and for each whether
+the party walks it and, if not, why (too hard by its `sac_scale`,
+`access=private`, …), or whether it is cut off from the network.
 
 ### Test, anywhere
 

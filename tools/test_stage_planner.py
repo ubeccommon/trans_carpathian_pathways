@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Trans-Carpathian Pathways — tests for the stage planner, v0.6
+# Trans-Carpathian Pathways — tests for the stage planner, v0.7
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """A made-up valley near Verkhovyna, built in a temporary folder:
 a secondary road on the valley floor, contour paths on both slopes
@@ -180,8 +180,32 @@ def test_the_way():
     assert way.nodes == ["A", "R", "B"]
 
 
+def test_footpaths_first():
+    """A footpath beside a marked track: the footpath, though longer;
+    a path drawn 6 m short of the track is joined to it."""
+    from shapely.geometry import LineString, MultiLineString
+    W = lambda oid, coords, **tags: sp.Way(oid, None, tags,
+                                           MultiLineString([coords]))
+    ways = [W("track", [(0, 0), (1000, 0)], highway="track"),
+            W("route", [(0, 0), (1000, 0)], type="route", route="hiking"),
+            W("path", [(0, 0), (500, 150), (1000, 0)], highway="path"),
+            W("short", [(500, -200), (500, -6)], highway="path")]
+    box = (-100, -300, 1100, 300)
+    net = sp.build_network(ways, sp.Ground(None, box), sp.PARTY["couple"],
+                           None, sp.Landscape())
+    a, _ = sp.snap(net, sp.Point(0, 0))
+    b, _ = sp.snap(net, sp.Point(1000, 0))
+    way, direct, _ = sp.the_way(net, a, b, 0.5)
+    assert direct.length < 1001, direct.length          # the track
+    assert way.length > 1040, "the footpath, not the marked track"
+    assert sp.what_the_way_holds(way)["footpath_km"] >= 1.0
+    c, _ = sp.snap(net, sp.Point(500, -200))
+    assert sp.route_between(net, c, b) is not None, "short path joined"
+
+
 def main() -> int:
     test_the_way()
+    test_footpaths_first()
     # DIN 33466 by hand
     assert sp.din_minutes(4000, 0, 0) == 60
     assert sp.din_minutes(0, 300, 0) == 60
@@ -272,6 +296,21 @@ def main() -> int:
         onroad = "{1},{0}".format(*ll(4500, 0))
         fc = run(tmp, "--from", onroad, out_name="onroad.geojson")
         assert fc["properties"]["route"]["km"] > 0
+
+        # inspect says what lies at a point
+        res = subprocess.run(
+            [sys.executable, str(HERE / "stage_planner.py"), "inspect",
+             "{1},{0}".format(*ll(2500, 600)), "--source", "files",
+             "--paths", str(tmp / "paths.geojson")],
+            capture_output=True, text=True)
+        assert res.returncode == 0 and "footpath, first among paths" in \
+            res.stdout, res.stdout + res.stderr
+        res = subprocess.run(
+            [sys.executable, str(HERE / "stage_planner.py"), "inspect",
+             "{1},{0}".format(*ll(2500, 1200)), "--source", "files",
+             "--paths", str(tmp / "paths.geojson")],
+            capture_output=True, text=True)
+        assert "harder than this party walks" in res.stdout, res.stdout
 
         # a Latin name finds a Cyrillic place
         fc = run(tmp, "--to", "Tepla Gora", out_name="tg.geojson")

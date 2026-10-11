@@ -191,8 +191,11 @@ manual v0.4, prompt v0.29.*
       trails, plai, forest, meadows, the places passed, what stewards
       find — within an allowance; time a limit, never the measure.
       *Michel's word, October 11, 2026.* → spec v0.3 §3; prompt v0.64
-      §6; engine v0.6. Open: the weights, Claude's proposal, until
-      Michel has looked at a corridor drawn with them.
+      §6; engine v0.6. Footpaths first: the dotted brown line (a
+      path or footway) before the red line (a marked route), his
+      word the same day; engine v0.7. Open: the weights, Claude's
+      proposal, until Michel has looked at a corridor drawn with
+      them.
 - ☑ **SP-5 — The first real run.** Verkhovyna – Zhyva Khata – Tepla
       Gora – Kosiv: three stretches joined as a corridor. *Michel's
       word, October 11, 2026.* → spec v0.3 §9; start prompt v0.2,

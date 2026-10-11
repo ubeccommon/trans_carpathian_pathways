@@ -995,8 +995,10 @@ party scales it; the Curator sets the scale.
 time or taking the shortest path ... the pathway is the way." The
 planner seeks the least road for vehicles first — roads only where
 no path joins, a rule — then the richest way on paths within an
-allowance over the most direct way on paths: marked trails, the
-plai over open high ground, forest away from settlements, meadows,
+allowance over the most direct way on paths: footpaths first (the
+dotted brown line on Plai's map before the red line of a marked
+route, Michel's word the same day), then marked trails, the plai
+over open high ground, forest away from settlements, meadows,
 and the places passed, stewards' finds included. Time is reported
 as a limit, never the measure. Weights are Claude's proposal until
 Michel has looked at a corridor drawn with them (engine v0.6).
@@ -1229,6 +1231,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.64, amended 2026-10-11 — footpaths first, before marked routes, Michel's word; engine v0.7.
 - v0.64, amended 2026-10-11 — the pathway is the way, Michel's word: the least road, then the richest way on paths within an allowance; time a limit, never the measure; engine v0.6.
 - v0.64, amended 2026-10-11 — after the first run (Verkhovyna – Zhiva Khata – Tepla Gora – Kosiv, 46 km), Michel's word: hiking paths first, roads for vehicles only when there is no other way; engine v0.5.
 - v0.64, amended 2026-10-11 — what a start or end may be, Michel's word: a host's name, a Plai place, an OSM place, coordinates or a point on the map; a route to a host ends at its published point.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Trans-Carpathian Pathways — stage planner, `route`, `corridor` and `find`, v0.6
+# Trans-Carpathian Pathways — stage planner, `route`, `corridor`, `find` and `inspect`, v0.7
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """Stage planner — one route from a start to an end, a fuzzy band
 along it, and the places a pilgrim can reach from it; and a
@@ -103,6 +103,12 @@ A corridor from stretches, each a file `route` wrote:
         stretch_1.geojson stretch_2.geojson --out corridor.geojson
 
 Changelog:
+  v0.7 — 2026-10-11 — footpaths first, Michel's word: a path or
+         footway (the dotted brown line on Plai's map) counts most
+         among the qualities, a marked route (the red line) a little;
+         a path end within 10 m of another way is joined to it;
+         `inspect "lat,lon"` says what way lies there, whether the
+         party walks it, and whether it joins the network.
   v0.6 — 2026-10-11 — the pathway is the way, Michel's word: no
          longer the quickest route with paths made cheaper. Roads
          for vehicles only where no path joins (a rule); then the
@@ -166,7 +172,7 @@ from shapely.geometry import (LineString, MultiLineString, Point,
 from shapely.ops import substring, unary_union
 from shapely.strtree import STRtree
 
-VERSION = "0.6"
+VERSION = "0.7"
 
 # ── Criteria ───────────────────────────────────────────────────
 # The party's paces and limits, the band and the reach are as
@@ -220,7 +226,13 @@ WAY_ALLOWANCE = 0.5          # up to half again the most direct way
 # path it covers; each place within ENCOUNTER_M over ENCOUNTER_SPAN_M
 # of path, so a place enriches the path that passes it, not a whole
 # long path.
-Q_MARKED = 0.30              # a marked hiking or foot route
+# Footpaths come first: Michel's word, October 11, 2026, on the
+# second corridor — the dotted brown line on Plai's map (path,
+# footway) has priority over the red line (a marked hiking route),
+# which here often runs on tracks and roads.
+Q_FOOTPATH = 0.45            # highway=path, footway, bridleway, steps
+FOOTPATHS = {"path", "footway", "bridleway", "steps"}
+Q_MARKED = 0.10              # a marked hiking or foot route
 Q_PLAI = 0.30                # open land at or above PLAI_MIN_ELE
 PLAI_MIN_ELE = 1000.0        # metres, ground model
 Q_FOREST = 0.15              # forest at least SETTLEMENT_GAP_M away
@@ -237,6 +249,10 @@ Q_FARMSTEAD = 0.3            # an isolated dwelling or farm in OSM
 Q_MAX = 0.9
 ENCOUNTER_M = 100.0
 ENCOUNTER_SPAN_M = 200.0
+# OSM paths often stop a few metres short of the way they meet; an
+# end within JOIN_GAP_M of another way is joined to it, so a path is
+# not a dead end only because it was drawn short.
+JOIN_GAP_M = 10.0
 SETTLEMENT_RADIUS_M = {"city": 2500.0, "town": 1200.0,
                        "village": 500.0, "hamlet": 250.0,
                        "suburb": 500.0}
@@ -795,35 +811,99 @@ def _box(bbox):
 
 # ── The network ────────────────────────────────────────────────
 
-def walkable(tags: dict, party: Party) -> str | None:
-    """"path", "minor" (a minor road), "main" (a main road), or None
-    if not walked by this party."""
+def why_not(tags: dict, party: Party) -> str | None:
+    """Why this party does not walk a way, or None if it does."""
     hw = tags.get("highway")
-    if hw is None or hw in NEVER_WALKED:
-        return None
-    if hw == "track" and tags.get("tracktype") == "grade1":
-        kind = "minor"
-    elif hw in PATH_HIGHWAYS:
-        kind = "path"
-    elif hw in MAIN_ROADS:
-        kind = "main"
-    else:
-        kind = "minor"
+    if hw is None:
+        return "not a highway in OSM"
+    if hw in NEVER_WALKED:
+        return f"highway={hw} is never walked"
     foot = tags.get("foot")
     if foot == "no":
-        return None
+        return "foot=no"
     if (tags.get("access") in ("no", "private")
             and foot not in ("yes", "designated", "permissive")):
-        return None
+        return f"access={tags.get('access')}"
     sac = tags.get("sac_scale")
     if sac in SAC and SAC.index(sac) > SAC.index(party.max_sac):
-        return None
+        return f"sac_scale={sac} is harder than this party walks"
     vis = tags.get("trail_visibility")
     if (vis in VISIBILITY
             and VISIBILITY.index(vis) > VISIBILITY.index(
                 party.max_visibility)):
+        return f"trail_visibility={vis} is fainter than this party walks"
+    return None
+
+
+def walkable(tags: dict, party: Party) -> str | None:
+    """"path", "minor" (a minor road), "main" (a main road), or None
+    if not walked by this party."""
+    if why_not(tags, party):
         return None
-    return kind
+    hw = tags.get("highway")
+    if hw == "track" and tags.get("tracktype") == "grade1":
+        return "minor"
+    if hw in PATH_HIGHWAYS:
+        return "path"
+    if hw in MAIN_ROADS:
+        return "main"
+    return "minor"
+
+
+def _insert_vertex(coords: list, pt: Point) -> tuple:
+    """Put pt into a line's coordinates where it lies along it; the
+    vertex used, existing or new."""
+    line = LineString(coords)
+    d = line.project(pt)
+    acc = 0.0
+    for i in range(1, len(coords)):
+        seg = math.dist(coords[i - 1], coords[i])
+        if acc + seg >= d:
+            if d - acc < 0.1:
+                return coords[i - 1]
+            if acc + seg - d < 0.1:
+                return coords[i]
+            q = line.interpolate(d)
+            coords.insert(i, (q.x, q.y))
+            return (q.x, q.y)
+        acc += seg
+    return coords[-1]
+
+
+def join_dangling(parts: list) -> int:
+    """Join each path end that meets nothing to another way within
+    JOIN_GAP_M, with a short connector. parts are [coords, tags,
+    osm_id, kind] and are changed in place; returns how many."""
+    count: dict = {}
+    for coords, *_ in parts:
+        for c in {_key(c) for c in coords}:
+            count[c] = count.get(c, 0) + 1
+    lines = [LineString(c) for c, *_ in parts]
+    tree = STRtree(lines)
+    joined = []
+    for i, (coords, tags, oid, kind) in enumerate(parts):
+        for end in (coords[0], coords[-1]):
+            if count.get(_key(end), 0) > 1:
+                continue
+            pt = Point(end)
+            best = None
+            for j in tree.query(pt, predicate="dwithin",
+                                distance=JOIN_GAP_M):
+                if j == i:
+                    continue
+                d = lines[j].distance(pt)
+                if best is None or d < best[0]:
+                    best = (d, j)
+            if best is None:
+                continue
+            at = _insert_vertex(parts[best[1]][0], pt)
+            if math.dist(at, end) >= 0.1:
+                joined.append([[tuple(end), tuple(at)],
+                               {"highway": "path", "joined": "yes"},
+                               f"join:{oid}", "path"])
+            count[_key(end)] = 2
+    parts.extend(joined)
+    return len(joined)
 
 
 def _key(xy) -> tuple[int, int]:
@@ -924,6 +1004,10 @@ def add_segment(G, net_lines, xy, eid, seg, kind, oid, tags, ground,
     xs, ys, zs = profile(seg, ground)
     up, down = climb_of(zs)
     q, kinds = land.quality(seg, xs, ys, zs)
+    footpath = kind == "path" and tags.get("highway") in FOOTPATHS
+    kinds["footpath"] = seg.length if footpath else 0.0
+    if footpath:
+        q = min(Q_MAX, q + Q_FOOTPATH)
     # a marked trail on a minor road or a track is a path
     road = kind == "main" or (kind == "minor"
                               and not (marked_ok and kinds["marked"]
@@ -962,9 +1046,11 @@ def build_network(ways, ground: Ground, party: Party,
             continue
         for ls in w.geom.geoms:
             if len(ls.coords) >= 2:
-                parts.append((ls, w.tags, w.osm_id, kind))
+                parts.append([list(ls.coords), w.tags, w.osm_id, kind])
     land.marked = unary_union(marked).buffer(10) if marked else None
     land.prepare()
+    join_dangling(parts)
+    parts = [(LineString(c), t, o, k) for c, t, o, k in parts]
 
     # Nodes where ways meet: any vertex used by two or more lines,
     # and every line's ends.
@@ -1122,8 +1208,8 @@ def what_the_way_holds(r: Route) -> dict:
     km = lambda m: round(m / 1000, 1)
     roads = sum(l["length"] for l in r.legs if l["road"])
     out = {"roads_km": km(roads)}
-    for k in ("marked", "plai", "forest", "meadow"):
-        out[f"{k}_km"] = km(sum(l["kinds"][k] for l in r.legs))
+    for k in ("footpath", "marked", "plai", "forest", "meadow"):
+        out[f"{k}_km"] = km(sum(l["kinds"].get(k, 0.0) for l in r.legs))
     return out
 
 
@@ -1461,6 +1547,56 @@ def resolve(src, text: str) -> Point:
     return c.geom
 
 
+def cmd_inspect(args) -> int:
+    """What lies at a point: the nearest ways, whether this party
+    walks each and why not, and whether each joins the network the
+    planner routes on."""
+    pt = parse_latlon(args.point)
+    if pt is None:
+        sys.exit("stage_planner: inspect needs \"lat,lon\"")
+    party = PARTY[args.party]
+    src = (PostgisSource(args.instance_db) if args.source == "postgis"
+           else FileSource(Path(args.paths), None, None))
+    near = (pt.x - 150, pt.y - 150, pt.x + 150, pt.y + 150)
+    ways = [w for w in src.ways(near)
+            if w.tags.get("highway") and w.geom.distance(pt) <= 150]
+    if not ways:
+        print("No way within 150 m of that point in OSM.")
+        return 1
+    box = (pt.x - 3000, pt.y - 3000, pt.x + 3000, pt.y + 3000)
+    net = build_network(src.ways(box), Ground(None, box), party, None,
+                        Landscape())
+    lines = [net.lines[d["eid"]] for _, _, d in net.G.edges(data=True)]
+    tree = STRtree(lines) if lines else None
+    ways.sort(key=lambda w: w.geom.distance(pt))
+    for w in ways[:args.limit]:
+        t = w.tags
+        keys = ("highway", "name", "sac_scale", "trail_visibility",
+                "access", "foot", "tracktype", "surface")
+        desc = ", ".join(f"{k}={t[k]}" for k in keys if t.get(k))
+        print(f"{w.geom.distance(pt):5.0f} m  OSM way {w.osm_id}: {desc}")
+        reason = why_not(t, party)
+        if reason:
+            print(f"         not walked by a {args.party}: {reason}")
+            continue
+        on = (tree is not None and any(
+            lines[i].distance(w.geom) < 0.5 and
+            lines[i].within(w.geom.buffer(0.5))
+            for i in tree.query(w.geom.buffer(0.5))))
+        if on:
+            kind = walkable(t, party)
+            what = ("a footpath, first among paths"
+                    if t.get("highway") in FOOTPATHS else
+                    "a road for vehicles, walked only when nothing else "
+                    "joins" if kind in ("minor", "main") else "a path")
+            print(f"         walked, joined to the network: {what}")
+        else:
+            print("         walkable, but not joined to the network around "
+                  "it: its ends meet no other way within "
+                  f"{JOIN_GAP_M:g} m, so the planner cannot reach it")
+    return 0
+
+
 def cmd_find(args) -> int:
     src = (PostgisSource(args.instance_db) if args.source == "postgis"
            else FileSource(Path(args.paths or "/dev/null"),
@@ -1492,7 +1628,8 @@ def criteria(args) -> dict:
             "din_33466": [DIN_FLAT_KMH, DIN_UP_MH, DIN_DOWN_MH],
             "road_penalty": ROAD_PENALTY,
             "allowance": args.allowance,
-            "quality": {"marked": Q_MARKED, "plai": Q_PLAI,
+            "quality": {"footpath": Q_FOOTPATH, "marked": Q_MARKED,
+                        "plai": Q_PLAI,
                         "plai_min_ele": PLAI_MIN_ELE, "forest": Q_FOREST,
                         "meadow": Q_MEADOW, "places": Q_PLACE,
                         "plai_place": Q_PLAI_PLACE,
@@ -1749,14 +1886,16 @@ def cmd_route(args) -> int:
     print(f"  start {a_off:.0f} m and end {b_off:.0f} m from the "
           "nearest path")
     w = summary["the_way"]
-    print(f"  the way: {w['marked_km']} km on marked trails, "
+    print(f"  the way: {w['footpath_km']} km on footpaths, "
+          f"{w['marked_km']} km on marked trails, "
           f"{w['plai_km']} km over the plai, {w['forest_km']} km in "
           f"forest, {w['meadow_km']} km over meadows; "
           f"{w['roads_km']} km on roads for vehicles")
     for i, r in enumerate(summary["alternatives"], 1):
         print(f"  alternative {i}: {r['km']} km, {r['time']}, "
-              f"↑{r['up_m']} m ↓{r['down_m']} m — {r['marked_km']} km "
-              f"marked, {r['plai_km']} km plai, {r['roads_km']} km roads")
+              f"↑{r['up_m']} m ↓{r['down_m']} m — {r['footpath_km']} km "
+              f"footpaths, {r['marked_km']} km marked, {r['roads_km']} km "
+              "roads")
     print(f"Places within {args.reach:g} min of the route: {len(found)}")
     for p in found:
         print(describe(p))
@@ -1807,6 +1946,15 @@ def main(argv=None) -> int:
                    default="public")
     c.add_argument("--out", default="corridor.geojson")
     c.add_argument("--html", help="also write a map preview here")
+    i = sub.add_parser("inspect", help="what way lies at a point, and "
+                       "whether the planner walks it")
+    i.add_argument("point", help='"lat,lon"')
+    i.add_argument("--party", choices=sorted(PARTY), default="couple")
+    i.add_argument("--limit", type=int, default=5)
+    i.add_argument("--source", choices=("postgis", "files"),
+                   default="postgis")
+    i.add_argument("--instance-db", default="ubec_i_plai")
+    i.add_argument("--paths", help="files: GeoJSON of ways")
     f = sub.add_parser("find", help="which places a name matches")
     f.add_argument("text", help="a name, in Latin or Cyrillic")
     f.add_argument("--limit", type=int, default=15)
@@ -1820,6 +1968,8 @@ def main(argv=None) -> int:
         return cmd_corridor(args)
     if args.cmd == "find":
         return cmd_find(args)
+    if args.cmd == "inspect":
+        return cmd_inspect(args)
     if not 1 <= args.reach <= 30:
         ap.error("--reach is minutes, 1 to 30")
     return cmd_route(args)

@@ -87,8 +87,11 @@ every rule and number. In short:
   way." So the planner seeks, in order: the least road for vehicles
   — roads only where no path joins the two ends, a rule, not a
   trade; then, on paths, the richest way within an allowance (half
-  again the most direct way on paths, proposed): marked trails, the
-  old plai over open high ground, forest away from settlements,
+  again the most direct way on paths, proposed): footpaths first —
+  *Michel's word the same day:* the dotted brown line on Plai's map
+  (a path or footway) has priority over the red line (a marked
+  hiking route) — then marked trails, the old plai over open high
+  ground, forest away from settlements,
   meadows, and the places passed — springs, chapels and crosses,
   viewpoints, waterfalls, hosts, farmsteads, and whatever stewards
   find when they walk the path and enter on Plai. Forest and open
@@ -297,6 +300,8 @@ built, until Michel says to revise them (SP-6):
 
 ## Changelog
 
+- v0.3, amended 2026-10-11 — §3: footpaths first, before marked
+  routes, Michel's word.
 - v0.3, amended 2026-10-11 — §3, the measure, Michel's word: the
   pathway is the way — the least road, then the richest way on paths
   within an allowance; time a limit, never the measure.
