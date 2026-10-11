@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Trans-Carpathian Pathways — stage planner, `route`, `corridor` and `find`, v0.5
+# Trans-Carpathian Pathways — stage planner, `route`, `corridor` and `find`, v0.6
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """Stage planner — one route from a start to an end, a fuzzy band
 along it, and the places a pilgrim can reach from it; and a
@@ -17,7 +17,8 @@ What it does, for a start and an end:
 2. prices every segment by DIN 33466 walking time from the ground
    model GEDTM30 (ascent and descent per direction), and steers by
    the criteria below without changing the time it reports;
-3. finds the route, and up to two alternatives;
+3. finds the way — the least road, then the richest way on paths
+   within an allowance — and up to two alternatives;
 4. draws a band on both sides of it: the land a pilgrim reaches in
    2.5, 5, 7.5 and 10 minutes off the route, walked on the network
    and a little off it — nested rings, densest at the route and
@@ -27,16 +28,17 @@ What it does, for a start and an end:
 
 The criteria (starting prompt §6, §7; decisions S-8, S-15):
 
-- Time is DIN 33466: 4 km/h on the flat, 300 m/h up, 500 m/h down;
-  a segment takes the larger of its horizontal and vertical times
-  plus half the smaller. The party scales it (`PARTY`).
-- Off the beaten path: paths, tracks and footways are neutral;
-  village roads cost a little more, main roads much more, trunk
-  roads and motorways are not walked (`HIGHWAY_FACTOR`).
-- A marked hiking route is preferred a little (`MARKED_FACTOR`).
-- The logic of encounter: a segment that passes near a published
-  Plai place or an open place (a viewpoint, a spring, a chapel) is
-  preferred a little (`ENCOUNTER_FACTOR`).
+- The pathway is the way (Michel's word, October 11, 2026): not the
+  quickest or the shortest. Roads for vehicles only where no path
+  joins the two ends (`ROAD_PENALTY`, a rule); then, on paths, the
+  richest way — marked trails, the plai over open high ground,
+  forest away from settlements, meadows, and the places passed —
+  within `WAY_ALLOWANCE` more walking than the most direct way on
+  paths (`Q_*`, "The way" below).
+- Time is reported, as DIN 33466: 4 km/h on the flat, 300 m/h up,
+  500 m/h down; a segment takes the larger of its horizontal and
+  vertical times plus half the smaller. The party scales it
+  (`PARTY`). It is a limit, never the measure.
 - Difficulty: a path harder than the party's SAC grade or less
   visible than its limit is not walked (`PARTY`).
 - The border strip (S-8): no segment inside five kilometres of the
@@ -101,6 +103,15 @@ A corridor from stretches, each a file `route` wrote:
         stretch_1.geojson stretch_2.geojson --out corridor.geojson
 
 Changelog:
+  v0.6 — 2026-10-11 — the pathway is the way, Michel's word: no
+         longer the quickest route with paths made cheaper. Roads
+         for vehicles only where no path joins (a rule); then the
+         richest way on paths — marked trails, plai, forest away
+         from settlements, meadows, the places passed, farmsteads —
+         within an allowance over the most direct way on paths
+         (--allowance, 0.5). Forest and open land from canopy.tif
+         when present, else OSM land cover. The quickest way is no
+         longer shown; the run says what the way holds.
   v0.5 — 2026-10-11 — after Michel's look at the first corridor:
          hiking paths first, roads for vehicles only when there is
          no other way (roads 4 to 15 times their walking time; a
@@ -155,56 +166,80 @@ from shapely.geometry import (LineString, MultiLineString, Point,
 from shapely.ops import substring, unary_union
 from shapely.strtree import STRtree
 
-VERSION = "0.5"
+VERSION = "0.6"
 
 # ── Criteria ───────────────────────────────────────────────────
-# Every number here is as proposed and adopted on Michel's word,
-# October 11, 2026 (SP-4); the first real run and Gate 4's GNSS
-# track test them, and a change is his or the Curator's word. Each
-# is named so it can be changed in one place.
+# The party's paces and limits, the band and the reach are as
+# proposed and adopted on Michel's word, October 11, 2026 (SP-4).
+# The measure of the way below is his word the same day; its weights
+# (Q_*, WAY_ALLOWANCE) are Claude's proposal until he has looked at
+# a corridor drawn with them. A change is his or the Curator's word.
+# Each number is named so it can be changed in one place.
 
 DIN_FLAT_KMH = 4.0          # DIN 33466
 DIN_UP_MH = 300.0
 DIN_DOWN_MH = 500.0
 
-# Preference on walking time: 1.0 neutral, higher avoided, None
-# never walked. The reported time is always the real DIN time.
-# Hiking paths first; roads for vehicles only when there is no other
-# way — Michel's word, October 11, 2026, after the first run, where a
-# village road at 1.3 was taken whenever it saved a little time. A
-# road costs four to fifteen times its walking time, so the planner
-# walks a path even when it takes several times as long, and takes a
-# road where no path joins the two ends.
-HIGHWAY_FACTOR: dict[str, float | None] = {
-    # paths
-    "path": 1.0, "footway": 1.0, "bridleway": 1.0, "steps": 1.1,
-    "pedestrian": 1.2,
-    # forest and field tracks: few vehicles, walked by everyone here
-    "track": 1.2,
-    "cycleway": 1.5,
-    # roads for vehicles
-    "living_street": 4.0, "service": 4.0, "unclassified": 4.0,
-    "residential": 4.0, "road": 4.0,
-    "tertiary": 6.0, "tertiary_link": 6.0,
-    "secondary": 10.0, "secondary_link": 10.0,
-    "primary": 15.0, "primary_link": 15.0,
-    "trunk": None, "trunk_link": None,
-    "motorway": None, "motorway_link": None,
-    "construction": None, "proposed": None, "abandoned": None,
-    "raceway": None, "bus_guideway": None, "platform": None,
-}
-UNKNOWN_HIGHWAY_FACTOR = 4.0   # a highway value not listed: a road
-PAVED_TRACK_FACTOR = 4.0       # a track of grade1 is a paved road
-# A marked hiking or foot route is a hiking path, whatever it runs on,
-# unless it runs on a main road: a minor road or track it follows
-# costs no more than MARKED_ROAD_CAP, and everything marked is then
-# preferred by MARKED_FACTOR.
-MARKED_FACTOR = 0.85
-MARKED_ROAD_CAP = 1.2
-MARKED_CAP_UPTO = 4.0          # roads dearer than this keep their cost
-ENCOUNTER_FACTOR = 0.90     # passes within ENCOUNTER_M of a place
+# ── The way ─────────────────────────────────────────────────────
+# Michel's word, October 11, 2026, after the first corridor: "It's
+# not a question of saving time or taking the shortest path ... the
+# pathway is the way." So the planner does not look for the quickest
+# route with paths made cheaper. It looks, in this order, for:
+#
+#   1. the least road for vehicles — roads only where no path joins
+#      the two ends (ROAD_PENALTY makes a road minute outweigh any
+#      detour on paths: a rule, not a trade);
+#   2. among the ways on paths, the richest — marked trails, the old
+#      plai over open high ground, forest away from settlements,
+#      meadows, and the places passed: springs, chapels and crosses,
+#      viewpoints, waterfalls, hosts and the places stewards enter,
+#      farmsteads — within WAY_ALLOWANCE more walking than the most
+#      direct way on paths. Time is a limit, never the measure.
+#
+# What stewards find when they walk a path they enter on Plai as a
+# place; every Plai place counts as an encounter (Q_PLAI_PLACE).
+
+# What each highway is to a walker: a path, a road for vehicles, or
+# never walked.
+PATH_HIGHWAYS = {"path", "footway", "bridleway", "steps", "pedestrian",
+                 "track", "cycleway"}
+MINOR_ROADS = {"living_street", "service", "unclassified", "residential",
+               "road"}
+MAIN_ROADS = {"tertiary", "tertiary_link", "secondary", "secondary_link",
+              "primary", "primary_link"}
+NEVER_WALKED = {"trunk", "trunk_link", "motorway", "motorway_link",
+                "construction", "proposed", "abandoned", "raceway",
+                "bus_guideway", "platform"}
+# A highway value not listed is a road; a track of grade1 is paved, a
+# road. A marked hiking or foot route is a path wherever it follows a
+# minor road or a track; on a main road it is still a road.
+ROAD_PENALTY = 1000.0
+WAY_ALLOWANCE = 0.5          # up to half again the most direct way
+
+# How rich a path is, 0 to Q_MAX: each quality over the share of the
+# path it covers; each place within ENCOUNTER_M over ENCOUNTER_SPAN_M
+# of path, so a place enriches the path that passes it, not a whole
+# long path.
+Q_MARKED = 0.30              # a marked hiking or foot route
+Q_PLAI = 0.30                # open land at or above PLAI_MIN_ELE
+PLAI_MIN_ELE = 1000.0        # metres, ground model
+Q_FOREST = 0.15              # forest at least SETTLEMENT_GAP_M away
+SETTLEMENT_GAP_M = 300.0     #   from a village, hamlet or town
+Q_MEADOW = 0.10              # open land below PLAI_MIN_ELE
+OPEN_MAX_M = 3.0             # canopy.tif: lower is open land
+FOREST_MIN_M = 8.0           # canopy.tif: higher is forest
+Q_PLACE = {"spring or water": 0.6, "church, chapel or cross": 0.6,
+           "viewpoint": 0.6, "waterfall": 0.6, "peak": 0.4,
+           "mountain hut": 0.4, "hikers' shelter": 0.3,
+           "heritage": 0.4, "museum": 0.3}
+Q_PLAI_PLACE = 0.8           # a place on Plai: a host, a steward's find
+Q_FARMSTEAD = 0.3            # an isolated dwelling or farm in OSM
+Q_MAX = 0.9
 ENCOUNTER_M = 100.0
-MIN_FACTOR = 0.70           # floor on the product of preferences
+ENCOUNTER_SPAN_M = 200.0
+SETTLEMENT_RADIUS_M = {"city": 2500.0, "town": 1200.0,
+                       "village": 500.0, "hamlet": 250.0,
+                       "suburb": 500.0}
 
 SAC = ["hiking", "mountain_hiking", "demanding_mountain_hiking",
        "alpine_hiking", "demanding_alpine_hiking",
@@ -416,6 +451,7 @@ class Ground:
 
     def __init__(self, path: Path | None, bounds):
         self.arr = None
+        self.path = path
         if path is None or not path.exists():
             return
         import rasterio
@@ -516,6 +552,59 @@ class PostgisSource:
                             {"category": cat, "offers": offers,
                              "season": season})
 
+    def landscape(self, bbox, ground: "Ground") -> "Landscape":
+        """Villages and farmsteads from osm_point, land cover from
+        osm_polygon (used only when canopy.tif is absent), and the
+        canopy beside the ground model."""
+        env = "ST_MakeEnvelope(%s, %s, %s, %s, 3035)"
+        land = Landscape()
+        canopy = ground.path.with_name("canopy.tif") if ground.path else None
+        if canopy and canopy.exists():
+            land.canopy = Ground(canopy, bbox)
+        # With the canopy, OSM land cover is needed for settlements only.
+        cover_kinds = ("('residential', 'farmyard')" if land.canopy
+                       else "('residential', 'farmyard', 'forest', "
+                            "'meadow', 'grass')")
+        natural = ("('none')" if land.canopy else
+                   "('wood', 'grassland', 'heath', 'fell', 'scrub')")
+        settled, points = [], []
+        with self.fw.cursor() as cur:
+            cur.execute(f"""
+                SELECT tags->>'place', ST_AsBinary(geom)
+                  FROM reference_sa.osm_point
+                 WHERE geom && {env}
+                   AND tags->>'place' IN ('city', 'town', 'village',
+                       'hamlet', 'suburb', 'isolated_dwelling', 'farm')""",
+                        bbox)
+            for kind, g in cur:
+                pt = wkb.loads(bytes(g))
+                if kind in SETTLEMENT_RADIUS_M:
+                    settled.append(pt.buffer(SETTLEMENT_RADIUS_M[kind]))
+                else:
+                    points.append((pt, Q_FARMSTEAD))
+            cur.execute(f"""
+                SELECT coalesce(tags->>'landuse', tags->>'natural'),
+                       ST_AsBinary(ST_Intersection(geom, {env}))
+                  FROM reference_sa.osm_polygon
+                 WHERE geom && {env}
+                   AND (tags->>'landuse' IN {cover_kinds}
+                        OR tags->>'natural' IN {natural})""", bbox * 2)
+            cover = {"settled": [], "open": [], "forest": []}
+            for kind, g in cur:
+                poly = wkb.loads(bytes(g))
+                if kind in ("residential", "farmyard"):
+                    cover["settled"].append(poly)
+                elif kind in ("forest", "wood"):
+                    cover["forest"].append(poly)
+                else:
+                    cover["open"].append(poly)
+        settled += [p.buffer(SETTLEMENT_GAP_M) for p in cover["settled"]]
+        land.settled = unary_union(settled) if settled else None
+        land.open_land = unary_union(cover["open"]) if cover["open"] else None
+        land.forest = unary_union(cover["forest"]) if cover["forest"] else None
+        land.points = points
+        return land
+
     def border_strip(self, bbox, width_m):
         sql = """
             WITH env AS (
@@ -582,8 +671,9 @@ class PostgisSource:
 
 class FileSource:
     def __init__(self, paths: Path, places: Path | None,
-                 strip: Path | None):
+                 strip: Path | None, areas: Path | None = None):
         self.paths, self.places_f, self.strip_f = paths, places, strip
+        self.areas_f = areas
         self._places = None
 
     @staticmethod
@@ -639,6 +729,43 @@ class FileSource:
     def plai_places(self, bbox):
         return []
 
+    def landscape(self, bbox, ground: "Ground") -> "Landscape":
+        """From the places file: villages and farmsteads by their
+        place tag; from --areas, land cover polygons tagged as in OSM;
+        a canopy.tif beside the ground file if there is one."""
+        land = Landscape()
+        settled, points = [], []
+        for f in self._features(self.places_f) if self.places_f else []:
+            tags = self._tags(f.get("properties") or {})
+            kind = tags.get("place")
+            if kind in SETTLEMENT_RADIUS_M:
+                settled.append(to_3035(shape(f["geometry"])).buffer(
+                    SETTLEMENT_RADIUS_M[kind]))
+            elif kind in ("isolated_dwelling", "farm"):
+                points.append((to_3035(shape(f["geometry"])), Q_FARMSTEAD))
+        cover = {"settled": [], "open": [], "forest": []}
+        for f in self._features(self.areas_f) if self.areas_f else []:
+            tags = self._tags(f.get("properties") or {})
+            kind = tags.get("landuse") or tags.get("natural")
+            poly = to_3035(shape(f["geometry"]))
+            if kind in ("residential", "farmyard"):
+                cover["settled"].append(poly.buffer(SETTLEMENT_GAP_M))
+            elif kind in ("forest", "wood"):
+                cover["forest"].append(poly)
+            elif kind in ("meadow", "grass", "grassland", "heath", "fell",
+                          "scrub"):
+                cover["open"].append(poly)
+        settled += cover["settled"]
+        land.settled = unary_union(settled) if settled else None
+        land.open_land = unary_union(cover["open"]) if cover["open"] else None
+        land.forest = unary_union(cover["forest"]) if cover["forest"] else None
+        land.points = points
+        if ground.path:
+            canopy = ground.path.with_name("canopy.tif")
+            if canopy.exists():
+                land.canopy = Ground(canopy, bbox)
+        return land
+
     def border_strip(self, bbox, width_m):
         if not self.strip_f:
             return None
@@ -668,16 +795,20 @@ def _box(bbox):
 
 # ── The network ────────────────────────────────────────────────
 
-def walkable(tags: dict, party: Party) -> float | None:
-    """The preference factor for a way, or None if not walked."""
+def walkable(tags: dict, party: Party) -> str | None:
+    """"path", "minor" (a minor road), "main" (a main road), or None
+    if not walked by this party."""
     hw = tags.get("highway")
-    if hw is None:
-        return None
-    factor = HIGHWAY_FACTOR.get(hw, UNKNOWN_HIGHWAY_FACTOR)
-    if factor is None:
+    if hw is None or hw in NEVER_WALKED:
         return None
     if hw == "track" and tags.get("tracktype") == "grade1":
-        factor = PAVED_TRACK_FACTOR
+        kind = "minor"
+    elif hw in PATH_HIGHWAYS:
+        kind = "path"
+    elif hw in MAIN_ROADS:
+        kind = "main"
+    else:
+        kind = "minor"
     foot = tags.get("foot")
     if foot == "no":
         return None
@@ -692,11 +823,63 @@ def walkable(tags: dict, party: Party) -> float | None:
             and VISIBILITY.index(vis) > VISIBILITY.index(
                 party.max_visibility)):
         return None
-    return factor
+    return kind
 
 
 def _key(xy) -> tuple[int, int]:
     return (round(xy[0] * 10), round(xy[1] * 10))   # 0.1 m
+
+
+@dataclass
+class Landscape:
+    """What makes a path rich, in EPSG:3035."""
+    marked: object = None        # hiking and foot route relations
+    open_land: object = None     # OSM land cover, when no canopy
+    forest: object = None        # OSM land cover, when no canopy
+    settled: object = None       # within SETTLEMENT_GAP_M of a village
+    canopy: "Ground" = None      # surface minus ground, if present
+    points: list = field(default_factory=list)   # (Point, weight)
+
+    def prepare(self):
+        self._tree = STRtree([p for p, _ in self.points]) \
+            if self.points else None
+        for name in ("marked", "open_land", "forest", "settled"):
+            g = getattr(self, name)
+            if g is not None and not g.is_empty:
+                shapely.prepare(g)
+            else:
+                setattr(self, name, None)
+
+    def quality(self, seg: LineString, xs, ys, zs) -> tuple:
+        """The path's richness, 0 to Q_MAX, and metres of each kind."""
+        n = len(xs)
+        share = lambda mask: float(np.count_nonzero(mask)) / n
+        inside = lambda g: (shapely.contains_xy(g, xs, ys) if g is not None
+                            else np.zeros(n, bool))
+        marked = inside(self.marked)
+        if self.canopy is not None and self.canopy.known:
+            c = self.canopy.heights(xs, ys)
+            open_ = c < OPEN_MAX_M
+            forest = c >= FOREST_MIN_M
+        else:
+            open_ = inside(self.open_land)
+            forest = inside(self.forest)
+        settled = inside(self.settled)
+        high = zs >= PLAI_MIN_ELE
+        plai = open_ & high
+        meadow = open_ & ~high
+        wild = forest & ~settled
+        q = (Q_MARKED * share(marked) + Q_PLAI * share(plai)
+             + Q_FOREST * share(wild) + Q_MEADOW * share(meadow))
+        if self._tree is not None:
+            near = self._tree.query(seg, predicate="dwithin",
+                                    distance=ENCOUNTER_M)
+            span = min(1.0, ENCOUNTER_SPAN_M / max(seg.length, 1.0))
+            q += sum(self.points[i][1] for i in near) * span
+        L = seg.length
+        kinds = {"marked": share(marked) * L, "plai": share(plai) * L,
+                 "forest": share(wild) * L, "meadow": share(meadow) * L}
+        return min(q, Q_MAX), kinds
 
 
 @dataclass
@@ -708,23 +891,80 @@ class Network:
     node_ids: list
     ground: "Ground" = None
     pace: float = 1.0
+    land: Landscape = None
+
+
+def profile(seg: LineString, ground: Ground):
+    """Samples along a segment every SAMPLE_M: x, y and height."""
+    n = max(2, int(math.ceil(seg.length / SAMPLE_M)) + 1)
+    pts = [seg.interpolate(d) for d in np.linspace(0, seg.length, n)]
+    xs = np.array([p.x for p in pts])
+    ys = np.array([p.y for p in pts])
+    zs = ground.heights(xs, ys) if ground.known else np.zeros(n)
+    return xs, ys, zs
+
+
+def climb_of(zs) -> tuple[float, float]:
+    dz = np.diff(zs)
+    return float(dz[dz > 0].sum()), float(-dz[dz < 0].sum())
+
+
+def climb(seg: LineString, ground: Ground) -> tuple[float, float]:
+    """Ascent and descent along a segment, from u to v, in metres."""
+    if not ground.known:
+        return 0.0, 0.0
+    return climb_of(profile(seg, ground)[2])
+
+
+def add_segment(G, net_lines, xy, eid, seg, kind, oid, tags, ground,
+                land, pace, marked_ok=True):
+    """One segment, both ways, with its time, its kind and how rich."""
+    u, v = _key(seg.coords[0]), _key(seg.coords[-1])
+    xy[u], xy[v] = seg.coords[0], seg.coords[-1]
+    xs, ys, zs = profile(seg, ground)
+    up, down = climb_of(zs)
+    q, kinds = land.quality(seg, xs, ys, zs)
+    # a marked trail on a minor road or a track is a path
+    road = kind == "main" or (kind == "minor"
+                              and not (marked_ok and kinds["marked"]
+                                       > 0.5 * seg.length))
+    net_lines[eid] = seg
+    for a, b, rise, fall, d in ((u, v, up, down, 1), (v, u, down, up, -1)):
+        t = din_minutes(seg.length, rise, fall) * pace
+        old = G.get_edge_data(a, b)
+        if old is None or way_cost(old, 0.0) > way_cost(
+                {"time": t, "road": road, "q": q}, 0.0):
+            G.add_edge(a, b, eid=eid, dir=d, time=t, road=road, q=q,
+                       kinds=kinds, length=seg.length, up=rise, down=fall,
+                       highway=tags.get("highway"), name=tags.get("name"),
+                       osm=oid)
+
+
+def way_cost(d: dict, lam: float) -> float:
+    """What a segment weighs: a road outweighs any path; on a path,
+    the walking time, lightened by how rich the path is."""
+    w = d["time"] * (ROAD_PENALTY if d["road"] else
+                     (1.0 - lam * d["q"]))
+    return w * d.get("alt", 1.0)
 
 
 def build_network(ways, ground: Ground, party: Party,
-                  strip, places: list[Place]) -> Network:
+                  strip, land: Landscape) -> Network:
     marked = []
-    parts = []                   # (LineString, tags, osm_id, factor)
+    parts = []                   # (LineString, tags, osm_id, kind)
     for w in ways:
         if w.tags.get("route") in ("hiking", "foot") and \
                 not w.tags.get("highway"):
             marked.append(w.geom)
             continue
-        f = walkable(w.tags, party)
-        if f is None:
+        kind = walkable(w.tags, party)
+        if kind is None:
             continue
         for ls in w.geom.geoms:
             if len(ls.coords) >= 2:
-                parts.append((ls, w.tags, w.osm_id, f))
+                parts.append((ls, w.tags, w.osm_id, kind))
+    land.marked = unary_union(marked).buffer(10) if marked else None
+    land.prepare()
 
     # Nodes where ways meet: any vertex used by two or more lines,
     # and every line's ends.
@@ -736,14 +976,11 @@ def build_network(ways, ground: Ground, party: Party,
             if k not in seen:
                 count[k] = count.get(k, 0) + 1
                 seen.add(k)
-    marked_u = unary_union(marked).buffer(10) if marked else None
-    places_u = (unary_union([p.geom for p in places]).buffer(ENCOUNTER_M)
-                if places else None)
 
     G = nx.DiGraph()
     xy, lines = {}, {}
     eid = 0
-    for ls, tags, oid, factor in parts:
+    for ls, tags, oid, kind in parts:
         coords = list(ls.coords)
         start = 0
         for i in range(1, len(coords)):
@@ -755,32 +992,11 @@ def build_network(ways, ground: Ground, party: Party,
                     continue
                 if strip is not None and seg.intersects(strip):
                     continue
-                u, v = _key(seg.coords[0]), _key(seg.coords[-1])
-                if u == v:
+                if _key(seg.coords[0]) == _key(seg.coords[-1]):
                     continue
-                xy[u], xy[v] = seg.coords[0], seg.coords[-1]
-                up, down = climb(seg, ground)
-                f = factor
-                if marked_u is not None and seg.within(marked_u):
-                    if f <= MARKED_CAP_UPTO:
-                        f = min(f, MARKED_ROAD_CAP)
-                    f *= MARKED_FACTOR
-                if places_u is not None and seg.intersects(places_u):
-                    f *= ENCOUNTER_FACTOR
-                f = max(f, MIN_FACTOR)
                 eid += 1
-                lines[eid] = seg
-                for a, b, rise, fall, d in ((u, v, up, down, 1),
-                                           (v, u, down, up, -1)):
-                    t = din_minutes(seg.length, rise, fall) * party.pace
-                    cost = t * f
-                    old = G.get_edge_data(a, b)
-                    if old is None or old["cost"] > cost:
-                        G.add_edge(a, b, eid=eid, dir=d, time=t,
-                                   cost=cost, factor=f, length=seg.length,
-                                   up=rise, down=fall,
-                                   highway=tags.get("highway"),
-                                   name=tags.get("name"), osm=oid)
+                add_segment(G, lines, xy, eid, seg, kind, oid, tags,
+                            ground, land, party.pace)
     if G.number_of_nodes() == 0:
         sys.exit("stage_planner: no walkable paths in this area")
     # Keep the largest connected part, so a snap never lands on an
@@ -789,19 +1005,7 @@ def build_network(ways, ground: Ground, party: Party,
     G = G.subgraph(biggest).copy()
     node_ids = list(G.nodes)
     tree = STRtree([Point(xy[n]) for n in node_ids])
-    return Network(G, xy, lines, tree, node_ids, ground, party.pace)
-
-
-def climb(seg: LineString, ground: Ground) -> tuple[float, float]:
-    """Ascent and descent along a segment, from u to v, in metres."""
-    if not ground.known:
-        return 0.0, 0.0
-    n = max(2, int(math.ceil(seg.length / SAMPLE_M)) + 1)
-    pts = [seg.interpolate(d) for d in np.linspace(0, seg.length, n)]
-    z = ground.heights(np.array([p.x for p in pts]),
-                       np.array([p.y for p in pts]))
-    dz = np.diff(z)
-    return float(dz[dz > 0].sum()), float(-dz[dz < 0].sum())
+    return Network(G, xy, lines, tree, node_ids, ground, party.pace, land)
 
 
 def snap(net: Network, p: Point) -> tuple:
@@ -822,33 +1026,22 @@ def snap(net: Network, p: Point) -> tuple:
         return u, off + d
     if line.length - d < 2.0:
         return v, off + line.length - d
-    # the attributes of the path, either way it was kept
-    fwd, back = G.get_edge_data(u, v), G.get_edge_data(v, u)
-    if fwd is None or fwd["eid"] != e:
-        fwd = None
-    if back is None or back["eid"] != e:
-        back = None
-    base = fwd or back
+    data = [G[x][y] for x, y in ((u, v), (v, u))
+            if G.has_edge(x, y) and G[x][y]["eid"] == e]
+    base = data[0]
     w = _key((on.x, on.y))
     net.xy[w] = (on.x, on.y)
-    first, second = substring(line, 0, d), substring(line, d, line.length)
     for x, y in ((u, v), (v, u)):
         if G.has_edge(x, y) and G[x][y]["eid"] == e:
             G.remove_edge(x, y)
-    for seg in (first, second):
-        a, b = _key(seg.coords[0]), _key(seg.coords[-1])
-        up, down = climb(seg, net.ground)
+    kind = "main" if base["road"] and base["highway"] in MAIN_ROADS else \
+        ("minor" if base["road"] else "path")
+    for seg in (substring(line, 0, d), substring(line, d, line.length)):
         new = max(net.lines) + 1
-        net.lines[new] = seg
-        for x, y, rise, fall, dr, kept in ((a, b, up, down, 1, fwd),
-                                           (b, a, down, up, -1, back)):
-            if kept is None:
-                continue
-            t = din_minutes(seg.length, rise, fall) * net.pace
-            G.add_edge(x, y, **{**base, "eid": new, "dir": dr, "time": t,
-                                "cost": t * base["factor"],
-                                "length": seg.length, "up": rise,
-                                "down": fall})
+        add_segment(G, net.lines, net.xy, new, seg, kind, base["osm"],
+                    {"highway": base["highway"], "name": base["name"]},
+                    net.ground, net.land, net.pace,
+                    marked_ok=not base["road"])
     net.node_ids.append(w)
     net.tree = STRtree([Point(net.xy[n]) for n in net.node_ids])
     return w, off
@@ -868,12 +1061,39 @@ class Route:
     legs: list                   # per edge: highway, name, osm
 
 
-def route_between(net: Network, a, b, weight="cost") -> Route | None:
+def route_between(net: Network, a, b, lam: float = 0.0) -> Route | None:
+    """The way between two nodes for one weight of richness, lam: 0
+    is the most direct way on paths, 1 the richest the paths allow."""
     try:
-        nodes = nx.dijkstra_path(net.G, a, b, weight=weight)
+        nodes = nx.dijkstra_path(net.G, a, b,
+                                 weight=lambda u, v, d: way_cost(d, lam))
     except nx.NetworkXNoPath:
         return None
     return make_route(net, nodes)
+
+
+def the_way(net: Network, a, b, allowance: float) -> tuple:
+    """The richest way within the allowance: the most direct way on
+    paths first, then the weight of richness raised as far as the
+    walk stays within (1 + allowance) of it. Returns the way, the
+    most direct way, and the weight used."""
+    direct = route_between(net, a, b, 0.0)
+    if direct is None:
+        return None, None, 0.0
+    budget = direct.minutes * (1.0 + allowance)
+    best, best_lam = direct, 0.0
+    richest = route_between(net, a, b, 1.0)
+    if richest.minutes <= budget:
+        return richest, direct, 1.0
+    lo, hi = 0.0, 1.0
+    for _ in range(8):
+        lam = (lo + hi) / 2
+        r = route_between(net, a, b, lam)
+        if r.minutes <= budget:
+            best, best_lam, lo = r, lam, lam
+        else:
+            hi = lam
+    return best, direct, best_lam
 
 
 def make_route(net: Network, nodes: list) -> Route:
@@ -890,9 +1110,21 @@ def make_route(net: Network, nodes: list) -> Route:
         up += e["up"]
         down += e["down"]
         along.setdefault(b, (length, minutes))
-        legs.append({k: e[k] for k in ("highway", "name", "osm")})
+        legs.append({k: e[k] for k in ("highway", "name", "osm", "road",
+                                         "kinds", "length")})
     return Route(nodes, LineString(coords), length, minutes, up, down,
                  along, legs)
+
+
+def what_the_way_holds(r: Route) -> dict:
+    """Kilometres on roads, on marked trails, over the plai, in
+    forest and over meadows."""
+    km = lambda m: round(m / 1000, 1)
+    roads = sum(l["length"] for l in r.legs if l["road"])
+    out = {"roads_km": km(roads)}
+    for k in ("marked", "plai", "forest", "meadow"):
+        out[f"{k}_km"] = km(sum(l["kinds"][k] for l in r.legs))
+    return out
 
 
 def reach_points(r: Route, a_pt: Point, b_pt: Point):
@@ -911,7 +1143,7 @@ def reach_points(r: Route, a_pt: Point, b_pt: Point):
     r.minutes += extra / OFF_PATH_M_PER_MIN
 
 
-def alternatives(net: Network, a, b, best: Route, n: int,
+def alternatives(net: Network, a, b, best: Route, n: int, lam: float,
                  penalty=1.5, max_shared=0.6) -> list[Route]:
     """Make the edges already used dearer and route again; keep a
     candidate that shares less than max_shared of its length with
@@ -926,16 +1158,16 @@ def alternatives(net: Network, a, b, best: Route, n: int,
             for u, v in zip(last.nodes, last.nodes[1:]):
                 for x, y in ((u, v), (v, u)):
                     if G.has_edge(x, y):
-                        saved.setdefault((x, y), G[x][y]["cost"])
-                        G[x][y]["cost"] *= penalty
-            last = route_between(net, a, b)
+                        saved.setdefault((x, y), G[x][y].get("alt", 1.0))
+                        G[x][y]["alt"] = G[x][y].get("alt", 1.0) * penalty
+            last = route_between(net, a, b, lam)
             if last is None:
                 break
             if all(shared(net, last, r) < max_shared for r in found):
                 found.append(last)
     finally:
         for (x, y), c in saved.items():
-            G[x][y]["cost"] = c
+            G[x][y]["alt"] = c
     return found[1:]
 
 
@@ -1258,8 +1490,13 @@ def criteria(args) -> dict:
     return {"version": VERSION, "party": args.party,
             "pace": PARTY[args.party].pace,
             "din_33466": [DIN_FLAT_KMH, DIN_UP_MH, DIN_DOWN_MH],
-            "highway_factor": HIGHWAY_FACTOR,
-            "marked": MARKED_FACTOR, "encounter": ENCOUNTER_FACTOR,
+            "road_penalty": ROAD_PENALTY,
+            "allowance": args.allowance,
+            "quality": {"marked": Q_MARKED, "plai": Q_PLAI,
+                        "plai_min_ele": PLAI_MIN_ELE, "forest": Q_FOREST,
+                        "meadow": Q_MEADOW, "places": Q_PLACE,
+                        "plai_place": Q_PLAI_PLACE,
+                        "farmstead": Q_FARMSTEAD, "max": Q_MAX},
             "border_strip_m": (None if args.allow_border_strip
                                else BORDER_STRIP_M),
             "band_minutes": list(BAND_MINUTES), "reach_min": args.reach}
@@ -1407,7 +1644,8 @@ def cmd_route(args) -> int:
         src = FileSource(Path(args.paths),
                          Path(args.places) if args.places else None,
                          Path(args.border_strip) if args.border_strip
-                         else None)
+                         else None,
+                         Path(args.areas) if args.areas else None)
         dem = Path(args.dem) if args.dem else None
 
     a_pt, b_pt = resolve(src, args.start), resolve(src, args.end)
@@ -1441,7 +1679,13 @@ def cmd_route(args) -> int:
         notices.append("No ground heights: times are for the flat")
 
     places = list(src.osm_places(bbox)) + list(src.plai_places(bbox))
-    net = build_network(src.ways(bbox), ground, party, strip, places)
+    land = src.landscape(bbox, ground)
+    land.points += [(pl.geom, Q_PLAI_PLACE if pl.source == "plai"
+                     else Q_PLACE.get(pl.kind, 0.3)) for pl in places]
+    if land.canopy is not None and land.canopy.known:
+        notices.append("Forest and open land: canopy height from the "
+                       "ground and surface models")
+    net = build_network(src.ways(bbox), ground, party, strip, land)
     a, a_off = snap(net, a_pt)
     b, b_off = snap(net, b_pt)
     for label, off in (("start", a_off), ("end", b_off)):
@@ -1449,14 +1693,14 @@ def cmd_route(args) -> int:
             print(f"stage_planner: the {label} is {off:.0f} m from the "
                   "nearest path — check the point", file=sys.stderr)
 
-    best = route_between(net, a, b)
+    best, direct, lam = the_way(net, a, b, args.allowance)
     if best is None:
         sys.exit("stage_planner: no route between these two points "
                  "with this party's limits")
-    routes = [best] + alternatives(net, a, b, best, args.alternatives)
-    fastest = route_between(net, a, b, weight="time")
+    routes = [best] + alternatives(net, a, b, best, args.alternatives,
+                                   lam)
     # The last metres off the path, drawn to the points themselves.
-    for r in routes + [fastest]:
+    for r in routes + [direct]:
         reach_points(r, a_pt, b_pt)
 
     dist, origin = reach_from(net, best, max(BAND_MINUTES[-1],
@@ -1477,14 +1721,16 @@ def cmd_route(args) -> int:
         "route": {"km": round(best.length / 1000, 2),
                   "time": hm(best.minutes),
                   "up_m": round(best.up), "down_m": round(best.down)},
+        "the_way": what_the_way_holds(best),
         "alternatives": [{"km": round(r.length / 1000, 2),
                           "time": hm(r.minutes), "up_m": round(r.up),
-                          "down_m": round(r.down)} for r in routes[1:]],
-        # What the criteria cost: the quickest way, for the Curator
-        # to weigh against the route the criteria chose.
-        "fastest": {"km": round(fastest.length / 1000, 2),
-                    "time": hm(fastest.minutes), "up_m": round(fastest.up),
-                    "down_m": round(fastest.down)},
+                          "down_m": round(r.down),
+                          **what_the_way_holds(r)} for r in routes[1:]],
+        # The reference the allowance is measured against.
+        "direct": {"km": round(direct.length / 1000, 2),
+                   "time": hm(direct.minutes),
+                   "allowance": args.allowance,
+                   "richness_weight": round(lam, 3)},
         "snap_m": {"start": round(a_off), "end": round(b_off)},
         "notices": notices,
         "stored": "nothing — saving a stretch is the Curator's, on Plai",
@@ -1502,19 +1748,15 @@ def cmd_route(args) -> int:
           f"↓{s['down_m']} m ({args.party})")
     print(f"  start {a_off:.0f} m and end {b_off:.0f} m from the "
           "nearest path")
-    on_roads = sum(net.lines[net.G[u][v]["eid"]].length
-                   for u, v in zip(best.nodes, best.nodes[1:])
-                   if (HIGHWAY_FACTOR.get(net.G[u][v]["highway"],
-                                          UNKNOWN_HIGHWAY_FACTOR) or 99)
-                   >= UNKNOWN_HIGHWAY_FACTOR)
-    print(f"  on roads for vehicles: {on_roads / 1000:.1f} km of "
-          f"{best.length / 1000:.1f}")
+    w = summary["the_way"]
+    print(f"  the way: {w['marked_km']} km on marked trails, "
+          f"{w['plai_km']} km over the plai, {w['forest_km']} km in "
+          f"forest, {w['meadow_km']} km over meadows; "
+          f"{w['roads_km']} km on roads for vehicles")
     for i, r in enumerate(summary["alternatives"], 1):
         print(f"  alternative {i}: {r['km']} km, {r['time']}, "
-              f"↑{r['up_m']} m ↓{r['down_m']} m")
-    f = summary["fastest"]
-    print(f"  quickest way: {f['km']} km, {f['time']}, ↑{f['up_m']} m "
-          f"↓{f['down_m']} m")
+              f"↑{r['up_m']} m ↓{r['down_m']} m — {r['marked_km']} km "
+              f"marked, {r['plai_km']} km plai, {r['roads_km']} km roads")
     print(f"Places within {args.reach:g} min of the route: {len(found)}")
     for p in found:
         print(describe(p))
@@ -1536,6 +1778,9 @@ def main(argv=None) -> int:
     r.add_argument("--reach", type=float, default=10.0,
                    help="minutes off the route to list places (5 to 10)")
     r.add_argument("--alternatives", type=int, default=2)
+    r.add_argument("--allowance", type=float, default=WAY_ALLOWANCE,
+                   help="how much more walking the way may take than "
+                        "the most direct way on paths (0.5 = half again)")
     r.add_argument("--audience", choices=("public", "curator"),
                    default="public",
                    help="public lists no host; curator lists them")
@@ -1549,6 +1794,7 @@ def main(argv=None) -> int:
     r.add_argument("--paths", help="files: GeoJSON of ways, EPSG:4326")
     r.add_argument("--places", help="files: GeoJSON of places")
     r.add_argument("--border-strip", help="files: GeoJSON polygon")
+    r.add_argument("--areas", help="files: land cover polygons, OSM tags")
     r.add_argument("--dem", help="GeoTIFF of ground heights, EPSG:3035")
     r.add_argument("--out", default="route.geojson")
     r.add_argument("--html", help="also write a map preview here")

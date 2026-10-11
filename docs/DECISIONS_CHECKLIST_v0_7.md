@@ -186,6 +186,13 @@ manual v0.4, prompt v0.29.*
       after the first run, his word the same day: hiking paths
       first, roads for vehicles only when there is no other way. →
       spec v0.3 §3, §9; prompt v0.64 §6; engine v0.5.
+- ☑ **The pathway is the way.** Not the quickest or the shortest:
+      the least road first, then the richest way on paths — marked
+      trails, plai, forest, meadows, the places passed, what stewards
+      find — within an allowance; time a limit, never the measure.
+      *Michel's word, October 11, 2026.* → spec v0.3 §3; prompt v0.64
+      §6; engine v0.6. Open: the weights, Claude's proposal, until
+      Michel has looked at a corridor drawn with them.
 - ☑ **SP-5 — The first real run.** Verkhovyna – Zhyva Khata – Tepla
       Gora – Kosiv: three stretches joined as a corridor. *Michel's
       word, October 11, 2026.* → spec v0.3 §9; start prompt v0.2,

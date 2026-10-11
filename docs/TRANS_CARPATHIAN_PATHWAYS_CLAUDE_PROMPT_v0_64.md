@@ -990,11 +990,19 @@ flat, 300 m/h ascent, 500 m/h descent; segment time = the larger
 of the horizontal and vertical times plus half the smaller. The
 party scales it; the Curator sets the scale.
 
-**Criteria:** hiking paths first; roads for vehicles only when
-there is no other way (Michel's word after the first run, October
-11, 2026) — a road counts four to fifteen times its walking time,
-trunk roads are not walked, a marked trail is a path unless it runs
-on a main road; a marked trail and passing near a place preferred a
+**The measure — the pathway is the way (Michel's word, October 11,
+2026, after the first corridor):** "It's not a question of saving
+time or taking the shortest path ... the pathway is the way." The
+planner seeks the least road for vehicles first — roads only where
+no path joins, a rule — then the richest way on paths within an
+allowance over the most direct way on paths: marked trails, the
+plai over open high ground, forest away from settlements, meadows,
+and the places passed, stewards' finds included. Time is reported
+as a limit, never the measure. Weights are Claude's proposal until
+Michel has looked at a corridor drawn with them (engine v0.6).
+
+**Criteria besides:** trunk roads are not walked, a marked trail is
+a path unless it runs on a main road; a marked trail and passing near a place preferred a
 little — "the logic of encounter, not just efficiency"; the
 party's SAC grade and trail visibility as limits; never inside
 the border strip (S-8); never an air-raid shelter listed. The time
@@ -1221,6 +1229,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.64, amended 2026-10-11 — the pathway is the way, Michel's word: the least road, then the richest way on paths within an allowance; time a limit, never the measure; engine v0.6.
 - v0.64, amended 2026-10-11 — after the first run (Verkhovyna – Zhiva Khata – Tepla Gora – Kosiv, 46 km), Michel's word: hiking paths first, roads for vehicles only when there is no other way; engine v0.5.
 - v0.64, amended 2026-10-11 — what a start or end may be, Michel's word: a host's name, a Plai place, an OSM place, coordinates or a point on the map; a route to a host ends at its published point.
 - v0.64, amended 2026-10-11 — the engine at v0.4 after the first run on ubec-common: Latin names find Cyrillic ones, `find`.

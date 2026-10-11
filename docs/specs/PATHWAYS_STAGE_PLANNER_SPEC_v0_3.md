@@ -81,10 +81,24 @@ every rule and number. In short:
   `reference_sa.osm_line`, read across, never joined.
 - **Time:** DIN 33466 from GEDTM30 ground heights, per direction;
   the party scales it.
-- **Criteria:** hiking paths first; roads for vehicles only when
-  there is no other way (a road counts four to fifteen times its
-  walking time; trunk roads are not walked; a marked trail is a
-  path, unless it runs on a main road); a marked trail and
+- **The measure — the pathway is the way.** *Michel's word,
+  October 11, 2026, after the first corridor:* "It's not a question
+  of saving time or taking the shortest path ... the pathway is the
+  way." So the planner seeks, in order: the least road for vehicles
+  — roads only where no path joins the two ends, a rule, not a
+  trade; then, on paths, the richest way within an allowance (half
+  again the most direct way on paths, proposed): marked trails, the
+  old plai over open high ground, forest away from settlements,
+  meadows, and the places passed — springs, chapels and crosses,
+  viewpoints, waterfalls, hosts, farmsteads, and whatever stewards
+  find when they walk the path and enter on Plai. Forest and open
+  land come from the canopy height (surface minus ground) beside the
+  ground model. Time is reported, as a limit, never as the measure;
+  the "quickest way" is no longer shown. The weights are Claude's
+  proposal until Michel has looked at a corridor drawn with them
+  (engine v0.6).
+- **Criteria besides:** trunk roads are not walked; a marked trail
+  is a path, unless it runs on a main road; a marked trail and
   passing near a place preferred a little; the party's SAC grade
   and trail visibility; never inside the five-kilometre border
   strip (S-8); never an air-raid shelter listed.
@@ -283,6 +297,9 @@ built, until Michel says to revise them (SP-6):
 
 ## Changelog
 
+- v0.3, amended 2026-10-11 — §3, the measure, Michel's word: the
+  pathway is the way — the least road, then the richest way on paths
+  within an allowance; time a limit, never the measure.
 - v0.3, amended 2026-10-11 — SP-4 changed after the first run, on
   Michel's word: hiking paths first, roads for vehicles only when
   there is no other way.

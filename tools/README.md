@@ -1,6 +1,6 @@
 # tools/
 
-## stage_planner.py — `route`, `corridor` and `find`, v0.5
+## stage_planner.py — `route`, `corridor` and `find`, v0.6
 
 The stage planner (starting prompt §6; spec
 `docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_3.md`). Public, on
@@ -25,6 +25,12 @@ and the GEDTM30 credit.
 `--audience public` (the default) names published hosts with their
 detour time only (SP-3); `--audience
 curator` lists them in full, for the Curator's own planning.
+
+The measure is the way, not the time (Michel's word, October 11,
+2026): the least road for vehicles first, then the richest way on
+paths within `--allowance` (0.5: up to half again the most direct
+way on paths). Each run says what the way holds — km on marked
+trails, over the plai, in forest, over meadows, and on roads.
 
 ### Test, anywhere
 

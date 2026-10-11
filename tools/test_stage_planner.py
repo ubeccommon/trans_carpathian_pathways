@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Trans-Carpathian Pathways — tests for the stage planner, v0.4
+# Trans-Carpathian Pathways — tests for the stage planner, v0.6
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """A made-up valley near Verkhovyna, built in a temporary folder:
 a secondary road on the valley floor, contour paths on both slopes
@@ -140,7 +140,48 @@ def assert_geojson(fc: dict):
         assert g is None or g["type"] in GEOJSON_TYPES, g and g["type"]
 
 
+def tiny_network(edges):
+    """A network by hand: (u, v, minutes, q, road) both ways."""
+    import networkx as nx
+    from shapely.geometry import LineString
+    G, lines, xy = nx.DiGraph(), {}, {}
+    pos = {"A": (0, 0), "B": (1000, 0), "S": (500, 400), "R": (500, -10),
+           "P": (500, -500)}
+    for i, (u, v, t, q, road) in enumerate(edges, 1):
+        lines[i] = LineString([pos[u], pos[v]])
+        xy[u], xy[v] = pos[u], pos[v]
+        for a, b, d in ((u, v, 1), (v, u, -1)):
+            G.add_edge(a, b, eid=i, dir=d, time=t, q=q, road=road,
+                       kinds={"marked": 0, "plai": 0, "forest": 0,
+                              "meadow": 0},
+                       length=lines[i].length, up=0, down=0,
+                       highway="path", name=None, osm=str(i))
+    return sp.Network(G, xy, lines, None, list(G.nodes))
+
+
+def test_the_way():
+    # direct path A-B 60 min, plain; scenic A-S-B 80 min, rich
+    net = tiny_network([("A", "B", 60, 0.0, False),
+                        ("A", "S", 40, 0.6, False),
+                        ("S", "B", 40, 0.6, False)])
+    way, direct, _ = sp.the_way(net, "A", "B", 0.5)
+    assert direct.nodes == ["A", "B"] and way.nodes == ["A", "S", "B"]
+    way, _, _ = sp.the_way(net, "A", "B", 0.2)      # 80 > 72: too far
+    assert way.nodes == ["A", "B"], way.nodes
+    # a road of 10 minutes against a path of 200: the path, always
+    net = tiny_network([("A", "R", 5, 0.0, True), ("R", "B", 5, 0.0, True),
+                        ("A", "P", 100, 0.0, False),
+                        ("P", "B", 100, 0.0, False)])
+    way, direct, _ = sp.the_way(net, "A", "B", 0.0)
+    assert way.nodes == ["A", "P", "B"], way.nodes
+    # and a road where nothing else joins
+    net = tiny_network([("A", "R", 5, 0.0, True), ("R", "B", 5, 0.0, True)])
+    way, _, _ = sp.the_way(net, "A", "B", 0.5)
+    assert way.nodes == ["A", "R", "B"]
+
+
 def main() -> int:
+    test_the_way()
     # DIN 33466 by hand
     assert sp.din_minutes(4000, 0, 0) == 60
     assert sp.din_minutes(0, 300, 0) == 60
@@ -190,6 +231,11 @@ def main() -> int:
         assert any(x["properties"]["role"] == "boundary" for x in f)
         assert_geojson(fc)
         assert sp.OSM_NOTICE in fc["properties"]["notices"]
+        # the way stays within its allowance over the most direct way
+        d = fc["properties"]["direct"]
+        hmin = lambda t: int(t.split(":")[0]) * 60 + int(t.split(":")[1])
+        assert hmin(fc["properties"]["route"]["time"]) <= \
+            hmin(d["time"]) * (1 + d["allowance"]) + 2, (fc["properties"])
         assert fc["properties"]["stored"].startswith("nothing")
         assert fc["properties"]["stretch"]["criteria"]["party"] == "couple"
 
