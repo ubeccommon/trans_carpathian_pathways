@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Trans-Carpathian Pathways — tests for the stage planner, v0.11
+# Trans-Carpathian Pathways — tests for the stage planner, v0.12
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """A made-up valley near Verkhovyna, built in a temporary folder:
 a secondary road on the valley floor, contour paths on both slopes
@@ -174,11 +174,12 @@ def test_the_way():
                         ("A", "P", 20, 0.0, 0), ("P", "B", 20, 0.0, 0)])
     way, direct, _ = sp.the_way(net, "A", "B", 0.0)
     assert way.nodes == ["A", "P", "B"], way.nodes
-    # against 200 on a path: a short road linking paths is walked
+    # against 200 on a path: still the path — these 1,000 m of road
+    # are no short link between paths, and roads are the last resort
     net = tiny_network([("A", "R", 5, 0.0, R), ("R", "B", 5, 0.0, R),
                         ("A", "P", 100, 0.0, 0), ("P", "B", 100, 0.0, 0)])
     way, _, _ = sp.the_way(net, "A", "B", 0.0)
-    assert way.nodes == ["A", "R", "B"], way.nodes
+    assert way.nodes == ["A", "P", "B"], way.nodes
     # and a road where nothing else joins
     net = tiny_network([("A", "R", 5, 0.0, R), ("R", "B", 5, 0.0, R)])
     way, _, _ = sp.the_way(net, "A", "B", 0.5)
@@ -276,6 +277,21 @@ def test_roads_last_resort():
     assert r.length > 1800 and not roads, (r.length, roads)
     r, roads = way(800, detour=False)
     assert len(roads) == 1 and not roads[0]["link"], roads
+    # 600 m of road joined by a side track every 100 m is still one run
+    # of 600 m, not six links: the long way round on a path is taken
+    ways = [W("p1", [(0, 0), (400, 0)], highway="path"),
+            W("r", [(x, 0) for x in range(400, 1001, 100)],
+              highway="unclassified"),
+            W("p2", [(1000, 0), (1400, 0)], highway="path"),
+            W("round", [(0, 0), (700, 2400), (1400, 0)], highway="path")]
+    ways += [W(f"t{x}", [(x, 0), (x, -150)], highway="track")
+             for x in range(500, 1000, 100)]
+    net = sp.build_network(ways, sp.Ground(None, (-100, -300, 1500, 2500)),
+                           sp.PARTY["couple"], None, sp.Landscape())
+    a, _ = sp.snap(net, sp.Point(0, 0))
+    b, _ = sp.snap(net, sp.Point(1400, 0))
+    r, _, _ = sp.the_way(net, a, b, 0.5)
+    assert r.length > 4000 and not sp.road_links_on(net, r), r.length
 
 
 def test_through_town():

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Trans-Carpathian Pathways — stage planner, `route`, `corridor`, `find` and `inspect`, v0.11
+# Trans-Carpathian Pathways — stage planner, `route`, `corridor`, `find` and `inspect`, v0.12
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """Stage planner — one route from a start to an end, a fuzzy band
 along it, and the places a pilgrim can reach from it; and a
@@ -104,6 +104,12 @@ A corridor from stretches, each a file `route` wrote:
         stretch_1.geojson stretch_2.geojson --out corridor.geojson
 
 Changelog:
+  v0.12 — 2026-10-11 — a road link is measured on the route itself:
+         any continuous run of road longer than 300 m that a route
+         walks is weighed as the last resort and the way looked for
+         again. v0.10 measured junction to junction, so a 2,865 m
+         road joined every hundred metres by tracks and driveways
+         counted as a chain of short "links" (first real run).
   v0.11, amended 2026-10-11 — the preview says which version drew it.
   v0.11 — 2026-10-11 — towns and villages, Michel's word: inside a
          built-up area the direct way through on streets, to the next
@@ -198,7 +204,7 @@ from shapely.geometry import (LineString, MultiLineString, Point,
 from shapely.ops import substring, unary_union
 from shapely.strtree import STRtree
 
-VERSION = "0.11"
+VERSION = "0.12"
 
 # ── Criteria ───────────────────────────────────────────────────
 # The party's paces and limits, the band and the reach are as
@@ -1260,51 +1266,9 @@ def build_network(ways, ground: Ground, party: Party,
     # island the route cannot leave.
     biggest = max(nx.weakly_connected_components(G), key=len)
     G = G.subgraph(biggest).copy()
-    classify_roads(G)
     node_ids = list(G.nodes)
     tree = STRtree([Point(xy[n]) for n in node_ids])
     return Network(G, xy, lines, tree, node_ids, ground, party.pace, land)
-
-
-def classify_roads(G: nx.DiGraph) -> None:
-    """Each stretch of road between paths, junction to junction: a
-    link if at most ROAD_LINK_M long, a last resort if longer. A
-    stretch ends where a path meets it or where roads branch."""
-    from collections import defaultdict
-    path_nodes = set()
-    roads = {}                                   # eid -> (u, v, length)
-    for u, v, d in G.edges(data=True):
-        if d["road_kind_w"]:
-            roads[d["eid"]] = (u, v, d["length"])
-        else:
-            path_nodes.update((u, v))
-    adj = defaultdict(set)
-    for e, (u, v, _) in roads.items():
-        adj[u].add(e)
-        adj[v].add(e)
-    through = lambda n: n not in path_nodes and len(adj[n]) == 2
-    status, seen = {}, set()
-    for e0 in roads:
-        if e0 in seen:
-            continue
-        chain, stack = [e0], [e0]
-        seen.add(e0)
-        while stack:
-            e = stack.pop()
-            for n in roads[e][:2]:
-                if not through(n):
-                    continue
-                for nxt in adj[n] - seen:
-                    seen.add(nxt)
-                    chain.append(nxt)
-                    stack.append(nxt)
-        link = sum(roads[e][2] for e in chain) <= ROAD_LINK_M
-        for e in chain:
-            status[e] = link
-    for u, v, d in G.edges(data=True):
-        if d["road_kind_w"]:
-            d["link"] = status[d["eid"]]
-            d["road"] = d["road_kind_w"] if d["link"] else LAST_RESORT_WEIGHT
 
 
 def snap(net: Network, p: Point) -> tuple:
@@ -1367,15 +1331,56 @@ class Route:
     legs: list                   # per edge: highway, name, osm
 
 
+def road_runs(net: Network, nodes: list) -> list[list]:
+    """The continuous runs of road (outside towns) along a route,
+    each as its list of node pairs."""
+    runs, cur = [], []
+    for u, v in zip(nodes, nodes[1:]):
+        if net.G[u][v]["road"]:
+            cur.append((u, v))
+        elif cur:
+            runs.append(cur)
+            cur = []
+    if cur:
+        runs.append(cur)
+    return runs
+
+
 def route_between(net: Network, a, b, lam: float = 0.0) -> Route | None:
     """The way between two nodes for one weight of richness, lam: 0
-    is the most direct way on paths, 1 the richest the paths allow."""
+    is the most direct way on paths, 1 the richest the paths allow.
+
+    Roads are the last resort: a continuous run of road the route
+    walks that is longer than ROAD_LINK_M is weighed as the last
+    resort and the way looked for again, until every run left is a
+    short link between paths or there is no other way. Measured on
+    the route itself, so a long road is not cut into "links" by the
+    tracks and driveways that join it."""
+    G = net.G
+    weight = lambda u, v, d: way_cost(d, lam)
+    saved = {}
     try:
-        nodes = nx.dijkstra_path(net.G, a, b,
-                                 weight=lambda u, v, d: way_cost(d, lam))
-    except nx.NetworkXNoPath:
-        return None
-    return make_route(net, nodes)
+        for _ in range(12):
+            try:
+                nodes = nx.dijkstra_path(G, a, b, weight=weight)
+            except nx.NetworkXNoPath:
+                return None
+            new = False
+            for run in road_runs(net, nodes):
+                if sum(G[u][v]["length"] for u, v in run) <= ROAD_LINK_M:
+                    continue
+                for u, v in run:
+                    for x, y in ((u, v), (v, u)):
+                        if G.has_edge(x, y) and (x, y) not in saved:
+                            saved[(x, y)] = G[x][y]["road"]
+                            G[x][y]["road"] = LAST_RESORT_WEIGHT
+                            new = True
+            if not new:
+                break
+        return make_route(net, nodes)
+    finally:
+        for (x, y), w in saved.items():
+            G[x][y]["road"] = w
 
 
 def the_way(net: Network, a, b, allowance: float) -> tuple:
@@ -1433,15 +1438,17 @@ def road_links_on(net: Network, r: Route) -> list[dict]:
             if cur is None:
                 lon, lat = TO_4326.transform(*net.xy[u])
                 cur = {"m": 0.0, "lat": round(lat, 5), "lon": round(lon, 5),
-                       "link": bool(d.get("link")), "name": d.get("name")}
+                       "name": d.get("name")}
             cur["m"] += d["length"]
+            cur["name"] = cur["name"] or d.get("name")
         elif cur is not None:
-            cur["m"] = round(cur["m"])
             out.append(cur)
             cur = None
     if cur is not None:
-        cur["m"] = round(cur["m"])
         out.append(cur)
+    for c in out:
+        c["link"] = c["m"] <= ROAD_LINK_M
+        c["m"] = round(c["m"])
     return out
 
 
@@ -1463,7 +1470,15 @@ def what_the_way_holds(r: Route) -> dict:
     forest and over meadows."""
     km = lambda m: round(m / 1000, 1)
     roads = sum(l["length"] for l in r.legs if l["road"])
-    links = sum(l["length"] for l in r.legs if l["road"] and l["link"])
+    runs, cur = [], 0.0
+    for l in r.legs:
+        if l["road"]:
+            cur += l["length"]
+        elif cur:
+            runs.append(cur)
+            cur = 0.0
+    runs.append(cur)
+    links = sum(m for m in runs if 0 < m <= ROAD_LINK_M)
     town = sum(l["length"] for l in r.legs if l.get("urban"))
     out = {"roads_km": km(roads), "road_links_km": km(links),
            "last_resort_roads_km": km(roads - links),
