@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_58"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_59"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.58"
+version: "v0.59"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -550,7 +550,7 @@ word, the presentation is not for Kosiv: it presents the project,
 which is not only Kosiv, as an honest, comprehensive and concise
 overview, English first, Ukrainian to follow. Both were rewritten
 and moved from `docs/kosiv/` to `docs/overview/`. The handout,
-`docs/overview/PROJECT_OVERVIEW_v0_4.md`, is drawn from the white
+`docs/overview/PROJECT_OVERVIEW_v0_5.md`, is drawn from the white
 paper and the implementation plan and decides nothing: in brief,
 why now (with the white paper's sources), how it works,
 regeneration against sustainable development, across the arc (the
@@ -708,8 +708,12 @@ has not yet been read in the corridor. A document's sources are
 links; nothing loads from another server; the record on GitHub is
 linked, the repository being public since that morning. Recorded in
 `site/README.md` v0.9. Gate A of the landing page's own text still
-waits on his answers; the overview's "available on request" now
-contradicts the site.
+waits on his answers. The same morning, on his word: the menu in the
+logical order — About, Overview, Proposal, White paper, Co-creator
+agreement, Plai, Field writing, the same in both languages; the map
+link opens the Pathways application `ubec_plai_hub_tcp` on the
+corridor around Verkhovyna; and the overview v0.5 points to the site
+in place of "available on request".
 
 * * *
 
@@ -1134,6 +1138,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.59 — 2026-10-11 — the menu's order, the map link to the Pathways application, the overview v0.5 pointing to the site; Michel's word.
 - v0.58 — 2026-10-11 — the site's menu and the documents' pages, Michel's word: our own build, not Ghost.
 - v0.57 — 2026-10-11 — the starting prompt for the landing page.
 - v0.56 — 2026-10-11 — D-3, D-4, D-7 on Michel's word: the record

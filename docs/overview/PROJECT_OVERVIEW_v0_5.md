@@ -1,9 +1,9 @@
 ---
-title: "PROJECT_OVERVIEW_v0_4"
+title: "PROJECT_OVERVIEW_v0_5"
 subtitle: "Trans-Carpathian Pathways — project overview"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.4"
+version: "v0.5"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -154,11 +154,12 @@ The documents, the code and the record of every decision, with its date, are ope
 
 **Vasyl Yuskiv**, Zhyva Khata
 
-The white paper and proposal are available in English and Ukrainian on request. All project documents are published under CC BY-SA 4.0.
+The white paper, the proposal and the co-creator agreement are on the project's site, tcp.ubec.network, in English and Ukrainian. All project documents are published under CC BY-SA 4.0.
 
 * * *
 
 *Changelog*
+- v0.5 — 2026-10-11 — Michel's word: the white paper, the proposal and the co-creator agreement are on the project's site, in place of "available on request". Nothing else changed.
 - v0.4, amended 2026-10-11 — Michel's word: the record is public (D-3); the test of the concept runs with the public review (D-4); no ratings without consent (D-7).
 - v0.4 — 2026-10-10 — the public-drafts stress tests (docs/reviews/PUBLIC_DRAFTS_STRESS_TESTS_v0_1.md), corrections taken in: payment direct, Bukovel's hromada and the buyers line, the displaced apart from the second movement, data and consent stated as they are, hosts' conditions under Procedure 297, the Curator's choosing (S-9), the councils asked to pass word rather than names, the record described as it is. The deck's slides and its LibreOffice copy follow.
 - v0.3 — 2026-10-10 — Michel's word: the presentation is not for Kosiv; it presents the project, which is not only Kosiv, as an honest, comprehensive and concise overview. Renamed from the Kosiv handout and moved from `docs/kosiv/` to `docs/overview/`. "What it can mean for Kosiv" replaced by "Across the arc"; "Working in wartime, within the law", "What we have not solved" and "How we will know" added; "Still to come" became "Not yet", stating that no host is named, one person holds everything and the budget is not decided; the asks of the Department became asks of people in the mountains, partners, funders, and communities and institutions. Carries the Pilgrim of the Plai (prompt v0.48). The roadmap, a drawing in the doc, is a table here.
