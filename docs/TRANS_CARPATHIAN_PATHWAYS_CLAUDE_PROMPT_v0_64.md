@@ -993,12 +993,12 @@ party scales it; the Curator sets the scale.
 **The measure — the pathway is the way (Michel's word, October 11,
 2026, after the first corridor):** "It's not a question of saving
 time or taking the shortest path ... the pathway is the way." The
-planner seeks as little road for vehicles as the paths allow — a
-road weighs six times its walking time, a main road fifteen, so a
-short road linking two paths is walked (an absolute rule, tried
-first, sent the second corridor over a ridge rather than along 150 m
-of village road; Claude's proposal) — then the richest way on paths
-within an
+planner takes roads only as the last resort ("Roads are only the
+last resort", his word again the same afternoon): a road stretch
+between paths longer than 300 m is walked only where nothing else
+joins; a shorter one links two paths and is part of the way (the
+300 m Claude's proposal); every road stretch a route walks is named.
+Then the richest way on paths within an
 allowance over the most direct way on paths: footpaths first (the
 dotted brown line on Plai's map before the red line of a marked
 route, Michel's word the same day), then marked trails, the plai
@@ -1241,6 +1241,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.64, amended 2026-10-11 — roads the last resort, Michel's word; a road of up to 300 m linking two paths is part of the way; engine v0.10. Replaces the next.
 - v0.64, amended 2026-10-11 — a road weighed, not forbidden, so a short road linking two paths is walked; engine v0.9.
 - v0.64, amended 2026-10-11 — obvious connections joined up to 80 m, gaps listed for stewards, Michel's word; engine v0.8.
 - v0.64, amended 2026-10-11 — footpaths first, before marked routes, Michel's word; engine v0.7.

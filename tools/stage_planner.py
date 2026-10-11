@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Trans-Carpathian Pathways — stage planner, `route`, `corridor`, `find` and `inspect`, v0.9
+# Trans-Carpathian Pathways — stage planner, `route`, `corridor`, `find` and `inspect`, v0.10
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """Stage planner — one route from a start to an end, a fuzzy band
 along it, and the places a pilgrim can reach from it; and a
@@ -30,8 +30,8 @@ The criteria (starting prompt §6, §7; decisions S-8, S-15):
 
 - The pathway is the way (Michel's word, October 11, 2026): not the
   quickest or the shortest. Roads for vehicles only where no path
-  joins the two ends, or links two paths (`MINOR_ROAD_WEIGHT`,
-  `MAIN_ROAD_WEIGHT`); then, on paths, the
+  joins the two ends — roads are the last resort — save a short
+  road linking two paths (`ROAD_LINK_M`); then, on paths, the
   richest way — marked trails, the plai over open high ground,
   forest away from settlements, meadows, and the places passed —
   within `WAY_ALLOWANCE` more walking than the most direct way on
@@ -104,6 +104,11 @@ A corridor from stretches, each a file `route` wrote:
         stretch_1.geojson stretch_2.geojson --out corridor.geojson
 
 Changelog:
+  v0.10 — 2026-10-11 — roads the last resort, Michel's word again:
+         a road stretch between paths longer than 300 m is walked
+         only where nothing else joins; a shorter one links two paths
+         and is part of the way; every road stretch a route walks is
+         named, link or last resort.
   v0.9 — 2026-10-11 — a road is weighed, not forbidden: six times its
          walking time (a main road fifteen), so a short road linking
          two paths is walked. The absolute rule of v0.6 sent the
@@ -184,7 +189,7 @@ from shapely.geometry import (LineString, MultiLineString, Point,
 from shapely.ops import substring, unary_union
 from shapely.strtree import STRtree
 
-VERSION = "0.9"
+VERSION = "0.10"
 
 # ── Criteria ───────────────────────────────────────────────────
 # The party's paces and limits, the band and the reach are as
@@ -204,13 +209,18 @@ DIN_DOWN_MH = 500.0
 # pathway is the way." So the planner does not look for the quickest
 # route with paths made cheaper. It looks, in this order, for:
 #
-#   1. as little road for vehicles as the paths allow — a road
-#      weighs MINOR_ROAD_WEIGHT (a main road MAIN_ROAD_WEIGHT) times
-#      its walking time, so a short road linking two paths is walked
-#      and a long road is not where paths go round it. (An absolute
-#      rule, tried first, sent the second corridor over a ridge for
-#      kilometres rather than walk 150 m of village road between two
-#      paths at Verkhovyna.)
+#   1. roads only as the last resort — Michel's word again the same
+#      afternoon: "we are not looking for the shortest or fastest way
+#      to destination. Roads are only the last resort." A stretch of
+#      road between paths longer than ROAD_LINK_M is a last resort
+#      (LAST_RESORT_WEIGHT: walked only where nothing else joins). A
+#      shorter one — a village crossing, a few hundred metres along a
+#      river — is a link between two paths, part of the way of paths
+#      (MINOR_ROAD_WEIGHT, MAIN_ROAD_WEIGHT), and each link a route
+#      walks is named. (An absolute rule without links sent the
+#      second corridor over a ridge rather than along 150 m of road
+#      between two paths at Verkhovyna; a road weighed throughout, in
+#      v0.9, made roads a trade against time again.)
 #   2. among the ways on paths, the richest — marked trails, the old
 #      plai over open high ground, forest away from settlements,
 #      meadows, and the places passed: springs, chapels and crosses,
@@ -235,8 +245,10 @@ NEVER_WALKED = {"trunk", "trunk_link", "motorway", "motorway_link",
 # A highway value not listed is a road; a track of grade1 is paved, a
 # road. A marked hiking or foot route is a path wherever it follows a
 # minor road or a track; on a main road it is still a road.
-MINOR_ROAD_WEIGHT = 6.0      # a village, service or unclassified road
-MAIN_ROAD_WEIGHT = 15.0      # tertiary, secondary, primary
+ROAD_LINK_M = 300.0          # longest road stretch that links paths
+MINOR_ROAD_WEIGHT = 6.0      # a link on a village or service road
+MAIN_ROAD_WEIGHT = 15.0      # a link across or along a main road
+LAST_RESORT_WEIGHT = 1000.0  # any longer road: only if nothing else
 WAY_ALLOWANCE = 0.5          # up to half again the most direct way
 
 # How rich a path is, 0 to Q_MAX: each quality over the share of the
@@ -1103,7 +1115,8 @@ def add_segment(G, net_lines, xy, eid, seg, kind, oid, tags, ground,
         old = G.get_edge_data(a, b)
         if old is None or way_cost(old, 0.0) > way_cost(
                 {"time": t, "road": road, "q": q}, 0.0):
-            G.add_edge(a, b, eid=eid, dir=d, time=t, road=road, q=q,
+            G.add_edge(a, b, eid=eid, dir=d, time=t, road=road,
+                       road_kind_w=road, link=False, q=q,
                        kinds=kinds, length=seg.length, up=rise, down=fall,
                        highway=tags.get("highway"), name=tags.get("name"),
                        osm=oid)
@@ -1174,9 +1187,51 @@ def build_network(ways, ground: Ground, party: Party,
     # island the route cannot leave.
     biggest = max(nx.weakly_connected_components(G), key=len)
     G = G.subgraph(biggest).copy()
+    classify_roads(G)
     node_ids = list(G.nodes)
     tree = STRtree([Point(xy[n]) for n in node_ids])
     return Network(G, xy, lines, tree, node_ids, ground, party.pace, land)
+
+
+def classify_roads(G: nx.DiGraph) -> None:
+    """Each stretch of road between paths, junction to junction: a
+    link if at most ROAD_LINK_M long, a last resort if longer. A
+    stretch ends where a path meets it or where roads branch."""
+    from collections import defaultdict
+    path_nodes = set()
+    roads = {}                                   # eid -> (u, v, length)
+    for u, v, d in G.edges(data=True):
+        if d["road_kind_w"]:
+            roads[d["eid"]] = (u, v, d["length"])
+        else:
+            path_nodes.update((u, v))
+    adj = defaultdict(set)
+    for e, (u, v, _) in roads.items():
+        adj[u].add(e)
+        adj[v].add(e)
+    through = lambda n: n not in path_nodes and len(adj[n]) == 2
+    status, seen = {}, set()
+    for e0 in roads:
+        if e0 in seen:
+            continue
+        chain, stack = [e0], [e0]
+        seen.add(e0)
+        while stack:
+            e = stack.pop()
+            for n in roads[e][:2]:
+                if not through(n):
+                    continue
+                for nxt in adj[n] - seen:
+                    seen.add(nxt)
+                    chain.append(nxt)
+                    stack.append(nxt)
+        link = sum(roads[e][2] for e in chain) <= ROAD_LINK_M
+        for e in chain:
+            status[e] = link
+    for u, v, d in G.edges(data=True):
+        if d["road_kind_w"]:
+            d["link"] = status[d["eid"]]
+            d["road"] = d["road_kind_w"] if d["link"] else LAST_RESORT_WEIGHT
 
 
 def snap(net: Network, p: Point) -> tuple:
@@ -1213,6 +1268,13 @@ def snap(net: Network, p: Point) -> tuple:
                     {"highway": base["highway"], "name": base["name"]},
                     net.ground, net.land, net.pace,
                     marked_ok=not base["road"])
+        # the halves keep the whole stretch's standing: link or last resort
+        for x, y in ((_key(seg.coords[0]), _key(seg.coords[-1])),
+                     (_key(seg.coords[-1]), _key(seg.coords[0]))):
+            if G.has_edge(x, y) and G[x][y]["eid"] == new:
+                G[x][y]["road"] = base["road"]
+                G[x][y]["road_kind_w"] = base.get("road_kind_w", base["road"])
+                G[x][y]["link"] = base.get("link", False)
     net.node_ids.append(w)
     net.tree = STRtree([Point(net.xy[n]) for n in net.node_ids])
     return w, off
@@ -1281,10 +1343,32 @@ def make_route(net: Network, nodes: list) -> Route:
         up += e["up"]
         down += e["down"]
         along.setdefault(b, (length, minutes))
-        legs.append({k: e[k] for k in ("highway", "name", "osm", "road",
-                                         "kinds", "length")})
+        legs.append({k: e.get(k) for k in ("highway", "name", "osm", "road",
+                                             "link", "kinds", "length")})
     return Route(nodes, LineString(coords), length, minutes, up, down,
                  along, legs)
+
+
+def road_links_on(net: Network, r: Route) -> list[dict]:
+    """The stretches of road a route walks, each with its length,
+    where it begins, and whether it is a link or a last resort."""
+    out, cur = [], None
+    for u, v in zip(r.nodes, r.nodes[1:]):
+        d = net.G[u][v]
+        if d["road"]:
+            if cur is None:
+                lon, lat = TO_4326.transform(*net.xy[u])
+                cur = {"m": 0.0, "lat": round(lat, 5), "lon": round(lon, 5),
+                       "link": bool(d.get("link")), "name": d.get("name")}
+            cur["m"] += d["length"]
+        elif cur is not None:
+            cur["m"] = round(cur["m"])
+            out.append(cur)
+            cur = None
+    if cur is not None:
+        cur["m"] = round(cur["m"])
+        out.append(cur)
+    return out
 
 
 def gaps_on(net: Network, r: Route) -> list[dict]:
@@ -1305,7 +1389,9 @@ def what_the_way_holds(r: Route) -> dict:
     forest and over meadows."""
     km = lambda m: round(m / 1000, 1)
     roads = sum(l["length"] for l in r.legs if l["road"])
-    out = {"roads_km": km(roads)}
+    links = sum(l["length"] for l in r.legs if l["road"] and l["link"])
+    out = {"roads_km": km(roads), "road_links_km": km(links),
+           "last_resort_roads_km": km(roads - links)}
     for k in ("footpath", "marked", "plai", "forest", "meadow"):
         out[f"{k}_km"] = km(sum(l["kinds"].get(k, 0.0) for l in r.legs))
     return out
@@ -1743,8 +1829,10 @@ def criteria(args) -> dict:
     return {"version": VERSION, "party": args.party,
             "pace": PARTY[args.party].pace,
             "din_33466": [DIN_FLAT_KMH, DIN_UP_MH, DIN_DOWN_MH],
-            "road_weight": {"minor": MINOR_ROAD_WEIGHT,
-                            "main": MAIN_ROAD_WEIGHT},
+            "road_link_m": ROAD_LINK_M,
+            "road_weight": {"link_minor": MINOR_ROAD_WEIGHT,
+                            "link_main": MAIN_ROAD_WEIGHT,
+                            "last_resort": LAST_RESORT_WEIGHT},
             "allowance": args.allowance,
             "quality": {"footpath": Q_FOOTPATH, "marked": Q_MARKED,
                         "plai": Q_PLAI,
@@ -1982,6 +2070,7 @@ def cmd_route(args) -> int:
                   "up_m": round(best.up), "down_m": round(best.down)},
         "the_way": what_the_way_holds(best),
         "gaps": gaps_on(net, best),
+        "roads": road_links_on(net, best),
         "alternatives": [{"km": round(r.length / 1000, 2),
                           "time": hm(r.minutes), "up_m": round(r.up),
                           "down_m": round(r.down),
@@ -2014,6 +2103,12 @@ def cmd_route(args) -> int:
           f"{w['plai_km']} km over the plai, {w['forest_km']} km in "
           f"forest, {w['meadow_km']} km over meadows; "
           f"{w['roads_km']} km on roads for vehicles")
+    for rd in summary["roads"]:
+        what = "a link between paths" if rd["link"] else \
+            "a road as last resort — no path joins here"
+        name = f" ({rd['name']})" if rd.get("name") else ""
+        print(f"  road{name}: {rd['m']} m from {rd['lat']},{rd['lon']} — "
+              f"{what}")
     for g in summary["gaps"]:
         print(f"  a gap of {g['gap_m']} m joined at {g['lat']},{g['lon']} "
               "— check it on the ground")

@@ -187,9 +187,9 @@ manual v0.4, prompt v0.29.*
       first, roads for vehicles only when there is no other way. →
       spec v0.3 §3, §9; prompt v0.64 §6; engine v0.5.
 - ☑ **The pathway is the way.** Not the quickest or the shortest:
-      as little road as the paths allow (a road six times its
-      walking time, so a short road linking paths is walked —
-      Claude's proposal after the second corridor), then the richest
+      roads only as the last resort (his word again the same
+      afternoon), a road of up to 300 m linking two paths part of
+      the way (Claude's proposal), then the richest
       way on paths — marked
       trails, plai, forest, meadows, the places passed, what stewards
       find — within an allowance; time a limit, never the measure.

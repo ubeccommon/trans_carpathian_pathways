@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Trans-Carpathian Pathways — tests for the stage planner, v0.9
+# Trans-Carpathian Pathways — tests for the stage planner, v0.10
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """A made-up valley near Verkhovyna, built in a temporary folder:
 a secondary road on the valley floor, contour paths on both slopes
@@ -246,10 +246,43 @@ def test_obvious_gaps():
         "no gap joined across a stream"
 
 
+def test_roads_last_resort():
+    """150 m of village road between two paths: a link, walked. 400 m:
+    a last resort, passed by for a path round. A road where nothing
+    else joins: walked, and named as the last resort."""
+    from shapely.geometry import MultiLineString
+    W = lambda oid, coords, **tags: sp.Way(oid, None, tags,
+                                           MultiLineString([coords]))
+    box = (-100, -100, 1100, 900)
+
+    def way(road_to, detour=True):
+        ways = [W("p1", [(0, 0), (400, 0)], highway="path"),
+                W("r", [(400, 0), (road_to, 0)], highway="residential"),
+                W("p2", [(road_to, 0), (1000, 0)], highway="path")]
+        if detour:
+            ways.append(W("d", [(0, 0), (500, 800), (1000, 0)],
+                          highway="path"))
+        net = sp.build_network(ways, sp.Ground(None, box),
+                               sp.PARTY["couple"], None, sp.Landscape())
+        a, _ = sp.snap(net, sp.Point(0, 0))
+        b, _ = sp.snap(net, sp.Point(1000, 0))
+        r, _, _ = sp.the_way(net, a, b, 0.5)
+        return r, sp.road_links_on(net, r)
+
+    r, roads = way(550)
+    assert r.length < 1001 and len(roads) == 1 and roads[0]["link"] \
+        and roads[0]["m"] == 150, (r.length, roads)
+    r, roads = way(800)
+    assert r.length > 1800 and not roads, (r.length, roads)
+    r, roads = way(800, detour=False)
+    assert len(roads) == 1 and not roads[0]["link"], roads
+
+
 def main() -> int:
     test_the_way()
     test_footpaths_first()
     test_obvious_gaps()
+    test_roads_last_resort()
     # DIN 33466 by hand
     assert sp.din_minutes(4000, 0, 0) == 60
     assert sp.din_minutes(0, 300, 0) == 60
