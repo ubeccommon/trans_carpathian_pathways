@@ -1,6 +1,6 @@
 ---
 title: "tcp.ubec.network — the site"
-version: "v0.16"
+version: "v0.17"
 date: "2026-10-11"
 lang: "en"
 license: "CC BY-SA 4.0"
@@ -82,6 +82,11 @@ looked at.
   its official German and Polish texts. Every translation says, on the
   page and on the PDF's cover, that nobody whose language it is has read
   it yet.
+- **On the host — Michel's "looks good", October 11, 2026:** deployed
+  from `main` at `1ea198a`, 17 pages, the four German and Polish PDFs
+  among the 53 files `verify` fetched from the site's own name alone;
+  his look at the German and Polish documents, their PDFs and the
+  language list.
 - **The co-creator agreement stays in English and Ukrainian** until it
   has settled and a native reader is lined up: in the German and Polish
   menus it carries a small EN tag, and a screen reader hears «auf
@@ -341,6 +346,8 @@ site's own, and logged no policy violation.
 * * *
 
 *Changelog*
+- v0.17 — 2026-10-11 — the German and Polish documents closed on the host,
+  Michel's "looks good".
 - v0.16 — 2026-10-11 — the overview, the proposal and the white paper
   in German and Polish, Michel's word. Build v0.12.
 - v0.15 — 2026-10-11 — German and Polish, Michel's word; his "looks
