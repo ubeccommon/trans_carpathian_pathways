@@ -84,9 +84,13 @@ every rule and number. In short:
 - **The measure — the pathway is the way.** *Michel's word,
   October 11, 2026, after the first corridor:* "It's not a question
   of saving time or taking the shortest path ... the pathway is the
-  way." So the planner seeks, in order: the least road for vehicles
-  — roads only where no path joins the two ends, a rule, not a
-  trade; then, on paths, the richest way within an allowance (half
+  way." So the planner seeks, in order: as little road for vehicles
+  as the paths allow — a road weighs six times its walking time, a
+  main road fifteen, so a short road linking two paths is walked and
+  a long road is not where paths go round it (an absolute rule, tried
+  first, sent the second corridor over a ridge for kilometres rather
+  than along 150 m of village road at Verkhovyna; Claude's proposal
+  after Michel's look); then, on paths, the richest way within an allowance (half
   again the most direct way on paths, proposed): footpaths first —
   *Michel's word the same day:* the dotted brown line on Plai's map
   (a path or footway) has priority over the red line (a marked
@@ -307,6 +311,9 @@ built, until Michel says to revise them (SP-6):
 
 ## Changelog
 
+- v0.3, amended 2026-10-11 — §3: a road weighed, not forbidden
+  (six times its walking time, a main road fifteen), after the
+  second corridor missed the valley path; Claude's proposal.
 - v0.3, amended 2026-10-11 — §3: obvious connections joined up to
   80 m, each gap listed for a steward; Michel's word.
 - v0.3, amended 2026-10-11 — §3: footpaths first, before marked

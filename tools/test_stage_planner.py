@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Trans-Carpathian Pathways — tests for the stage planner, v0.8
+# Trans-Carpathian Pathways — tests for the stage planner, v0.9
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """A made-up valley near Verkhovyna, built in a temporary folder:
 a secondary road on the valley floor, contour paths on both slopes
@@ -161,21 +161,26 @@ def tiny_network(edges):
 
 def test_the_way():
     # direct path A-B 60 min, plain; scenic A-S-B 80 min, rich
-    net = tiny_network([("A", "B", 60, 0.0, False),
-                        ("A", "S", 40, 0.6, False),
-                        ("S", "B", 40, 0.6, False)])
+    net = tiny_network([("A", "B", 60, 0.0, 0),
+                        ("A", "S", 40, 0.6, 0),
+                        ("S", "B", 40, 0.6, 0)])
     way, direct, _ = sp.the_way(net, "A", "B", 0.5)
     assert direct.nodes == ["A", "B"] and way.nodes == ["A", "S", "B"]
     way, _, _ = sp.the_way(net, "A", "B", 0.2)      # 80 > 72: too far
     assert way.nodes == ["A", "B"], way.nodes
-    # a road of 10 minutes against a path of 200: the path, always
-    net = tiny_network([("A", "R", 5, 0.0, True), ("R", "B", 5, 0.0, True),
-                        ("A", "P", 100, 0.0, False),
-                        ("P", "B", 100, 0.0, False)])
+    R = sp.MINOR_ROAD_WEIGHT
+    # 10 minutes of village road against 40 on a path: the path
+    net = tiny_network([("A", "R", 5, 0.0, R), ("R", "B", 5, 0.0, R),
+                        ("A", "P", 20, 0.0, 0), ("P", "B", 20, 0.0, 0)])
     way, direct, _ = sp.the_way(net, "A", "B", 0.0)
     assert way.nodes == ["A", "P", "B"], way.nodes
+    # against 200 on a path: a short road linking paths is walked
+    net = tiny_network([("A", "R", 5, 0.0, R), ("R", "B", 5, 0.0, R),
+                        ("A", "P", 100, 0.0, 0), ("P", "B", 100, 0.0, 0)])
+    way, _, _ = sp.the_way(net, "A", "B", 0.0)
+    assert way.nodes == ["A", "R", "B"], way.nodes
     # and a road where nothing else joins
-    net = tiny_network([("A", "R", 5, 0.0, True), ("R", "B", 5, 0.0, True)])
+    net = tiny_network([("A", "R", 5, 0.0, R), ("R", "B", 5, 0.0, R)])
     way, _, _ = sp.the_way(net, "A", "B", 0.5)
     assert way.nodes == ["A", "R", "B"]
 

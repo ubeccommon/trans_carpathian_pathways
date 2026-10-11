@@ -1,6 +1,6 @@
 # tools/
 
-## stage_planner.py — `route`, `corridor`, `find` and `inspect`, v0.8
+## stage_planner.py — `route`, `corridor`, `find` and `inspect`, v0.9
 
 The stage planner (starting prompt §6; spec
 `docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_3.md`). Public, on
@@ -27,7 +27,9 @@ detour time only (SP-3); `--audience
 curator` lists them in full, for the Curator's own planning.
 
 The measure is the way, not the time (Michel's word, October 11,
-2026): the least road for vehicles first, then the richest way on
+2026): as little road for vehicles as the paths allow (a road
+weighs six times its walking time, a main road fifteen, so a short
+road linking two paths is walked), then the richest way on
 paths within `--allowance` (0.5: up to half again the most direct
 way on paths). Footpaths come first — the dotted brown line on
 Plai's map before the red line of a marked route. Each run says

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Trans-Carpathian Pathways — stage planner, `route`, `corridor`, `find` and `inspect`, v0.8
+# Trans-Carpathian Pathways — stage planner, `route`, `corridor`, `find` and `inspect`, v0.9
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """Stage planner — one route from a start to an end, a fuzzy band
 along it, and the places a pilgrim can reach from it; and a
@@ -30,7 +30,8 @@ The criteria (starting prompt §6, §7; decisions S-8, S-15):
 
 - The pathway is the way (Michel's word, October 11, 2026): not the
   quickest or the shortest. Roads for vehicles only where no path
-  joins the two ends (`ROAD_PENALTY`, a rule); then, on paths, the
+  joins the two ends, or links two paths (`MINOR_ROAD_WEIGHT`,
+  `MAIN_ROAD_WEIGHT`); then, on paths, the
   richest way — marked trails, the plai over open high ground,
   forest away from settlements, meadows, and the places passed —
   within `WAY_ALLOWANCE` more walking than the most direct way on
@@ -103,6 +104,11 @@ A corridor from stretches, each a file `route` wrote:
         stretch_1.geojson stretch_2.geojson --out corridor.geojson
 
 Changelog:
+  v0.9 — 2026-10-11 — a road is weighed, not forbidden: six times its
+         walking time (a main road fifteen), so a short road linking
+         two paths is walked. The absolute rule of v0.6 sent the
+         second corridor over a ridge rather than along 150 m of
+         village road between two paths at Verkhovyna.
   v0.8 — 2026-10-11 — obvious connections, Michel's word: a path end
          is joined across up to 80 m where the path, carried on the
          way it was heading, meets another way and crosses no river
@@ -178,7 +184,7 @@ from shapely.geometry import (LineString, MultiLineString, Point,
 from shapely.ops import substring, unary_union
 from shapely.strtree import STRtree
 
-VERSION = "0.8"
+VERSION = "0.9"
 
 # ── Criteria ───────────────────────────────────────────────────
 # The party's paces and limits, the band and the reach are as
@@ -198,9 +204,13 @@ DIN_DOWN_MH = 500.0
 # pathway is the way." So the planner does not look for the quickest
 # route with paths made cheaper. It looks, in this order, for:
 #
-#   1. the least road for vehicles — roads only where no path joins
-#      the two ends (ROAD_PENALTY makes a road minute outweigh any
-#      detour on paths: a rule, not a trade);
+#   1. as little road for vehicles as the paths allow — a road
+#      weighs MINOR_ROAD_WEIGHT (a main road MAIN_ROAD_WEIGHT) times
+#      its walking time, so a short road linking two paths is walked
+#      and a long road is not where paths go round it. (An absolute
+#      rule, tried first, sent the second corridor over a ridge for
+#      kilometres rather than walk 150 m of village road between two
+#      paths at Verkhovyna.)
 #   2. among the ways on paths, the richest — marked trails, the old
 #      plai over open high ground, forest away from settlements,
 #      meadows, and the places passed: springs, chapels and crosses,
@@ -225,7 +235,8 @@ NEVER_WALKED = {"trunk", "trunk_link", "motorway", "motorway_link",
 # A highway value not listed is a road; a track of grade1 is paved, a
 # road. A marked hiking or foot route is a path wherever it follows a
 # minor road or a track; on a main road it is still a road.
-ROAD_PENALTY = 1000.0
+MINOR_ROAD_WEIGHT = 6.0      # a village, service or unclassified road
+MAIN_ROAD_WEIGHT = 15.0      # tertiary, secondary, primary
 WAY_ALLOWANCE = 0.5          # up to half again the most direct way
 
 # How rich a path is, 0 to Q_MAX: each quality over the share of the
@@ -1077,9 +1088,15 @@ def add_segment(G, net_lines, xy, eid, seg, kind, oid, tags, ground,
     if footpath:
         q = min(Q_MAX, q + Q_FOOTPATH)
     # a marked trail on a minor road or a track is a path
-    road = kind == "main" or (kind == "minor"
-                              and not (marked_ok and kinds["marked"]
-                                       > 0.5 * seg.length))
+    # 0 on a path; on a road, what a minute of it weighs. A marked
+    # trail on a minor road or a track is a path.
+    if kind == "main":
+        road = MAIN_ROAD_WEIGHT
+    elif kind == "minor" and not (marked_ok and kinds["marked"]
+                                  > 0.5 * seg.length):
+        road = MINOR_ROAD_WEIGHT
+    else:
+        road = 0.0
     net_lines[eid] = seg
     for a, b, rise, fall, d in ((u, v, up, down, 1), (v, u, down, up, -1)):
         t = din_minutes(seg.length, rise, fall) * pace
@@ -1095,7 +1112,7 @@ def add_segment(G, net_lines, xy, eid, seg, kind, oid, tags, ground,
 def way_cost(d: dict, lam: float) -> float:
     """What a segment weighs: a road outweighs any path; on a path,
     the walking time, lightened by how rich the path is."""
-    w = d["time"] * (ROAD_PENALTY if d["road"] else
+    w = d["time"] * (d["road"] if d["road"] else
                      (1.0 - lam * d["q"]))
     return w * d.get("alt", 1.0)
 
@@ -1726,7 +1743,8 @@ def criteria(args) -> dict:
     return {"version": VERSION, "party": args.party,
             "pace": PARTY[args.party].pace,
             "din_33466": [DIN_FLAT_KMH, DIN_UP_MH, DIN_DOWN_MH],
-            "road_penalty": ROAD_PENALTY,
+            "road_weight": {"minor": MINOR_ROAD_WEIGHT,
+                            "main": MAIN_ROAD_WEIGHT},
             "allowance": args.allowance,
             "quality": {"footpath": Q_FOOTPATH, "marked": Q_MARKED,
                         "plai": Q_PLAI,
