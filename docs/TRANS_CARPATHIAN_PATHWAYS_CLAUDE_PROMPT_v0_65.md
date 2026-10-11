@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_64"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_65"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.64"
+version: "v0.65"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -936,7 +936,7 @@ can use it. The Curator can create a route, save it and manage
 it; these stretches can be combined to create a corridor. This
 replaces "for the Curator only, never answering a pilgrim, built
 only if needed". The specification:
-`docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_3.md`. Decided there on
+`docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_4.md`. Decided there on
 Michel's word the same day: a steward may save a draft, and only
 the Curator publishes it (SP-1); the public page and service run
 on Plai and come before the first hosts (SP-2); the public answer
@@ -954,7 +954,18 @@ stretches into a corridor. Nothing the
 planner says is a booking, a promise that a host will receive, or
 a statement that a path is safe today.
 
-**The engine:** `tools/stage_planner.py` v0.4, Python with
+**The three steps and the pathway editor — Michel's word, October
+11, 2026, after a day of tuning against the first corridor:** the
+planner proposes and says where it doubts (gaps joined, roads walked
+as the last resort, towns crossed); the steward or Curator edits —
+via points, avoid points, a line of their own, a walked GPS track;
+what was walked and what was saved becomes the planner's best
+knowledge, a way even where OSM has none, preferred above all, so
+the network grows from what people walk. The editor is specified in
+spec v0.4 §3b and built with the page on Plai. AI on demand a
+helper for the Curator, never the router (Claude's proposal).
+
+**The engine:** `tools/stage_planner.py` v0.13, Python with
 networkx, in memory, writing nothing but its answer. `route`: from
 a start and an end (a published place, a village in OSM, or
 `lat,lon`), the route by the criteria below, up to two
@@ -1055,7 +1066,7 @@ application, and `instance_sa.stretch`, `corridor` and
 `corridor_stretch` as Plai migration `plai/008`. *SP-2, Michel's
 word, October 11, 2026:* the page and service run on Plai and come
 before the first hosts (Gate 3); Mapservice's changes, built there
-from `docs/prompts/PLAI_STAGE_PLANNER_START_PROMPT_v0_2.md`, behind
+from `docs/prompts/PLAI_STAGE_PLANNER_START_PROMPT_v0_3.md`, behind
 the leak pass.
 
 **Multi-day stages** — each day ending at a host with an overnight
@@ -1248,6 +1259,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.65 — 2026-10-11 — the three steps and the pathway editor, Michel's word: the planner proposes, the steward or Curator edits, walked and saved ways become its best knowledge; engine v0.13 (via, avoid, known); spec v0.4, start prompt v0.3.
 - v0.64, amended 2026-10-11 — a road link measured on the route itself; engine v0.12.
 - v0.64, amended 2026-10-11 — through towns and villages the direct way, Michel's word; engine v0.11.
 - v0.64, amended 2026-10-11 — roads the last resort, Michel's word; a road of up to 300 m linking two paths is part of the way; engine v0.10. Replaces the next.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Trans-Carpathian Pathways — stage planner, `route`, `corridor`, `find` and `inspect`, v0.12
+# Trans-Carpathian Pathways — stage planner, `route`, `corridor`, `find` and `inspect`, v0.13
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """Stage planner — one route from a start to an end, a fuzzy band
 along it, and the places a pilgrim can reach from it; and a
@@ -55,7 +55,7 @@ Curator may save a route as a stretch and manage it, a steward may
 save a draft that only the Curator publishes (SP-1), and stretches
 are combined into a corridor (`corridor`). Saving is Plai's change,
 not this tool's: the tool writes files and nothing else (spec
-`docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_3.md`).
+`docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_4.md`).
 
 `--audience public` (the default) names a published host with its
 detour time only — Michel's word, October 11, 2026 (SP-3): no
@@ -104,6 +104,13 @@ A corridor from stretches, each a file `route` wrote:
         stretch_1.geojson stretch_2.geojson --out corridor.geojson
 
 Changelog:
+  v0.13 — 2026-10-11 — the three steps, Michel's word: the planner
+         proposes; the steward or Curator edits with --via points
+         (in order) and --avoid points; walked and saved ways
+         (--known: GPX tracks, saved stretches, a line of one's own)
+         are ways even where OSM has none and are preferred above
+         all. A stretch keeps its via, avoid and known, so it can be
+         remade.
   v0.12, amended 2026-10-11 — after the run of 16:56: in town the
          main street weighs 1.15 (was 1.5) and a primary road 1.5
          (was 4), so the way through Verkhovyna is direct, not a
@@ -211,7 +218,7 @@ from shapely.geometry import (LineString, MultiLineString, Point,
 from shapely.ops import substring, unary_union
 from shapely.strtree import STRtree
 
-VERSION = "0.12"
+VERSION = "0.13"
 
 # ── Criteria ───────────────────────────────────────────────────
 # The party's paces and limits, the band and the reach are as
@@ -256,7 +263,7 @@ DIN_DOWN_MH = 500.0
 # What each highway is to a walker: a path, a road for vehicles, or
 # never walked.
 PATH_HIGHWAYS = {"path", "footway", "bridleway", "steps", "pedestrian",
-                 "track", "cycleway"}
+                 "track", "cycleway", "known"}
 MINOR_ROADS = {"living_street", "service", "unclassified", "residential",
                "road"}
 MAIN_ROADS = {"tertiary", "tertiary_link", "secondary", "secondary_link",
@@ -325,6 +332,20 @@ JOIN_ANGLE_DEG = 60.0
 # entered — draw the way; OSM's monuments and museums are listed,
 # not followed.
 URBAN_PLACES = {"city", "town", "village", "suburb"}
+
+# The three steps — Michel's word, October 11, 2026, after a day of
+# tuning: (1) the planner proposes and says where it doubts — gaps,
+# roads as last resort, towns; (2) the steward or Curator edits —
+# via points, avoid points, a line of their own; (3) what was walked
+# and what was saved becomes the planner's best knowledge. A known way
+# (--known: a steward's GPS track, a saved stretch, a Curator's own
+# line) is a way even where OSM has none, and is preferred above
+# everything else: it weighs KNOWN_WEIGHT of its walking time, and an
+# OSM way lying along it is known too.
+KNOWN_WEIGHT = 0.2
+KNOWN_BUFFER_M = 15.0        # an OSM way this close along a known way
+KNOWN_SHARE = 0.8            #   for this share of its length is known
+AVOID_M = 50.0               # an avoid point closes ways this close
 URBAN_SHARE = 0.5            # share of a segment inside to count it
 URBAN_ROAD_WEIGHT = {"minor": 1.0, "main": 1.15, "primary": 1.5}
 SETTLEMENT_RADIUS_M = {"city": 2500.0, "town": 1200.0,
@@ -1056,6 +1077,7 @@ class Landscape:
     settled: object = None       # within SETTLEMENT_GAP_M of a village
     canopy: "Ground" = None      # surface minus ground, if present
     urban: object = None         # towns and villages, built-up
+    known: object = None         # walked and saved ways, buffered
     points: list = field(default_factory=list)   # (Point, weight, plai)
 
     def prepare(self):
@@ -1063,7 +1085,8 @@ class Landscape:
                        for p in self.points]
         self._tree = STRtree([p[0] for p in self.points]) \
             if self.points else None
-        for name in ("marked", "open_land", "forest", "settled", "urban"):
+        for name in ("marked", "open_land", "forest", "settled", "urban",
+                     "known"):
             g = getattr(self, name)
             if g is not None and not g.is_empty:
                 shapely.prepare(g)
@@ -1077,6 +1100,10 @@ class Landscape:
         share = lambda mask: float(np.count_nonzero(mask)) / n
         inside = lambda g: (shapely.contains_xy(g, xs, ys) if g is not None
                             else np.zeros(n, bool))
+        if share(inside(self.known)) >= KNOWN_SHARE:
+            zero = {"marked": 0.0, "plai": 0.0, "forest": 0.0,
+                    "meadow": 0.0, "known": seg.length}
+            return Q_MAX, zero, False
         urban = share(inside(self.urban)) >= URBAN_SHARE
         span = min(1.0, ENCOUNTER_SPAN_M / max(seg.length, 1.0))
         near = (self._tree.query(seg, predicate="dwithin",
@@ -1170,6 +1197,8 @@ def add_segment(G, net_lines, xy, eid, seg, kind, oid, tags, ground,
     xs, ys, zs = profile(seg, ground)
     up, down = climb_of(zs)
     q, kinds, urban = land.quality(seg, xs, ys, zs)
+    known = kinds.get("known", 0.0) > 0 or tags.get("highway") == "known"
+    kinds["known"] = seg.length if known else 0.0
     footpath = (kind == "path" and tags.get("highway") in FOOTPATHS
                 and not urban)
     kinds["footpath"] = seg.length if footpath else 0.0
@@ -1183,8 +1212,9 @@ def add_segment(G, net_lines, xy, eid, seg, kind, oid, tags, ground,
         town_w = (URBAN_ROAD_WEIGHT["primary"]
                   if tags.get("highway") in ("primary", "primary_link")
                   else URBAN_ROAD_WEIGHT[kind])
-    if urban:
+    if urban or known:
         road = 0.0
+        town_w = 0.0 if known else town_w
     elif kind == "main":
         road = MAIN_ROAD_WEIGHT
     elif kind == "minor" and not (marked_ok and kinds["marked"]
@@ -1197,10 +1227,11 @@ def add_segment(G, net_lines, xy, eid, seg, kind, oid, tags, ground,
         t = din_minutes(seg.length, rise, fall) * pace
         old = G.get_edge_data(a, b)
         if old is None or way_cost(old, 0.0) > way_cost(
-                {"time": t, "road": road, "q": q, "town_w": town_w}, 0.0):
+                {"time": t, "road": road, "q": q, "town_w": town_w,
+                 "known": known}, 0.0):
             G.add_edge(a, b, eid=eid, dir=d, time=t, road=road,
                        road_kind_w=road, link=False, q=q, urban=urban,
-                       town_w=town_w,
+                       town_w=town_w, known=known,
                        kinds=kinds, length=seg.length, up=rise, down=fall,
                        highway=tags.get("highway"), name=tags.get("name"),
                        osm=oid)
@@ -1209,7 +1240,11 @@ def add_segment(G, net_lines, xy, eid, seg, kind, oid, tags, ground,
 def way_cost(d: dict, lam: float) -> float:
     """What a segment weighs: a road outweighs any path; on a path,
     the walking time, lightened by how rich the path is."""
-    if d["road"]:
+    if d.get("blocked"):
+        return None                          # closed by an avoid point
+    if d.get("known"):
+        w = d["time"] * KNOWN_WEIGHT         # walked or saved: first
+    elif d["road"]:
         w = d["time"] * d["road"]
     elif d.get("town_w"):
         w = d["time"] * d["town_w"]          # a street in town
@@ -1218,8 +1253,40 @@ def way_cost(d: dict, lam: float) -> float:
     return w * d.get("alt", 1.0)
 
 
+def read_known(paths: list) -> list:
+    """Walked and saved ways, EPSG:3035: a GPX track or route, or the
+    lines of a GeoJSON file — of a stretch file, its route only."""
+    import xml.etree.ElementTree as ET
+    lines = []
+    for path in paths or []:
+        path = Path(path)
+        if path.suffix.lower() == ".gpx":
+            root = ET.parse(path).getroot()
+            for seg in [*root.findall(".//{*}trkseg"),
+                        *root.findall(".//{*}rte")]:
+                pts = [(float(p.get("lon")), float(p.get("lat")))
+                       for p in seg if p.tag.endswith(("trkpt", "rtept"))]
+                if len(pts) >= 2:
+                    lines.append(to_3035(LineString(pts)))
+            continue
+        fc = json.loads(path.read_text(encoding="utf-8"))
+        feats = fc.get("features", [])
+        if any((f.get("properties") or {}).get("role") for f in feats):
+            feats = [f for f in feats
+                     if (f.get("properties") or {}).get("role") == "route"]
+        for f in feats:
+            g = shape(f["geometry"]) if f.get("geometry") else None
+            if g is None:
+                continue
+            for part in getattr(g, "geoms", [g]):
+                if part.geom_type == "LineString":
+                    lines.append(to_3035(part))
+    return lines
+
+
 def build_network(ways, ground: Ground, party: Party,
-                  strip, land: Landscape, water=None) -> Network:
+                  strip, land: Landscape, water=None,
+                  known: list = ()) -> Network:
     marked = []
     parts = []                   # (LineString, tags, osm_id, kind)
     for w in ways:
@@ -1234,6 +1301,13 @@ def build_network(ways, ground: Ground, party: Party,
             if len(ls.coords) >= 2:
                 parts.append([list(ls.coords), w.tags, w.osm_id, kind])
     land.marked = unary_union(marked).buffer(10) if marked else None
+    # A known way is a way even where OSM has none; an OSM way along it
+    # is known too.
+    for i, line in enumerate(known):
+        parts.append([list(line.coords), {"highway": "known"},
+                      f"known:{i + 1}", "path"])
+    land.known = (unary_union(known).buffer(KNOWN_BUFFER_M)
+                  if known else None)
     land.prepare()
     join_dangling(parts, water)
     parts = [(LineString(c), t, o, k) for c, t, o, k in parts]
@@ -1278,6 +1352,20 @@ def build_network(ways, ground: Ground, party: Party,
     node_ids = list(G.nodes)
     tree = STRtree([Point(xy[n]) for n in node_ids])
     return Network(G, xy, lines, tree, node_ids, ground, party.pace, land)
+
+
+def close_near(net: Network, points: list, radius: float) -> int:
+    """Close every way within radius of an avoid point; how many."""
+    if not points:
+        return 0
+    zone = unary_union([p.buffer(radius) for p in points])
+    shapely.prepare(zone)
+    n = 0
+    for _, _, d in net.G.edges(data=True):
+        if net.lines[d["eid"]].intersects(zone):
+            d["blocked"] = True
+            n += 1
+    return n
 
 
 def snap(net: Network, p: Point) -> tuple:
@@ -1492,7 +1580,7 @@ def what_the_way_holds(r: Route) -> dict:
     out = {"roads_km": km(roads), "road_links_km": km(links),
            "last_resort_roads_km": km(roads - links),
            "through_towns_km": km(town)}
-    for k in ("footpath", "marked", "plai", "forest", "meadow"):
+    for k in ("known", "footpath", "marked", "plai", "forest", "meadow"):
         out[f"{k}_km"] = km(sum(l["kinds"].get(k, 0.0) for l in r.legs))
     return out
 
@@ -1769,9 +1857,14 @@ const layer = L.geoJSON(data, {
    fillColor: r === 'start' ? '#15803d' : '#9a3412', fillOpacity:1});
   if (r === 'gap') return L.circleMarker(ll, {radius:6, color:'#c2410c', weight:2,
    fillColor:'#fff', fillOpacity:1});
+  if (r === 'via') return L.circleMarker(ll, {radius:7, color:'#15803d', weight:3,
+   fillColor:'#fff', fillOpacity:1});
+  if (r === 'avoid') return L.circleMarker(ll, {radius:7, color:'#991b1b', weight:3,
+   fillColor:'#991b1b', fillOpacity:.25, dashArray:'3 3'});
   return L.circleMarker(ll, {radius:6, color:'#fff', weight:1.5,
    fillColor: f.properties.is_host ? '#b45309' : '#1d4ed8', fillOpacity:1}); },
  onEachFeature: (f, l) => { const p = f.properties;
+  if (p.role === 'via' || p.role === 'avoid') l.bindPopup(`<b>${p.name}</b>`);
   if (p.role === 'start' || p.role === 'end') l.bindPopup(`<b>${p.role === 'start' ? 'Start' : 'End'}:</b> ${p.name}`
    + (p.off_path_m > 1 ? `<br>${p.off_path_m} m from the nearest path` : ''));
   if (p.role === 'gap') l.bindPopup(`A gap of ${p.gap_m} m joined here — `
@@ -2098,10 +2191,16 @@ def cmd_route(args) -> int:
         dem = Path(args.dem) if args.dem else None
 
     a_pt, b_pt = resolve(src, args.start), resolve(src, args.end)
-    gap = a_pt.distance(b_pt)
+    via_pts = [resolve(src, v) for v in args.via or []]
+    avoid_pts = [p for p in (parse_latlon(t) for t in args.avoid or [])]
+    if None in avoid_pts:
+        sys.exit("stage_planner: --avoid takes \"lat,lon\"")
+    known = read_known(args.known)
+    every = [a_pt, b_pt, *via_pts]
+    gap = max(p.distance(q) for p in every for q in every)
     margin = max(3000.0, 0.35 * gap)
-    bbox = (min(a_pt.x, b_pt.x) - margin, min(a_pt.y, b_pt.y) - margin,
-            max(a_pt.x, b_pt.x) + margin, max(a_pt.y, b_pt.y) + margin)
+    bbox = (min(p.x for p in every) - margin, min(p.y for p in every) - margin,
+            max(p.x for p in every) + margin, max(p.y for p in every) + margin)
 
     notices = [OSM_NOTICE]
     strip = None
@@ -2136,20 +2235,38 @@ def cmd_route(args) -> int:
         notices.append("Forest and open land: canopy height from the "
                        "ground and surface models")
     net = build_network(src.ways(bbox), ground, party, strip, land,
-                        src.waterways(bbox))
+                        src.waterways(bbox), known)
+    if known:
+        notices.append(f"{len(known)} way(s) walked or saved, preferred")
+    closed = close_near(net, avoid_pts, args.avoid_m)
     a, a_off = snap(net, a_pt)
     b, b_off = snap(net, b_pt)
+    vias = [snap(net, p)[0] for p in via_pts]
     for label, off in (("start", a_off), ("end", b_off)):
         if off > SNAP_WARN_M:
             print(f"stage_planner: the {label} is {off:.0f} m from the "
                   "nearest path — check the point", file=sys.stderr)
 
-    best, direct, lam = the_way(net, a, b, args.allowance)
-    if best is None:
-        sys.exit("stage_planner: no route between these two points "
-                 "with this party's limits")
-    routes = [best] + alternatives(net, a, b, best, args.alternatives,
-                                   lam)
+    if vias:
+        # The way through each via point in turn, leg by leg.
+        legs = list(zip([a, *vias], [*vias, b]))
+        found_legs = [the_way(net, x, y, args.allowance) for x, y in legs]
+        if any(f[0] is None for f in found_legs):
+            sys.exit("stage_planner: no route through the via points "
+                     "with this party's limits")
+        join = lambda rs: make_route(
+            net, rs[0].nodes + [n for r in rs[1:] for n in r.nodes[1:]])
+        best = join([f[0] for f in found_legs])
+        direct = join([f[1] for f in found_legs])
+        lam = min(f[2] for f in found_legs)
+        routes = [best]           # via points fix the way: no alternatives
+    else:
+        best, direct, lam = the_way(net, a, b, args.allowance)
+        if best is None:
+            sys.exit("stage_planner: no route between these two points "
+                     "with this party's limits")
+        routes = [best] + alternatives(net, a, b, best, args.alternatives,
+                                       lam)
     # The last metres off the path, drawn to the points themselves.
     for r in routes + [direct]:
         reach_points(r, a_pt, b_pt)
@@ -2165,6 +2282,11 @@ def cmd_route(args) -> int:
         # What a saved stretch carries besides its line (spec §4).
         "stretch": {"name": args.name, "from": args.start,
                     "to": args.end,
+                    # what an editor set, so the stretch can be remade
+                    "via": [_lonlat(p) for p in via_pts],
+                    "avoid": [_lonlat(p) for p in avoid_pts],
+                    "avoid_m": args.avoid_m if avoid_pts else None,
+                    "known": [Path(k).name for k in args.known or []],
                     "start": _lonlat(a_pt), "end": _lonlat(b_pt),
                     "criteria": criteria(args)},
         "audience": args.audience, "party": args.party,
@@ -2191,6 +2313,10 @@ def cmd_route(args) -> int:
 
     out = Path(args.out)
     ends = [("start", args.start, a_pt, a_off), ("end", args.end, b_pt, b_off)]
+    ends += [("via", f"via {i}: {t}", p, 0.0)
+             for i, (t, p) in enumerate(zip(args.via or [], via_pts), 1)]
+    ends += [("avoid", f"avoid {i}", p, 0.0)
+             for i, p in enumerate(avoid_pts, 1)]
     write_geojson(out, routes, rings, found, summary, ends)
     if args.html:
         write_html(Path(args.html), out, summary,
@@ -2201,7 +2327,14 @@ def cmd_route(args) -> int:
           f"↓{s['down_m']} m ({args.party})")
     print(f"  start {a_off:.0f} m and end {b_off:.0f} m from the "
           "nearest path")
+    if via_pts:
+        print(f"  through {len(via_pts)} via point(s), in order")
+    if avoid_pts:
+        print(f"  {closed} way segment(s) closed within {args.avoid_m:g} m "
+              f"of {len(avoid_pts)} avoid point(s)")
     w = summary["the_way"]
+    if w["known_km"]:
+        print(f"  on ways walked or saved: {w['known_km']} km")
     if w["through_towns_km"]:
         print(f"  through towns and villages: {w['through_towns_km']} km, "
               "the direct way")
@@ -2245,6 +2378,16 @@ def main(argv=None) -> int:
     r.add_argument("--reach", type=float, default=10.0,
                    help="minutes off the route to list places (5 to 10)")
     r.add_argument("--alternatives", type=int, default=2)
+    r.add_argument("--via", action="append", metavar="POINT",
+                   help="go through this point (lat,lon or a name); "
+                        "repeat, in order")
+    r.add_argument("--avoid", action="append", metavar="LAT,LON",
+                   help="close the ways near this point; repeat")
+    r.add_argument("--avoid-m", type=float, default=AVOID_M,
+                   help="how near an avoid point closes a way, metres")
+    r.add_argument("--known", action="append", metavar="FILE",
+                   help="a way walked or saved: a GPX track or a "
+                        "GeoJSON stretch; preferred above all; repeat")
     r.add_argument("--allowance", type=float, default=WAY_ALLOWANCE,
                    help="how much more walking the way may take than "
                         "the most direct way on paths (0.5 = half again)")

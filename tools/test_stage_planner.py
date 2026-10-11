@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Trans-Carpathian Pathways — tests for the stage planner, v0.12
+# Trans-Carpathian Pathways — tests for the stage planner, v0.13
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """A made-up valley near Verkhovyna, built in a temporary folder:
 a secondary road on the valley floor, contour paths on both slopes
@@ -458,6 +458,39 @@ def main() -> int:
              "--paths", str(tmp / "paths.geojson")],
             capture_output=True, text=True)
         assert "harder than this party walks" in res.stdout, res.stdout
+
+        # the editor: a via point is passed, an avoid point kept away
+        via = ll(4000, -600)
+        fc = run(tmp, "--via", "{1},{0}".format(*via), out_name="via.geojson")
+        line = sp.to_3035(shape(next(x for x in fc["features"]
+                                     if x["properties"]["role"] == "route")
+                                ["geometry"]))
+        assert line.distance(sp.to_3035(shape(
+            {"type": "Point", "coordinates": via}))) < 5, "via passed"
+        assert fc["properties"]["stretch"]["via"], "the stretch keeps it"
+        assert any(x["properties"]["role"] == "via" for x in fc["features"])
+        avoid = ll(4000, 600)
+        fc = run(tmp, "--avoid", "{1},{0}".format(*avoid),
+                 out_name="avoid.geojson")
+        line = sp.to_3035(shape(next(x for x in fc["features"]
+                                     if x["properties"]["role"] == "route")
+                                ["geometry"]))
+        assert line.distance(sp.to_3035(shape(
+            {"type": "Point", "coordinates": avoid}))) > 50, "avoided"
+        # a steward's GPS track where OSM has no path becomes the way
+        gpx = tmp / "walk.gpx"
+        pts = "".join(f'<trkpt lat="{la}" lon="{lo}"/>' for lo, la in
+                      (ll(2000, 600), ll(2500, 0), ll(3000, -600)))
+        gpx.write_text('<?xml version="1.0"?><gpx version="1.1" '
+                       'xmlns="http://www.topografix.com/GPX/1/1"><trk>'
+                       f'<trkseg>{pts}</trkseg></trk></gpx>')
+        a_, b_ = ll(2000, 600), ll(3000, -600)
+        fc = run(tmp, "--from", "{1},{0}".format(*a_), "--to",
+                 "{1},{0}".format(*b_), "--known", str(gpx),
+                 out_name="known.geojson")
+        held = fc["properties"]["the_way"]
+        assert held["known_km"] >= 1.5, held
+        assert fc["properties"]["stretch"]["known"] == ["walk.gpx"]
 
         # a Latin name finds a Cyrillic place
         fc = run(tmp, "--to", "Tepla Gora", out_name="tg.geojson")

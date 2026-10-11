@@ -1,9 +1,9 @@
 # tools/
 
-## stage_planner.py — `route`, `corridor`, `find` and `inspect`, v0.12
+## stage_planner.py — `route`, `corridor`, `find` and `inspect`, v0.13
 
 The stage planner (starting prompt §6; spec
-`docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_3.md`). Public, on
+`docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_4.md`). Public, on
 Michel's word of October 11, 2026: anyone plans with it; the
 Curator saves a route as a stretch and joins stretches into a
 corridor. `route`, from a
@@ -58,6 +58,25 @@ checks it on the ground, and OSM can be mended.
 It names the ways within 150 m of the point, and for each whether
 the party walks it and, if not, why (too hard by its `sac_scale`,
 `access=private`, …), or whether it is cut off from the network.
+
+### Editing a route — step two of three
+
+The planner proposes; a steward or Curator edits (spec §3a, §3b):
+
+```bash
+python3 /tmp/stage_planner.py route --from "Verkhovyna" --to "Zhiva Khata" \
+    --via "48.1561,24.8402" \
+    --avoid "48.1571,24.8531" \
+    --known /tmp/walk.gpx \
+    --out /tmp/stretch_1.geojson --html /tmp/stretch_1.html
+```
+
+`--via` the way passes there, in order, repeat for more; `--avoid`
+closes the ways within 50 m (`--avoid-m`); `--known` a GPX track
+walked, or a stretch saved — a way even where OSM has none, and
+preferred above everything else. A click on the preview's map gives
+any point as `lat,lon`. The stretch keeps what was set, so it can be
+remade.
 
 ### Test, anywhere
 

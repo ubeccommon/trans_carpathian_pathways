@@ -1,13 +1,13 @@
 ---
-title: "PATHWAYS_STAGE_PLANNER_SPEC_v0_3"
+title: "PATHWAYS_STAGE_PLANNER_SPEC_v0_4"
 subtitle: "The planner anyone may use, the stretches a Curator saves, and the corridors made of them"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.3"
+version: "v0.4"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
-status: "specification — all seven items decided (Michel's word, October 11, 2026); the engine built and tested on a made-up valley (tools/stage_planner.py v0.4); the first real run, Verkhovyna to Kosiv, next; the page, the service and saving on Plai not built — they come before Gate 3"
+status: "specification — all seven items decided (Michel's word, October 11, 2026); the three steps and the pathway editor, Michel's word (§3a, §3b); the engine v0.13, run on Plai's data from Verkhovyna to Kosiv; the page, the service and saving on Plai not built — they come before Gate 3"
 ---
 
 *A specification for the stage planner — the proposal's "spatial
@@ -142,6 +142,69 @@ The band is reach, walked: it is narrow where the side paths climb
 and wide where they are easy. It is fuzzy by design and speaks for
 the walk, never for land (S-14: fuzzy bands, never parcels).
 
+## 3a. The Three Steps
+
+*Michel's word, October 11, 2026, after a day of tuning the
+planner against the first corridor:* the planning has three steps,
+and the Curator and stewards get a pathway editor. Behind it: every
+rule added to the planner fixed one place and uncovered the next.
+The planner can be only as good as the map — OSM's gaps, paths drawn
+short, tracks that are paths and streets that are fine — and what
+makes the way is knowledge stewards and Curators hold, not the map.
+A tool proposes; a person decides.
+
+1. **The planner proposes, and says where it doubts.** Every answer
+   names what a person should look at: each gap it joined, each road
+   it walked as the last resort, each crossing of a town.
+2. **The steward or Curator edits.** With the pathway editor (§3b):
+   points the way must pass, points it must keep away from, a line
+   of their own where no map has one. The planner routes again
+   through what they set; the edited stretch is what is saved — a
+   steward's as a draft, published by the Curator (SP-1).
+3. **What was walked and what was saved becomes the planner's best
+   knowledge.** A steward's GPS track, a published stretch, a
+   Curator's own line: each is a way, even where OSM has none, and
+   is preferred above everything else when anyone plans near it. So
+   the network grows from what people actually walk — the principle
+   of organic growth — and the planner's weights matter less as the
+   corridor is walked.
+
+**AI on demand** stays a helper for the Curator, never the router:
+to describe a stretch in words, explain why the way goes where it
+goes, turn a steward's notes into English. It cannot see the paths
+better than the map does, and routing that depends on an outside
+service would break Mapservice's designed exit. *Claude's proposal,
+for Michel's word when wanted.*
+
+Built in the engine (`tools/stage_planner.py` v0.13): `--via` points,
+in order; `--avoid` points, each closing the ways within 50 m;
+`--known` GPX tracks and GeoJSON stretches. A stretch keeps its via
+points, avoid points and known ways, so it can be remade. The run
+says how much of the way is on ways walked or saved.
+
+## 3b. The Pathway Editor
+
+For stewards and Curators, on the planner's page on Plai (§6),
+logged in. Built in `ubec_mapservice` with the page; *specified
+here, Claude's proposal for Michel's word at Gate B of the build:*
+
+| Tool | What it does | Engine |
+|---|---|---|
+| Via point | Click the map or drag the line: the way passes there. Order by dragging in the list | `--via` |
+| Avoid point | Click: the way keeps away from here (radius shown) | `--avoid`, `--avoid-m` |
+| Own line | Draw where no map has a path — across a meadow, along a field edge; it joins the paths at its ends | `--known` (a line) |
+| Walked track | Upload a GPX from a walk; it becomes a known way for everyone once the stretch is published | `--known` (GPX) |
+| Gap check | Each joined gap: "passable", "not passable", "not checked"; not passable closes it | avoid at the gap |
+| Road check | Each road walked as last resort: "fine to walk", or find another way | a via point or own line |
+| Note | The saver's own words on the stretch, English first (SP-7) | stored with the stretch |
+| Save, publish | A steward saves a draft; the Curator publishes, withdraws, edits | `plai/008` |
+| History | Each save kept with who and when; a published stretch can be returned to an earlier one | `plai/008` |
+
+What the editor never does: change OSM. A gap found wrong, a path
+missing, a road that is really a track — the steward's finding goes
+to OSM by survey, by a mapper's hand, as the open data spec says;
+Plai keeps the stretch, OSM keeps the map.
+
 ## 4. A Stretch
 
 A route the Curator saves. Proposed for Plai, as one migration in
@@ -154,6 +217,9 @@ A route the Curator saves. Proposed for Plai, as one migration in
 | `band` | the four rings, kept so the map draws them without the planner; ODbL |
 | `from_label`, `to_label`, `start_geom`, `end_geom` | as entered |
 | `criteria` | the party, the numbers and the planner's version it was made with (jsonb), so it can be remade the same way |
+| `via`, `avoid`, `own_lines` | what the editor set (§3b): via points in order, avoid points with their radius, lines drawn by hand; with `criteria`, they remake the stretch |
+| `tracks` | GPX tracks walked on it, kept as known ways (ODbL beside the line, the walker's consent) |
+| `gap_checks`, `road_checks` | what a steward found on the ground at each gap and each last-resort road |
 | `km`, `minutes`, `up_m`, `down_m` | as the planner reported |
 | `state` | Plai's publication vocabulary: a stretch saved by a steward or a Curator is a draft, public only once a Curator publishes it, and it leaves every service on withdrawal |
 | `saved_by` | the account that saved it, a steward's or a Curator's |
@@ -200,7 +266,7 @@ by hand (`tools/README.md`). *SP-2, Michel's word, October 11,
 2026:* the public page and service run on Plai, and they come
 before the first hosts (Gate 3). They are Mapservice's change,
 built in `ubec_mapservice` in its own way, from the start prompt
-`docs/prompts/PLAI_STAGE_PLANNER_START_PROMPT_v0_2.md`. As
+`docs/prompts/PLAI_STAGE_PLANNER_START_PROMPT_v0_3.md`. As
 specified:
 
 - **A small service** on ubec-common behind the system nginx,
@@ -325,6 +391,12 @@ built, until Michel says to revise them (SP-6):
 
 ## Changelog
 
+- v0.4 — 2026-10-11 — the three steps and the pathway editor, Michel's
+  word (§3a, §3b): the planner proposes and says where it doubts; the
+  steward or Curator edits with via points, avoid points, own lines
+  and walked tracks; what was walked and saved becomes the planner's
+  best knowledge. AI on demand a helper, never the router (Claude's
+  proposal). A stretch keeps what the editor set (§4). Engine v0.13.
 - v0.3, amended 2026-10-11 — §3: a road link measured on the route
   itself (engine v0.12).
 - v0.3, amended 2026-10-11 — §3: through towns and villages the

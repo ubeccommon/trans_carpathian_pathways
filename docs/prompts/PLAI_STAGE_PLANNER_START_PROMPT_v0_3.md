@@ -1,9 +1,9 @@
 ---
-title: "PLAI_STAGE_PLANNER_START_PROMPT_v0_2"
+title: "PLAI_STAGE_PLANNER_START_PROMPT_v0_3"
 subtitle: "Starting prompt — the stage planner's page, service and saved stretches on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.2"
+version: "v0.3"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -52,7 +52,7 @@ multi-day `stages` piece; the white paper, proposal or plan
    faces anyone; logs short; the checker before any `.md`; commits
    authored as Michel Garand from a pulled tree.
 3. In the Pathways tree, read in full:
-   `docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_3.md` (what to
+   `docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_4.md` (what to
    build), `tools/stage_planner.py` and `tools/README.md` (the
    engine), and `docs/specs/PATHWAYS_OPEN_DATA_SPEC_v0_3.md` §2 (a
    host is never a waypoint in a public file).
@@ -121,6 +121,10 @@ Michel decides, and nothing of Claude's is recorded as decided.
     group;
   - the page: inside the Pathways application or beside it; what
     a visitor sees, in the languages decided (§4), WCAG 2.2 AA;
+  - the pathway editor for stewards and Curators (spec §3b): via
+    and avoid points on the map, a line of one's own, a GPX upload,
+    the gap and road checks, notes, save and publish, history — and
+    what of it reaches the engine as `--via`, `--avoid`, `--known`;
   - how stretches and corridors are drawn on Plai's map for
     everyone once published, and how withdrawal removes them.
 - **Gate C — built in the tree.** The service, the migration, the
@@ -132,8 +136,10 @@ Michel decides, and nothing of Claude's is recorded as decided.
   restarts, reloads nginx if its file changed, and runs the leak
   pass over every new endpoint and answer: in the public answer no
   host has a place, an offer, a kind, a kilometre or a geometry.
-  Then he plans a route on the page, saves a draft as a steward,
-  publishes it as the Curator, withdraws a test host and sees it
+  Then he plans a route on the page, edits it as a steward — a via
+  point through Verkhovyna, an avoid point, a line of his own, a
+  GPX track — saves the draft, publishes it as the Curator, plans
+  again near it and sees the published stretch preferred, withdraws a test host and sees it
   leave every answer. Closes on his "looks good" — and with it,
   Pathways Gate 5.
 
@@ -164,6 +170,7 @@ Michel decides, and nothing of Claude's is recorded as decided.
 * * *
 
 *Changelog*
+- v0.3 — 2026-10-11 — the three steps and the pathway editor, Michel's word: Gate B designs the editor (spec v0.4 §3b), Gate D walks it.
 - v0.2, amended 2026-10-11 — a start and an end: a host's name, a Plai or OSM place, coordinates or a point placed on the map.
 - v0.2 — 2026-10-11 — SP-4 to SP-7, Michel's word: Gate A is
   Verkhovyna – Zhyva Khata – Tepla Gora – Kosiv as one corridor;

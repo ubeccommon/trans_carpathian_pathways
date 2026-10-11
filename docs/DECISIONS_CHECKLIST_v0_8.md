@@ -1,9 +1,9 @@
 ---
-title: "DECISIONS_CHECKLIST_v0_7"
+title: "DECISIONS_CHECKLIST_v0_8"
 subtitle: "The questions waiting on Michel's word, one line each — with his answers of October 9"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.7"
+version: "v0.8"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -181,6 +181,13 @@ manual v0.4, prompt v0.29.*
 - ☑ **SP-3 — Hosts in the public answer.** Named, with only their
       detour time. *Michel's word, October 11, 2026.* → spec v0.2
       §5; `tools/stage_planner.py` v0.3.
+- ☑ **The three steps and the pathway editor.** The planner
+      proposes and says where it doubts; the steward or Curator
+      edits — via points, avoid points, own lines, walked tracks;
+      what was walked and saved becomes its best knowledge.
+      *Michel's word, October 11, 2026.* → spec v0.4 §3a, §3b;
+      prompt v0.65 §6; start prompt v0.3; engine v0.13. Open: the
+      editor's tools, at Gate B of the build.
 - ☑ **SP-4 — The numbers.** As proposed; the first real run and
       Gate 4 test them. *Michel's word, October 11, 2026.* Changed
       after the first run, his word the same day: hiking paths
@@ -228,6 +235,7 @@ manual v0.4, prompt v0.29.*
 * * *
 
 *Changelog*
+- v0.8 — 2026-10-11 — the three steps and the pathway editor, Michel's word.
 - v0.7 — 2026-10-11 — SP-4 to SP-7 decided, Michel's word.
 - v0.6 — 2026-10-11 — SP-1 to SP-3 decided, SP-4 to SP-7 listed, Michel's word.
 - v0.5 — 2026-10-11 — the planner public, Michel's word, under "Decided since".
