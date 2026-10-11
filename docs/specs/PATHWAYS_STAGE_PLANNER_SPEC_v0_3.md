@@ -248,22 +248,25 @@ visitor chooses). Its own conversation, when Michel opens it.
 
 ## 10. Documents That Still Say Otherwise
 
-Changed with this specification: the starting prompt v0.61 (§6,
-§7, OI-P10), v0.62 (SP-1 to SP-3, Gate order) and v0.63 (SP-4 to
+Changed with this specification: the starting prompt v0.62 (§6,
+§7, OI-P10), v0.63 (SP-1 to SP-3, Gate order) and v0.64 (SP-4 to
 SP-7), the decisions checklist v0.5 to v0.7, the reasoning v0.4.
 
 Still saying the planner is the Curator's alone, or may never be
 built, until Michel says to revise them (SP-6):
 
 - the white paper, English and Ukrainian (§ "No algorithm
-  deciding"; the gates), and its PDF;
+  deciding"; the gates), and its PDF; its German and Polish
+  translations and their PDFs, which follow the English;
 - the proposal, English and Ukrainian (the stage planner "a tool
-  for the Curator"; "if needed"), and its PDF;
+  for the Curator"; "if needed"), and its PDF; its German and
+  Polish translations and their PDFs;
 - the implementation plan, English and Ukrainian ("decide whether
   the stage planner is needed at all"), and its PDF;
 - the module map (T1: "a stage planner only if Gate 4 shows
   need");
-- the project overview and its deck, if they name it.
+- the project overview, in English, German and Polish, and its
+  deck, if they name it.
 
 ## Changelog
 
@@ -272,7 +275,8 @@ built, until Michel says to revise them (SP-6):
   – Tepla Gora – Kosiv; the public documents revised when he says
   so; a stretch's name and note in English first, until a
   multilingual Mapservice is explored. The page's languages left
-  open for the build.
+  open for the build. Amended the same day: the German and Polish
+  translations, made on main meanwhile, added to §10.
 - v0.2 — 2026-10-11 — SP-1, SP-2 and SP-3 decided on Michel's word:
   a steward saves drafts, the Curator publishes; the page and
   service on Plai before Gate 3, from their start prompt; the public

@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_63"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_64"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.63"
+version: "v0.64"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -721,6 +721,21 @@ in English, «Transkarpatien» and «Zakarpacie» naming the oblast as
 «Транскарпатські» does (D-1); a list of four languages in place of the
 switch. Recorded in `site/README.md` v0.15.
 
+**The overview, the proposal and the white paper in German and Polish —
+Michel's word, October 11, 2026.** Translated by Claude from overview
+v0.5, proposal v0.7 and white paper v0.9, beside their sources in
+`docs/`, with diagrams in both languages and a PDF each for the proposal
+and the white paper; the EN-UK PDFs unchanged. One glossary for all six,
+`docs/translations/GLOSSARY_DE_PL_v0_1.md`: the name kept in English;
+Gate as *Schwelle* / *próg*; the pilgrim as *Pilgerin, Pilger des Plai*
+/ *pielgrzym płaju*; people and organisations under the names they write
+themselves. Checked by script and by a separate reader in each language;
+their findings taken in. Every translation says it has not been read by
+someone whose language it is. The co-creator agreement stays in English
+and Ukrainian until it settles. When an English document changes, its
+German and Polish follow, or say which English version they translate.
+Recorded in `site/README.md` v0.16.
+
 * * *
 
 ## 3. The First Corridor
@@ -1198,10 +1213,11 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
-- v0.63, amended 2026-10-11 — the engine at v0.4 after the first run on ubec-common: Latin names find Cyrillic ones, `find`.
-- v0.63 — 2026-10-11 — SP-4 to SP-7, Michel's word: the numbers as proposed; the first real run Verkhovyna – Zhyva Khata – Tepla Gora – Kosiv; the public documents when he says so; a stretch's name and note in English first, until a multilingual Mapservice is explored. Spec v0.3, start prompt v0.2.
-- v0.62 — 2026-10-11 — SP-1 to SP-3, Michel's word: a steward saves drafts, the Curator publishes; the page and service on Plai before Gate 3; the public answer names hosts with their detour time only. Spec v0.2, engine v0.3, the start prompt for the build on Plai.
-- v0.61 — 2026-10-11 — the planner public, Michel's word: anyone plans; the Curator saves and manages stretches; stretches make a corridor. §6 rewritten, §7 and Gate 5 with it; OI-P10 closed; the engine at `tools/stage_planner.py` v0.2; the spec v0.1 with SP-1 to SP-7.
+- v0.64, amended 2026-10-11 — the engine at v0.4 after the first run on ubec-common: Latin names find Cyrillic ones, `find`.
+- v0.64 — 2026-10-11 — SP-4 to SP-7, Michel's word: the numbers as proposed; the first real run Verkhovyna – Zhyva Khata – Tepla Gora – Kosiv; the public documents when he says so; a stretch's name and note in English first, until a multilingual Mapservice is explored. Spec v0.3, start prompt v0.2.
+- v0.63 — 2026-10-11 — SP-1 to SP-3, Michel's word: a steward saves drafts, the Curator publishes; the page and service on Plai before Gate 3; the public answer names hosts with their detour time only. Spec v0.2, engine v0.3, the start prompt for the build on Plai.
+- v0.62 — 2026-10-11 — the planner public, Michel's word: anyone plans; the Curator saves and manages stretches; stretches make a corridor. §6 rewritten, §7 and Gate 5 with it; OI-P10 closed; the engine at `tools/stage_planner.py` v0.2; the spec v0.1 with SP-1 to SP-7.
+- v0.61 — 2026-10-11 — the overview, the proposal and the white paper in German and Polish, Michel's word.
 - v0.60 — 2026-10-11 — the menu closed on the host; German and Polish on the site, Michel's word.
 - v0.59 — 2026-10-11 — the menu's order, the map link to the Pathways application, the overview v0.5 pointing to the site; Michel's word.
 - v0.58 — 2026-10-11 — the site's menu and the documents' pages, Michel's word: our own build, not Ghost.

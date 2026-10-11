@@ -1,6 +1,6 @@
 ---
 title: "tcp.ubec.network — the site"
-version: "v0.15"
+version: "v0.16"
 date: "2026-10-11"
 lang: "en"
 license: "CC BY-SA 4.0"
@@ -69,9 +69,23 @@ looked at.
   page says, in one line, that it is a translation not yet read by
   someone whose language it is, and that the documents are in English
   and Ukrainian.
-- **The documents stay in English and Ukrainian.** In the German and
-  Polish menus each carries a small EN tag; a screen reader hears
-  «auf Englisch» or «po angielsku».
+- **The overview, the proposal and the white paper in German and Polish**
+  (Michel's word, the same morning): Claude's translations of the English
+  overview v0.5, proposal v0.7 and white paper v0.9, in `docs/` beside
+  their sources (`*_DE.md`, `*_PL.md`, `PROJECT_OVERVIEW_{DE,PL}_v0_5.md`),
+  with their diagrams and a PDF each for the proposal and the white paper
+  (`*_DE.pdf`, `*_PL.pdf`; the EN-UK PDFs unchanged). The words are in
+  `docs/translations/GLOSSARY_DE_PL_v0_1.md`. Checked twice: a script
+  (every source number in order, every URL, heading, table row and
+  figure), then a separate reader in each language against the English;
+  their findings taken in, the EU Package Travel Directive quoted from
+  its official German and Polish texts. Every translation says, on the
+  page and on the PDF's cover, that nobody whose language it is has read
+  it yet.
+- **The co-creator agreement stays in English and Ukrainian** until it
+  has settled and a native reader is lined up: in the German and Polish
+  menus it carries a small EN tag, and a screen reader hears «auf
+  Englisch» or «po angielsku».
 - **The name stays English** in both: «Transkarpatien» in German and
   «Zakarpacie» in Polish name Zakarpattia oblast, the same misreading
   the review found in «Транскарпатські» (D-1). Under the name, the
@@ -327,6 +341,8 @@ site's own, and logged no policy violation.
 * * *
 
 *Changelog*
+- v0.16 — 2026-10-11 — the overview, the proposal and the white paper
+  in German and Polish, Michel's word. Build v0.12.
 - v0.15 — 2026-10-11 — German and Polish, Michel's word; his "looks
   good" on the menu as deployed. Build v0.11, stylesheet v0.7, landing
   pages en and uk v0.6, de and pl v0.1.

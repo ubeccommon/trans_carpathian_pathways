@@ -168,22 +168,22 @@ manual v0.4, prompt v0.29.*
       saves and manages a stretch; stretches are combined into a
       corridor. OI-P10 closed by it: an answer unstored, a saved
       stretch in `instance_sa` under ODbL. *Michel's word, October
-      11, 2026.* → prompt v0.61 §6, §7, Gate 5; stage planner spec
+      11, 2026.* → prompt v0.62 §6, §7, Gate 5; stage planner spec
       v0.1, with SP-1 to SP-7 open; reasoning §5; the white paper,
       proposal, plan and module map at their next versions (SP-6).
 - ☑ **SP-1 — Stewards.** A steward may save a draft; only the
       Curator publishes it. *Michel's word, October 11, 2026.* →
-      spec v0.2 §2, §4; prompt v0.62 §6.
+      spec v0.2 §2, §4; prompt v0.63 §6.
 - ☑ **SP-2 — The page and service.** On Plai, before the first
       hosts (Gate 3). *Michel's word, October 11, 2026.* → spec
-      v0.2 §6; prompt v0.62 §6 and Gate 5; the start prompt for
+      v0.2 §6; prompt v0.63 §6 and Gate 5; the start prompt for
       the build in `ubec_mapservice`.
 - ☑ **SP-3 — Hosts in the public answer.** Named, with only their
       detour time. *Michel's word, October 11, 2026.* → spec v0.2
       §5; `tools/stage_planner.py` v0.3.
 - ☑ **SP-4 — The numbers.** As proposed; the first real run and
       Gate 4 test them. *Michel's word, October 11, 2026.* → spec
-      v0.3 §9; prompt v0.63 §6.
+      v0.3 §9; prompt v0.64 §6.
 - ☑ **SP-5 — The first real run.** Verkhovyna – Zhyva Khata – Tepla
       Gora – Kosiv: three stretches joined as a corridor. *Michel's
       word, October 11, 2026.* → spec v0.3 §9; start prompt v0.2,

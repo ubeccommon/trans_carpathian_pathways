@@ -17,6 +17,12 @@ requirements.txt.
 SPDX-License-Identifier: AGPL-3.0-or-later
 
 Changelog:
+  v0.5 — 2026-10-11 — German and Polish (Michel's word): one PDF per
+         translation, Trans-Carpathian_Pathways_Proposal_{DE,PL}.pdf, its
+         cover in its own language, and under its title the line that it
+         is a translation not yet read by a speaker of the language. The
+         EN-UK PDF is unchanged. The diagrams are drawn in all four
+         languages.
   v0.4 — 2026-10-09 — the document says its language: lang="en" on the root,
          lang="uk" on the Ukrainian cover lines (BCP 47; Michel's word).
   v0.3 — 2026-10-07 — skips each text's YAML front matter (version and
@@ -47,6 +53,27 @@ LANGS = [
      "label": "Українська", "footer": "Транскарпатські стежки — опис проєкту та пропозиція"},
 ]
 
+# The translations: one PDF each, in one language (Michel's word, October 11,
+# 2026). Each says, under its title, that it is a translation nobody whose
+# language it is has read yet.
+TRANSLATIONS = [
+    {"code": "de", "md": "Trans-Carpathian_Pathways_Proposal_DE.md", "label": "Deutsch",
+     "footer": "Trans-Carpathian Pathways — Projektvorschlag",
+     "tag": "Ein lebendiges Netz aus Ort, Menschen und Pfad",
+     "kind": "Projektvorschlag",
+     "meta": "Oktober 2026 · UBEC / Karpaten-Hub-Initiative",
+     "note": "Übersetzung der englischen Fassung durch Claude; noch von niemandem "
+             "mit Deutsch als Muttersprache gelesen."},
+    {"code": "pl", "md": "Trans-Carpathian_Pathways_Proposal_PL.md", "label": "Polski",
+     "footer": "Trans-Carpathian Pathways — propozycja projektu",
+     "tag": "Żywa sieć miejsc, ludzi i ścieżek",
+     "kind": "Propozycja projektu",
+     "meta": "Październik 2026 · UBEC / Inicjatywa Karpackiego Hubu",
+     "note": "Tłumaczenie angielskiej wersji wykonane przez Claude; nie czytał go jeszcze "
+             "nikt, dla kogo polski jest językiem ojczystym."},
+]
+SUMMARY = ("Summary", "Коротко", "Zusammenfassung", "Streszczenie")
+
 
 def section(lang):
     text = (PROP / lang["md"]).read_text(encoding="utf-8")
@@ -65,7 +92,8 @@ def section(lang):
     html = re.sub(r"<colgroup>.*?</colgroup>", "", html, flags=re.S)
     # A table whose header cells are all empty has no header.
     html = re.sub(r"<thead>\s*<tr[^>]*>\s*(<th[^>]*>\s*</th>\s*)+</tr>\s*</thead>", "", html)
-    html = html.replace("<table>", '<table class="kv">', 1) if "Summary" in body[:20] or "Коротко" in body[:20] else html
+    html = html.replace("<table>", '<table class="kv">', 1) if any(w in body[:24] for w in SUMMARY) else html
+    note = f'<p class="byline note">{lang["note"]}</p>' if lang.get("note") else ""
     return f"""
 <section class="lang" id="{lang['code']}" lang="{lang['code']}">
   <div class="footer-text">{lang['footer']}</div>
@@ -76,6 +104,7 @@ def section(lang):
       <h1>{title}</h1>
       <p class="subtitle">{subtitle}</p>
       <p class="byline">{byline}</p>
+      {note}
     </div>
   </header>
   {html}
@@ -172,6 +201,29 @@ def main():
     HTML_OUT.write_text(doc, encoding="utf-8")
     HTML(string=doc, base_url=str(PROP)).write_pdf(OUT)
     print("wrote", OUT.relative_to(ROOT))
+    for t in TRANSLATIONS:
+        if (PROP / t["md"]).exists():
+            translation(t)
+
+
+def translation(t):
+    """One translation, one PDF, its cover in its own language."""
+    cover = f"""
+<section class="cover">
+  <img class="logo" src="assets/logo.png" alt="Trans-Carpathian Pathways">
+  <h1>Trans-Carpathian Pathways</h1>
+  <p class="tag">{t["tag"]}</p>
+  <div class="rule"></div>
+  <p class="meta">{t["kind"]}</p>
+  <p class="meta">{t["meta"]}</p>
+  <p class="meta note">{t["note"]}</p>
+</section>"""
+    doc = (f'<!doctype html><html lang="{t["code"]}"><head><meta charset="utf-8">'
+           f'<meta name="author" content="Michel Garand"><title>Trans-Carpathian Pathways — {t["kind"]}</title>'
+           f'<style>{CSS} .cover .note {{ margin: 8mm 32mm 0; line-height: 1.5; color: #5d5a52; }}</style></head><body>{cover}{section(t)}</body></html>')
+    out = PROP / t["md"].replace(".md", ".pdf")
+    HTML(string=doc, base_url=str(PROP)).write_pdf(out)
+    print("wrote", out.relative_to(ROOT))
 
 
 if __name__ == "__main__":

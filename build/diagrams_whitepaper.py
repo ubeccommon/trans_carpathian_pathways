@@ -281,9 +281,86 @@ UK = {
 }
 
 
+DE = {
+    "aims": {
+        "title": "Wohin jeder Ansatz zielt",
+        "b1": ("Degeneration", "Der Ort verliert, was ihn ausmachte: Menschen, Wissen, Wiesen"),
+        "b2": ("Null", "Kein Netto-Schaden – das Ziel der Nachhaltigkeit"),
+        "b3": ("Regeneration", "Der Ort wird lebendiger und besser imstande fortzubestehen"),
+        "m1": ("Resort-Tourismus", "Jedes Jahr weniger Schaden, und mehr davon"),
+        "m2": ("Nachhaltiger Tourismus", "Dasselbe Modell, mit geringerem Schaden"),
+        "m3": ("Pathways", "Jeder Besuch stärkt die Fähigkeit des Ortes fortzubestehen"),
+        "foot": "Nachhaltigkeit fragt, wie weniger Schaden entsteht. Regeneration fragt, was dieser Ort braucht, um mehr er selbst zu werden, und baut darauf auf. Das Erste ist eine Obergrenze für Schaden, das Zweite eine Richtung.",
+    },
+    "sees": {
+        "title": "Was jeder Ansatz sieht",
+        "left_head": "Nachhaltige Entwicklung",
+        "right_head": "Regeneration",
+        "pillars": ["Wirtschaft", "Gesellschaft", "Umwelt"],
+        "balance": "ein Gleichgewicht, das zu finden ist",
+        "rings": ["Das lebendige Land", "Die Menschen, die mit ihm leben", "Ihre Wirtschaft"],
+        "cycle": "Arbeit · Wissen · Sorge",
+        "measures": [("Gemessen wird", "Verringerte Wirkung, erreichte Ziele, ausgeglichener Schaden"),
+                     ("Gemessen wird", "Die Gesundheit des Ganzen und seine Fähigkeit fortzubestehen")],
+    },
+    "flows": {
+        "title": "Zwei Ströme in denselben Bergen",
+        "left_head": "Ausbeutung, die die Nachhaltigkeit mäßigt",
+        "right_head": "Regeneration, die Pathways aufbaut",
+        "chain": ["Ein Gast kommt für eine Aussicht", "Ein Resort verkauft die Aussicht",
+                  "Das Geld verlässt das Tal", "Die Wiese ist Kulisse, ungemäht",
+                  "Die Hofleute altern und verkaufen"],
+        "loop": ["Wiese gemäht, Handwerk in Gebrauch", "Wissen bewahrt durch Tun",
+                 "Gastgebende bieten Echtes an", "Pilgernde kommen und lernen",
+                 "Ein Grund und die Mittel zu bleiben"],
+        "loop_centre": "der Ort selbst",
+        "net": [("Nettowirkung", "Weniger Schaden je Gast; der Trend bleibt"),
+                ("Nettowirkung", "Jeder Besuch stärkt die Fähigkeit des Ortes fortzubestehen")],
+    },
+}
+
+PL = {
+    "aims": {
+        "title": "Dokąd zmierza każde podejście",
+        "b1": ("Degeneracja", "Miejsce traci to, co je tworzyło: ludzi, wiedzę, łąki"),
+        "b2": ("Zero", "Brak szkody netto – cel zrównoważenia"),
+        "b3": ("Regeneracja", "Miejsce staje się żywsze i lepiej zdolne trwać"),
+        "m1": ("Turystyka kurortowa", "Co roku mniej szkód – i więcej tego samego"),
+        "m2": ("Turystyka zrównoważona", "Ten sam model, z mniejszymi szkodami"),
+        "m3": ("Pathways", "Każda wizyta wzmacnia zdolność miejsca do trwania"),
+        "foot": "Zrównoważenie pyta, jak szkodzić mniej. Regeneracja pyta, czego to miejsce potrzebuje, by stać się bardziej sobą, i od tego zaczyna. Pierwsze to górna granica szkód; drugie to kierunek.",
+    },
+    "sees": {
+        "title": "Co widzi każde podejście",
+        "left_head": "Zrównoważony rozwój",
+        "right_head": "Regeneracja",
+        "pillars": ["Gospodarka", "Społeczeństwo", "Środowisko"],
+        "balance": "równowaga do osiągnięcia",
+        "rings": ["Żywa ziemia", "Ludzie, którzy z nią żyją", "Ich gospodarka"],
+        "cycle": "praca · wiedza · troska",
+        "measures": [("Mierzy", "Mniejszy wpływ, osiągnięte cele, zrównoważone szkody"),
+                     ("Mierzy", "Zdrowie całości i jej zdolność do trwania")],
+    },
+    "flows": {
+        "title": "Dwa przepływy w tych samych górach",
+        "left_head": "Eksploatacja, którą łagodzi zrównoważenie",
+        "right_head": "Regeneracja, którą buduje Pathways",
+        "chain": ["Turysta przyjeżdża po widok", "Kurort sprzedaje widok",
+                  "Pieniądze opuszczają dolinę", "Łąka jest dekoracją, nieskoszona",
+                  "Właściciel starzeje się i sprzedaje"],
+        "loop": ["Łąka skoszona, rzemiosło w użyciu", "Wiedza zachowana przez praktykę",
+                 "Gospodarz oferuje to, co prawdziwe", "Pielgrzym przybywa i się uczy",
+                 "Powód i środki, by zostać"],
+        "loop_centre": "samo miejsce",
+        "net": [("Efekt netto", "Mniej szkód na gościa; trend bez zmian"),
+                ("Efekt netto", "Każda wizyta wzmacnia zdolność miejsca do trwania")],
+    },
+}
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
-    for lang, L in (("en", EN), ("uk", UK)):
+    for lang, L in (("en", EN), ("uk", UK), ("de", DE), ("pl", PL)):
         (OUT / f"aims_{lang}.svg").write_text(tagged(aims(L["aims"]), lang), encoding="utf-8")
         (OUT / f"sees_{lang}.svg").write_text(tagged(sees(L["sees"]), lang), encoding="utf-8")
         (OUT / f"flows_{lang}.svg").write_text(tagged(flows(L["flows"]), lang), encoding="utf-8")
