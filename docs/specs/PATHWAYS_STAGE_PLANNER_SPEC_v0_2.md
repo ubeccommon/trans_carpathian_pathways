@@ -63,7 +63,7 @@ Curator publishes it.
 
 ## 3. What the Planner Does
 
-Built as `tools/stage_planner.py` v0.2; its opening comment holds
+Built as `tools/stage_planner.py` v0.3; its opening comment holds
 every rule and number. In short:
 
 - **In:** a start and an end — a published Plai place, a village
