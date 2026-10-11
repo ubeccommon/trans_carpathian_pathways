@@ -1,4 +1,4 @@
-/* Trans-Carpathian Pathways — tcp.ubec.network, v0.4
+/* Trans-Carpathian Pathways — tcp.ubec.network, v0.5
  * SPDX-License-Identifier: AGPL-3.0-or-later
  *
  * The palette and type of the project's PDFs (build/build_pdf.py):
@@ -11,6 +11,12 @@
  * pairs listed in its CONTRAST table against the colours below.
  *
  * Changelog:
+ *   v0.5 — 2026-10-11 — the menu above the picture (Michel's word), its
+ *          drop-downs as <details>, no script: one open at a time, the
+ *          panel on paper with night text and a night focus outline; the
+ *          band that heads a document's page; the document's own text —
+ *          h3, lists, tables that scroll in their own region, figures,
+ *          long source links that wrap; the Ukrainian note.
  *   v0.4 — 2026-10-09 — WCAG 2.2 AA: the focus outline night on light
  *          ground and ochre on the night head (ochre on paper was 2.8:1);
  *          the list arrow silent to screen readers; the name keeps a rem
@@ -139,6 +145,86 @@ strong { font-weight: 600; color: var(--night); }
            font-size: 1.05rem; margin-bottom: .15rem; }
 .links a:hover { color: var(--terra); text-decoration: underline; }
 
+/* ---- the menu, above the picture ----
+   A row of links on the night head; the documents with chapters open a
+   panel below their name. The panels are <details name="menu">, so
+   opening one closes the other and no script is needed. On a narrow
+   screen the row wraps and a panel spans the width. */
+
+.menu { max-width: 72rem; margin: 0 auto; padding: .9rem 1rem 0; position: relative; }
+.menu > ul { list-style: none; margin: 0; padding: .55rem 0 0; display: flex; flex-wrap: wrap;
+             gap: .15rem .35rem; border-top: 1px solid rgba(232, 220, 184, .22); }
+.menu > ul > li { position: relative; }
+.menu > ul > li > a, .menu summary {
+  display: inline-flex; align-items: center; min-height: 2.25rem; padding: .25rem .6rem;
+  color: var(--cream); font-size: .92rem; font-weight: 600; text-decoration: none;
+  border-radius: 4px; cursor: pointer; }
+.menu > ul > li > a:hover, .menu summary:hover { color: var(--night); background: var(--cream); }
+.menu .here > a, .menu .here > details > summary { color: var(--ochre); }
+.menu .here > a:hover, .menu .here > details > summary:hover { color: var(--night); }
+.menu summary { list-style: none; }
+.menu summary::-webkit-details-marker { display: none; }
+.menu summary::after { content: "▾"; content: "▾" / ""; margin-left: .35rem; font-size: .8em; }
+.menu details[open] > summary { color: var(--night); background: var(--cream); }
+.menu summary:focus-visible { outline: 3px solid var(--ochre); outline-offset: 2px; }
+
+.panel { position: absolute; top: calc(100% + .35rem); left: 0; z-index: 10;
+         width: max-content; min-width: 16rem; max-width: min(30rem, calc(100vw - 2rem));
+         max-height: 80vh; overflow-y: auto;
+         list-style: none; margin: 0; padding: .45rem 0;
+         background: var(--paper); border-top: 3px solid var(--ochre); border-radius: 0 0 6px 6px;
+         box-shadow: 0 10px 28px rgba(10, 12, 28, .35); }
+.panel li a { display: block; padding: .38rem 1rem; color: var(--night); text-decoration: none;
+              font-size: .9rem; line-height: 1.35; }
+.panel li a:hover { background: var(--cream-2); text-decoration: underline; }
+.panel li a:focus-visible, .head .panel a:focus-visible { outline: 3px solid var(--night); outline-offset: -3px; }
+.panel li a[aria-current] { font-weight: 600; }
+.panel .l3 a { padding-left: 2rem; font-size: .86rem; }
+.panel li:first-child a { font-weight: 600; }
+.panel .pdf { border-top: 1px solid var(--line); margin-top: .35rem; padding-top: .35rem; }
+
+@media (max-width: 40rem) {
+  .menu > ul > li { position: static; }
+  .menu > ul > li > a, .menu summary { font-size: .88rem; padding: .25rem .5rem; }
+  .panel { left: 1rem; right: 1rem; width: auto; min-width: 0; max-width: none; }
+}
+
+/* ---- a document's page: a band in place of the picture ---- */
+
+.band { max-width: var(--measure); margin: 0 auto; padding: 1.8rem 1rem 2rem; }
+.band .kind { margin: 0 0 .5rem; color: var(--ochre); font-size: .8rem; font-weight: 600;
+              letter-spacing: .08em; text-transform: uppercase; }
+.band h1 { font-family: "Lora", Georgia, serif; font-weight: 600; color: #fff; margin: 0;
+           font-size: 2.3rem; line-height: 1.1; letter-spacing: -.01em; }
+.band .sub { font-family: "Lora", Georgia, serif; font-style: italic; color: var(--cream);
+             font-size: 1.15rem; line-height: 1.4; margin: .7rem 0 0; }
+.band .meta { color: var(--cream-2); font-size: .88rem; margin: .9rem 0 0; }
+.band .meta a { color: var(--ochre); }
+.band .meta a:hover { color: var(--cream); }
+
+.note { margin: 1.4rem 0 0; padding: .55rem .8rem; background: var(--cream-2); border-left: 3px solid var(--ochre);
+        color: var(--ink); font-size: .9rem; }
+
+/* ---- a document's own text ---- */
+
+.doc { padding-top: .6rem; }
+.doc h2 { margin-top: 2.8rem; scroll-margin-top: 1rem; }
+.doc h3 { font-family: "Lora", Georgia, serif; font-weight: 600; color: var(--night);
+          font-size: 1.22rem; line-height: 1.3; margin: 2rem 0 .7rem; scroll-margin-top: 1rem; }
+.doc ul, .doc ol { margin: 0 0 1rem; padding-left: 1.4rem; }
+.doc li { margin: 0 0 .45rem; }
+.doc figure { margin: 1.6rem 0; }
+.doc figure img { display: block; width: 100%; height: auto; background: #fff; border-radius: 4px; }
+.doc figcaption { color: var(--quiet); font-size: .85rem; margin-top: .4rem; }
+.doc hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
+.doc blockquote { margin: 1.2rem 0; padding-left: 1rem; border-left: 3px solid var(--line); color: var(--quiet); }
+.doc a { overflow-wrap: anywhere; }
+.doc .table { overflow-x: auto; margin: 1.2rem 0 1.4rem; }
+.doc .table:focus-visible { outline: 3px solid var(--night); outline-offset: 2px; }
+.doc table { border-collapse: collapse; width: 100%; font-size: .9rem; line-height: 1.45; }
+.doc th, .doc td { text-align: left; vertical-align: top; padding: .5rem .6rem; border-bottom: 1px solid var(--line); }
+.doc th { background: var(--cream-2); color: var(--ink); font-weight: 600; }
+
 /* ---- the foot ---- */
 
 footer { border-top: 1px solid var(--line); background: var(--paper); }
@@ -152,6 +238,11 @@ footer { border-top: 1px solid var(--line); background: var(--paper); }
   .bar { padding-left: 2rem; padding-right: 2rem; }
 }
 
+@media (min-width: 52rem) {
+  .menu { padding-left: 2rem; padding-right: 2rem; }
+  .band h1 { font-size: 2.8rem; }
+}
+
 @media print {
-  .switch, .skip { display: none; }
+  .switch, .skip, .menu { display: none; }
 }

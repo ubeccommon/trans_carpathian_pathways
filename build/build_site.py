@@ -15,23 +15,40 @@ It reads site/content/*.md (one file per page and language, a short
 front matter of `key: value` lines, the body in pandoc Markdown), wraps
 each in the page below, and writes site/dist/: the pages, style.css,
 the fonts and the marks from site/static/, and the Plai emblem cropped
-to its circle from docs/proposal/assets/plai_emblem_mark.svg. site/dist/
-is not tracked; the host and the path are arguments, never in the tree.
+to its circle from docs/proposal/assets/plai_emblem_mark.svg.
+
+It also builds one page per document and language from the documents
+themselves (DOCS below): the latest version of each file in docs/, its
+diagrams, and its committed PDF, copied as they are. The site never holds
+a second copy of a document's words; a document changes in docs/ and the
+site follows on the next build. Every page carries the same menu, above
+the picture, with the chapters of the longer documents in a drop-down.
+site/dist/ is not tracked; the host and the path are arguments, never in
+the tree.
 
 The check refuses a build in which any page or stylesheet loads anything
 from another server, links to a file that is not there, or leaves an
-element unclosed; links out are allowed only to the hosts in LINKS_OUT.
-It also checks what WCAG 2.2 AA asks that a build can check: a valid
-language tag on every page and part, one h1 and no skipped heading level,
-alt on every picture, a name on every link, a title, and the contrast of
-every colour pair in CONTRAST. What only a person can check is listed in
-site/README.md.
+element unclosed. The site's own pages link out only to the hosts in
+LINKS_OUT and the paths in LINKS_OUT_PATHS; a page built from a document
+may also link to the sources the document cites, over https. Nothing
+links to a host's point on Plai. It also checks what WCAG 2.2 AA asks
+that a build can check: a valid language tag on every page and part, one
+h1 and no skipped heading level, alt on every picture, a name on every
+link, a title, and the contrast of every colour pair in CONTRAST. What
+only a person can check is listed in site/README.md.
 
 Needs pandoc on the PATH, and Python 3 alone; deploy needs rsync and ssh.
 
 SPDX-License-Identifier: AGPL-3.0-or-later
 
 Changelog:
+  v0.5 — 2026-10-11 — a menu above the picture on every page (Michel's
+         word): About, the white paper with its chapters, the proposal,
+         the co-creator agreement with its parts and roles, the overview,
+         Plai and the field writing. A page per document and language,
+         built from the latest file in docs/, with its diagrams and PDF;
+         the record on GitHub allowed as a link out, the repository being
+         public (October 11); a document's own sources allowed as links.
   v0.4 — 2026-10-09 — WCAG 2.2 AA in the check (Michel's word): BCP 47
          language tags, one h1 and no skipped heading level, alt on every
          picture, a name on every link, a title, and the contrast of the
@@ -62,8 +79,65 @@ DIST = SITE / "dist"
 EMBLEM = ROOT / "docs" / "proposal" / "assets" / "plai_emblem_mark.svg"
 
 ORIGIN = "https://tcp.ubec.network"
+RECORD = "https://github.com/ubeccommon/trans_carpathian_pathways"
 LINKS_OUT = {"mapservice.ubec.network", "pilgrims.ubec.network"}
+# Hosts the site's own pages may link to only under one path: the record.
+LINKS_OUT_PATHS = {"github.com": "/ubeccommon/trans_carpathian_pathways"}
 MAILTO = {"stewardship@ubec.network"}
+MAP = "https://mapservice.ubec.network/"
+WRITING = "https://pilgrims.ubec.network/"
+
+# The documents on the site, in the menu's order. `src` is a glob in docs/
+# per language; the latest version wins. `toc` says which headings the
+# menu lists: "h2" the chapters; "h2+roles" the parts and, under Part II,
+# each role. A document with no Ukrainian file is shown in English to both.
+DOCS = [
+    {"slug": "whitepaper",
+     "src": {"en": "whitepaper/Trans-Carpathian_Pathways_White_Paper_EN.md",
+             "uk": "whitepaper/Trans-Carpathian_Pathways_White_Paper_UK.md"},
+     "pdf": "whitepaper/Trans-Carpathian_Pathways_White_Paper.pdf",
+     "label": {"en": "White paper", "uk": "Біла книга"},
+     "kind": {"en": "White paper", "uk": "Біла книга"},
+     "toc": "h2"},
+    {"slug": "proposal",
+     "src": {"en": "proposal/Trans-Carpathian_Pathways_Proposal_EN.md",
+             "uk": "proposal/Trans-Carpathian_Pathways_Proposal_UK.md"},
+     "pdf": "proposal/Trans-Carpathian_Pathways_Proposal_EN-UK.pdf",
+     "label": {"en": "Proposal", "uk": "Пропозиція"},
+     "kind": {"en": "Project summary and proposal", "uk": "Опис проєкту та пропозиція"},
+     "toc": None},
+    {"slug": "agreement",
+     "src": {"en": "agreement/Trans-Carpathian_Pathways_Co-Creator_Agreement_EN.md",
+             "uk": "agreement/Trans-Carpathian_Pathways_Co-Creator_Agreement_UK.md"},
+     "pdf": "agreement/Trans-Carpathian_Pathways_Co-Creator_Agreement_EN-UK.pdf",
+     "label": {"en": "Co-creator agreement", "uk": "Угода співтворців"},
+     "kind": {"en": "Co-creator agreement", "uk": "Угода співтворців"},
+     "toc": "h2+roles"},
+    {"slug": "overview",
+     "src": {"en": "overview/PROJECT_OVERVIEW_v*.md"},
+     "pdf": None,
+     "label": {"en": "Overview", "uk": "Огляд"},
+     "kind": {"en": "Project overview", "uk": "Огляд проєкту"},
+     "toc": None},
+]
+
+WORDS = {
+    "en": {"hub": "Carpathian Hub Initiative", "skip": "Skip to the text", "version": "Page",
+           "nav": "Site", "about": "About", "map": "Map — Plai", "writing": "Field writing",
+           "whole": "The whole text", "pdf": "PDF, English and Ukrainian", "table": "Table",
+           "in_en": "", "doc_pdf": "Download the PDF (English and Ukrainian)",
+           "built": "This page is the text of {file}, {version}, in the project's record",
+           "record": "on GitHub", "licence": "Text CC BY-SA 4.0.", "contents": "Contents"},
+    "uk": {"hub": "Ініціатива Карпатського хабу", "skip": "До тексту", "version": "Сторінка",
+           "nav": "Сайт", "about": "Про проєкт", "map": "Мапа — Плай", "writing": "Польові записи",
+           "whole": "Увесь текст", "pdf": "PDF, англійською та українською", "table": "Таблиця",
+           "in_en": " (англійською)", "doc_pdf": "Завантажити PDF (англійською та українською)",
+           "built": "Ця сторінка — текст файлу {file}, {version}, у записі проєкту",
+           "record": "на GitHub", "licence": "Тексти — CC BY-SA 4.0.", "contents": "Зміст"},
+}
+# Until the Ukrainian has been read in the corridor (D-2, open), every
+# Ukrainian page says so, in one line.
+UK_NOTE = "Українських текстів ще не читали люди з коридору."
 
 # The landing page's picture is Michel's "Warm wind on the path" (day 70),
 # static/assets/warm_wind_on_the_path.svg, 1600 x 900, with the name set
@@ -93,32 +167,38 @@ PAGE = """<!doctype html>
     <a class="brand" href="{up}{home}"><img src="{up}{v_mark}" alt="" width="42" height="42"><span>UBEC · {hub}</span></a>
     <a class="switch" href="{up}{other_href}" hreflang="{other_lang}" lang="{other_lang}">{switch}</a>
   </div>
-  <figure class="art">
-    <img src="{up}{v_art}" alt="{image_alt}" width="1600" height="900">
-    <figcaption class="hero">
-      <h1>{title}</h1>
-      <p class="other" lang="{other_lang}">{other_title}</p>
-      <p class="tagline">{tagline}</p>
-    </figcaption>
-  </figure>
+{nav}
+{top}
 </header>
 <main id="main">
-{body}
+{note}{body}
 </main>
 <footer>
   <div class="foot">
     <p class="who">{initiative}</p>
     <p>{licence} {privacy}</p>
-    <p>{sources} {version_label} {version}.</p>
+    <p>{sources}</p>
   </div>
 </footer>
 </body>
 </html>
 """
 
-HUB = {"en": "Carpathian Hub Initiative", "uk": "Ініціатива Карпатського хабу"}
-SKIP = {"en": "Skip to the text", "uk": "До тексту"}
-VERSION = {"en": "Page", "uk": "Сторінка"}
+HERO = """  <figure class="art">
+    <img src="{up}{v_art}" alt="{image_alt}" width="1600" height="900">
+    <figcaption class="hero">
+      <h1>{title}</h1>
+      <p class="other" lang="{other_lang}">{other_title}</p>
+      <p class="tagline">{tagline}</p>
+    </figcaption>
+  </figure>"""
+
+BAND = """  <div class="band">
+    <p class="kind">{kind}</p>
+    <h1>{title}</h1>
+    <p class="sub">{subtitle}</p>
+    <p class="meta">{dateline}{pdf}</p>
+  </div>"""
 
 
 def front_matter(path: Path):
@@ -133,9 +213,13 @@ def front_matter(path: Path):
     return meta, text[m.end():]
 
 
+def pandoc(body: str, extra=()) -> str:
+    return subprocess.run(["pandoc", "-f", "markdown" + "".join(extra), "-t", "html5", "--wrap=none"],
+                          input=body, capture_output=True, text=True, check=True).stdout
+
+
 def markdown(body: str) -> str:
-    out = subprocess.run(["pandoc", "-f", "markdown", "-t", "html5", "--wrap=none"],
-                         input=body, capture_output=True, text=True, check=True).stdout
+    out = pandoc(body)
     # The map link carries the Plai emblem, the one place the emblem appears:
     # it points at a Plai application.
     out = re.sub(r'<li><a href="([^"]+)" class="plai">',
@@ -165,11 +249,149 @@ def v(rel: str) -> str:
     return f"{rel}?v={hashlib.sha256((DIST / rel).read_bytes()).hexdigest()[:8]}"
 
 
+# ---- the documents ----
+
+def latest(pattern: str) -> Path:
+    """The file in docs/ that matches, at its highest version if the name carries one."""
+    def version(p):
+        found = re.findall(r"v(\d+)_(\d+)", p.name)
+        return tuple(int(n) for n in found[-1]) if found else (0, 0)
+    found = sorted(ROOT.joinpath("docs").glob(pattern), key=version)
+    if not found:
+        raise SystemExit(f"docs/{pattern}: not found")
+    return found[-1]
+
+
+def heading_ids(md: str) -> str:
+    """Stable ids for numbered headings, parts and appendices, in either language."""
+    def one(m):
+        hashes, text = m.group(1), m.group(2)
+        if "{#" in text:
+            return m.group(0)
+        n = re.match(r"(\d+(?:\.\d+)*)\.?\s", text)
+        if n:
+            return f"{hashes} {text} {{#s{n.group(1).replace('.', '-')}}}"
+        p = re.match(r"(?:Part|Частина) (III|II|I)\b", text)
+        if p:
+            return f"{hashes} {text} {{#part-{len(p.group(1))}}}"
+        a = re.match(r"(?:Appendix|Додаток) ([AАBВ])\b", text)
+        if a:
+            return f"{hashes} {text} {{#appendix-{'a' if a.group(1) in 'AА' else 'b'}}}"
+        return m.group(0)
+    return re.sub(r"^(#{2,4}) (.+?)\s*$", one, md, flags=re.M)
+
+
+def read_doc(path: Path) -> dict:
+    text = path.read_text(encoding="utf-8")
+    m = re.match(r"\A---\n(.*?)\n---\n", text, flags=re.S)
+    if not m:
+        raise SystemExit(f"{path.name}: no front matter")
+    fm, body = m.group(1), text[m.end():]
+    version = re.search(r'^version:\s*"?([^"\n]+?)"?\s*$', fm, flags=re.M).group(1)
+    first = body.find("\n## ")
+    if first < 0:
+        raise SystemExit(f"{path.name}: no chapter heading")
+    head, body = body[:first], body[first + 1:]
+    # A changelog kept at the end of the text is the record's, not the reader's.
+    body = re.split(r"\n\* \* \*\s*\n+\*Changelog\*", body)[0]
+    sub = re.search(r"^\*(.+)\*\s*$", head, flags=re.M)
+    lines = [l.strip() for l in head.splitlines()
+             if l.strip() and not l.startswith(("#", "![", "*"))]
+    return {"path": path, "version": version, "subtitle": sub.group(1) if sub else "",
+            "dateline": lines[0] if lines else "", "body": heading_ids(body)}
+
+
+def strip_tags(s: str) -> str:
+    return html.unescape(re.sub(r"<[^>]+>", "", s)).strip()
+
+
+def doc_html(doc: dict, d: dict, lang: str):
+    """The document's body as HTML, its pictures copied in, and its table of contents."""
+    out = pandoc(doc["body"], extra=("+autolink_bare_uris",))
+    src_dir = doc["path"].parent
+
+    def picture(m):
+        ref = m.group(1)
+        if re.match(r"[a-z]+:", ref):
+            raise SystemExit(f"{doc['path'].name}: a picture from elsewhere: {ref}")
+        source = (src_dir / ref).resolve()
+        rel = f"files/{d['slug']}/{source.name}"
+        (DIST / rel).parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(source, DIST / rel)
+        return f'src="{{up}}{v(rel)}"'
+    out = re.sub(r'src="([^"]+)"', picture, out)
+    # Pandoc gives wide tables column widths as inline styles, which the policy
+    # refuses; the stylesheet lays tables out instead.
+    out = re.sub(r"<colgroup>.*?</colgroup>\s*", "", out, flags=re.S)
+    # A wide table scrolls inside its own region, which the keyboard can reach.
+    out = out.replace("<table>", f'<div class="table" role="region" tabindex="0" '
+                                 f'aria-label="{WORDS[lang]["table"]}"><table>').replace("</table>", "</table></div>")
+    # Headings: h2 chapters; under Part II of the agreement, its roles.
+    toc, part = [], None
+    for level, hid, text in re.findall(r'<h([23]) id="([^"]+)"[^>]*>(.*?)</h\1>', out, flags=re.S):
+        if level == "2":
+            part = hid
+        if d["toc"] and (level == "2" or (d["toc"] == "h2+roles" and part == "part-2")):
+            toc.append((int(level), hid, strip_tags(text)))
+    return out, toc
+
+
+# ---- the menu ----
+
+def doc_lang(d: dict, lang: str) -> str:
+    return lang if lang in d["src"] else "en"
+
+
+def doc_path(d: dict, lang: str) -> str:
+    """The document's page, from the site's root, without a leading slash."""
+    l = doc_lang(d, lang)
+    return f"{'uk/' if l == 'uk' else ''}{d['slug']}/"
+
+
+def nav(lang: str, up: str, current: str, tocs: dict) -> str:
+    w = WORDS[lang]
+    home = "uk/" if lang == "uk" else ""
+
+    def item(label, href, here, attrs=""):
+        cur = ' aria-current="page"' if here else ""
+        cls = ' class="here"' if here else ""
+        return f'<li{cls}><a href="{href}"{cur}{attrs}>{html.escape(label)}</a></li>'
+
+    items = [item(w["about"], f"{up}{home}", current == "home")]
+    for d in DOCS:
+        l = doc_lang(d, lang)
+        label = d["label"][lang] + (w["in_en"] if l != lang else "")
+        attrs = f' hreflang="{l}"' if l != lang else ""
+        href = f"{up}{doc_path(d, lang)}"
+        toc = tocs.get((d["slug"], l))
+        if not toc:
+            items.append(item(label, href, current == d["slug"], attrs))
+            continue
+        here = current == d["slug"]
+        cur = ' aria-current="page"' if here else ""
+        entries = [f'<li><a href="{href}"{cur}>{w["whole"]}</a></li>']
+        for level, hid, text in toc:
+            entries.append(f'<li class="l{level}"><a href="{href}#{hid}">{html.escape(text)}</a></li>')
+        if d["pdf"]:
+            entries.append(f'<li class="pdf"><a href="{up}{v("files/" + Path(d["pdf"]).name)}" '
+                           f'type="application/pdf">{w["pdf"]}</a></li>')
+        items.append(f'<li class="drop{" here" if here else ""}"><details name="menu">'
+                     f'<summary>{html.escape(label)}</summary>'
+                     f'<ul class="panel">{"".join(entries)}</ul></details></li>')
+    items.append(item(w["map"], MAP, False))
+    items.append(item(w["writing"], WRITING, False))
+    return (f'  <nav class="menu" aria-label="{w["nav"]}">\n    <ul>\n      '
+            + "\n      ".join(items) + "\n    </ul>\n  </nav>")
+
+
+# ---- the build ----
+
 def build():
     if DIST.exists():
         shutil.rmtree(DIST)
     shutil.copytree(STATIC, DIST)
     (DIST / "assets" / "plai_emblem.svg").write_text(emblem(), encoding="utf-8")
+    (DIST / "files").mkdir()
 
     pages = {}
     for path in sorted(CONTENT.glob("*.md")):
@@ -178,30 +400,77 @@ def build():
     if set(pages) != {"en", "uk"}:
         raise SystemExit(f"site/content: expected en and uk, found {sorted(pages)}")
 
+    # The documents first: their tables of contents go into every page's menu.
+    docs, tocs = {}, {}
+    for d in DOCS:
+        if d["pdf"]:
+            shutil.copyfile(ROOT / "docs" / d["pdf"], DIST / "files" / Path(d["pdf"]).name)
+        for l, pattern in d["src"].items():
+            doc = read_doc(latest(pattern))
+            doc["html"], tocs[(d["slug"], l)] = doc_html(doc, d, l)
+            docs[(d["slug"], l)] = doc
+
+    e = html.escape
+    common = dict(v_css=v("style.css"), v_mark=v("assets/ubec_mark.svg"))
+
+    def write(rel_path: str, doc_text: str):
+        out = DIST / rel_path.lstrip("/") / "index.html"
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(doc_text, encoding="utf-8")
+        print("wrote", out.relative_to(ROOT))
+
+    # The landing page, in each language.
     for lang, (meta, body) in pages.items():
         other_lang = "uk" if lang == "en" else "en"
         other = pages[other_lang][0]
-        depth = meta["path"].strip("/").count("/") + (1 if meta["path"].strip("/") else 0)
-        up = "../" * depth
+        up = "../" * meta["path"].strip("/").count("/") + ("../" if meta["path"].strip("/") else "")
         alternates = "\n".join(
             f'<link rel="alternate" hreflang="{l}" href="{ORIGIN}{pages[l][0]["path"]}">' for l in ("en", "uk"))
-        e = html.escape
-        doc = PAGE.format(
+        top = HERO.format(up=up, v_art=v("assets/warm_wind_on_the_path.svg"), image_alt=e(meta["image_alt"]),
+                          title=e(meta["title"]), other_lang=other_lang, other_title=e(other["title"]),
+                          tagline=e(meta["tagline"]))
+        write(meta["path"], PAGE.format(
             lang=lang, up=up, home=meta["path"].lstrip("/"),
-            title=e(meta["title"]), other_title=e(other["title"]),
             title_full=e(f'{meta["title"]} — {other["title"]}'),
             description=e(meta["description"]), canonical=ORIGIN + meta["path"],
-            alternates=alternates, skip=SKIP[lang], hub=HUB[lang],
+            alternates=alternates, skip=WORDS[lang]["skip"], hub=WORDS[lang]["hub"],
             other_href=other["path"].lstrip("/"), other_lang=other_lang, switch=e(meta["switch"]),
-            tagline=e(meta["tagline"]), image_alt=e(meta["image_alt"]),
-            v_css=v("style.css"), v_mark=v("assets/ubec_mark.svg"), v_art=v("assets/warm_wind_on_the_path.svg"),
+            nav=nav(lang, up, "home", tocs).replace("{up}", up), top=top,
+            note=f'<p class="note">{UK_NOTE}</p>\n' if lang == "uk" else "",
             body=markdown(body).replace("{up}", up).replace("assets/plai_emblem.svg", v("assets/plai_emblem.svg")),
             initiative=e(meta["initiative"]), licence=e(meta["licence"]), privacy=e(meta["privacy"]),
-            sources=e(meta["sources"]), version_label=VERSION[lang], version=e(meta["version"]))
-        out = DIST / meta["path"].lstrip("/") / "index.html"
-        out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(doc, encoding="utf-8")
-        print("wrote", out.relative_to(ROOT))
+            sources=e(f'{meta["sources"]} {WORDS[lang]["version"]} {meta["version"]}.'), **common))
+
+    # A page per document and language.
+    for (slug, lang), doc in docs.items():
+        d = next(x for x in DOCS if x["slug"] == slug)
+        meta = pages[lang][0]
+        langs = sorted(d["src"])
+        other_lang = "uk" if lang == "en" else "en"
+        rel = doc_path(d, lang)
+        up = "../" * rel.strip("/").count("/") + "../"
+        other_href = doc_path(d, other_lang) if other_lang in d["src"] else pages[other_lang][0]["path"].lstrip("/")
+        alternates = "\n".join(
+            f'<link rel="alternate" hreflang="{l}" href="{ORIGIN}/{doc_path(d, l)}">' for l in langs)
+        file = doc["path"].relative_to(ROOT).as_posix()
+        pdf = (f' · <a href="{up}{v("files/" + Path(d["pdf"]).name)}" type="application/pdf">'
+               f'{WORDS[lang]["doc_pdf"]}</a>') if d["pdf"] else ""
+        top = BAND.format(kind=e(d["kind"][lang]), title=e(meta["title"]), subtitle=e(doc["subtitle"].strip("*")),
+                          dateline=e(doc["dateline"] if doc["version"] in doc["dateline"]
+                                     else f'{doc["dateline"]} · {doc["version"]}'), pdf=pdf)
+        built = WORDS[lang]["built"].format(file=file, version=doc["version"])
+        write(rel, PAGE.format(
+            lang=lang, up=up, home="uk/" if lang == "uk" else "",
+            title_full=e(f'{d["label"][lang]} — {meta["title"]}'),
+            description=e(doc["subtitle"] or meta["description"]), canonical=f"{ORIGIN}/{rel}",
+            alternates=alternates, skip=WORDS[lang]["skip"], hub=WORDS[lang]["hub"],
+            other_href=other_href, other_lang=other_lang, switch=e(meta["switch"]),
+            nav=nav(lang, up, slug, tocs).replace("{up}", up), top=top,
+            note=f'<p class="note">{UK_NOTE}</p>\n' if lang == "uk" else "",
+            body=f'<article class="doc">\n{doc["html"].replace("{up}", up)}\n</article>',
+            initiative=e(meta["initiative"]), licence=WORDS[lang]["licence"], privacy=e(meta["privacy"]),
+            sources=f'{e(built)} <a href="{RECORD}/blob/main/{file}">{WORDS[lang]["record"]}</a>.',
+            **common))
 
 
 # WCAG 2.2 AA: every pair of colours the stylesheet sets text or a focus
@@ -212,17 +481,18 @@ CONTRAST = [
     ("ink", "paper", 4.5, "body text"),
     ("quiet", "paper", 4.5, "quiet text, the foot"),
     ("terra", "paper", 4.5, "links"),
-    ("night", "paper", 4.5, "headings, links in the list"),
+    ("night", "paper", 4.5, "headings, links in the list, the menu's panel"),
     ("quiet", "cream-2", 4.5, "the stage block"),
     ("terra", "cream-2", 4.5, "links in the stage block"),
-    ("ink", "cream-2", 4.5, "text in the stage block"),
-    ("cream", "night", 4.5, "the head"),
-    ("cream-2", "night", 4.5, "the head"),
-    ("ochre", "night", 4.5, "the other language's name, narrow"),
-    ("night", "cream", 4.5, "the language switch, hovered"),
-    ("night", "paper", 3.0, "focus outline"),
+    ("ink", "cream-2", 4.5, "text in the stage block, table heads"),
+    ("cream", "night", 4.5, "the head, the menu"),
+    ("cream-2", "night", 4.5, "the head, the document's band"),
+    ("ochre", "night", 4.5, "the other language's name, narrow; the menu's current page; links in the band"),
+    ("night", "cream", 4.5, "the language switch, hovered; a menu item, hovered"),
+    ("night", "cream-2", 4.5, "a link in the menu's panel, hovered"),
+    ("night", "paper", 3.0, "focus outline, also in the menu's panel"),
     ("night", "cream-2", 3.0, "focus outline in the stage block"),
-    ("ochre", "night", 3.0, "focus outline in the head"),
+    ("ochre", "night", 3.0, "focus outline in the head and the menu"),
 ]
 BCP47 = re.compile(r"^[a-z]{2,3}(-[A-Z][a-z]{3})?(-([A-Z]{2}|[0-9]{3}))?$")
 
@@ -263,6 +533,7 @@ class Refs(HTMLParser):
         self.loads, self.links, self.stack, self.errors = [], [], [], []
         self.headings, self.langs, self.title, self.in_title = [], [], "", False
         self.link = None
+        self.doc_links = []
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
@@ -285,7 +556,8 @@ class Refs(HTMLParser):
         if tag == "link" and a.get("href"):
             (self.links if a.get("rel") in ("canonical", "alternate") else self.loads).append(a["href"])
         if tag == "a" and a.get("href"):
-            self.links.append(a["href"])
+            # A link inside a document's own text may go to the sources it cites.
+            (self.doc_links if "article" in self.stack else self.links).append(a["href"])
         if tag == "script":
             self.errors.append("a script: the site carries no JavaScript")
         if "style" in a:
@@ -321,8 +593,39 @@ class Refs(HTMLParser):
         self.stack.pop()
 
 
+def link_problem(page: Path, ref: str, in_doc: bool):
+    u = urlparse(ref)
+    if u.scheme == "mailto":
+        return None if u.path in MAILTO else f"mails an address not listed: {ref}"
+    if u.scheme in ("http", "https"):
+        if u.netloc == urlparse(ORIGIN).netloc:
+            return None
+        if u.netloc == "mapservice.ubec.network" and u.path not in ("", "/"):
+            return f"links into the map, never to a point on it: {ref}"
+        if u.scheme == "https" and u.netloc in LINKS_OUT:
+            return None
+        if u.scheme == "https" and u.netloc in LINKS_OUT_PATHS and \
+                (u.path + "/").startswith(LINKS_OUT_PATHS[u.netloc] + "/"):
+            return None
+        if in_doc and u.scheme == "https":
+            return None
+        return f"links out to a host not listed: {ref}"
+    if u.scheme:
+        return f"a link of an unknown kind: {ref}"
+    if u.path:
+        target = (page.parent / u.path).resolve()
+        if target.is_dir():
+            target = target / "index.html"
+        if not target.exists():
+            return f"links to a missing page: {ref}"
+    return None
+
+
 def check(dist: Path = DIST) -> None:
     problems = []
+    ids = {}
+    for page in sorted(dist.rglob("*.html")):
+        ids[page.resolve()] = set(re.findall(r'\sid="([^"]+)"', page.read_text(encoding="utf-8")))
     for page in sorted(dist.rglob("*.html")):
         rel = page.relative_to(dist)
         p = Refs()
@@ -348,22 +651,18 @@ def check(dist: Path = DIST) -> None:
                 problems.append(f"{rel}: loads from another server: {ref}")
             elif not (page.parent / u.path).resolve().exists():
                 problems.append(f"{rel}: loads a missing file: {ref}")
-        for ref in p.links:
+        for ref, in_doc in [(r, False) for r in p.links] + [(r, True) for r in p.doc_links]:
+            problem = link_problem(page, ref, in_doc)
+            if problem:
+                problems.append(f"{rel}: {problem}")
+                continue
             u = urlparse(ref)
-            if u.scheme == "mailto":
-                if u.path not in MAILTO:
-                    problems.append(f"{rel}: mails an address not listed: {ref}")
-            elif u.scheme in ("http", "https"):
-                if u.netloc == urlparse(ORIGIN).netloc:
-                    continue
-                if u.scheme != "https" or u.netloc not in LINKS_OUT:
-                    problems.append(f"{rel}: links out to a host not listed: {ref}")
-            elif not u.scheme and u.path:
-                target = (page.parent / u.path).resolve()
+            if not u.scheme and u.fragment:
+                target = (page.parent / u.path).resolve() if u.path else page.resolve()
                 if target.is_dir():
                     target = target / "index.html"
-                if not target.exists():
-                    problems.append(f"{rel}: links to a missing page: {ref}")
+                if u.fragment not in ids.get(target, set()):
+                    problems.append(f"{rel}: links to a missing part: {ref}")
     for css in sorted(dist.rglob("*.css")):
         for ref in re.findall(r"url\(\s*['\"]?([^'\")]+)", css.read_text(encoding="utf-8")):
             u = urlparse(ref)
@@ -400,16 +699,17 @@ class Fetched(Refs):
 def verify(origin: str) -> None:
     """Fetch every page and every file it loads; list every host contacted."""
     origin = origin.rstrip("/")
+    own = urlparse(origin).netloc
     hosts, problems = set(), []
     seen, queue = set(), [origin + "/", origin + "/uk/"]
 
     def get(url):
-        req = urllib.request.Request(url, headers={"User-Agent": "tcp-site-verify/0.1"})
-        with urllib.request.urlopen(req, timeout=20) as r:
+        req = urllib.request.Request(url, headers={"User-Agent": "tcp-site-verify/0.2"})
+        with urllib.request.urlopen(req, timeout=30) as r:
             return r.status, dict(r.headers), r.read()
 
     while queue:
-        url = queue.pop(0)
+        url = queue.pop(0).split("#")[0]
         if url in seen:
             continue
         seen.add(url)
@@ -427,11 +727,12 @@ def verify(origin: str) -> None:
             p = Fetched()
             p.feed(body.decode("utf-8"))
             queue += [urljoin(url, ref) for ref in p.loads]
+            # Follow the site's own pages and files through the menu, never out.
+            queue += [urljoin(url, ref) for ref in p.links if urlparse(urljoin(url, ref)).netloc == own]
         elif "text/css" in ctype:
             queue += [urljoin(url, ref) for ref in re.findall(r"url\(\s*['\"]?([^'\")]+)", body.decode("utf-8"))]
     print("hosts contacted:", ", ".join(sorted(hosts)))
     print(f"files fetched: {len(seen)}")
-    own = urlparse(origin).netloc
     if hosts != {own}:
         problems.append(f"contacted more than {own}: {sorted(hosts)}")
     if problems:

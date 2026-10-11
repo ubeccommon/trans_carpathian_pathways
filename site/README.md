@@ -1,19 +1,62 @@
 ---
 title: "tcp.ubec.network — the site"
-version: "v0.8"
-date: "2026-10-10"
+version: "v0.9"
+date: "2026-10-11"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
-status: "Gate A record and the landing page; everything marked proposal waits on Michel's word"
+status: "Gate A record of the first site, the menu and the documents' pages; the landing page's rework for the public review waits on Michel's Gate A answers (docs/prompts/TCP_LANDING_PAGE_START_PROMPT_v0_1.md)"
 ---
 
 # tcp.ubec.network
 
 The project's own place on the web: a small, bilingual, static site
 that says what Trans-Carpathian Pathways is. Opened by
-`docs/prompts/TCP_WEB_PRESENCE_START_PROMPT_v0_2.md`. For now it is one
-landing page in two languages, with the vision and the mission.
+`docs/prompts/TCP_WEB_PRESENCE_START_PROMPT_v0_2.md`; reworked for the
+public review from `docs/prompts/TCP_LANDING_PAGE_START_PROMPT_v0_1.md`.
+A landing page and a page for each document published for review, in two
+languages, under one menu.
+
+## The menu and the documents — Michel's word, October 11, 2026
+
+- **Our own build, not Ghost.** Asked whether the site should move to
+  Ghost, Michel chose to build on what the site has: the static build
+  in this tree. Ghost stays where it is, for the field writing at
+  `pilgrims.ubec.network`. What weighed: Ghost keeps its pages in a
+  database on the server, not in the record; by default it loads
+  scripts and offers a sign-up form; it has no paired pages in two
+  languages; and it is one more service for one person to keep.
+- **A menu above the picture, on every page:** About (the landing
+  page), the white paper with its chapters in a drop-down, the
+  proposal, the co-creator agreement with its parts and the roles of
+  Part II in a drop-down, the overview, the map (Plai) and the field
+  writing. The drop-downs are `<details name="menu">`: no script, one
+  open at a time, reached by keyboard.
+- **A page per document and language** (`/whitepaper/`, `/proposal/`,
+  `/agreement/`, `/overview/`, and under `/uk/`), built by
+  `build/build_site.py` from the latest file of each in `docs/`, with
+  its diagrams and its committed PDF copied in. The page names the
+  file and version it was built from and links to it in the record.
+  The site holds no copy of a document's words of its own.
+- **The overview** exists in English only; the Ukrainian menu shows it
+  as «Огляд (англійською)» and leads to the English page.
+- **Every Ukrainian page says, in one line,** that the Ukrainian texts
+  have not yet been read by people in the corridor (D-2, open).
+- **Links out.** The site's own pages link to Plai's front page, the
+  field writing, the stewardship address and, the repository being
+  public since October 11, the record on GitHub — that repository's
+  path only. Inside a document's text, links to the sources it cites
+  go anywhere over https; nothing on any page loads from another
+  server, and nothing links to a point on Plai. *(Claude's proposal,
+  in place until Michel's word.)*
+
+Still open, from the landing-page prompt §5 and Gate A put to Michel
+on October 11: the landing page's own text (the mission and "Where we
+are" are behind their sources), how the review is answered, how to
+recognise the project, the border rules for those who come directly,
+the record's link on the landing page, and the picture's licence. The
+overview's line "available in English and Ukrainian on request" now
+contradicts the site and waits on his word.
 
 ## Gate A — what was found
 
@@ -102,15 +145,20 @@ cd /home/farmer/projects/plai && git pull --ff-only
 python3 build/build_site.py
 ```
 
-That writes `site/dist/` (untracked) from `content/` and `static/`, and
-checks it. The check confirms that every reference resolves, that
-nothing loads from another server, that links out go only to the map
-service, the field writing and the stewardship address, that every
-element is closed, and that there is no script and no inline style.
-Open `site/dist/index.html` in a browser to look before deploying.
+That writes `site/dist/` (untracked) from `content/`, `static/` and the
+documents in `docs/` named in the build's `DOCS`, and checks it. The
+check confirms that every reference and every chapter link resolves,
+that nothing loads from another server, that the site's own links out
+go only to the map service's front page, the field writing, the
+stewardship address and the record on GitHub, that every element is
+closed, and that there is no script and no inline style. Open
+`site/dist/index.html` in a browser to look before deploying.
 
-To change a text, edit `content/index_en.md` and `content/index_uk.md`
-together, bump each one's `version` and `changelog`, and rebuild.
+To change the landing page, edit `content/index_en.md` and
+`content/index_uk.md` together, bump each one's `version` and
+`changelog`, and rebuild. To change a document's page, change the
+document in `docs/`; the next build follows. To add a document to the
+menu, add it to `DOCS` in `build/build_site.py`.
 
 ## Accessibility — WCAG 2.2 AA
 
@@ -228,6 +276,7 @@ site's own, and logged no policy violation.
 | Path | What it is |
 | --- | --- |
 | `content/index_en.md`, `content/index_uk.md` | The landing page's text, one file per language |
+| `../docs/` (white paper, proposal, agreement, overview) | The documents' pages, built from them; never copied into `site/` |
 | `static/style.css` | The look: the PDFs' palette and type |
 | `static/fonts/` | Inter and Lora, their OFL texts, `SOURCES.txt` |
 | `static/assets/ubec_mark.svg` | The UBEC mark, copied from ubec_mapservice |
@@ -240,6 +289,10 @@ site's own, and logged no policy violation.
 * * *
 
 *Changelog*
+- v0.9 — 2026-10-11 — Michel's word: our own build, not Ghost; a menu
+  above the picture on every page; a page per document and language,
+  built from `docs/`, with its PDF. Build v0.5, stylesheet v0.5. (v0.8
+  of October 10 had no line here.)
 - v0.7 — 2026-10-09 — WCAG 2.2 AA and BCP 47 language tags, Michel's
   word: what the build checks, what was changed, what a person checks.
 - v0.6 — 2026-10-09 — the name inside the picture's frame (Michel's word):

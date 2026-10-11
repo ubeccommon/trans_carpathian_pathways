@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_57"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_58"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.57"
+version: "v0.58"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -695,6 +695,22 @@ the public record. Opened from
 `docs/prompts/TCP_LANDING_PAGE_START_PROMPT_v0_1.md`; four gates,
 its open items for Michel at Gate A; nothing in `ubec_mapservice`.
 
+**The site's menu and the documents' pages — Michel's word, October
+11, 2026.** The site stays on its own static build, not Ghost; Ghost
+keeps the field writing. Every page carries a menu above the picture:
+About, the white paper with its chapters, the proposal, the
+co-creator agreement with its parts and roles, the overview, Plai and
+the field writing. The white paper, the proposal and the agreement
+have a page in each language, the overview one in English, built by
+`build/build_site.py` v0.5 from the latest file in `docs/`, with
+diagrams and committed PDFs; every Ukrainian page says the Ukrainian
+has not yet been read in the corridor. A document's sources are
+links; nothing loads from another server; the record on GitHub is
+linked, the repository being public since that morning. Recorded in
+`site/README.md` v0.9. Gate A of the landing page's own text still
+waits on his answers; the overview's "available on request" now
+contradicts the site.
+
 * * *
 
 ## 3. The First Corridor
@@ -1118,6 +1134,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.58 — 2026-10-11 — the site's menu and the documents' pages, Michel's word: our own build, not Ghost.
 - v0.57 — 2026-10-11 — the starting prompt for the landing page.
 - v0.56 — 2026-10-11 — D-3, D-4, D-7 on Michel's word: the record
   public, the test with the review, no ratings without consent.
