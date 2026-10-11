@@ -233,7 +233,8 @@ Before the drafts go out:
   proposed in the proposal and the overview too.
 - **D-8 — The agreement on Plai.** Plai records v0.3. Ask for a
   Plai migration linking the current version before review, or
-  keep the note now in the agreement.
+  keep the note now in the agreement. *Taken, October 11, 2026:
+  agreement draft v0.7 on Plai (mapservice `plai/007`).*
 
 When they bear on the next version:
 
@@ -272,6 +273,8 @@ holds only once they are.
 * * *
 
 *Changelog*
+- v0.1, amended 2026-10-11 — D-8 marked taken: agreement draft v0.7
+  on Plai.
 - v0.1 — 2026-10-10 — three stress tests of the drafts proposed for
   public review, run the same evening by separate agents; 75
   findings, the corrections taken in on Michel's word, 25 decisions

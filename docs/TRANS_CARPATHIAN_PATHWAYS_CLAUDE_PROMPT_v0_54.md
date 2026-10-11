@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_53"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_54"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.53"
+version: "v0.54"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -538,9 +538,9 @@ personally until the core body); the byline "UBEC / Carpathian
 Hub Initiative" on every cover and opener; the tensions that say
 the map was built by an initiative led by one person (reasoning
 T-5, white paper §12); Zhyva Khata's place in the agreement and
-the core body. Plai still links and records agreement v0.3
-(`plai/005`); asking for v0.4 there is a mapservice change of its
-own.
+the core body. Plai links and records agreement draft v0.7
+(`plai/007`, October 11, 2026); each later draft is a mapservice
+change of its own.
 
 **The project overview — Michel's word, October 10, 2026.**
 Michel has the chance to present the project to the Department of
@@ -654,6 +654,19 @@ first Curator, the backups line, no ratings, and the agreement
 version Plai records. The texts now say that the documents
 published for review are on the project's site, which holds only
 once they are.
+
+**The agreement on Plai at draft v0.7 — Michel's word, October 11,
+2026 (the review's D-8).** Plai linked and recorded draft v0.3
+while the agreement had reached v0.6. The agreement's own line on
+the version Plai records named v0.3, so it was made to hold for
+any version — agreement v0.7, nothing else changed — and v0.7 put
+on Plai: mapservice `c9c253c`, `plai/007` setting
+`agreement_version` to v0.7 with the two version checks, Plai's
+entries scheme v0.11 linking the v0.7 PDF, proven on a throwaway
+PostgreSQL 16 (its prompt v0.93). An entry that accepted an
+earlier draft keeps it; no real entry exists. Not yet on the host:
+`migrate plai`, `render`, `cache:clear`, `verify plai`, the link in
+the user copy, the export.
 
 * * *
 
@@ -1078,6 +1091,8 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.54 — 2026-10-11 — the agreement at draft v0.7, and on Plai
+  (mapservice `c9c253c`, `plai/007`); D-8 taken.
 - v0.53 — 2026-10-10 — the drafts for public review stress-tested;
   the corrections taken in; twenty-five decisions put to Michel.
 - v0.52 — 2026-10-10 — the manual's Figures 5 and 6 retaken with
