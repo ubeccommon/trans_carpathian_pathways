@@ -1,13 +1,13 @@
 ---
-title: "DECISIONS_CHECKLIST_v0_4"
+title: "DECISIONS_CHECKLIST_v0_5"
 subtitle: "The questions waiting on Michel's word, one line each — with his answers of October 9"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.4"
+version: "v0.5"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
-status: "22 answered and carried into the documents; 10 still open, marked ☐; four decided since (the name, October 10; the record, the test, ratings, October 11)"
+status: "22 answered and carried into the documents; 10 still open, marked ☐; five decided since (the name, October 10; the record, the test, ratings, the planner public, October 11)"
 ---
 
 *Michel's answers of October 9, 2026, written against each
@@ -163,6 +163,14 @@ manual v0.4, prompt v0.29.*
 - ☑ **D-7 — Ratings.** None unless those rated consent. *Michel's
       word, October 11, 2026.* → white paper §6.3, proposal,
       reasoning §5, overview; the agreement at its next version.
+- ☑ **The planner public.** Pilgrims, stewards and Curators use
+      the planner directly; anybody can; the Curator creates,
+      saves and manages a stretch; stretches are combined into a
+      corridor. OI-P10 closed by it: an answer unstored, a saved
+      stretch in `instance_sa` under ODbL. *Michel's word, October
+      11, 2026.* → prompt v0.61 §6, §7, Gate 5; stage planner spec
+      v0.1, with SP-1 to SP-7 open; reasoning §5; the white paper,
+      proposal, plan and module map at their next versions (SP-6).
 
 ## Already due, from the project review of October 8
 
@@ -183,6 +191,7 @@ manual v0.4, prompt v0.29.*
 * * *
 
 *Changelog*
+- v0.5 — 2026-10-11 — the planner public, Michel's word, under "Decided since".
 - v0.3 — 2026-10-09 — S-23 built in mapservice; the host run
   pending.
 - v0.2 — 2026-10-09 — Michel's answers written against each

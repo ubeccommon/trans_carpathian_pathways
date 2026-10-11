@@ -19,3 +19,5 @@ site/dist/
 # Answers from tools/stage_planner.py — never records (OI-P10)
 /route.geojson
 /route.html
+/corridor.geojson
+/corridor.html

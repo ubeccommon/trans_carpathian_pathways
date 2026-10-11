@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Trans-Carpathian Pathways — tests for the stage planner, v0.1
+# Trans-Carpathian Pathways — tests for the stage planner, v0.2
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """A made-up valley near Verkhovyna, built in a temporary folder:
 a secondary road on the valley floor, contour paths on both slopes
@@ -110,8 +110,8 @@ def build(tmp: Path):
         ds.write(arr, 1)
 
 
-def run(tmp: Path, *extra) -> dict:
-    out = tmp / "out.geojson"
+def run(tmp: Path, *extra, out_name="out.geojson") -> dict:
+    out = tmp / out_name
     cmd = [sys.executable, str(HERE / "stage_planner.py"), "route",
            "--source", "files", "--paths", str(tmp / "paths.geojson"),
            "--places", str(tmp / "places.geojson"),
@@ -136,7 +136,7 @@ def main() -> int:
     with tempfile.TemporaryDirectory() as d:
         tmp = Path(d)
         build(tmp)
-        fc = run(tmp)
+        fc = run(tmp, "--audience", "curator")
         f = fc["features"]
         route = next(x for x in f if x["properties"]["role"] == "route")
         from shapely.geometry import shape
@@ -172,11 +172,47 @@ def main() -> int:
         assert any(x["properties"]["role"] == "boundary" for x in f)
         assert sp.OSM_NOTICE in fc["properties"]["notices"]
         assert fc["properties"]["stored"].startswith("nothing")
+        assert fc["properties"]["stretch"]["criteria"]["party"] == "couple"
 
-        fc = run(tmp, "--audience", "pilgrim", "--party", "family")
+        # public, the default: no host in anything written
+        fc = run(tmp, "--party", "family")
         names = {x["properties"]["name"] for x in fc["features"]
                  if x["properties"]["role"] == "place"}
         assert "Hutsul house" not in names, names
+        assert "Hutsul" not in json.dumps(fc)
+
+        # two stretches joined into a corridor
+        mid = "{1},{0}".format(*ll(4000, 600))
+        end = "{1},{0}".format(*ll(LEN, 0))
+        a = run(tmp, "--audience", "curator", "--name", "West",
+                "--to", mid, out_name="west.geojson")
+        b = run(tmp, "--audience", "curator", "--name", "East",
+                "--from", mid, "--to", end, out_name="east.geojson")
+        for aud, host in (("curator", True), ("public", False)):
+            cmd = [sys.executable, str(HERE / "stage_planner.py"),
+                   "corridor", "--name", "Test corridor",
+                   "--audience", aud, str(tmp / "west.geojson"),
+                   str(tmp / "east.geojson"),
+                   "--out", str(tmp / "corridor.geojson"),
+                   "--html", str(tmp / "corridor.html")]
+            res = subprocess.run(cmd, capture_output=True, text=True)
+            print(res.stdout, res.stderr, sep="")
+            assert res.returncode == 0
+            c = json.loads((tmp / "corridor.geojson").read_text())
+            cp = c["properties"]
+            assert abs(cp["route"]["km"] - a["properties"]["route"]["km"]
+                       - b["properties"]["route"]["km"]) < 0.02
+            assert cp["corridor"]["stretches"][1][
+                "gap_m_from_previous"] == 0
+            names = {x["properties"]["name"] for x in c["features"]
+                     if x["properties"].get("role") == "place"}
+            assert {"Kamin", "Dzherelo"} <= names, names
+            assert ("Hutsul house" in names) == host, names
+            bands = sorted((x for x in c["features"]
+                            if x["properties"]["role"] == "band"),
+                           key=lambda x: x["properties"]["minutes"])
+            areas = [sp.to_3035(shape(x["geometry"])).area for x in bands]
+            assert len(areas) == 4 and areas == sorted(areas)
 
     print("stage_planner: all tests pass")
     return 0

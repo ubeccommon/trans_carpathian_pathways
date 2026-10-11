@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_REASONING_v0_3"
+title: "TRANS_CARPATHIAN_PATHWAYS_REASONING_v0_4"
 subtitle: "Why the project exists, and the reasons behind its principles"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.3"
+version: "v0.4"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -267,8 +267,13 @@ holds when the project began from outside.)*
 proposes; a person decides.
 *Why:* who can receive whom, and when, in which family's season
 and grief and harvest, is knowledge only a neighbour has. *Rules
-out:* an algorithm answering a pilgrim, a booking engine, the
-stage planner deciding anything.
+out:* a booking engine, the stage planner deciding anything, a way
+becoming the project's without a Curator. *How it is kept since
+the planner became public (Michel's word, October 11, 2026):*
+anyone may ask the planner for a way, and its answer is a proposal
+like any other; only a Curator saves a way as a stretch and joins
+stretches into a corridor, and the planner promises nothing — not
+a bed, not a welcome, not that a path is safe today.
 
 **The pilgrim arrives.** A journey is undergone, not consumed.
 *Why:* a pilgrim who arrives is changed by the place; a pilgrim
@@ -540,6 +545,7 @@ Read October 9, 2026.
 * * *
 
 *Changelog*
+- v0.4 — 2026-10-11 — the planner public, Michel's word: §5, the Curator as memory, what it now rules out and how it is kept.
 - v0.3, amended 2026-10-11 — no ratings without consent, decided
   (Michel's word).
 - v0.3 — 2026-10-10 — the public-drafts stress tests

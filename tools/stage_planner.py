@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-# Trans-Carpathian Pathways — stage planner, `route`, v0.1
+# Trans-Carpathian Pathways — stage planner, `route` and `corridor`, v0.2
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """Stage planner — one route from a start to an end, a fuzzy band
-along it, and the places a pilgrim can reach from it.
+along it, and the places a pilgrim can reach from it; and a
+corridor made of such routes.
 
 The first piece of the stage planner specified in the starting
 prompt §6 (the proposal's "spatial algorithm"): the routing core.
@@ -45,17 +46,24 @@ The criteria (starting prompt §6, §7; decisions S-8, S-15):
 - Air-raid shelters are never listed (open data spec, class B);
   a shelter is listed only when it is a hikers' kind.
 
-Who it answers (starting prompt §6, §7 "The Curator as memory"):
-the Curator. It proposes; the Curator disposes. `--audience
-pilgrim` leaves every host out of the list, so nothing it writes
-puts a host's place in a file (open data spec §2: a host is never
-a waypoint in a public file); whether a pilgrim may use it at all
-is Michel's to decide.
+Who uses it — Michel's word, October 11, 2026: it is public.
+A pilgrim, a steward, a Curator, anyone, plans directly. The
+Curator may save a route as a stretch and manage it, and stretches
+are combined into a corridor (`corridor`). Saving is Plai's change,
+not this tool's: the tool writes files and nothing else (spec
+`docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_1.md`).
 
-Licence (OI-P10, open): the route is a work derived from
-OpenStreetMap. The planner computes on request and stores nothing;
-its output carries the ODbL notice and the GEDTM30 credit. Nothing
-is written to any database.
+`--audience public` (the default) lists no host, so nothing it
+writes puts a host's place in a file anyone may pass on (open data
+spec §2: a host is never a waypoint in a public file); hosts stay
+on Plai's map, where they are public and clickable (S-1).
+`--audience curator` lists them, for the Curator's own planning.
+
+Licence (OI-P10, closed by the same word): a route is a work
+derived from OpenStreetMap. Unsaved, it is an answer, computed and
+gone; saved as a stretch, it lives in Plai's `instance_sa` under
+ODbL 1.0. Every file it writes carries the ODbL notice and the
+GEDTM30 credit. Nothing is written to any database.
 
 Sources:
 
@@ -80,7 +88,16 @@ Usage:
 A point is "lat,lon" as a map app copies it, or a name: a
 published Plai place's title, or a village or hamlet in OSM.
 
+A corridor from stretches, each a file `route` wrote:
+
+    python3 tools/stage_planner.py corridor --name "Hutsul corridor" \\
+        stretch_1.geojson stretch_2.geojson --out corridor.geojson
+
 Changelog:
+  v0.2 — 2026-10-11 — public by default, Michel's word: the
+         audiences are public and curator; `route` writes a stretch
+         (its ends, party and criteria with it); `corridor` joins
+         stretches into one band, one boundary and one list.
   v0.1 — 2026-10-11 — initial: route, alternatives, band, places.
 """
 
@@ -104,7 +121,7 @@ from shapely.geometry import (LineString, MultiLineString, Point,
 from shapely.ops import substring, unary_union
 from shapely.strtree import STRtree
 
-VERSION = "0.1"
+VERSION = "0.2"
 
 # ── Criteria ───────────────────────────────────────────────────
 # Every number here is a proposal until Michel or the Curator sets
@@ -775,7 +792,7 @@ def places_along(net: Network, route: Route, places: list[Place],
                  strip, audience: str, month: str | None) -> list[dict]:
     out = []
     for p in places:
-        if audience == "pilgrim" and p.is_host:
+        if audience == "public" and p.is_host:
             continue
         if strip is not None and p.geom.intersects(strip):
             continue
@@ -905,13 +922,14 @@ for (const f of data.features.filter(f => f.properties.role === 'place')) {
 """
 
 
-def write_html(path: Path, geojson_path: Path, summary: dict):
+def write_html(path: Path, geojson_path: Path, summary: dict,
+               title: str = "Route preview"):
     data = geojson_path.read_text(encoding="utf-8")
     s = summary["route"]
     text = (f"{s['km']} km · {s['time']} walking · ↑{s['up_m']} m "
             f"↓{s['down_m']} m · places within {summary['reach_min']:g} "
             "min of the route")
-    html = (HTML.replace("__TITLE__", "Route preview")
+    html = (HTML.replace("__TITLE__", title)
             .replace("__SUM__", text)
             .replace("__NOTICE__", " · ".join(summary["notices"]))
             .replace("__DATA__", data))
@@ -928,6 +946,143 @@ def resolve(src, text: str) -> Point:
         sys.exit(f"stage_planner: no place called {text!r} — give "
                  "\"lat,lon\" or a published place's name")
     return p
+
+
+def _lonlat(p: Point) -> list:
+    lon, lat = TO_4326.transform(p.x, p.y)
+    return [round(lon, 7), round(lat, 7)]
+
+
+def criteria(args) -> dict:
+    """The criteria a route was made with, so a saved stretch can
+    be remade the same way or compared with one made otherwise."""
+    return {"version": VERSION, "party": args.party,
+            "pace": PARTY[args.party].pace,
+            "din_33466": [DIN_FLAT_KMH, DIN_UP_MH, DIN_DOWN_MH],
+            "highway_factor": HIGHWAY_FACTOR,
+            "marked": MARKED_FACTOR, "encounter": ENCOUNTER_FACTOR,
+            "border_strip_m": (None if args.allow_border_strip
+                               else BORDER_STRIP_M),
+            "band_minutes": list(BAND_MINUTES), "reach_min": args.reach}
+
+
+def cmd_corridor(args) -> int:
+    """Join stretches — files `route` wrote — into one corridor:
+    the union of their bands ring by ring, one boundary, one list
+    of places with the shortest detour each was reached by. Nothing
+    is drawn that a stretch did not draw: a corridor speaks for its
+    stretches and their places, never for land between them
+    (S-14)."""
+    stretches = []
+    for path in args.stretches:
+        fc = json.loads(Path(path).read_text(encoding="utf-8"))
+        props = fc.get("properties") or {}
+        if "stretch" not in props:
+            sys.exit(f"stage_planner: {path} is not a stretch "
+                     "(written by `route` v0.2 or later)")
+        stretches.append((path, fc, props))
+
+    by_min: dict = {}
+    lines, places, rows = [], {}, []
+    offset_km = offset_min = 0.0
+    notices = {OSM_NOTICE}
+    prev_end = None
+    for path, fc, props in stretches:
+        notices.update(props.get("notices", []))
+        st = props["route"]
+        km = st["km"]
+        h, m = st["time"].split(":")
+        mins = int(h) * 60 + int(m)
+        gap = None
+        for f in fc["features"]:
+            p, g = f["properties"], to_3035(shape(f["geometry"]))
+            if p["role"] == "band":
+                by_min.setdefault(p["minutes"], [p["fill_opacity"], []])
+                by_min[p["minutes"]][1].append(g)
+            elif p["role"] == "route":
+                lines.append(g)
+                if prev_end is not None:
+                    gap = round(Point(g.coords[0]).distance(prev_end))
+                prev_end = Point(g.coords[-1])
+            elif p["role"] == "place":
+                if args.audience == "public" and p.get("is_host"):
+                    continue
+                q = dict(p)
+                q["route_km"] = round(q["route_km"] + offset_km, 2)
+                q["route_min"] = round(q["route_min"] + offset_min)
+                q["stretch"] = props["stretch"].get("name") or path
+                old = places.get(q["id"])
+                if old is None or q["detour_min"] < old["detour_min"]:
+                    places[q["id"]] = q
+        rows.append({"stretch": props["stretch"].get("name") or path,
+                     "from": props["stretch"]["from"],
+                     "to": props["stretch"]["to"], **st,
+                     "gap_m_from_previous": gap})
+        offset_km += km
+        offset_min += mins
+
+    rings = []
+    for T in sorted(by_min):
+        opacity, polys = by_min[T]
+        rings.append((T, opacity, unary_union(polys)))
+    if not rings:
+        sys.exit("stage_planner: the stretches carry no band")
+    found = sorted(places.values(),
+                   key=lambda d: (d["route_km"], d["detour_min"]))
+    total = {"km": round(sum(r["km"] for r in rows), 2),
+             "time": hm(offset_min),
+             "up_m": sum(r["up_m"] for r in rows),
+             "down_m": sum(r["down_m"] for r in rows)}
+    summary = {
+        "tool": f"stage_planner corridor v{VERSION}",
+        "corridor": {"name": args.name, "stretches": rows},
+        "audience": args.audience, "route": total,
+        "reach_min": max(T for T, _, _ in rings),
+        "notices": sorted(notices),
+        "stored": "nothing — saving a corridor is the Curator's, on Plai",
+    }
+    feats = []
+    for T, opacity, poly in reversed(rings):
+        feats.append(feature(poly, role="band", minutes=T,
+                             fill_opacity=opacity))
+    for poly in getattr(rings[-1][2], "geoms", [rings[-1][2]]):
+        feats.append(feature(poly.exterior, role="boundary",
+                             minutes=rings[-1][0]))
+    for row, line in zip(rows, lines):
+        feats.append(feature(line, role="route", **{
+            k: row[k] for k in ("stretch", "km", "time", "up_m",
+                                "down_m")}))
+    for p in found:
+        feats.append({"type": "Feature",
+                      "geometry": {"type": "Point",
+                                   "coordinates": [p["lon"], p["lat"]]},
+                      "properties": p})
+    out = Path(args.out)
+    out.write_text(json.dumps({"type": "FeatureCollection",
+                               "features": feats,
+                               "properties": summary},
+                              ensure_ascii=False, indent=1),
+                   encoding="utf-8")
+    if args.html:
+        write_html(Path(args.html), out, summary,
+                   args.name or "Corridor preview")
+
+    print(f"Corridor{' ' + args.name if args.name else ''}: "
+          f"{len(rows)} stretches, {total['km']} km, {total['time']} "
+          f"walking, ↑{total['up_m']} m ↓{total['down_m']} m")
+    for r in rows:
+        gap = r["gap_m_from_previous"]
+        note = f" — {gap} m from the previous end" if gap and gap > 50 else ""
+        print(f"  {r['stretch']}: {r['from']} → {r['to']}, {r['km']} km, "
+              f"{r['time']}{note}")
+    print(f"Places within reach: {len(found)}")
+    for p in found:
+        where = ("on the way" if p.get("on_the_way")
+                 else f"{p['detour_min']:.0f} min off")
+        print(f"  km {p['route_km']:>5.1f}  {where:>12}  {p['name']} "
+              f"({p['kind']})")
+    print(f"Written: {out}" + (f", {args.html}" if args.html else ""))
+    return 0
 
 
 def cmd_route(args) -> int:
@@ -1000,6 +1155,11 @@ def cmd_route(args) -> int:
 
     summary = {
         "tool": f"stage_planner route v{VERSION}",
+        # What a saved stretch carries besides its line (spec §4).
+        "stretch": {"name": args.name, "from": args.start,
+                    "to": args.end,
+                    "start": _lonlat(a_pt), "end": _lonlat(b_pt),
+                    "criteria": criteria(args)},
         "audience": args.audience, "party": args.party,
         "month": args.month, "reach_min": args.reach,
         "route": {"km": round(best.length / 1000, 2),
@@ -1016,13 +1176,14 @@ def cmd_route(args) -> int:
                     "down_m": round(fastest.down)},
         "snap_m": {"start": round(a_off), "end": round(b_off)},
         "notices": notices,
-        "stored": "nothing (OI-P10)",
+        "stored": "nothing — saving a stretch is the Curator's, on Plai",
     }
 
     out = Path(args.out)
     write_geojson(out, routes, rings, found, summary)
     if args.html:
-        write_html(Path(args.html), out, summary)
+        write_html(Path(args.html), out, summary,
+                   args.name or "Route preview")
 
     s = summary["route"]
     print(f"Route: {s['km']} km, {s['time']} walking, ↑{s['up_m']} m "
@@ -1057,8 +1218,10 @@ def main(argv=None) -> int:
     r.add_argument("--reach", type=float, default=10.0,
                    help="minutes off the route to list places (5 to 10)")
     r.add_argument("--alternatives", type=int, default=2)
-    r.add_argument("--audience", choices=("curator", "pilgrim"),
-                   default="curator")
+    r.add_argument("--audience", choices=("public", "curator"),
+                   default="public",
+                   help="public lists no host; curator lists them")
+    r.add_argument("--name", help="the stretch's name, if it is one")
     r.add_argument("--allow-border-strip", action="store_true",
                    help="the Curator's flag, once the permit route is "
                         "held in writing and done (S-8)")
@@ -1071,7 +1234,18 @@ def main(argv=None) -> int:
     r.add_argument("--dem", help="GeoTIFF of ground heights, EPSG:3035")
     r.add_argument("--out", default="route.geojson")
     r.add_argument("--html", help="also write a map preview here")
+    c = sub.add_parser("corridor",
+                       help="join stretches into one corridor")
+    c.add_argument("stretches", nargs="+",
+                   help="files `route` wrote, in walking order")
+    c.add_argument("--name", help="the corridor's name")
+    c.add_argument("--audience", choices=("public", "curator"),
+                   default="public")
+    c.add_argument("--out", default="corridor.geojson")
+    c.add_argument("--html", help="also write a map preview here")
     args = ap.parse_args(argv)
+    if args.cmd == "corridor":
+        return cmd_corridor(args)
     if not 1 <= args.reach <= 30:
         ap.error("--reach is minutes, 1 to 30")
     return cmd_route(args)

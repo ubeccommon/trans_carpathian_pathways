@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_60"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_61"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.60"
+version: "v0.61"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -160,7 +160,7 @@ the curator see.
 
 **The reasoning — Michel's word, October 9, 2026.** Why the
 project exists and the reasons behind its principles, in
-`docs/TRANS_CARPATHIAN_PATHWAYS_REASONING_v0_3.md`, English first,
+`docs/TRANS_CARPATHIAN_PATHWAYS_REASONING_v0_4.md`, English first,
 Ukrainian once it settles. His direction, recorded there: the two
 forces — the mountains re-valued from outside (tourism and
 property, energy on the high meadows, EU accession, the Carpathian
@@ -469,7 +469,7 @@ GPX 1.1, GeoJSON (RFC 7946) and KML 2.3, an OGC API – Features
 service for partners when one asks; hosts travel one at a time, by a
 `geo:` link (RFC 5870) in the map's click, or in one pilgrim's
 journey file from the Curator — never in bulk, never in OSM, never
-in the API. Six decisions open (D-1 to D-6), among them OI-P10.
+in the API. Six decisions open (D-1 to D-6); OI-P10 among them closed since, October 11 (§6).
 Its development and build open in their own conversation, on
 Michel's word the same day, from
 `docs/prompts/TCP_OPEN_DATA_START_PROMPT_v0_2.md`: six gates — the
@@ -915,55 +915,87 @@ it (S-16), the wording likewise Claude's.
 
 ## 6. The Stage Planner (the proposal's "spatial algorithm")
 
-Specified here, not built. Built only when the first corridor
-has enough hosts to need it — with five hosts, the Curator plans
-on paper.
+**Michel's word, October 11, 2026:** pilgrims, stewards and
+Curators can use the planner directly. It is public, so anybody
+can use it. The Curator can create a route, save it and manage
+it; these stretches can be combined to create a corridor. This
+replaces "for the Curator only, never answering a pilgrim, built
+only if needed". The specification:
+`docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_1.md`; seven items open
+there (SP-1 to SP-7).
 
-**What it is for:** the Curator. It proposes; the Curator
-disposes. It never answers a pilgrim directly.
+**What stays:** a tool proposes, a person decides. Anyone may ask
+for a way; only a Curator makes a way the project's, by saving it,
+and only a Curator joins stretches into a corridor. Nothing the
+planner says is a booking, a promise that a host will receive, or
+a statement that a path is safe today.
+
+**The engine:** `tools/stage_planner.py` v0.2, Python with
+networkx, in memory, writing nothing but its answer. `route`: from
+a start and an end (a published place, a village in OSM, or
+`lat,lon`), the route by the criteria below, up to two
+alternatives, the quickest way beside them; a band of 2.5, 5, 7.5
+and 10 minutes' reach on both sides, fading outwards, with its
+outer edge as the boundary; the places within reach in route
+order with their one-way detour. `corridor`: stretches joined into
+one band, one boundary, one list, gaps shown. Tested on a made-up
+valley (`tools/test_stage_planner.py`); not yet run on Plai's data
+(SP-5).
 
 **Input**
-- Published host points with their offers, season, capacity,
-  languages, access.
-- The path network: OpenStreetMap footways, paths and tracks in
-  `reference_sa.osm_line` (Plai's base map, already loaded).
-- Terrain: two DEMs (OI-P9). Ground: GEDTM30 v1.2 (OpenGeoHub,
-  terrain model, 30 m, CC BY 4.0) for ascent, descent, contours
-  and point heights. Surface: Copernicus DEM GLO-30 (surface
-  model, 30 m) for the land as seen; surface minus ground is the
-  height of forest and buildings. Walked GNSS tracks from Gate 4
-  check both.
-- The request: start, end or loop; days; party (family, solo,
-  couple, group); mode (walk, cycle, drive); month.
+- Published Plai places with their offers and season, from
+  `instance.entry_public`.
+- The path network: OpenStreetMap footways, paths, tracks and
+  roads in `reference_sa.osm_line` (Plai's base map, already
+  loaded); hiking route relations for marked trails; open places
+  (viewpoints, springs, peaks, mountain huts, hikers' shelters,
+  chapels and crosses, heritage) in `reference_sa.osm_point`.
+- Terrain: GEDTM30 v1.2 ground heights from Mapservice's
+  `terrain/ground.tif` (OI-P9), sampled at 30 m along each
+  segment, per direction.
+- The border: `reference.admin_unit`, Ukraine at country level.
+- The request: start, end; party (solo, couple, group, family);
+  month; reach in minutes (5 to 10).
 
 **Edge cost — walking:** DIN 33466 hiking time: 4 km/h on the
 flat, 300 m/h ascent, 500 m/h descent; segment time = the larger
-of the horizontal and vertical times plus half the smaller.
-Family and group profiles scale it; the Curator sets the scale.
+of the horizontal and vertical times plus half the smaller. The
+party scales it; the Curator sets the scale.
 
-**Constraint, not optimisation:** each day ends at a host with an
-overnight offer, open that month, with capacity for the party;
-each day stays under the party's limit in hours and ascent. Among
-plans that satisfy that, prefer more distinct encounters (a meal,
-a workshop, a viewpoint passed) over less time — "the logic of
-encounter, not just efficiency". Output: two or three candidate
-stage plans with times, ascent and the hosts met, for the
-Curator to change.
+**Criteria:** off the beaten path — paths and tracks neutral,
+village roads a little dearer, main roads much dearer, trunk roads
+not walked; a marked trail and passing near a place preferred a
+little — "the logic of encounter, not just efficiency"; the
+party's SAC grade and trail visibility as limits; never inside
+the border strip (S-8); never an air-raid shelter listed. The time
+reported is always the real DIN time; the criteria steer, they do
+not shorten. Every number is a proposal until Michel or the
+Curator sets it (SP-4).
 
-**Licence (OI-P10).** A route drawn from OpenStreetMap is a work
-derived from an ODbL source. Mapservice's rule: segregate data
-is combined at render time and never joined into a project's
-tables. So either the planner computes on request and stores
-nothing, or a stored route line lives in `instance_sa.*` and is
-published under ODbL. Decide before the first route is saved.
+**Hosts in what it says:** the public answer lists no host, so no
+file anyone may pass on carries a host's place (open data spec
+§2); hosts stay on Plai's map, public and clickable (S-1). The
+Curator's answer lists them. Proposed; SP-3.
+
+**Licence (OI-P10, closed by Michel's word of October 11):** an
+answer is computed and gone; a saved stretch is stored in Plai's
+`instance_sa` under ODbL 1.0, as class A of the open data spec.
+The list of places is never stored with a stretch: it is asked
+for again each time, so a host who withdraws leaves every stretch
+at once.
 
 **Where it runs.** The stack's image (`postgis/postgis:18-3.6`)
-has no pgRouting. Default proposal: a Python tool, in the
-mapservice tool style, that reads a corridor's paths and hosts,
-builds the graph in memory (networkx), and writes nothing but its
-answer. Adding pgRouting to the image is a framework change and
-Mapservice's to decide. If built, the tool lives in this
-repository's `tools/`.
+has no pgRouting, and none is proposed. By hand today, on
+ubec-common in Mapservice's environment (`tools/README.md`). For
+anyone to use it: a small service and a page in the Pathways
+application, and `instance_sa.stretch`, `corridor` and
+`corridor_stretch` as Plai migration `plai/008` — Mapservice's
+changes, on Michel's word for each (SP-2), behind the leak pass.
+
+**Multi-day stages** — each day ending at a host with an overnight
+offer, open that month, with capacity for the party, under the
+party's limit in hours and ascent — are the next piece, `stages`,
+on top of `route`.
 
 * * *
 
@@ -975,7 +1007,9 @@ From the proposal §8, binding:
 - **No performance** — the encounter is real or it is nothing.
 - **Organic growth** — the network grows from the inside out.
 - **Curator as memory** — the human holds what the algorithm
-  cannot; the planner is the Curator's tool.
+  cannot; anyone may use the planner, and only the Curator
+  makes a way the project's, by saving it (§6, Michel's word,
+  October 11, 2026).
 - **The pilgrim arrives** — the journey is undergone, not
   consumed.
 - **Off the beaten path** — where people live, not where tourists
@@ -1053,9 +1087,10 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
   missing, what a pilgrim needed and did not have. And settled
   here, after the walk (Michel's word, October 9, 2026): whether
   the pathway is marked, and to which standard.
-- **Gate 5 — Planner, if needed.** Built only if Gate 4 shows the
-  Curator needs it, against the stages actually walked as its
-  test cases.
+- **Gate 5 — The planner public.** No longer "if needed" (Michel's
+  word, October 11, 2026, §6): the engine is built; its page and
+  saved stretches open on Mapservice's changes (SP-2), and the
+  stages actually walked at Gate 4 are its test cases.
 
 * * *
 
@@ -1112,8 +1147,9 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
   carries the three layers; the leak pass passes every terrain
   check. Open: the height of a point in the click, and the stage
   planner's ascent, from the same ground file.
-- **OI-P10** — Route licence: computed and unstored, or stored
-  under ODbL in `instance_sa`. §6.
+- **OI-P10** — Closed, by Michel's word of October 11, 2026, that
+  the Curator saves stretches: an answer is computed and unstored;
+  a saved stretch is stored in `instance_sa` under ODbL 1.0. §6.
 - **OI-P11** — The Phase 3 country list: the proposal names seven
   countries; the Outlook boundary that sets Plai's extent
   reaches nine, Austria and Bulgaria included (mapservice
@@ -1144,6 +1180,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.61 — 2026-10-11 — the planner public, Michel's word: anyone plans; the Curator saves and manages stretches; stretches make a corridor. §6 rewritten, §7 and Gate 5 with it; OI-P10 closed; the engine at `tools/stage_planner.py` v0.2; the spec v0.1 with SP-1 to SP-7.
 - v0.60 — 2026-10-11 — the menu closed on the host; German and Polish on the site, Michel's word.
 - v0.59 — 2026-10-11 — the menu's order, the map link to the Pathways application, the overview v0.5 pointing to the site; Michel's word.
 - v0.58 — 2026-10-11 — the site's menu and the documents' pages, Michel's word: our own build, not Ghost.
