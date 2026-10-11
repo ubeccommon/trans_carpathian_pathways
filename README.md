@@ -29,7 +29,7 @@ there, as Plai migrations in `ubec_mapservice`.
 | `docs/reviews/` | Read-only reviews — of the stack Pathways runs on, of the project as a whole, and the stress tests of its design — each before a change is made |
 | `docs/prompts/` | Starting prompts for conversations that open a bounded piece of work |
 | `site/` | The site at tcp.ubec.network — its text in both languages, its style, fonts and mark, its nginx vhost, and the Gate A record (`site/README.md`) |
-| `tools/` | Empty until a tool is needed |
+| `tools/` | The stage planner's routing core, `route` — a route by the project's criteria, its fuzzy band of reach and the places along it (`tools/README.md`) |
 
 ## Building the proposal PDF
 

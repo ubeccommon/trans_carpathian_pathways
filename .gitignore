@@ -15,3 +15,7 @@ build/whitepaper.html
 build/plan.html
 # the site, built from site/ by build/build_site.py; deployed, not tracked
 site/dist/
+
+# Answers from tools/stage_planner.py — never records (OI-P10)
+/route.geojson
+/route.html

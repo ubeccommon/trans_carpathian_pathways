@@ -1,0 +1,9 @@
+# Python packages for tools/ — the stage planner.
+# On the host they go into ubec_mapservice's .venv, which
+# tools/hostenv.sh activates; psycopg is already there.
+networkx>=3.3
+numpy>=1.26
+shapely>=2.0
+pyproj>=3.6
+rasterio>=1.3
+psycopg[binary]>=3.2
