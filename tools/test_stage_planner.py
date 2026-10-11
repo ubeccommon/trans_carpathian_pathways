@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Trans-Carpathian Pathways — tests for the stage planner, v0.10
+# Trans-Carpathian Pathways — tests for the stage planner, v0.11
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """A made-up valley near Verkhovyna, built in a temporary folder:
 a secondary road on the valley floor, contour paths on both slopes
@@ -278,11 +278,47 @@ def test_roads_last_resort():
     assert len(roads) == 1 and not roads[0]["link"], roads
 
 
+def test_through_town():
+    """In town: the direct street, not a footway past OSM monuments; a
+    detour only for a point defined on Plai; a street before a main
+    road."""
+    from shapely.geometry import MultiLineString, box as sbox
+    W = lambda oid, coords, **tags: sp.Way(oid, None, tags,
+                                           MultiLineString([coords]))
+    area = (-100, -100, 1100, 900)
+
+    def way(ways, points=()):
+        land = sp.Landscape(urban=sbox(-200, -200, 1200, 1000),
+                            points=list(points))
+        net = sp.build_network(ways, sp.Ground(None, area),
+                               sp.PARTY["couple"], None, land)
+        a, _ = sp.snap(net, sp.Point(0, 0))
+        b, _ = sp.snap(net, sp.Point(1000, 0))
+        r, _, _ = sp.the_way(net, a, b, 0.5)
+        return r
+
+    street = W("s", [(0, 0), (1000, 0)], highway="residential")
+    walk = W("f", [(0, 0), (500, 300), (1000, 0)], highway="footway")
+    monuments = [(sp.Point(500, 310), 0.4, False),
+                 (sp.Point(480, 290), 0.6, False)]
+    r = way([street, walk], monuments)
+    assert r.length < 1001, "the direct street, monuments or not"
+    assert sp.what_the_way_holds(r)["through_towns_km"] == 1.0
+    r = way([street, walk], [(sp.Point(500, 310), sp.Q_PLAI_PLACE, True),
+                             (sp.Point(400, 250), sp.Q_PLAI_PLACE, True)])
+    assert r.length > 1100, "a point on Plai draws the way through town"
+    main = W("m", [(0, 0), (1000, 0)], highway="primary")
+    side = W("r", [(0, 0), (500, 150), (1000, 0)], highway="residential")
+    r = way([main, side])
+    assert r.length > 1030, "a street before a main road"
+
+
 def main() -> int:
     test_the_way()
     test_footpaths_first()
     test_obvious_gaps()
     test_roads_last_resort()
+    test_through_town()
     # DIN 33466 by hand
     assert sp.din_minutes(4000, 0, 0) == 60
     assert sp.din_minutes(0, 300, 0) == 60

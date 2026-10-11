@@ -1007,6 +1007,12 @@ and the places passed, stewards' finds included. Time is reported
 as a limit, never the measure. Weights are Claude's proposal until
 Michel has looked at a corridor drawn with them (engine v0.6).
 
+**Through towns and villages (Michel's word, October 11, 2026):**
+where no visiting point is defined in a built-up area, the direct
+way through on streets to the next path or trail — no trunk road or
+motorway, a main road only where no street runs alongside; only
+points defined on Plai draw the way through town.
+
 **Obvious connections (Michel's word, October 11, 2026):** a path
 end is joined within 10 m to the nearest way, and up to 80 m where
 the path, carried on, meets another way across no river or stream;
@@ -1241,6 +1247,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.64, amended 2026-10-11 — through towns and villages the direct way, Michel's word; engine v0.11.
 - v0.64, amended 2026-10-11 — roads the last resort, Michel's word; a road of up to 300 m linking two paths is part of the way; engine v0.10. Replaces the next.
 - v0.64, amended 2026-10-11 — a road weighed, not forbidden, so a short road linking two paths is walked; engine v0.9.
 - v0.64, amended 2026-10-11 — obvious connections joined up to 80 m, gaps listed for stewards, Michel's word; engine v0.8.

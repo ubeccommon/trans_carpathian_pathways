@@ -1,6 +1,6 @@
 # tools/
 
-## stage_planner.py — `route`, `corridor`, `find` and `inspect`, v0.10
+## stage_planner.py — `route`, `corridor`, `find` and `inspect`, v0.11
 
 The stage planner (starting prompt §6; spec
 `docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_3.md`). Public, on
@@ -33,7 +33,9 @@ and a shorter one links two paths and is part of the way; every
 road stretch a route walks is named — then the richest way on
 paths within `--allowance` (0.5: up to half again the most direct
 way on paths). Footpaths come first — the dotted brown line on
-Plai's map before the red line of a marked route. Each run says
+Plai's map before the red line of a marked route. Through towns
+and villages the direct way on streets to the next path, unless a
+point defined on Plai draws it elsewhere. Each run says
 what the way holds — km on footpaths, on marked trails, over the
 plai, in forest, over meadows, and on roads.
 

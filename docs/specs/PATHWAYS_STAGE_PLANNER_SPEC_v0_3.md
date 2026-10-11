@@ -106,6 +106,16 @@ every rule and number. In short:
   the "quickest way" is no longer shown. The weights are Claude's
   proposal until Michel has looked at a corridor drawn with them
   (engine v0.6).
+- **Through towns and villages.** *Michel's word, October 11,
+  2026, looking at the route zig-zagging through Verkhovyna:* where
+  no visiting point is defined in a built-up area, the planner takes
+  the direct way through it to the next path or trail — on streets
+  as a walker would, never a trunk road or motorway, a main road only
+  where no street runs alongside. Built-up is OSM's residential land
+  and a radius around a town or village point; a hamlet's scattered
+  homesteads keep the way of paths. Inside, only the points defined
+  on Plai — hosts, what stewards and Curators entered — draw the
+  way; OSM's monuments and museums are still listed along it.
 - **Obvious connections.** *Michel's word, October 11, 2026:* OSM
   paths often stop short of the way they meet. A path end is joined
   within 10 m to the nearest way, and up to 80 m where the
@@ -313,6 +323,8 @@ built, until Michel says to revise them (SP-6):
 
 ## Changelog
 
+- v0.3, amended 2026-10-11 — §3: through towns and villages the
+  direct way, only Plai's points drawing it; Michel's word.
 - v0.3, amended 2026-10-11 — §3: roads the last resort, Michel's
   word; a road of up to 300 m linking two paths is part of the way
   (Claude's proposal), every road stretch named. Replaces the next.
