@@ -46,7 +46,7 @@ Steps 0 to 3 run in parallel now; 4 is running; 5 cannot open before 2's backups
 
 ### Step 0 — Take the decisions still open
 
-*From `docs/DECISIONS_CHECKLIST_v0_6.md`. Each one holds back a later step; the first four hold back the most.*
+*From `docs/DECISIONS_CHECKLIST_v0_7.md`. Each one holds back a later step; the first four hold back the most.*
 
 - ☐ **S-10** — When Phase 1 ends: Gate 4 walked, the tenth host, or 24 months after Gate 3. *Holds back step 8.* — Michel
 - ☐ **A-2** — Rights in entries: confirm the drafted option (the entrant keeps them, UBEC holds a revocable permission). *Holds back the agreement's closing.* — Michel

@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_62"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_63"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.62"
+version: "v0.63"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -921,12 +921,16 @@ can use it. The Curator can create a route, save it and manage
 it; these stretches can be combined to create a corridor. This
 replaces "for the Curator only, never answering a pilgrim, built
 only if needed". The specification:
-`docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_2.md`. Decided there on
+`docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_3.md`. Decided there on
 Michel's word the same day: a steward may save a draft, and only
 the Curator publishes it (SP-1); the public page and service run
 on Plai and come before the first hosts (SP-2); the public answer
-names published hosts with only their detour time (SP-3). Open:
-SP-4 to SP-7.
+names published hosts with only their detour time (SP-3); the
+numbers as proposed (SP-4); the first real run Verkhovyna – Zhyva
+Khata – Tepla Gora – Kosiv, three stretches joined as a corridor
+(SP-5); the public documents revised when Michel says so (SP-6); a
+stretch's name and note in English first, until a multilingual
+Mapservice is explored (SP-7). None open.
 
 **What stays:** a tool proposes, a person decides. Anyone may ask
 for a way; a steward may save it as a draft; only a Curator makes a
@@ -945,7 +949,7 @@ outer edge as the boundary; the places within reach in route
 order with their one-way detour. `corridor`: stretches joined into
 one band, one boundary, one list, gaps shown. Tested on a made-up
 valley (`tools/test_stage_planner.py`); not yet run on Plai's data
-(SP-5).
+— the first real run is Verkhovyna to Kosiv (SP-5).
 
 **Input**
 - Published Plai places with their offers and season, from
@@ -974,8 +978,9 @@ little — "the logic of encounter, not just efficiency"; the
 party's SAC grade and trail visibility as limits; never inside
 the border strip (S-8); never an air-raid shelter listed. The time
 reported is always the real DIN time; the criteria steer, they do
-not shorten. Every number is a proposal until Michel or the
-Curator sets it (SP-4).
+not shorten. The numbers are as proposed, on Michel's word of
+October 11 (SP-4); the first real run and Gate 4's GNSS track test
+them, and a change is his or the Curator's word.
 
 **Hosts in what it says (SP-3, Michel's word, October 11):** the
 public answer names each published host within reach by their
@@ -1000,7 +1005,7 @@ application, and `instance_sa.stretch`, `corridor` and
 `corridor_stretch` as Plai migration `plai/008`. *SP-2, Michel's
 word, October 11, 2026:* the page and service run on Plai and come
 before the first hosts (Gate 3); Mapservice's changes, built there
-from `docs/prompts/PLAI_STAGE_PLANNER_START_PROMPT_v0_1.md`, behind
+from `docs/prompts/PLAI_STAGE_PLANNER_START_PROMPT_v0_2.md`, behind
 the leak pass.
 
 **Multi-day stages** — each day ending at a host with an overnight
@@ -1193,6 +1198,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.63 — 2026-10-11 — SP-4 to SP-7, Michel's word: the numbers as proposed; the first real run Verkhovyna – Zhyva Khata – Tepla Gora – Kosiv; the public documents when he says so; a stretch's name and note in English first, until a multilingual Mapservice is explored. Spec v0.3, start prompt v0.2.
 - v0.62 — 2026-10-11 — SP-1 to SP-3, Michel's word: a steward saves drafts, the Curator publishes; the page and service on Plai before Gate 3; the public answer names hosts with their detour time only. Spec v0.2, engine v0.3, the start prompt for the build on Plai.
 - v0.61 — 2026-10-11 — the planner public, Michel's word: anyone plans; the Curator saves and manages stretches; stretches make a corridor. §6 rewritten, §7 and Gate 5 with it; OI-P10 closed; the engine at `tools/stage_planner.py` v0.2; the spec v0.1 with SP-1 to SP-7.
 - v0.60 — 2026-10-11 — the menu closed on the host; German and Polish on the site, Michel's word.

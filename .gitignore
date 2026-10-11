@@ -21,3 +21,5 @@ site/dist/
 /route.html
 /corridor.geojson
 /corridor.html
+/stretch_*.html
+/stretch_*.geojson

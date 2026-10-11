@@ -1,13 +1,13 @@
 ---
-title: "PATHWAYS_STAGE_PLANNER_SPEC_v0_2"
+title: "PATHWAYS_STAGE_PLANNER_SPEC_v0_3"
 subtitle: "The planner anyone may use, the stretches a Curator saves, and the corridors made of them"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.2"
+version: "v0.3"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
-status: "specification — SP-1, SP-2 and SP-3 decided (Michel's word, October 11, 2026); the engine built and tested on a made-up valley (tools/stage_planner.py v0.3); not yet run on Plai's data; the page, the service and saving on Plai not built — they come before Gate 3; four items open (§9)"
+status: "specification — all seven items decided (Michel's word, October 11, 2026); the engine built and tested on a made-up valley (tools/stage_planner.py v0.3); the first real run, Verkhovyna to Kosiv, next; the page, the service and saving on Plai not built — they come before Gate 3"
 ---
 
 *A specification for the stage planner — the proposal's "spatial
@@ -98,7 +98,7 @@ A route the Curator saves. Proposed for Plai, as one migration in
 
 | Column | What |
 |---|---|
-| `id`, `name` | the Curator's name for it, in BCP 47-tagged languages as Plai's other text |
+| `id`, `name` | its name, in English first (SP-7), tagged `en` (BCP 47) so other languages can join it later |
 | `geom` | the route line, EPSG:3035, ODbL |
 | `band` | the four rings, kept so the map draws them without the planner; ODbL |
 | `from_label`, `to_label`, `start_geom`, `end_geom` | as entered |
@@ -108,7 +108,7 @@ A route the Curator saves. Proposed for Plai, as one migration in
 | `saved_by` | the account that saved it, a steward's or a Curator's |
 | `curator` | the Curator who published it |
 | `steward` | who cares for it, if anyone |
-| `note` | the Curator's own words, e.g. the state of a ford — public only if the Curator chooses |
+| `note` | the saver's own words, e.g. the state of a ford, in English first (SP-7) — public only if the Curator chooses |
 
 **Never stored with a stretch: its list of places.** The list is
 asked for again each time it is shown, from what is published that
@@ -149,7 +149,7 @@ by hand (`tools/README.md`). *SP-2, Michel's word, October 11,
 2026:* the public page and service run on Plai, and they come
 before the first hosts (Gate 3). They are Mapservice's change,
 built in `ubec_mapservice` in its own way, from the start prompt
-`docs/prompts/PLAI_STAGE_PLANNER_START_PROMPT_v0_1.md`. As
+`docs/prompts/PLAI_STAGE_PLANNER_START_PROMPT_v0_2.md`. As
 specified:
 
 - **A small service** on ubec-common behind the system nginx,
@@ -160,8 +160,10 @@ specified:
 - **A page** in Plai's Pathways application (`ubec_plai_hub_tcp`):
   two points on the map or two names, the party and the month; the
   band, the route, the list beside it; a download. Logged in, a
-  steward or a Curator also saves; a Curator publishes. Ukrainian
-  and English first (BCP 47), WCAG 2.2 AA.
+  steward or a Curator also saves; a Curator publishes. Its
+  languages: open for the build (start prompt §4) — English first,
+  as SP-7 decided for a stretch's name and note, or English and
+  Ukrainian from the start. WCAG 2.2 AA.
 - **With few hosts or none:** before Gate 3 the list holds open
   places only — viewpoints, springs, huts, chapels — and the page
   says that hosts appear as they join.
@@ -223,26 +225,35 @@ Curator. Proposed for Plai, in the same migration:
   (Gate 3). §6.
 - **SP-3** — *Decided, Michel's word, October 11, 2026:* the public
   answer names published hosts with only their detour time. §5.
-- **SP-4** — The numbers: the road penalties, the party paces and
-  SAC limits, the reach rings. Proposed: as in the engine, until
-  the first real run and a walk with a GNSS track (Gate 4) test
-  them.
-- **SP-5** — The first real run: Zhyva Khata to Tepla Gora, on
-  ubec-common, for Michel's look at the route, the band and the
-  list.
-- **SP-6** — The changes to the public documents (§10): now, or at
-  each document's next version.
-- **SP-7** — A stretch's name and note: Ukrainian and English both
-  required, or either.
+- **SP-4** — *Michel's word, October 11, 2026: the numbers as proposed —
+  the road penalties, the party paces and SAC limits, the reach
+  rings, as the engine holds them. The first real run and the walk
+  with a GNSS track (Gate 4) test them; a change is Michel's or the
+  Curator's word.
+- **SP-5** — *Michel's word, October 11, 2026: the first real run is
+  Verkhovyna – Zhyva Khata – Tepla Gora – Kosiv: three stretches,
+  Verkhovyna to Zhyva Khata, Zhyva Khata to Tepla Gora, Tepla Gora to Kosiv, joined as one corridor, on ubec-common, for Michel's look
+  at the routes, the bands and the lists. It is Gate A of the start
+  prompt for the build on Plai.
+- **SP-6** — *Michel's word, October 11, 2026: the public documents (§10)
+  are revised when Michel says so, not before.
+- **SP-7** — *Michel's word, October 11, 2026: a stretch's name and note
+  are in English first, until the possibilities of a multilingual
+  Mapservice are explored. Then this is decided again.
+
+**Later, not open now:** exploring a multilingual Mapservice —
+what Plai's entries, stretches and pages would need to carry
+Ukrainian and other languages side by side (BCP 47 tags, how a
+visitor chooses). Its own conversation, when Michel opens it.
 
 ## 10. Documents That Still Say Otherwise
 
 Changed with this specification: the starting prompt v0.61 (§6,
-§7, OI-P10) and v0.62 (SP-1 to SP-3, Gate order), the decisions
-checklist v0.5 and v0.6, the reasoning v0.4.
+§7, OI-P10), v0.62 (SP-1 to SP-3, Gate order) and v0.63 (SP-4 to
+SP-7), the decisions checklist v0.5 to v0.7, the reasoning v0.4.
 
 Still saying the planner is the Curator's alone, or may never be
-built, until their next version (SP-6):
+built, until Michel says to revise them (SP-6):
 
 - the white paper, English and Ukrainian (§ "No algorithm
   deciding"; the gates), and its PDF;
@@ -256,6 +267,12 @@ built, until their next version (SP-6):
 
 ## Changelog
 
+- v0.3 — 2026-10-11 — SP-4 to SP-7 decided on Michel's word: the
+  numbers as proposed; the first real run Verkhovyna – Zhyva Khata
+  – Tepla Gora – Kosiv; the public documents revised when he says
+  so; a stretch's name and note in English first, until a
+  multilingual Mapservice is explored. The page's languages left
+  open for the build.
 - v0.2 — 2026-10-11 — SP-1, SP-2 and SP-3 decided on Michel's word:
   a steward saves drafts, the Curator publishes; the page and
   service on Plai before Gate 3, from their start prompt; the public

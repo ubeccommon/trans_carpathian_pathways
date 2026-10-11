@@ -3,7 +3,7 @@
 ## stage_planner.py — `route` and `corridor`, v0.3
 
 The stage planner (starting prompt §6; spec
-`docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_2.md`). Public, on
+`docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_3.md`). Public, on
 Michel's word of October 11, 2026: anyone plans with it; the
 Curator saves a route as a stretch and joins stretches into a
 corridor. `route`, from a
@@ -39,7 +39,10 @@ A made-up valley; it proves the arithmetic and the rules (border
 strip, air-raid shelters, hosts left out for a pilgrim), not the
 Hutsul paths.
 
-### Run on Plai's data, on ubec-common
+### Run on Plai's data, on ubec-common — the first real run
+
+Michel's word, October 11, 2026 (SP-5): Verkhovyna – Zhyva Khata –
+Tepla Gora – Kosiv, as three stretches joined into one corridor.
 
 From schiff, copy the file over, then run it in Mapservice's
 environment, which reads the paths, places and border from the
@@ -50,30 +53,35 @@ scp /home/farmer/projects/plai/tools/stage_planner.py ubec-common:/tmp/
 ssh ubec-common
 cd /home/ubec/ubec_commons/ubec_mapservice && source tools/hostenv.sh
 pip install networkx shapely pyproj rasterio     # once, into .venv
-python3 /tmp/stage_planner.py route \
-    --from "Zhyva Khata" --to "Tepla Gora" \
-    --party couple --month oct \
-    --out /tmp/route.geojson --html /tmp/route.html
-```
 
-Two stretches into a corridor, each written by `route` with
-`--name` and its own `--out`:
-
-```bash
-python3 /tmp/stage_planner.py corridor --name "Hutsul corridor" \
-    /tmp/stretch_1.geojson /tmp/stretch_2.geojson \
+python3 /tmp/stage_planner.py route --name "Verkhovyna – Zhyva Khata" \
+    --from "Verkhovyna" --to "Zhyva Khata" --party couple --month oct \
+    --out /tmp/stretch_1.geojson --html /tmp/stretch_1.html
+python3 /tmp/stage_planner.py route --name "Zhyva Khata – Tepla Gora" \
+    --from "Zhyva Khata" --to "Tepla Gora" --party couple --month oct \
+    --out /tmp/stretch_2.geojson --html /tmp/stretch_2.html
+python3 /tmp/stage_planner.py route --name "Tepla Gora – Kosiv" \
+    --from "Tepla Gora" --to "Kosiv" --party couple --month oct \
+    --out /tmp/stretch_3.geojson --html /tmp/stretch_3.html
+python3 /tmp/stage_planner.py corridor --name "Verkhovyna – Kosiv" \
+    /tmp/stretch_1.geojson /tmp/stretch_2.geojson /tmp/stretch_3.geojson \
     --out /tmp/corridor.geojson --html /tmp/corridor.html
 ```
 
-A point is a published Plai place's title, a village or hamlet's
-name in OSM, or `"lat,lon"` as a map app copies it. Then, on
-schiff, bring the preview back and open it:
+A point is a published Plai place's title, a village or town's
+name in OSM, or `"lat,lon"` as a map app copies it. If a name is
+not found — Zhyva Khata, if it is not yet a published place — the
+planner says so; give that point as `"lat,lon"` instead, the same
+in both stretches it joins. Add `--audience curator` to see hosts in
+full.
+
+Then, on schiff, bring the previews back and open them:
 
 ```bash
-scp ubec-common:/tmp/route.html ubec-common:/tmp/route.geojson /home/farmer/projects/plai/
-xdg-open /home/farmer/projects/plai/route.html
+scp "ubec-common:/tmp/{stretch_1,stretch_2,stretch_3,corridor}.html" /home/farmer/projects/plai/
+xdg-open /home/farmer/projects/plai/corridor.html
 ```
 
-`route.html` and `route.geojson` are answers, not records: they
+The `.html` and `.geojson` files are answers, not records: they
 are not committed. With `--audience curator` they can hold hosts,
 so they are not passed on.

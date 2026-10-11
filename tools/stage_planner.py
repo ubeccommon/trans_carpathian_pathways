@@ -52,7 +52,7 @@ Curator may save a route as a stretch and manage it, a steward may
 save a draft that only the Curator publishes (SP-1), and stretches
 are combined into a corridor (`corridor`). Saving is Plai's change,
 not this tool's: the tool writes files and nothing else (spec
-`docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_2.md`).
+`docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_3.md`).
 
 `--audience public` (the default) names a published host with its
 detour time only — Michel's word, October 11, 2026 (SP-3): no
@@ -98,6 +98,9 @@ A corridor from stretches, each a file `route` wrote:
         stretch_1.geojson stretch_2.geojson --out corridor.geojson
 
 Changelog:
+  v0.3, amended 2026-10-11 — SP-4: the numbers adopted as proposed;
+         the spec's path, v0.3; a name finds a Plai title that
+         contains it, the exact title first.
   v0.3 — 2026-10-11 — SP-3, Michel's word: the public answer names
          published hosts with their detour time only; every place
          carries its order along the route.
@@ -131,8 +134,10 @@ from shapely.strtree import STRtree
 VERSION = "0.3"
 
 # ── Criteria ───────────────────────────────────────────────────
-# Every number here is a proposal until Michel or the Curator sets
-# it; each is named so it can be changed in one place.
+# Every number here is as proposed and adopted on Michel's word,
+# October 11, 2026 (SP-4); the first real run and Gate 4's GNSS
+# track test them, and a change is his or the Curator's word. Each
+# is named so it can be changed in one place.
 
 DIN_FLAT_KMH = 4.0          # DIN 33466
 DIN_UP_MH = 300.0
@@ -419,11 +424,16 @@ class PostgisSource:
             conn = self.psycopg.connect(dbname=self.inst_db,
                                         connect_timeout=5)
             with conn, conn.cursor() as cur:
+                # The title as typed first; then a title containing
+                # it ("Zhyva Khata" finds "Zhyva Khata homestead"),
+                # the shortest such title.
                 cur.execute("""SELECT ST_AsBinary(ST_Transform(geom, 3035))
                                  FROM instance.entry_public
                                 WHERE title ILIKE %s
-                                ORDER BY length(title) LIMIT 1""",
-                            (like,))
+                                   OR title ILIKE '%%' || %s || '%%'
+                                ORDER BY title ILIKE %s DESC,
+                                         length(title) LIMIT 1""",
+                            (like, like, like))
                 row = cur.fetchone()
                 if row:
                     return wkb.loads(bytes(row[0]))

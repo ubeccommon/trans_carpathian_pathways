@@ -1,13 +1,13 @@
 ---
-title: "DECISIONS_CHECKLIST_v0_6"
+title: "DECISIONS_CHECKLIST_v0_7"
 subtitle: "The questions waiting on Michel's word, one line each — with his answers of October 9"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.6"
+version: "v0.7"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
-status: "22 answered and carried into the documents; 10 still open, marked ☐; five decided since (the name, October 10; the record, the test, ratings, the planner public and its SP-1 to SP-3, October 11)"
+status: "22 answered and carried into the documents; 10 still open, marked ☐; five decided since (the name, October 10; the record, the test, ratings, the planner public and its SP-1 to SP-7, October 11)"
 ---
 
 *Michel's answers of October 9, 2026, written against each
@@ -181,9 +181,18 @@ manual v0.4, prompt v0.29.*
 - ☑ **SP-3 — Hosts in the public answer.** Named, with only their
       detour time. *Michel's word, October 11, 2026.* → spec v0.2
       §5; `tools/stage_planner.py` v0.3.
-- ☐ **SP-4 to SP-7** — the numbers; the first real run; the public
-      documents now or at their next versions; a stretch's
-      languages. → spec v0.2 §9.
+- ☑ **SP-4 — The numbers.** As proposed; the first real run and
+      Gate 4 test them. *Michel's word, October 11, 2026.* → spec
+      v0.3 §9; prompt v0.63 §6.
+- ☑ **SP-5 — The first real run.** Verkhovyna – Zhyva Khata – Tepla
+      Gora – Kosiv: three stretches joined as a corridor. *Michel's
+      word, October 11, 2026.* → spec v0.3 §9; start prompt v0.2,
+      Gate A; `tools/README.md`.
+- ☑ **SP-6 — The public documents.** Revised when Michel says so.
+      *Michel's word, October 11, 2026.* → spec v0.3 §10.
+- ☑ **SP-7 — A stretch's languages.** Name and note in English
+      first, until a multilingual Mapservice is explored. *Michel's
+      word, October 11, 2026.* → spec v0.3 §4, §9.
 
 ## Already due, from the project review of October 8
 
@@ -204,6 +213,7 @@ manual v0.4, prompt v0.29.*
 * * *
 
 *Changelog*
+- v0.7 — 2026-10-11 — SP-4 to SP-7 decided, Michel's word.
 - v0.6 — 2026-10-11 — SP-1 to SP-3 decided, SP-4 to SP-7 listed, Michel's word.
 - v0.5 — 2026-10-11 — the planner public, Michel's word, under "Decided since".
 - v0.3 — 2026-10-09 — S-23 built in mapservice; the host run

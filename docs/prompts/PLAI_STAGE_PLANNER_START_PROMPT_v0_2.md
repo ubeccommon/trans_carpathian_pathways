@@ -1,9 +1,9 @@
 ---
-title: "PLAI_STAGE_PLANNER_START_PROMPT_v0_1"
+title: "PLAI_STAGE_PLANNER_START_PROMPT_v0_2"
 subtitle: "Starting prompt — the stage planner's page, service and saved stretches on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.1"
+version: "v0.2"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -30,9 +30,11 @@ tree — but runs today only by hand on ubec-common. This
 conversation gives it a page and a service on Plai, and gives a
 saved stretch somewhere to live.
 
-Not in scope: changing what the engine decides (its criteria and
-numbers are SP-4, Michel's, in the Pathways conversation); the
-multi-day `stages` piece; the white paper, proposal or plan.
+Not in scope: changing what the engine decides (its numbers are as proposed, on Michel's word,
+SP-4; a change is his or the Curator's, in the Pathways
+conversation); the
+multi-day `stages` piece; the white paper, proposal or plan
+(revised only when Michel says so, SP-6).
 
 ## 1. Load order — before any work
 
@@ -50,7 +52,7 @@ multi-day `stages` piece; the white paper, proposal or plan.
    faces anyone; logs short; the checker before any `.md`; commits
    authored as Michel Garand from a pulled tree.
 3. In the Pathways tree, read in full:
-   `docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_2.md` (what to
+   `docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_3.md` (what to
    build), `tools/stage_planner.py` and `tools/README.md` (the
    engine), and `docs/specs/PATHWAYS_OPEN_DATA_SPEC_v0_3.md` §2 (a
    host is never a waypoint in a public file).
@@ -94,9 +96,11 @@ Gate by gate; a gate opens on Michel's word. Claude proposes,
 Michel decides, and nothing of Claude's is recorded as decided.
 
 - **Gate A — the first real run.** On ubec-common, by hand, as
-  `tools/README.md` says: Zhyva Khata to Tepla Gora (SP-5).
-  Michel looks at the route, the band and the list, and says what
-  is wrong with them. Timings recorded: how long the network takes
+  `tools/README.md` says (SP-5): three stretches, Verkhovyna to Zhyva Khata, Zhyva Khata to Tepla Gora, Tepla Gora to Kosiv, then
+  `corridor` over the three. Michel looks at the routes, the bands
+  and the lists, and says what is wrong with them. A name the
+  engine cannot find — Zhyva Khata if it is not yet a published
+  place — is given as `lat,lon`. Timings recorded: how long the network takes
   to build for a corridor-sized box. Nothing is built before this.
 - **Gate B — the design, as a list.** For Michel's word, each item
   with the lever it uses in the tree:
@@ -110,7 +114,7 @@ Michel decides, and nothing of Claude's is recorded as decided.
     a save reaches them with the saver's Mapbender identity and
     group;
   - the page: inside the Pathways application or beside it; what
-    a visitor sees, in Ukrainian and English (BCP 47), WCAG 2.2 AA;
+    a visitor sees, in the languages decided (§4), WCAG 2.2 AA;
   - how stretches and corridors are drawn on Plai's map for
     everyone once published, and how withdrawal removes them.
 - **Gate C — built in the tree.** The service, the migration, the
@@ -129,13 +133,14 @@ Michel decides, and nothing of Claude's is recorded as decided.
 
 ## 4. Open — for Michel, when they arise
 
-- The page's address, and its name in both languages.
+- The page's address and name.
+- The page's languages: English first, as SP-7 decided for a
+  stretch's name and note until a multilingual Mapservice is
+  explored, or English and Ukrainian from the start.
 - Whether a visitor may download the answer as GPX as well as
   GeoJSON (the open data spec's stage files).
 - How long the service may think before it says no, and how many
   answers one visitor may ask for in an hour.
-- SP-7 — a stretch's name and note: Ukrainian and English both
-  required, or either.
 
 ## 5. Working rules
 
@@ -153,5 +158,9 @@ Michel decides, and nothing of Claude's is recorded as decided.
 * * *
 
 *Changelog*
+- v0.2 — 2026-10-11 — SP-4 to SP-7, Michel's word: Gate A is
+  Verkhovyna – Zhyva Khata – Tepla Gora – Kosiv as one corridor;
+  a stretch's name and note in English first; the page's languages
+  open. Spec v0.3.
 - v0.1 — 2026-10-11 — initial, from Michel's word on SP-1, SP-2 and
   SP-3; engine `tools/stage_planner.py` v0.3; spec v0.2.
