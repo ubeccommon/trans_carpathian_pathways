@@ -129,6 +129,17 @@ def run(tmp: Path, *extra, out_name="out.geojson") -> dict:
     return json.loads(out.read_text())
 
 
+GEOJSON_TYPES = {"Point", "MultiPoint", "LineString", "MultiLineString",
+                 "Polygon", "MultiPolygon", "GeometryCollection"}
+
+
+def assert_geojson(fc: dict):
+    """Only RFC 7946 geometry types, or null (a host, SP-3)."""
+    for x in fc["features"]:
+        g = x["geometry"]
+        assert g is None or g["type"] in GEOJSON_TYPES, g and g["type"]
+
+
 def main() -> int:
     # DIN 33466 by hand
     assert sp.din_minutes(4000, 0, 0) == 60
@@ -177,6 +188,7 @@ def main() -> int:
         areas = [sp.to_3035(shape(b["geometry"])).area for b in bands]
         assert areas == sorted(areas), areas
         assert any(x["properties"]["role"] == "boundary" for x in f)
+        assert_geojson(fc)
         assert sp.OSM_NOTICE in fc["properties"]["notices"]
         assert fc["properties"]["stored"].startswith("nothing")
         assert fc["properties"]["stretch"]["criteria"]["party"] == "couple"
@@ -226,6 +238,21 @@ def main() -> int:
                 "--to", mid, out_name="west.geojson")
         b = run(tmp, "--audience", "curator", "--name", "East",
                 "--from", mid, "--to", end, out_name="east.geojson")
+        pa = run(tmp, "--name", "West", "--to", mid,
+                 out_name="west_public.geojson")
+        pb = run(tmp, "--name", "East", "--from", mid, "--to", end,
+                 out_name="east_public.geojson")
+        res = subprocess.run(
+            [sys.executable, str(HERE / "stage_planner.py"), "corridor",
+             str(tmp / "west_public.geojson"),
+             str(tmp / "east_public.geojson"),
+             "--out", str(tmp / "corridor_public.geojson")],
+            capture_output=True, text=True)
+        assert res.returncode == 0, res.stderr
+        cpub = json.loads((tmp / "corridor_public.geojson").read_text())
+        assert_geojson(cpub)
+        h = [x for x in cpub["features"] if x["properties"].get("is_host")]
+        assert len(h) == 1 and h[0]["geometry"] is None, h
         for aud, host in (("curator", True), ("public", False)):
             # host: whether the host's place may be in the answer
             cmd = [sys.executable, str(HERE / "stage_planner.py"),
@@ -238,6 +265,7 @@ def main() -> int:
             print(res.stdout, res.stderr, sep="")
             assert res.returncode == 0
             c = json.loads((tmp / "corridor.geojson").read_text())
+            assert_geojson(c)
             cp = c["properties"]
             assert abs(cp["route"]["km"] - a["properties"]["route"]["km"]
                        - b["properties"]["route"]["km"]) < 0.02

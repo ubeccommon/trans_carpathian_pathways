@@ -101,6 +101,10 @@ A corridor from stretches, each a file `route` wrote:
         stretch_1.geojson stretch_2.geojson --out corridor.geojson
 
 Changelog:
+  v0.4, amended 2026-10-11 — after the first run on ubec-common:
+         the boundary is written as a LineString, not a LinearRing,
+         which is no GeoJSON type and stopped the map page; a
+         corridor reads a public stretch whose host has no geometry.
   v0.4 — 2026-10-11 — after the first run on ubec-common: a Latin
          name finds a Cyrillic one (Zhyva Khata, Жива Хата), on
          Plai or in OSM, peaks and hills too; several equal matches
@@ -992,7 +996,7 @@ def write_geojson(path: Path, routes, rings, places, summary):
     if outer is not None:
         polys = getattr(outer, "geoms", [outer])
         for poly in polys:
-            feats.append(feature(poly.exterior, role="boundary",
+            feats.append(feature(LineString(poly.exterior.coords), role="boundary",
                                  minutes=rings[-1][0]))
     for i, r in enumerate(routes):
         feats.append(feature(r.line, role="route" if i == 0
@@ -1173,7 +1177,9 @@ def cmd_corridor(args) -> int:
         mins = int(h) * 60 + int(m)
         gap = None
         for f in fc["features"]:
-            p, g = f["properties"], to_3035(shape(f["geometry"]))
+            p = f["properties"]
+            # A host in a public answer has no geometry (SP-3).
+            g = to_3035(shape(f["geometry"])) if f["geometry"] else None
             if p["role"] == "band":
                 by_min.setdefault(p["minutes"], [p["fill_opacity"], []])
                 by_min[p["minutes"]][1].append(g)
@@ -1228,7 +1234,7 @@ def cmd_corridor(args) -> int:
         feats.append(feature(poly, role="band", minutes=T,
                              fill_opacity=opacity))
     for poly in getattr(rings[-1][2], "geoms", [rings[-1][2]]):
-        feats.append(feature(poly.exterior, role="boundary",
+        feats.append(feature(LineString(poly.exterior.coords), role="boundary",
                              minutes=rings[-1][0]))
     for row, line in zip(rows, lines):
         feats.append(feature(line, role="route", **{
