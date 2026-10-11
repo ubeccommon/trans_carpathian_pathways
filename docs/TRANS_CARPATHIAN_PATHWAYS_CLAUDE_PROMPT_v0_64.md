@@ -995,7 +995,8 @@ party scales it; the Curator sets the scale.
 time or taking the shortest path ... the pathway is the way." The
 planner takes roads only as the last resort ("Roads are only the
 last resort", his word again the same afternoon): a road stretch
-between paths longer than 300 m is walked only where nothing else
+between paths longer than 300 m — a continuous run, measured on the
+route itself — is walked only where nothing else
 joins; a shorter one links two paths and is part of the way (the
 300 m Claude's proposal); every road stretch a route walks is named.
 Then the richest way on paths within an
@@ -1247,6 +1248,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.64, amended 2026-10-11 — a road link measured on the route itself; engine v0.12.
 - v0.64, amended 2026-10-11 — through towns and villages the direct way, Michel's word; engine v0.11.
 - v0.64, amended 2026-10-11 — roads the last resort, Michel's word; a road of up to 300 m linking two paths is part of the way; engine v0.10. Replaces the next.
 - v0.64, amended 2026-10-11 — a road weighed, not forbidden, so a short road linking two paths is walked; engine v0.9.

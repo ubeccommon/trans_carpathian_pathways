@@ -87,8 +87,10 @@ every rule and number. In short:
   way." So the planner seeks, in order: roads only as the last
   resort — *his word again the same afternoon:* "we are not looking
   for the shortest or fastest way to destination. Roads are only the
-  last resort." A stretch of road between paths longer than 300 m is
-  walked only where nothing else joins; a shorter one — a village
+  last resort." A continuous run of road in a route longer than
+  300 m is walked only where nothing else joins (measured on the
+  route itself, not junction to junction, which let a road joined by
+  tracks every hundred metres pass as many short links); a shorter one — a village
   crossing, a few hundred metres along a river — links two paths and
   is part of the way, and every road stretch a route walks is named,
   link or last resort (the 300 m is Claude's proposal; 0 allows no
@@ -323,6 +325,8 @@ built, until Michel says to revise them (SP-6):
 
 ## Changelog
 
+- v0.3, amended 2026-10-11 — §3: a road link measured on the route
+  itself (engine v0.12).
 - v0.3, amended 2026-10-11 — §3: through towns and villages the
   direct way, only Plai's points drawing it; Michel's word.
 - v0.3, amended 2026-10-11 — §3: roads the last resort, Michel's
