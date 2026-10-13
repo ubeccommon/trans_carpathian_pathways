@@ -839,7 +839,13 @@ words; the record on GitHub among the links; the picture named CC
 BY-SA 4.0. English first (landing page v0.8), then Ukrainian (v0.8,
 not yet read in the corridor), then German and Polish (v0.3, Claude's
 translations, each saying so). Stylesheet v0.8 for a list inside a
-block. The build's checks pass on all 17 pages. Gate E — deploy,
+block. The build's checks pass on all 17 pages. *The same morning, Michel's
+word:* the overview in Ukrainian too — `docs/overview/PROJECT_OVERVIEW_UK_v0_5.md`,
+Claude's translation of the English v0.5 against the Ukrainian white
+paper's and agreement's words (the core body as «основне об'єднання»),
+not yet read in the corridor, with its page under `/uk/overview/`
+(build v0.14, 18 pages); the English overview's "Ukrainian to follow"
+and its contact line follow at v0.6, with Gate C (SP-6). Gate E — deploy,
 verify, his look on phone and computer, the person's checks of
 `site/README.md` — closes on his "looks good".
 
@@ -1388,6 +1394,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.67, amended 2026-10-13 — the overview in Ukrainian, Michel's word; build v0.14, site README v0.21.
 - v0.67 — 2026-10-13 — the landing page, Gate B, Michel's word: the front door of the public review in four languages, built and checked; site README v0.20, landing pages en/uk v0.8, de/pl v0.3, stylesheet v0.8.
 - v0.66 — 2026-10-13 — the documentation as one set, Gate A, Michel's word: `main` fast-forwarded to the planner branch; the set, the drift and the branches recorded; Claude's proposals taken as the answers (the four documents for review, how it is answered, the record linked, the border rules and the recognition line on the landing page, one wording for the first Curator, the white paper revised, a guide in four parts with a page on the site); §6 and §7 carry what the map service built October 11 to 13 (stewards save corridor drafts, `plai/009` and `010`, the engine pinned at `99ba6d8`). Starting prompt `docs/prompts/TCP_DOCUMENTATION_START_PROMPT_v0_1.md`.
 - v0.65, amended 2026-10-11 — the editor integrated in the map service, Michel's word.

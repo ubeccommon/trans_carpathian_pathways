@@ -42,6 +42,9 @@ Needs pandoc on the PATH, and Python 3 alone; deploy needs rsync and ssh.
 SPDX-License-Identifier: AGPL-3.0-or-later
 
 Changelog:
+  v0.14 — 2026-10-13 — the overview in Ukrainian (Michel's word): its page under
+         /uk/overview/, so the Ukrainian menu no longer sends readers to the
+         English and loses its EN tag there.
   v0.13 — 2026-10-11 — the field writing at soilandpeace.ubec.network
          (Michel's word), in the menu, the landing pages and the list of
          hosts a page may link to; pilgrims.ubec.network, another blog,
@@ -133,6 +136,7 @@ WRITING = "https://soilandpeace.ubec.network/"
 DOCS = [
     {"slug": "overview",
      "src": {"en": "overview/PROJECT_OVERVIEW_v*.md",
+             "uk": "overview/PROJECT_OVERVIEW_UK_v*.md",
              "de": "overview/PROJECT_OVERVIEW_DE_v*.md",
              "pl": "overview/PROJECT_OVERVIEW_PL_v*.md"},
      "pdf": {},

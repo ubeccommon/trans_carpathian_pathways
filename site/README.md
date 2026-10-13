@@ -1,6 +1,6 @@
 ---
 title: "tcp.ubec.network — the site"
-version: "v0.20"
+version: "v0.21"
 date: "2026-10-13"
 lang: "en"
 license: "CC BY-SA 4.0"
@@ -51,8 +51,11 @@ languages, under one menu.
   other path on it: never a link to a point. It opens in a new tab,
   and so does the field writing (Michel's word, the same morning), with `rel="noopener"`, an arrow
   after its name, and "opens in a new tab" for a screen reader.
-- **The overview** exists in English only; the Ukrainian menu shows it
-  as «Огляд (англійською)» and leads to the English page.
+- **The overview** is in English, and since October 13 in Ukrainian too
+  (`docs/overview/PROJECT_OVERVIEW_UK_v0_5.md`, Michel's word; Claude's
+  translation of the English v0.5, not yet read in the corridor), with its
+  page under `/uk/overview/`; the German and Polish menus show it in
+  English.
 - **Every Ukrainian page says, in one line,** that the Ukrainian texts
   have not yet been read by people in the corridor (D-2, open).
 - **Links out.** The site's own pages link to Plai's front page, the
@@ -453,6 +456,8 @@ site's own, and logged no policy violation.
 * * *
 
 *Changelog*
+- v0.21 — 2026-10-13 — the overview in Ukrainian, Michel's word: a page under /uk/overview/,
+  the Ukrainian landing page and menu pointing to it. Build v0.14; landing page uk v0.8 amended.
 - v0.20 — 2026-10-13 — the landing page for the public review, Gate B, Michel's word: the
   outline with its sources, the page in English, Ukrainian, German and Polish, built and
   checked. Landing pages en/uk v0.8, de/pl v0.3, stylesheet v0.8.
