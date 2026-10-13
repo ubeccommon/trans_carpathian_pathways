@@ -1,11 +1,11 @@
 ---
 title: "tcp.ubec.network — the site"
-version: "v0.18"
-date: "2026-10-11"
+version: "v0.19"
+date: "2026-10-13"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
-status: "Gate A record of the first site, the menu and the documents' pages; the landing page's rework for the public review waits on Michel's Gate A answers (docs/prompts/TCP_LANDING_PAGE_START_PROMPT_v0_1.md)"
+status: "Gate A record of the first site, the menu and the documents' pages, and of the documentation as one set (docs/prompts/TCP_DOCUMENTATION_START_PROMPT_v0_1.md): Michel's answers of October 13 recorded; Gate B, the landing page, next"
 ---
 
 # tcp.ubec.network
@@ -112,13 +112,84 @@ looked at.
   name, in the old switch's place; `hreflang` for all four and
   `x-default` on every landing page.
 
-Still open, from the landing-page prompt §5 and Gate A put to Michel
-on October 11: the landing page's own text (the mission and "Where we
-are" are behind their sources), how the review is answered, how to
-recognise the project, the border rules for those who come directly,
-the record's link on the landing page, and the picture's licence. The
-overview's line "available in English and Ukrainian on request" now
-contradicts the site and waits on his word.
+The questions the landing-page prompt §5 left open on October 11 are
+answered below (the documentation as one set, Gate A, October 13).
+
+## The documentation as one set — Gate A, Michel's word, October 13, 2026
+
+The documents were written one by one; the map service moved past
+them. A conversation of its own
+(`docs/prompts/TCP_DOCUMENTATION_START_PROMPT_v0_1.md`) read the set
+at this tree's `91063ba` and the map service's `9356c18`, and took
+over the landing-page prompt's Gate A. Found, as it bears on the
+site: the landing page's footer cites white paper v0.3 and proposal
+v0.2 (now v0.9 and v0.7); the mission gives "Curators who hold each
+stretch", which the pathway steward holds since October 8; "Where we
+are" says "No host, steward or Curator is named" and nothing of the
+planner, which is public on Plai since October 11 ("Plan a way"); the
+border rules the agreement §7 and the proposal promise to publish for
+those who come directly are published nowhere; the recognition line
+("writes only from stewardship@ubec.network; nobody asks for money in
+advance, a deposit, a password or a passport") is in the agreement
+and the proposal and not on the site; the manual (v0.8) is not on the
+site and knows neither the planner nor the `geo:` link; the
+repository answers the GitHub API publicly. *Michel's word, October
+13: Claude's proposals taken as the answers — each Claude's wording,
+for his word:*
+
+- **The branches.** `main` fast-forwarded to `stage-planner-route`
+  (`91063ba`): prompt v0.65, decisions v0.8, reasoning v0.4, the
+  planner spec v0.4 and `tools/` are on the branch the site is built
+  from. The site's four documents did not change.
+- **Which documents for review:** the overview, the proposal, the
+  white paper and the co-creator agreement, as pages and PDFs, as
+  now. The reasoning and the open-data specification not this round.
+- **How the review is answered:** by mail to the stewardship address
+  and by issues on the public repository; no closing date — the
+  review runs as long as the drafts are drafts, and the page says so.
+- **The record:** linked from the landing page, labelled "The
+  project's record on GitHub" / «Запис проєкту на GitHub»; the build
+  already allows that one path.
+- **The border rules:** a section of the landing page, "If you come
+  directly", stating them as white paper §10.2 does — with its
+  sources, its reading date and the line that this is not legal
+  advice — and linking to §10.2 on the white paper's page; never a
+  route, a stage or a village inside the strip.
+- **How to recognise the project:** on the landing page beside the
+  contact line, in the agreement's words.
+- **"Where we are":** what is built today — the map with its host
+  fields, the planner public on Plai ("Plan a way"), the documents in
+  four languages, the record public; what is not — no host or steward
+  named, the agreement a draft, the corridor not walked; the test of
+  the concept runs with the public review (D-4); and the first
+  Curator in one wording, the same in every document (D-5): *the
+  project lead is the first Curator for now, until a core body is
+  formed.*
+- **The planner on the page:** named in "Where we are" and in the map
+  link's line; the link stays the Pathways application
+  `ubec_plai_hub_tcp`.
+- **The plai in a line:** one line under the mission says what the
+  plai is — the old way through the high pastures, from which the map
+  takes its name.
+- **The picture's licence:** CC BY-SA 4.0, as the text and the marks;
+  the footer names it.
+- **One page or more:** the menu stands; the user guide gains a page,
+  "Guide" / «Посібник», after the co-creator agreement, with its PDF,
+  built from `docs/manual/` by `build/build_site.py` like the others.
+- **The documents:** the white paper is revised this round (v0.10),
+  the proposal (v0.8), the overview (v0.6, with a Ukrainian text at
+  last) and the plan follow where the change reaches them; the
+  Ukrainian and the German and Polish follow the English, each still
+  saying who has not read it.
+- **Still open, and the pages say so:** the Ukrainian name (D-1) and
+  the reading in the corridor (D-2) wait on Vasyl Yuskiv and two
+  residents; the backups line (D-6) says off-host backups are the
+  condition of the first real account.
+
+Gates B (the landing page: outline, English, Ukrainian, German and
+Polish, built and checked), C (the white paper and what follows it)
+and D (the user guide in four parts) follow, each closing with one
+commit; Gate E on the host, on Michel's "looks good".
 
 ## Gate A — what was found
 
@@ -351,6 +422,11 @@ site's own, and logged no policy violation.
 * * *
 
 *Changelog*
+- v0.19 — 2026-10-13 — the documentation as one set, Gate A, Michel's word: what was found against the
+  site, and Claude's proposals taken as the answers to the landing-page prompt's §5 — the four documents for review,
+  mail and issues, the record linked, the border rules and the recognition line on the page, "Where we are" as built,
+  one wording for the first Curator, the plai in a line, the picture CC BY-SA 4.0, a page for the guide. `main`
+  fast-forwarded to the planner branch.
 - v0.18 — 2026-10-11 — the field writing at soilandpeace.ubec.network,
   Michel's word. Build v0.13, landing pages en/uk v0.7, de/pl v0.2.
 - v0.17 — 2026-10-11 — the German and Polish documents closed on the host,

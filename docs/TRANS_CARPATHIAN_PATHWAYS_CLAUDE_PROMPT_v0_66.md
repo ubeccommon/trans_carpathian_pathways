@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_65"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_66"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.65"
+version: "v0.66"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -736,6 +736,91 @@ and Ukrainian until it settles. When an English document changes, its
 German and Polish follow, or say which English version they translate.
 Recorded in `site/README.md` v0.16.
 
+**The documentation as one set, Gate A — Michel's word, October 13,
+2026.** A conversation of its own, from
+`docs/prompts/TCP_DOCUMENTATION_START_PROMPT_v0_1.md`, makes the
+documentation one set a reader can follow from the landing page
+through the white paper to the user guide; it writes this tree and
+reads the map service. Read at this tree's `91063ba` and mapservice
+`9356c18` (its prompt v1.06). Found: `main` was a strict ancestor of
+`stage-planner-route` (27 commits behind, none ahead); the public
+documents still describe the planner as the Curator's and "if ever
+built" (white paper §6.3 and §11, proposal, plan, module map, the
+deck's notes), the landing page and white paper summary give the
+Curator the stretch the steward holds (October 8), the landing page
+cites white paper v0.3 and proposal v0.2, "Where we are" says nothing
+of the planner, the manual knows neither the planner nor the `geo:`
+link, the border rules the agreement and proposal promise to publish
+are published nowhere, "corridor" has two senses (the S-14 band and
+the planner's ordered stretches) that no document separates, and the
+repository answers the GitHub API publicly. *Michel's word, October
+13: Claude's proposals taken as the answers, each Claude's wording
+for his word:*
+- **The branches:** `main` fast-forwarded to `91063ba`; one current
+  version of each document on the branch the site is built from; the
+  branch left in place until Gate E closes.
+- **For review:** the overview, the proposal, the white paper and the
+  agreement, as pages and PDFs; the reasoning and the open-data
+  specification not this round.
+- **How the review is answered:** by mail to `stewardship@ubec.network`
+  and by issues on the public repository; no closing date — the
+  review runs as long as the drafts are drafts, and the page says so.
+- **The record:** linked from the landing page, labelled "The
+  project's record on GitHub" / «Запис проєкту на GitHub».
+- **The border rules:** a section of the landing page, "If you come
+  directly", stating them as white paper §10.2 does, with its
+  sources, date and the not-legal-advice line, and linking to §10.2;
+  the agreement's "(Part II)" points to the site at its next version.
+- **How to recognise the project:** on the landing page beside the
+  contact line, in the agreement's words.
+- **"Where we are"** says what is built today: the map with its host
+  fields, the planner public on Plai, the documents in four languages,
+  the record public; the test of the concept runs with the review
+  (D-4); and one wording for the first Curator everywhere (D-5):
+  *the project lead is the first Curator for now, until a core body
+  is formed; no host or steward is yet named.*
+- **The planner on the landing page:** named in "Where we are" and in
+  the map link's line; the link itself stays the Pathways application.
+- **The plai in a line:** yes, one line under the mission.
+- **The picture's licence:** CC BY-SA 4.0, as the text and the marks;
+  the footer names it.
+- **The guide gets a page**, "Guide" / «Посібник», after the
+  co-creator agreement in the menu.
+- **The white paper is revised this round** (SP-6): v0.10 — §6.3 "No
+  algorithm deciding", §11 the stage and the gates, §9 the two senses
+  of corridor, the summary's "Curators who hold each stretch", the
+  roles table; no public document names the engine's numbers, which
+  stay in the specification and the code. The proposal (v0.8), the
+  overview (v0.6, with its Ukrainian at last), the implementation
+  plan (v0.4) and the module map (v0.4) follow where the change
+  reaches them.
+- **The user guide:** one guide in four parts — for everyone; hosts
+  and entrants; keeping a way (stewards and the Curator); for the
+  Curator — named "Plai — User Guide"; English and Ukrainian, one
+  PDF; German and Polish not now.
+- **The notes handed back from the map service** are recorded as they
+  stand (§6 above; spec v0.5 §2 and §7, reasoning v0.5 §5 to follow):
+  stewards save corridor drafts; a corridor is published once every
+  stretch is; edits to a published one go into a draft; a visitor
+  keeps nothing; the engine pinned at `99ba6d8`. The weight finding
+  (`Q_MAX` 0.9 against `KNOWN_WEIGHT` 0.2: beside a rich place the
+  footpath beats a hand-drawn way) stays open for the planner work;
+  no engine change from this conversation. A published stretch may
+  end at a host's published point: the point is public already
+  (S-1), so SP-3 holds.
+- **Still open from the review:** D-1 and D-2 wait on the reading in
+  the corridor, which is asked of Vasyl Yuskiv and two residents
+  before the review is spread widely; the byline with Zhyva Khata on
+  the covers is Vasyl's word; the Ukrainian pages keep their note
+  meanwhile. D-6: the public texts say off-host backups are the
+  condition of the first real account, not that they do not exist.
+- **Terminology:** "the pathway planner" in prose and "Plan a way"
+  when the screen is named; the glossary (v0.2) gains *stretch*,
+  the second sense of *corridor* and *pathway planner*.
+Gates B (the landing page), C (the white paper and what follows it)
+and D (the user guide) run next, in the order Michel chooses; the
+answers are recorded in `site/README.md` v0.19 too.
+
 * * *
 
 ## 3. The First Corridor
@@ -948,9 +1033,12 @@ stretch's name and note in English first, until a multilingual
 Mapservice is explored (SP-7). None open.
 
 **What stays:** a tool proposes, a person decides. Anyone may ask
-for a way; a steward may save it as a draft; only a Curator makes a
-way the project's, by publishing it, and only a Curator joins
-stretches into a corridor. Nothing the
+for a way; a steward or the Curator may save it as a stretch, and
+put stretches in walking order as a corridor — a steward's as a
+draft (Michel's word, October 12, 2026, superseding "only a Curator
+joins stretches"); only a Curator makes a way the project's, by
+publishing it, and a corridor is published only once every stretch
+in it is. Nothing the
 planner says is a booking, a promise that a host will receive, or
 a statement that a path is safe today.
 
@@ -1069,7 +1157,24 @@ application, and `instance_sa.stretch`, `corridor` and
 word, October 11, 2026:* the page and service run on Plai and come
 before the first hosts (Gate 3); Mapservice's changes, built there
 from `docs/prompts/PLAI_STAGE_PLANNER_START_PROMPT_v0_4.md`, behind
-the leak pass.
+the leak pass. **Built, October 11 to 13, 2026** (mapservice
+`plai/008`, `009`, `010`; `stack/planner/`; `pathways.yaml` v0.2;
+`planner.js` v0.7; its prompt v1.06): the sidepane element "Plan a
+way", open to anyone; `instance_sa.stretch` with its versions, and
+`instance_sa.corridor` holding its stretches' numbers in walking
+order (no `corridor_stretch` table); seven Digitizer schemes (My
+stretches; Via and avoid points; History of my stretches; Curation
+of stretches; My corridors; History of my corridors; Curation of
+corridors). What the planner makes is named and saved from the panel
+("Keep this way", "My saved ways", "Make a corridor", "For the
+Curator"); a visitor keeps a link and a download, nothing stored for
+them (Michel's word, October 12); a published stretch or corridor is
+never changed in place — its saver's changes go into a draft of it
+(`plai/010`); the engine runs in the image pinned at this
+repository's commit `99ba6d8`, fetched and checked by hash, so a
+change to `tools/stage_planner.py` reaches Plai only when that pin
+is moved. Closed on the host on Michel's "looks good", October 12
+(`009`, `010`); `planner.js` v0.7 proven locally, his look pending.
 
 **Multi-day stages** — each day ending at a host with an overnight
 offer, open that month, with capacity for the party, under the
@@ -1086,9 +1191,9 @@ From the proposal §8, binding:
 - **No performance** — the encounter is real or it is nothing.
 - **Organic growth** — the network grows from the inside out.
 - **Curator as memory** — the human holds what the algorithm
-  cannot; anyone may use the planner, and only the Curator
-  makes a way the project's, by saving it (§6, Michel's word,
-  October 11, 2026).
+  cannot; anyone may use the planner, a steward or the Curator
+  saves a way, and only the Curator makes it the project's, by
+  publishing it (§6, Michel's word, October 11 and 12, 2026).
 - **The pilgrim arrives** — the journey is undergone, not
   consumed.
 - **Off the beaten path** — where people live, not where tourists
@@ -1261,6 +1366,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.66 — 2026-10-13 — the documentation as one set, Gate A, Michel's word: `main` fast-forwarded to the planner branch; the set, the drift and the branches recorded; Claude's proposals taken as the answers (the four documents for review, how it is answered, the record linked, the border rules and the recognition line on the landing page, one wording for the first Curator, the white paper revised, a guide in four parts with a page on the site); §6 and §7 carry what the map service built October 11 to 13 (stewards save corridor drafts, `plai/009` and `010`, the engine pinned at `99ba6d8`). Starting prompt `docs/prompts/TCP_DOCUMENTATION_START_PROMPT_v0_1.md`.
 - v0.65, amended 2026-10-11 — the editor integrated in the map service, Michel's word.
 - v0.65 — 2026-10-11 — the three steps and the pathway editor, Michel's word: the planner proposes, the steward or Curator edits, walked and saved ways become its best knowledge; engine v0.13 (via, avoid, known); spec v0.4, start prompt v0.3.
 - v0.64, amended 2026-10-11 — a road link measured on the route itself; engine v0.12.
