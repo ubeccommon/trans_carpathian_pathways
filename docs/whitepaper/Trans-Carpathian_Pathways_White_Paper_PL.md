@@ -1,12 +1,13 @@
 ---
 title: "Trans-Carpathian Pathways — Biała księga (PL)"
-version: "v0.9"
+version: "v0.10"
 date: "Październik 2026"
 lang: "pl"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
-status: "Tłumaczenie angielskiej wersji v0.9 wykonane przez Claude, na słowo Michela (11 października 2026); nie czytał go jeszcze nikt, dla kogo polski jest językiem ojczystym; wersja robocza do decyzji Michela"
+status: "Tłumaczenie angielskiej wersji v0.10 wykonane przez Claude, na słowo Michela (11 października 2026); nie czytał go jeszcze nikt, dla kogo polski jest językiem ojczystym; wersja robocza do decyzji Michela"
 changelog:
+  - "v0.10 — 2026-10-13 — na słowo Michela: trzech inicjatorów — do UBEC i Zhyva Khata dołącza Tepla Gora, którą kieruje Andriy Grushetsky (§11). Poza tym bez zmian; za angielską wersją v0.10."
   - "v0.9 — 2026-10-11 — tłumaczenie z angielskiej wersji v0.9, na słowo Michela, według glosariusza docs/translations/GLOSSARY_DE_PL_v0_1.md. Treść bez zmian."
 ---
 
@@ -310,7 +311,7 @@ Uczciwość co do etapu jest częścią koncepcji. Stan na 10 października 2026
 
 **Co istnieje.** Propozycja projektu po angielsku i po ukraińsku; podręcznik użytkownika dla wprowadzających i kuratorów w obu językach, z ekranami w ich obecnej postaci; porozumienie współtwórców dla każdej roli – gospodarza, opiekuna szlaku, kuratora, pielgrzyma, współpracownika, inicjatywy partnerskiej, darczyńcy, administratora – w obu językach, jako projekt z trzema otwartymi kwestiami (A-2, A-5, A-6) i jedną przekazaną zespołowi głównemu (A-4); dokument uzasadnień; a w Plai: karpacka mapa bazowa, formularz wprowadzania ze zgodą w postaci kolumn, pola gospodarza, miejsca gospodarzy pokazywane publicznie, zdjęcie, zaznaczenie porozumienia przy każdym wpisie oraz opublikowane miejsce, kliknięte w przeglądarce, wyświetlające wszystkie pola gospodarza. Progi 0, 1 i 2 – decyzje, Plai w przeglądarce, pola gospodarza – są zamknięte i zapisane z datą.
 
-**Czego nie ma.** Żadnego gospodarza, opiekuna szlaku ani kuratora wskazanego z imienia i nazwiska; żadnego prawdziwego konta. Kopii zapasowych z kopią poza serwerem, co jest własnym warunkiem serwisu dla pierwszego prawdziwego konta. Systemu wysyłki e-maili – zapomniane hasło resetuje więc administrator, gdy potwierdzi prośbę z jej właścicielem. Podmiotu prawnego: dokumenty wymieniają dwóch inicjatorów, UBEC i Zhyva Khata, ale żadna z tych struktur nie wskazuje formy prawnej projektu, a administratorem danych każdego gospodarza jest dziś osobiście kierownik projektu. Uchwalonego budżetu: pilotaż trwający osiemnaście miesięcy za około 25 700 € jest zalecany w propozycji projektu, a nie postanowiony. Oprogramowanie wyprzedza porozumienia między ludźmi – to właściwa kolejność w przypadku mapy, bo model zgody musiał zostać sprawdzony, zanim kogokolwiek poproszono o zaufanie – a próg 3, pierwsi gospodarze, jest pierwszym progiem, którego treścią jest obietnica złożona konkretnej osobie.
+**Czego nie ma.** Żadnego gospodarza, opiekuna szlaku ani kuratora wskazanego z imienia i nazwiska; żadnego prawdziwego konta. Kopii zapasowych z kopią poza serwerem, co jest własnym warunkiem serwisu dla pierwszego prawdziwego konta. Systemu wysyłki e-maili – zapomniane hasło resetuje więc administrator, gdy potwierdzi prośbę z jej właścicielem. Podmiotu prawnego: dokumenty wymieniają trzech inicjatorów: UBEC, Zhyva Khata i Tepla Gora, ale żadna z tych struktur nie wskazuje formy prawnej projektu, a administratorem danych każdego gospodarza jest dziś osobiście kierownik projektu. Uchwalonego budżetu: pilotaż trwający osiemnaście miesięcy za około 25 700 € jest zalecany w propozycji projektu, a nie postanowiony. Oprogramowanie wyprzedza porozumienia między ludźmi – to właściwa kolejność w przypadku mapy, bo model zgody musiał zostać sprawdzony, zanim kogokolwiek poproszono o zaufanie – a próg 3, pierwsi gospodarze, jest pierwszym progiem, którego treścią jest obietnica złożona konkretnej osobie.
 
 **Ryzyka, które projekt sam wskazał** we własnym przeglądzie: serwis zależy od jednej osoby, w czasie wojny, i nie wskazano jeszcze zastępcy; brak podmiotu prawnego; własne obowiązki gospodarzy wynikające z prawa podatkowego i stanu wojennego; wiedza z czasów wojny przechowywana przez kuratorów, objęta pisemnym obowiązkiem zachowania poufności jedynie w projekcie porozumienia; dom pokazany w dokładnym punkcie jest adresem, a jego pokazanie musi być świadomym wyborem gospodarza; płatne role bez ustalonych jeszcze warunków; ludzie na zdjęciach i w opowieściach.
 

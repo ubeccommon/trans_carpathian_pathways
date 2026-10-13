@@ -1,17 +1,17 @@
 ---
 lang: de
-version: v0.3
+version: v0.4
 date: 2026-10-13
 path: /de/
 title: Trans-Carpathian Pathways
 image_alt: Nacht über den Karpatenkämmen bei Vollmond; ein Pfad windet sich von Bändern huzulischer Stickerei hinauf in die Berge.
 tagline: Ein lebendiges Netz aus Ort, Menschen und Pfad
 description: Ein lebendiges Netz aus Gastgebenden, Pfaden und Kuratorinnen und Kuratoren entlang des Karpatenbogens, beginnend im huzulischen Hochland der Westukraine. Vier Entwürfe stehen zur öffentlichen Durchsicht.
-initiative: Initiiert von UBEC (Ubuntu Bioregional Economic Commons) unter der Leitung von Michel Garand und von Zhyva Khata unter der Leitung von Vasyl Yuskiv.
+initiative: Initiiert von UBEC (Ubuntu Bioregional Economic Commons) unter der Leitung von Michel Garand, von Zhyva Khata unter der Leitung von Vasyl Yuskiv und von Tepla Gora unter der Leitung von Andriy Grushetsky.
 licence: Texte, Zeichen und das Bild „Warm wind on the path“: CC BY-SA 4.0.
 privacy: Diese Website setzt keine Cookies, lädt nichts von anderen Servern und verfolgt ihre Besucherinnen und Besucher nicht.
 sources: Nach dem Weißbuch v0.9, dem Projektvorschlag v0.7 und der Mitgestaltungsvereinbarung v0.7, Oktober 2026; übersetzt aus der englischen Seite v0.8.
-changelog: v0.3 — 2026-10-13 — auf Michels Wort (die Dokumentation als ein Ganzes, Schwelle B): die Eingangstür der öffentlichen Durchsicht, von Claude aus der englischen Seite v0.8 übersetzt; noch von niemandem mit Deutsch als Muttersprache gelesen. Die Mission gibt das Wegstück den Wegepatinnen und Wegepaten und das Ganze den Kuratorinnen und Kuratoren und sagt in einem Satz, was der Plai ist. „Wo wir stehen“ sagt, was heute gebaut ist, und was nicht. Neue Abschnitte: „Lesen und antworten“, „Wenn Sie direkt kommen“, „Woran Sie das Projekt erkennen“. Das Projektarchiv auf GitHub unter den Links. v0.2 — 2026-10-11 — auf Michels Wort: die Feldnotizen unter soilandpeace.ubec.network. v0.1 — 2026-10-11 — erste Fassung, auf Michels Wort: die Startseite auf Deutsch, von Claude aus der englischen Seite v0.6 übersetzt; noch von niemandem mit Deutsch als Muttersprache gelesen. Der Name bleibt englisch, weil „Transkarpatien“ im Deutschen die Oblast Sakarpattja bezeichnet. Ortsnamen nach der deutschen Umschrift (Worochta, Werchowyna, Kossiw); der „pathway steward“ als Wegepatin und Wegepate, wie in den deutschen Wandervereinen.
+changelog: v0.4 — 2026-10-13 — auf Michels Wort: drei Initiatoren — Tepla Gora unter der Leitung von Andriy Grushetsky tritt zu UBEC und Zhyva Khata. Sonst unverändert. v0.3 — 2026-10-13 — auf Michels Wort (die Dokumentation als ein Ganzes, Schwelle B): die Eingangstür der öffentlichen Durchsicht, von Claude aus der englischen Seite v0.8 übersetzt; noch von niemandem mit Deutsch als Muttersprache gelesen. Die Mission gibt das Wegstück den Wegepatinnen und Wegepaten und das Ganze den Kuratorinnen und Kuratoren und sagt in einem Satz, was der Plai ist. „Wo wir stehen“ sagt, was heute gebaut ist, und was nicht. Neue Abschnitte: „Lesen und antworten“, „Wenn Sie direkt kommen“, „Woran Sie das Projekt erkennen“. Das Projektarchiv auf GitHub unter den Links. v0.2 — 2026-10-11 — auf Michels Wort: die Feldnotizen unter soilandpeace.ubec.network. v0.1 — 2026-10-11 — erste Fassung, auf Michels Wort: die Startseite auf Deutsch, von Claude aus der englischen Seite v0.6 übersetzt; noch von niemandem mit Deutsch als Muttersprache gelesen. Der Name bleibt englisch, weil „Transkarpatien“ im Deutschen die Oblast Sakarpattja bezeichnet. Ortsnamen nach der deutschen Umschrift (Worochta, Werchowyna, Kossiw); der „pathway steward“ als Wegepatin und Wegepate, wie in den deutschen Wandervereinen.
 ---
 
 ::: {#vision .block}

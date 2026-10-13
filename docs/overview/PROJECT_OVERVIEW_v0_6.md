@@ -1,13 +1,13 @@
 ---
-title: "PROJECT_OVERVIEW_v0_5"
+title: "PROJECT_OVERVIEW_v0_6"
 subtitle: "Trans-Carpathian Pathways — project overview"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.5"
+version: "v0.6"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
-status: "English first, Ukrainian to follow — drawn from the white paper and the implementation plan; decides nothing; the editable copy is the Claude doc of the same title"
+status: "English and Ukrainian — drawn from the white paper and the implementation plan; decides nothing; the editable copy is the Claude doc of the same title"
 ---
 
 # Trans-Carpathian Pathways
@@ -20,7 +20,7 @@ October 10, 2026 · Michel Garand
 
 Trans-Carpathian Pathways is a network of local hosts who share what they actually have — a bed, a meal, guidance or a craft — from where they live. A pathway emerges from where those hosts are, and local Curators and pathway stewards hold each stretch of it.
 
-The project is meant for the whole Carpathian arc and begins with one corridor, from **Vorokhta through Verkhovyna to Kosiv** in the Hutsul highlands. The project is initiated by **UBEC** (Ubuntu Bioregional Economic Commons), led by Michel Garand, and **Zhyva Khata**, led by Vasyl Yuskiv.
+The project is meant for the whole Carpathian arc and begins with one corridor, from **Vorokhta through Verkhovyna to Kosiv** in the Hutsul highlands. The project is initiated by **UBEC** (Ubuntu Bioregional Economic Commons), led by Michel Garand, **Zhyva Khata**, led by Vasyl Yuskiv, and **Tepla Gora**, led by Andriy Grushetsky.
 
 It runs on **Plai**, an open-source, consent-controlled map of the whole Carpathian range that UBEC already operates on its own server in the European Union. There is no booking platform, no rating and no commission: payment is the host's to set and passes directly from pilgrim to host, and every host owns their own entry.
 
@@ -154,11 +154,14 @@ The documents, the code and the record of every decision, with its date, are ope
 
 **Vasyl Yuskiv**, Zhyva Khata
 
+**Andriy Grushetsky**, Tepla Gora
+
 The white paper, the proposal and the co-creator agreement are on the project's site, tcp.ubec.network, in English and Ukrainian. All project documents are published under CC BY-SA 4.0.
 
 * * *
 
 *Changelog*
+- v0.6 — 2026-10-13 — Michel's word: the project is initiated by three — Tepla Gora, led by Andriy Grushetsky, joins UBEC and Zhyva Khata as the third initiator; the contact section names him. The Ukrainian exists since October 13. Nothing else changed.
 - v0.5 — 2026-10-11 — Michel's word: the white paper, the proposal and the co-creator agreement are on the project's site, in place of "available on request". Nothing else changed.
 - v0.4, amended 2026-10-11 — Michel's word: the record is public (D-3); the test of the concept runs with the public review (D-4); no ratings without consent (D-7).
 - v0.4 — 2026-10-10 — the public-drafts stress tests (docs/reviews/PUBLIC_DRAFTS_STRESS_TESTS_v0_1.md), corrections taken in: payment direct, Bukovel's hromada and the buyers line, the displaced apart from the second movement, data and consent stated as they are, hosts' conditions under Procedure 297, the Curator's choosing (S-9), the councils asked to pass word rather than names, the record described as it is. The deck's slides and its LibreOffice copy follow.

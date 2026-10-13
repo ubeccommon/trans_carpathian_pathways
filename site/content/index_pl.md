@@ -1,17 +1,17 @@
 ---
 lang: pl
-version: v0.3
+version: v0.4
 date: 2026-10-13
 path: /pl/
 title: Trans-Carpathian Pathways
 image_alt: Noc nad grzbietami Karpat przy pełni księżyca; ścieżka wije się od pasów huculskiego haftu w górę, w góry.
 tagline: Żywa sieć miejsc, ludzi i ścieżek
 description: Żywa sieć gospodarzy, ścieżek i kuratorów wzdłuż łuku Karpat, począwszy od Huculszczyzny w zachodniej Ukrainie. Cztery projekty dokumentów oddano do publicznej oceny.
-initiative: Inicjatorzy – UBEC (Ubuntu Bioregional Economic Commons), którym kieruje Michel Garand, oraz Zhyva Khata, którą kieruje Vasyl Yuskiv.
+initiative: Inicjatorzy – UBEC (Ubuntu Bioregional Economic Commons), którym kieruje Michel Garand, Zhyva Khata, którą kieruje Vasyl Yuskiv, oraz Tepla Gora, którą kieruje Andriy Grushetsky.
 licence: Teksty, znaki i obraz „Warm wind on the path”: CC BY-SA 4.0.
 privacy: Ta strona nie zapisuje plików cookie, niczego nie pobiera z innych serwerów i nie śledzi odwiedzających.
 sources: Na podstawie białej księgi v0.9, propozycji v0.7 i porozumienia współtwórców v0.7, październik 2026; przetłumaczone z angielskiej strony v0.8.
-changelog: v0.3 — 2026-10-13 — na słowo Michela (dokumentacja jako jedna całość, próg B): drzwi wejściowe publicznej oceny, przetłumaczone przez Claude z angielskiej strony v0.8; nie czytał ich jeszcze nikt, dla kogo polski jest językiem ojczystym. Misja oddaje odcinek opiekunom szlaku, a całość kuratorom, i mówi jednym zdaniem, czym jest płaj. „Gdzie jesteśmy” mówi, co jest zbudowane dziś, a czego jeszcze nie ma. Nowe sekcje: „Przeczytaj i odpowiedz”, „Jeśli przychodzisz samodzielnie”, „Jak rozpoznać projekt”. Zapis projektu na GitHubie wśród odnośników. v0.2 — 2026-10-11 — na słowo Michela: zapiski z terenu pod adresem soilandpeace.ubec.network. v0.1 — 2026-10-11 — pierwsza wersja, na słowo Michela: strona główna po polsku, przetłumaczona przez Claude z angielskiej strony v0.6; nie czytał jej jeszcze nikt, dla kogo polski jest językiem ojczystym. Nazwa zostaje angielska, bo „Zakarpacie” to po polsku obwód zakarpacki. Nazwy miejscowości w polskiej postaci (Worochta, Werchowyna, Kosów); „Pilgrim of the Plai” jako pielgrzym płaju – płaj to słowo znane w polskich Karpatach; „pathway steward” jako opiekun szlaku, jak w PTTK.
+changelog: v0.4 — 2026-10-13 — na słowo Michela: trzech inicjatorów — do UBEC i Zhyva Khata dołącza Tepla Gora, którą kieruje Andriy Grushetsky. Poza tym bez zmian. v0.3 — 2026-10-13 — na słowo Michela (dokumentacja jako jedna całość, próg B): drzwi wejściowe publicznej oceny, przetłumaczone przez Claude z angielskiej strony v0.8; nie czytał ich jeszcze nikt, dla kogo polski jest językiem ojczystym. Misja oddaje odcinek opiekunom szlaku, a całość kuratorom, i mówi jednym zdaniem, czym jest płaj. „Gdzie jesteśmy” mówi, co jest zbudowane dziś, a czego jeszcze nie ma. Nowe sekcje: „Przeczytaj i odpowiedz”, „Jeśli przychodzisz samodzielnie”, „Jak rozpoznać projekt”. Zapis projektu na GitHubie wśród odnośników. v0.2 — 2026-10-11 — na słowo Michela: zapiski z terenu pod adresem soilandpeace.ubec.network. v0.1 — 2026-10-11 — pierwsza wersja, na słowo Michela: strona główna po polsku, przetłumaczona przez Claude z angielskiej strony v0.6; nie czytał jej jeszcze nikt, dla kogo polski jest językiem ojczystym. Nazwa zostaje angielska, bo „Zakarpacie” to po polsku obwód zakarpacki. Nazwy miejscowości w polskiej postaci (Worochta, Werchowyna, Kosów); „Pilgrim of the Plai” jako pielgrzym płaju – płaj to słowo znane w polskich Karpatach; „pathway steward” jako opiekun szlaku, jak w PTTK.
 ---
 
 ::: {#vision .block}

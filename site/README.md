@@ -1,6 +1,6 @@
 ---
 title: "tcp.ubec.network — the site"
-version: "v0.21"
+version: "v0.22"
 date: "2026-10-13"
 lang: "en"
 license: "CC BY-SA 4.0"
@@ -456,6 +456,9 @@ site's own, and logged no policy violation.
 * * *
 
 *Changelog*
+- v0.22 — 2026-10-13 — the third initiator, Michel's word: Tepla Gora, led by Andriy Grushetsky, in the
+  initiator line of every landing page (en/uk v0.9, de/pl v0.4); the documents' pages follow their files
+  (overview v0.6, proposal v0.8, white paper v0.10, agreement v0.8).
 - v0.21 — 2026-10-13 — the overview in Ukrainian, Michel's word: a page under /uk/overview/,
   the Ukrainian landing page and menu pointing to it. Build v0.14; landing page uk v0.8 amended.
 - v0.20 — 2026-10-13 — the landing page for the public review, Gate B, Michel's word: the

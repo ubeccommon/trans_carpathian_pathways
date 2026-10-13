@@ -1,9 +1,9 @@
 ---
-title: "IMPLEMENTATION_PLAN_v0_3"
+title: "IMPLEMENTATION_PLAN_v0_4"
 subtitle: "The project in one page, and the step-by-step plan to the first corridor walked — with its to-do lists"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.3"
+version: "v0.4"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -16,7 +16,7 @@ status: "working plan, read against prompt v0.40 — states as of October 10, 20
 
 ## 1. The project in one page
 
-**Summary.** Trans-Carpathian Pathways is a living network of hosts in the Carpathians — people who offer a bed, a meal, guidance or a craft from where they actually live — a pathway that emerges from where those hosts are, pathway stewards who care for each stretch, and a local Curator who holds the whole and suggests, never sells, a journey to each Pilgrim of the Plai — whoever comes on foot to meet them. It runs on Plai, a consent-controlled map of the whole Carpathian range that UBEC operates on its own server in the EU. No booking calendar, no ratings, no commission; payment passes directly from pilgrim to host in forms the host chooses; every host owns their own entry and can withdraw it. The first corridor runs from Vorokhta through Verkhovyna to Kosiv in the Hutsul highlands of western Ukraine. Initiated by UBEC (Ubuntu Bioregional Economic Commons), led by Michel Garand, and Zhyva Khata, led by Vasyl Yuskiv.
+**Summary.** Trans-Carpathian Pathways is a living network of hosts in the Carpathians — people who offer a bed, a meal, guidance or a craft from where they actually live — a pathway that emerges from where those hosts are, pathway stewards who care for each stretch, and a local Curator who holds the whole and suggests, never sells, a journey to each Pilgrim of the Plai — whoever comes on foot to meet them. It runs on Plai, a consent-controlled map of the whole Carpathian range that UBEC operates on its own server in the EU. No booking calendar, no ratings, no commission; payment passes directly from pilgrim to host in forms the host chooses; every host owns their own entry and can withdraw it. The first corridor runs from Vorokhta through Verkhovyna to Kosiv in the Hutsul highlands of western Ukraine. Initiated by UBEC (Ubuntu Bioregional Economic Commons), led by Michel Garand, Zhyva Khata, led by Vasyl Yuskiv, and Tepla Gora, led by Andriy Grushetsky.
 
 **Why.** The Carpathians are being re-valued from outside faster than from within — resort property, wind farms on the high meadows, EU accession opening the land market, the Carpathian Eight planning the region's future with energy as the headline — while the people who hold the old way of life grow old and the knowledge that made the meadows goes with them. The meadows degrade when left alone: neutral is not enough where the land was made. The project stands with the second movement — the families, initiatives and newcomers already keeping the landscape and the crafts — and offers an alternative that earns: encounter rather than extraction, regeneration rather than sustainability. Its measure is whether a place is more alive and more able to go on than before the pathway.
 
@@ -199,5 +199,7 @@ From the stress tests, so a hurried step does not undo a settled one.
 * * *
 
 *Changelog*
+- v0.4 — 2026-10-13 — Michel's word, October 13: the project is initiated by three — Tepla Gora, led by Andriy Grushetsky, joins UBEC and Zhyva Khata (§1). Nothing else changed.
+- v0.3 — 2026-10-10 — the Pilgrim of the Plai, Michel's word; the checklist cited at its current version (no line was written at the time).
 - v0.2 — 2026-10-10 — Michel's word: the project is initiated by two; the initiator line in §1 replaced. Nothing else changed.
 - v0.1 — 2026-10-10 — initial, on Michel's word: the project in one page and the plan in eight steps with to-do lists, states as of October 10, against prompt v0.40, modules v0.2, checklist v0.3, needs v0.2, long list v0.2, open-data spec v0.1.

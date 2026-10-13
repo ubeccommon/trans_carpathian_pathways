@@ -1,11 +1,12 @@
 ---
 title: "Trans-Carpathian Pathways — Proposal (EN)"
-version: "v0.7"
+version: "v0.8"
 date: "October 2026"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
 changelog:
+  - "v0.8 — 2026-10-13 — Michel's word, October 13: the project is initiated by three — Tepla Gora, led by Andriy Grushetsky, joins UBEC and Zhyva Khata, in the summary table and in \"How to take part\". Nothing else changed."
   - "v0.7 — 2026-10-10 — Michel's word, October 11: no ratings without the consent of those rated (D-7). Nothing else changed."
   - "v0.6 — 2026-10-10 — the public-drafts stress tests (docs/reviews/PUBLIC_DRAFTS_STRESS_TESTS_v0_1.md), corrections taken in: the host fields moved to what is in place, Plai's English screens said plainly, the corridor table without \"the first known hosts\" and with Kosiv's ceramics, distances, each instance its own database, the border rules for those who come directly, how to recognise the project, hosts' own tax duty, the existing guest-receiving tradition acknowledged, the budget's authorship note and decision dates. Nothing decided changed."
   - "v0.5 — 2026-10-10 — Michel's word, October 10: whoever walks is the Pilgrim of the Plai, not the traveler: the name in the summary and in \"Who it serves\", with the plai glossed; *pilgrim* in running text; the network diagram's label. Nothing else changed."
@@ -35,7 +36,7 @@ The first corridor is in the Hutsul highlands of western Ukraine, between Vorokh
 | Where first | Vorokhta, Verkhovyna and Kosiv, Ivano-Frankivsk region, Ukraine |
 | Where next | The Ukrainian Carpathians, then across the arc's other countries |
 | Built on | Plai — the Carpathian hub of UBEC Mapservice |
-| Initiated by | UBEC (Ubuntu Bioregional Economic Commons), led by Michel Garand, and Zhyva Khata, led by Vasyl Yuskiv |
+| Initiated by | UBEC (Ubuntu Bioregional Economic Commons), led by Michel Garand, Zhyva Khata, led by Vasyl Yuskiv, and Tepla Gora, led by Andriy Grushetsky |
 | Stage | Prototype: technical base in place, first hosts and Curator being sought |
 
 We are looking for people to take part: hosts, stewards and Curators in the corridor, partners along the arc, technical contributors, and funders for the pilot.
@@ -224,7 +225,7 @@ There are five ways in, and each one shapes the project from here.
 | A developer, mapper or translator | Help build Plai's host tools, the stage planner or local-language forms |
 | A funder or foundation | Support the pilot corridor, its first Curator and its first stewards |
 
-Initiated by UBEC (Ubuntu Bioregional Economic Commons), led by Michel Garand, and Zhyva Khata, led by Vasyl Yuskiv.
+Initiated by UBEC (Ubuntu Bioregional Economic Commons), led by Michel Garand, Zhyva Khata, led by Vasyl Yuskiv, and Tepla Gora, led by Andriy Grushetsky.
 
 Contact: Michel Garand — stewardship@ubec.network
 

@@ -1,12 +1,13 @@
 ---
 title: "Trans-Carpathian Pathways — Projektvorschlag (DE)"
-version: "v0.7"
+version: "v0.8"
 date: "Oktober 2026"
 lang: "de"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
-status: "Übersetzung der englischen Fassung v0.7 durch Claude, auf Michels Wort (11. Oktober 2026); noch von niemandem mit Deutsch als Muttersprache gelesen"
+status: "Übersetzung der englischen Fassung v0.8 durch Claude, auf Michels Wort (11. Oktober 2026); noch von niemandem mit Deutsch als Muttersprache gelesen"
 changelog:
+  - "v0.8 — 2026-10-13 — auf Michels Wort: drei Initiatoren — Tepla Gora unter der Leitung von Andriy Grushetsky tritt zu UBEC und Zhyva Khata (Tabelle und „Mitmachen“). Sonst unverändert; folgt der englischen Fassung v0.8."
   - "v0.7 — 2026-10-11 — Übersetzung aus dem Englischen v0.7, auf Michels Wort, nach dem Glossar docs/translations/GLOSSARY_DE_PL_v0_1.md. Inhalt unverändert."
 ---
 
@@ -16,7 +17,7 @@ changelog:
 
 *Ein lebendiges Netzwerk aus Ort, Menschen und Weg – Projektzusammenfassung und Projektvorschlag*
 
-Oktober 2026 · UBEC / Karpaten-Hub-Initiative · Entwurf v0.7
+Oktober 2026 · UBEC / Karpaten-Hub-Initiative · Entwurf v0.8
 
 ## Zusammenfassung
 
@@ -30,7 +31,7 @@ Der erste Korridor liegt im huzulischen Hochland im Westen der Ukraine, zwischen
 | Wo zuerst | Worochta, Werchowyna und Kossiw, Region Iwano-Frankiwsk, Ukraine |
 | Wo danach | Die ukrainischen Karpaten, dann die übrigen Länder des Karpatenbogens |
 | Grundlage | Plai – der Karpaten-Hub von UBEC Mapservice |
-| Initiiert von | UBEC (Ubuntu Bioregional Economic Commons), geleitet von Michel Garand, und Zhyva Khata, geleitet von Vasyl Yuskiv |
+| Initiiert von | UBEC (Ubuntu Bioregional Economic Commons), geleitet von Michel Garand, Zhyva Khata, geleitet von Vasyl Yuskiv, und Tepla Gora, geleitet von Andriy Grushetsky |
 | Stand | Prototyp: technische Grundlage vorhanden, erste Gastgeberinnen und Gastgeber sowie eine erste Kuratorin oder ein erster Kurator werden gesucht |
 
 Wir suchen Menschen, die mitmachen: Gastgeberinnen und Gastgeber, Wegepatinnen und Wegepaten sowie Kuratorinnen und Kuratoren im Korridor, Partnerinnen und Partner entlang des Karpatenbogens, technische Mitwirkende sowie Förderinnen und Förderer für die Pilotphase.
@@ -219,7 +220,7 @@ Es gibt fünf Zugänge, und jeder davon prägt das Projekt von hier an mit.
 | Entwicklerin oder Entwickler, Kartiererin oder Kartierer, Übersetzerin oder Übersetzer | Beim Aufbau der Werkzeuge für Gastgebende in Plai, des Etappenplaners oder der Formulare in lokalen Sprachen helfen |
 | Förderin, Förderer oder Stiftung | Den Pilotkorridor, seine erste Kuratorin oder seinen ersten Kurator und seine ersten Wegepatinnen und Wegepaten unterstützen |
 
-Initiiert von UBEC (Ubuntu Bioregional Economic Commons), geleitet von Michel Garand, und Zhyva Khata, geleitet von Vasyl Yuskiv.
+Initiiert von UBEC (Ubuntu Bioregional Economic Commons), geleitet von Michel Garand, Zhyva Khata, geleitet von Vasyl Yuskiv, und Tepla Gora, geleitet von Andriy Grushetsky.
 
 Kontakt: Michel Garand – stewardship@ubec.network
 

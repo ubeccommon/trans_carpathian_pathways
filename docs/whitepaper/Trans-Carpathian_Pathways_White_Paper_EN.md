@@ -1,12 +1,13 @@
 ---
 title: "Trans-Carpathian Pathways — White Paper (EN)"
-version: "v0.9"
+version: "v0.10"
 date: "October 2026"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
 status: "draft for Michel's word — English first, Ukrainian once it settles"
 changelog:
+  - "v0.10 — 2026-10-13 — Michel's word, October 13: the project is initiated by three — Tepla Gora, led by Andriy Grushetsky, joins UBEC and Zhyva Khata; §11's line on the legal body names all three. Nothing else changed."
   - "v0.9 — 2026-10-10 — Michel's word, October 11: the record is public, in the public repository (D-3); no ratings unless those rated consent (D-7). Nothing else changed."
   - "v0.8 — 2026-10-10 — the public-drafts stress tests (docs/reviews/PUBLIC_DRAFTS_STRESS_TESTS_v0_1.md), corrections taken in: decisions of October 9 carried in (payment direct, no commission, OI-P12, S-4, S-6, S-9, S-14 corridors), §11 as of October 10, section references, the Package Travel Directive quoted exactly, the cattle and Svydovets figures held to their sources, advocacy sources attributed, the Bukovel forgery case separated from its owners, the record described as it is, the toloka, the polonynas, the displaced, the newcomer and the councils' names reworded. Nothing decided by Michel changed."
   - "v0.7 — 2026-10-10 — Michel's word, October 10: whoever walks is the Pilgrim of the Plai, not the traveler: §4.3 gives the name and its roots, the summary and the roles table carry it, §12's open question on pilgrimage narrowed to whether the project says it borrows no one's faith; *pilgrim* in running text; the regenerative-loop diagram's label. \"Traveler\" kept where the paper speaks of travel in general, of the literature or of other projects."
@@ -24,7 +25,7 @@ changelog:
 
 *A living network of hosts, paths and Curators across the Carpathian arc — the case, the evidence and the design*
 
-October 2026 · UBEC / Carpathian Hub Initiative · White Paper, draft v0.9
+October 2026 · UBEC / Carpathian Hub Initiative · White Paper, draft v0.10
 
 ## How to read this paper
 
@@ -318,7 +319,7 @@ Honesty about the stage is part of the design. On October 10, 2026:
 
 **What exists.** The proposal in English and Ukrainian; a user manual for entrants and curators in both languages with the screens as they are; a co-creator agreement for every role — host, steward, Curator, pilgrim, contributor, partner initiative, funder, administrator — in both languages, as a draft with three items open (A-2, A-5, A-6) and one passed to the core body (A-4); a reasoning document; and, on Plai, the Carpathian base map, the entry surface with consent as columns, the host fields, host places shown to the public, the photo, the agreement tick on every entry, and a published place clicked in a browser carrying every host field. Gates 0, 1 and 2 — decisions, Plai in a browser, host fields — are closed on dated record.
 
-**What does not exist.** Any host, steward or Curator by name; any real account. Backups with an off-host copy, which is the service's own condition for the first real account. A mailer, so a forgotten password is reset by the administrator once the request is confirmed with its owner. A legal body: the documents name the two initiators, UBEC and Zhyva Khata, but neither tree names a legal form for the project, and the controller of every host's data is today the project lead personally. A decided budget: a pilot of eighteen months at about €25,700 is recommended in the proposal, not decided. The software is ahead of the agreements between people — the right order for a map, since the consent model had to be proven before anyone was asked to trust it — and Gate 3, the first hosts, is the first gate whose work is a promise made to a person.
+**What does not exist.** Any host, steward or Curator by name; any real account. Backups with an off-host copy, which is the service's own condition for the first real account. A mailer, so a forgotten password is reset by the administrator once the request is confirmed with its owner. A legal body: the documents name the three initiators, UBEC, Zhyva Khata and Tepla Gora, but neither tree names a legal form for the project, and the controller of every host's data is today the project lead personally. A decided budget: a pilot of eighteen months at about €25,700 is recommended in the proposal, not decided. The software is ahead of the agreements between people — the right order for a map, since the consent model had to be proven before anyone was asked to trust it — and Gate 3, the first hosts, is the first gate whose work is a promise made to a person.
 
 **The risks the project has named for itself**, in its own review: the service depends on one person, in wartime, and no deputy is yet named; no legal body; hosts' own obligations under tax and martial law; wartime knowledge held by Curators with a written duty of confidence only in the draft agreement; a home shown at its exact point is an address, and showing it must be the host's informed choice; paid roles with no terms yet; people in photographs and stories.
 

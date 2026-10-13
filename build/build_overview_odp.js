@@ -72,7 +72,7 @@ const S1 = "The project and its idea", S2 = "Why now", S3 = "How it works", S4 =
   t(s, "Trans-Carpathian Pathways", { x: 112, y: 146, w: 1180, h: 100, size: 76, serif: true, color: C.moon, lh: 1.1 });
   t(s, "A living network of hosts, paths and Curators across the Carpathian arc", { x: 112, y: 262, w: 1080, h: 110, size: 34, color: "E4DCC4", lh: 1.35 });
   t(s, "Project overview", { x: 112, y: 404, w: 640, h: 40, size: 26, color: "C9C3D6" });
-  s.addNotes("Introduce yourself as Michel Garand of UBEC, the Ubuntu Bioregional Economic Commons, and name the co-initiator, Zhyva Khata, led by Vasyl Yuskiv. Trans-Carpathian Pathways is meant for the whole Carpathian arc. It starts with one corridor in the Hutsul highlands of Ukraine, from Vorokhta through Verkhovyna to Kosiv. This is an honest overview: what the project is, why now, how it works, what exists, what does not yet exist, and what is still unsolved.");
+  s.addNotes("Introduce yourself as Michel Garand of UBEC, the Ubuntu Bioregional Economic Commons, and name the co-initiators, Zhyva Khata, led by Vasyl Yuskiv, and Tepla Gora, led by Andriy Grushetsky. Trans-Carpathian Pathways is meant for the whole Carpathian arc. It starts with one corridor in the Hutsul highlands of Ukraine, from Vorokhta through Verkhovyna to Kosiv. This is an honest overview: what the project is, why now, how it works, what exists, what does not yet exist, and what is still unsolved.");
 }
 
 // 2 — the idea
@@ -393,6 +393,7 @@ twoCol(C.cream, S6, "How we will know", "Success is not counted in pilgrims", [
   [
     ["Michel Garand", " · UBEC", "stewardship@ubec.network"],
     ["Vasyl Yuskiv", " · Zhyva Khata", "Co-initiator"],
+    ["Andriy Grushetsky", " · Tepla Gora", "Co-initiator"],
     ["The documents", "", "github.com/ubeccommon"],
   ].forEach(([name, org, sub], i) => {
     const x = 128 + i * 540;

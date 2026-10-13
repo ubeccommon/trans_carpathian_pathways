@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_67"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_68"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.67"
+version: "v0.68"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -849,6 +849,35 @@ and its contact line follow at v0.6, with Gate C (SP-6). Gate E — deploy,
 verify, his look on phone and computer, the person's checks of
 `site/README.md` — closes on his "looks good".
 
+**The third initiator — Michel's word, October 13, 2026.** The
+project is initiated by three: "Initiated by UBEC (Ubuntu
+Bioregional Economic Commons), led by Michel Garand, Zhyva Khata, led
+by Vasyl Yuskiv, and Tepla Gora, led by Andriy Grushetsky." In
+Ukrainian: «Ініціатори — UBEC (Ubuntu Bioregional Economic Commons)
+під керівництвом Мішеля Ґарана (Michel Garand), «Жива хата» (Zhyva
+Khata) під керівництвом Василя Юськіва (Vasyl Yuskiv) та «Тепла Гора»
+(Tepla Gora) під керівництвом Андрія Грушецького (Andriy
+Grushetsky).» — the Ukrainian spelling of the new name is Claude's,
+for Andriy's word; in German and Polish the names stay as written,
+the Polish declining the surname as *Grushetsky'ego*. Replaced
+wherever an initiator is named: the README; the landing page in four
+languages (en/uk v0.9, de/pl v0.4); the overview v0.6 in English,
+Ukrainian, German and Polish ("In brief" and the contact section,
+which now names him), its deck's cover and closing slide and the
+LibreOffice copy rebuilt; the proposal v0.8 in four languages (the
+summary table and "How to take part"); the white paper v0.10 in four
+languages (§11's line on the legal body names all three); the
+agreement v0.8 §1, English and Ukrainian; the implementation plan
+v0.4 §1, both languages. Nothing else changed in any of them; every
+PDF rebuilt. Plai still links agreement draft v0.7, whose line on the
+version Plai records holds; putting v0.8 on Plai is a mapservice
+change of its own, when Michel says so. Unchanged, for his word: who
+answers for the project and holds the data (A-1, Michel personally
+until the core body); the byline "UBEC / Carpathian Hub Initiative"
+on every cover; Tepla Gora's place in the agreement and the core
+body; and the proposal v0.8 and white paper v0.10 carry this change
+only — the planner revisions of Gate C still wait (SP-6).
+
 * * *
 
 ## 3. The First Corridor
@@ -1394,6 +1423,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.68 — 2026-10-13 — the third initiator, Michel's word: Tepla Gora, led by Andriy Grushetsky, in every document and page that names the initiators; overview v0.6, proposal v0.8, white paper v0.10, agreement v0.8, plan v0.4, landing pages en/uk v0.9, de/pl v0.4; PDFs and the deck's LibreOffice copy rebuilt.
 - v0.67, amended 2026-10-13 — the overview in Ukrainian, Michel's word; build v0.14, site README v0.21.
 - v0.67 — 2026-10-13 — the landing page, Gate B, Michel's word: the front door of the public review in four languages, built and checked; site README v0.20, landing pages en/uk v0.8, de/pl v0.3, stylesheet v0.8.
 - v0.66 — 2026-10-13 — the documentation as one set, Gate A, Michel's word: `main` fast-forwarded to the planner branch; the set, the drift and the branches recorded; Claude's proposals taken as the answers (the four documents for review, how it is answered, the record linked, the border rules and the recognition line on the landing page, one wording for the first Curator, the white paper revised, a guide in four parts with a page on the site); §6 and §7 carry what the map service built October 11 to 13 (stewards save corridor drafts, `plai/009` and `010`, the engine pinned at `99ba6d8`). Starting prompt `docs/prompts/TCP_DOCUMENTATION_START_PROMPT_v0_1.md`.

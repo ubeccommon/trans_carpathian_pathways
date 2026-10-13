@@ -1,13 +1,13 @@
 ---
-title: "PROJECT_OVERVIEW_DE_v0_5"
+title: "PROJECT_OVERVIEW_DE_v0_6"
 subtitle: "Trans-Carpathian Pathways — Überblick über das Projekt"
 author: "Michel Garand"
 date: "Oktober 2026"
-version: "v0.5"
+version: "v0.6"
 lang: "de"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
-status: "Übersetzung der englischen Fassung v0.5 durch Claude, auf Michels Wort (11. Oktober 2026); aus dem Weißbuch und dem Umsetzungsplan; entscheidet nichts; noch von niemandem mit Deutsch als Muttersprache gelesen"
+status: "Übersetzung der englischen Fassung v0.6 durch Claude, auf Michels Wort (11. Oktober 2026); aus dem Weißbuch und dem Umsetzungsplan; entscheidet nichts; noch von niemandem mit Deutsch als Muttersprache gelesen"
 ---
 
 # Trans-Carpathian Pathways
@@ -20,7 +20,7 @@ status: "Übersetzung der englischen Fassung v0.5 durch Claude, auf Michels Wort
 
 Trans-Carpathian Pathways ist ein Netzwerk lokaler Gastgeberinnen und Gastgeber, die teilen, was sie tatsächlich haben – ein Bett, eine Mahlzeit, Begleitung oder ein Handwerk –, und zwar dort, wo sie leben. Ein Weg entsteht aus den Orten, an denen diese Gastgebenden sind, und lokale Kuratorinnen und Kuratoren sowie Wegepatinnen und Wegepaten betreuen jeden seiner Abschnitte.
 
-Das Projekt ist für den gesamten Karpatenbogen gedacht und beginnt mit einem einzigen Korridor, von **Worochta über Werchowyna nach Kossiw** im huzulischen Hochland. Initiiert wird das Projekt von **UBEC** (Ubuntu Bioregional Economic Commons) unter der Leitung von Michel Garand und von **Zhyva Khata** unter der Leitung von Vasyl Yuskiv.
+Das Projekt ist für den gesamten Karpatenbogen gedacht und beginnt mit einem einzigen Korridor, von **Worochta über Werchowyna nach Kossiw** im huzulischen Hochland. Initiiert wird das Projekt von **UBEC** (Ubuntu Bioregional Economic Commons) unter der Leitung von Michel Garand, von **Zhyva Khata** unter der Leitung von Vasyl Yuskiv und von **Tepla Gora** unter der Leitung von Andriy Grushetsky.
 
 Es läuft auf **Plai**, einer quelloffenen, durch Einwilligung gesteuerten Karte des gesamten Karpatengebirges, die UBEC bereits auf einem eigenen Server in der Europäischen Union betreibt. Es gibt keine Buchungsplattform, keine Bewertungen und keine Provision: Über die Bezahlung bestimmen die Gastgebenden, sie geht direkt von den Pilgernden an die Gastgebenden, und alle Gastgebenden besitzen ihren eigenen Eintrag.
 
@@ -154,9 +154,12 @@ Die Dokumente, der Code und die Aufzeichnung jeder Entscheidung mit ihrem Datum 
 
 **Vasyl Yuskiv**, Zhyva Khata
 
+**Andriy Grushetsky**, Tepla Gora
+
 Das Weißbuch, der Projektvorschlag und die Mitgestaltungsvereinbarung stehen auf der Website des Projekts, tcp.ubec.network, auf Englisch und Ukrainisch bereit. Alle Projektdokumente werden unter CC BY-SA 4.0 veröffentlicht.
 
 * * *
 
 *Changelog*
+- v0.6 — 2026-10-13 — auf Michels Wort: drei Initiatoren — Tepla Gora unter der Leitung von Andriy Grushetsky tritt zu UBEC und Zhyva Khata; der Kontaktabschnitt nennt ihn. Sonst unverändert.
 - v0.5 — 2026-10-11 — Übersetzung aus dem Englischen v0.5, auf Michels Wort, nach dem Glossar docs/translations/GLOSSARY_DE_PL_v0_1.md. Inhalt unverändert.

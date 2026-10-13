@@ -4,8 +4,8 @@ A living network of hosts, a pathway that grows from where they
 are, and Curators who hold each stretch of it, across the
 Carpathian arc. First corridor: Vorokhta, Verkhovyna and Kosiv in
 the Hutsul highlands of western Ukraine. Initiated by UBEC (Ubuntu
-Bioregional Economic Commons), led by Michel Garand, and Zhyva
-Khata, led by Vasyl Yuskiv.
+Bioregional Economic Commons), led by Michel Garand, Zhyva Khata,
+led by Vasyl Yuskiv, and Tepla Gora, led by Andriy Grushetsky.
 
 The project runs on Plai, the Carpathian hub instance of UBEC
 Mapservice (`ubeccommon/ubec_mapservice`). It does not own that

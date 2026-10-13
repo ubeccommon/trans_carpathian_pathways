@@ -1,13 +1,13 @@
 ---
-title: "PROJECT_OVERVIEW_PL_v0_5"
+title: "PROJECT_OVERVIEW_PL_v0_6"
 subtitle: "Trans-Carpathian Pathways – przegląd projektu"
 author: "Michel Garand"
 date: "Październik 2026"
-version: "v0.5"
+version: "v0.6"
 lang: "pl"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
-status: "Tłumaczenie angielskiej wersji v0.5 wykonane przez Claude, na słowo Michela (11 października 2026); nie czytał go jeszcze nikt, dla kogo polski jest językiem ojczystym; oparty na białej księdze i planie wdrożenia; niczego nie rozstrzyga"
+status: "Tłumaczenie angielskiej wersji v0.6 wykonane przez Claude, na słowo Michela (11 października 2026); nie czytał go jeszcze nikt, dla kogo polski jest językiem ojczystym; oparty na białej księdze i planie wdrożenia; niczego nie rozstrzyga"
 ---
 
 # Trans-Carpathian Pathways
@@ -20,7 +20,7 @@ status: "Tłumaczenie angielskiej wersji v0.5 wykonane przez Claude, na słowo M
 
 Trans-Carpathian Pathways to sieć lokalnych gospodarzy, którzy tam, gdzie mieszkają, dzielą się tym, co naprawdę mają – łóżkiem, posiłkiem, przewodnictwem lub rzemiosłem. Szlak wyłania się z miejsc, w których żyją ci gospodarze, a każdego jego odcinka doglądają lokalni kuratorzy i opiekunowie szlaku.
 
-Projekt jest pomyślany dla całego łuku Karpat i zaczyna się od jednego korytarza: **z Worochty przez Werchowynę do Kosowa** na Huculszczyźnie. Projekt zainicjowały **UBEC** (Ubuntu Bioregional Economic Commons), na którego czele stoi Michel Garand, oraz **Zhyva Khata**, na której czele stoi Vasyl Yuskiv.
+Projekt jest pomyślany dla całego łuku Karpat i zaczyna się od jednego korytarza: **z Worochty przez Werchowynę do Kosowa** na Huculszczyźnie. Projekt zainicjowały **UBEC** (Ubuntu Bioregional Economic Commons), na którego czele stoi Michel Garand, **Zhyva Khata**, na której czele stoi Vasyl Yuskiv, oraz **Tepla Gora**, na której czele stoi Andriy Grushetsky.
 
 Działa on na **Plai** – otwartoźródłowej, opartej na zgodzie mapie całego łańcucha Karpat, którą UBEC już prowadzi na własnym serwerze w Unii Europejskiej. Nie ma tu platformy rezerwacyjnej, ocen ani prowizji: wysokość zapłaty ustala gospodarz, pieniądze trafiają bezpośrednio od pielgrzyma do gospodarza, a każdy gospodarz jest właścicielem własnego wpisu.
 
@@ -154,9 +154,12 @@ Dokumenty, kod i zapis każdej decyzji wraz z jej datą są jawne w publicznym r
 
 **Vasyl Yuskiv**, Zhyva Khata
 
+**Andriy Grushetsky**, Tepla Gora
+
 Biała księga, propozycja projektu i porozumienie współtwórców znajdują się na stronie projektu, tcp.ubec.network, po angielsku i ukraińsku. Wszystkie dokumenty projektu są publikowane na licencji CC BY-SA 4.0.
 
 * * *
 
 *Changelog*
+- v0.6 — 2026-10-13 — na słowo Michela: trzech inicjatorów — do UBEC i Zhyva Khata dołącza Tepla Gora, którą kieruje Andriy Grushetsky; sekcja „Kontakt” go wymienia. Poza tym bez zmian.
 - v0.5 — 2026-10-11 — tłumaczenie z angielskiej wersji v0.5, na słowo Michela, według glosariusza docs/translations/GLOSSARY_DE_PL_v0_1.md. Treść bez zmian.

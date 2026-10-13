@@ -1,12 +1,13 @@
 ---
 title: "Trans-Carpathian Pathways — Propozycja projektu (PL)"
-version: "v0.7"
+version: "v0.8"
 date: "Październik 2026"
 lang: "pl"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
-status: "Tłumaczenie angielskiej wersji v0.7 wykonane przez Claude, na słowo Michela (11 października 2026); nie czytał go jeszcze nikt, dla kogo polski jest językiem ojczystym"
+status: "Tłumaczenie angielskiej wersji v0.8 wykonane przez Claude, na słowo Michela (11 października 2026); nie czytał go jeszcze nikt, dla kogo polski jest językiem ojczystym"
 changelog:
+  - "v0.8 — 2026-10-13 — na słowo Michela: trzech inicjatorów — do UBEC i Zhyva Khata dołącza Tepla Gora, którą kieruje Andriy Grushetsky (tabela i „Jak dołączyć”). Poza tym bez zmian; za angielską wersją v0.8."
   - "v0.7 — 2026-10-11 — tłumaczenie z angielskiej wersji v0.7, na słowo Michela, według glosariusza docs/translations/GLOSSARY_DE_PL_v0_1.md. Treść bez zmian."
 ---
 
@@ -16,7 +17,7 @@ changelog:
 
 *Żywa sieć miejsc, ludzi i ścieżek – streszczenie i propozycja projektu*
 
-Październik 2026 · UBEC / Inicjatywa Karpackiego Hubu · wersja robocza v0.7
+Październik 2026 · UBEC / Inicjatywa Karpackiego Hubu · wersja robocza v0.8
 
 ## Streszczenie
 
@@ -30,7 +31,7 @@ Pierwszy korytarz leży na Huculszczyźnie, w zachodniej Ukrainie, między Woroc
 | Gdzie najpierw | Worochta, Werchowyna i Kosów, obwód iwanofrankiwski, Ukraina |
 | Gdzie dalej | Ukraińskie Karpaty, potem pozostałe kraje łuku Karpat |
 | Podstawa | Plai – karpacki hub UBEC Mapservice |
-| Inicjatorzy | UBEC (Ubuntu Bioregional Economic Commons), kierowany przez Michela Garanda, oraz Zhyva Khata, kierowana przez Vasyla Yuskiva |
+| Inicjatorzy | UBEC (Ubuntu Bioregional Economic Commons), kierowany przez Michela Garanda, Zhyva Khata, kierowana przez Vasyla Yuskiva, oraz Tepla Gora, kierowana przez Andriya Grushetsky'ego |
 | Etap | Prototyp: podstawa techniczna gotowa, trwają poszukiwania pierwszych gospodarzy i kuratora |
 
 Szukamy ludzi, którzy zechcą wziąć udział: gospodarzy, opiekunów szlaku i kuratorów w korytarzu, partnerów wzdłuż łuku Karpat, współpracowników technicznych oraz darczyńców dla pilotażu.
@@ -219,7 +220,7 @@ Jest pięć sposobów, by się włączyć, a każdy z nich od tej chwili kształ
 | Programistą, maperem lub tłumaczem | Pomóc zbudować narzędzia Plai dla gospodarzy, planer etapów lub formularze w językach lokalnych |
 | Darczyńcą lub fundacją | Wesprzeć korytarz pilotażowy, jego pierwszego kuratora i pierwszych opiekunów szlaku |
 
-Inicjatorzy: UBEC (Ubuntu Bioregional Economic Commons), kierowany przez Michela Garanda, oraz Zhyva Khata, kierowana przez Vasyla Yuskiva.
+Inicjatorzy: UBEC (Ubuntu Bioregional Economic Commons), kierowany przez Michela Garanda, Zhyva Khata, kierowana przez Vasyla Yuskiva, oraz Tepla Gora, kierowana przez Andriya Grushetsky'ego.
 
 Kontakt: Michel Garand – stewardship@ubec.network
 
