@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_MODULES_v0_3"
+title: "TRANS_CARPATHIAN_PATHWAYS_MODULES_v0_4"
 subtitle: "The project as building blocks and the connectors between them — a map for Michel's word"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.3"
+version: "v0.4"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -72,7 +72,7 @@ it is the question each module answers at its gate.
 | | **P3 Curation and safety** | The Curator's overview of capacity; the border-strip rule; alerts; incidents; the pilgrim's briefing | Decided in the agreement (S-1, S-5, S-6, S-8, S-13, S-15); Curator is Michel | Michel; contacts: mountain rescue, border service |
 | **H — Heritage** | **H1 Cultural heritage** | Crafts, the polonyna's work, cheese, song and speech — passed on by doing, beside someone who knows | In the white paper (§2.3, §3); nothing operational | C-5, I-8, I-9, I-10; funds F-6, F-7 |
 | | **H2 Natural heritage and land** | Meadows kept by mowing and grazing; a meadow baseline; corridors as fuzzy bands; a watch on land sold | In the white paper (§2, §9); corridor consent decided in part (S-14) | SR-4, SR-5, SR-6, I-7; funds F-5 |
-| **T — Infrastructure** | **T1 Plai and GIS** | The map: base, entry, host fields, the published view; a stage planner only if Gate 4 shows need | In place and proven (Gates 1–2) | Michel; C-1, C-2, C-3 |
+| **T — Infrastructure** | **T1 Plai and GIS** | The map: base, entry, host fields, the published view; the pathway planner, public | In place and proven (Gates 1–2) | Michel; C-1, C-2, C-3 |
 | | **T2 Data protection and security** | Consent, withdrawal, retention, backups, the two legal reads, leak tests | Consent as columns, leak pass, Mapbender's database in the backup; **no off-host copy** (Gate 3 waits); legal reads not done; A-6 open | C-7, C-8; grantee F-1 |
 | | **T3 Languages** | Ukrainian first, English, then the arc's languages; one glossary; the corridor's own words | Every document in EN and UK; one glossary; Plai's screens English only; no reader in the corridor yet | C-6; an editor from the corridor |
 | | **T4 Web presence** | tcp.ubec.network: what the project is, its documents, how to take part | Gate A decided; landing page drafted | Michel; C-2 |
@@ -173,6 +173,8 @@ Read October 9, 2026.
 * * *
 
 *Changelog*
+- v0.4 — 2026-10-13 — Michel's word, October 13 (Gate C): T1 carries the pathway planner, public on Plai.
+- v0.3 — 2026-10-10 — the Pilgrim of the Plai, Michel's word (no line was written at the time).
 - v0.2 — 2026-10-09 — adopted on Michel's word, all six points of §6;
   §3's states updated; what was done the same day.
 - v0.1 — 2026-10-09 — initial, on Michel's question: the project as

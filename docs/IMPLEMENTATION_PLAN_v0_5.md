@@ -1,9 +1,9 @@
 ---
-title: "IMPLEMENTATION_PLAN_v0_4"
+title: "IMPLEMENTATION_PLAN_v0_5"
 subtitle: "The project in one page, and the step-by-step plan to the first corridor walked — with its to-do lists"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.4"
+version: "v0.5"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -147,7 +147,7 @@ Steps 0 to 3 run in parallel now; 4 is running; 5 cannot open before 2's backups
 - ☐ Walk Vorokhta → Verkhovyna → Kosiv end to end as a pilgrim would, once per season; the Curator or a steward keeps the stage register as they go: walked distance and time per stage, whether the stage lies in the border strip, what permit it needs, current closures, what was missing, what a pilgrim needed and did not have. — the Curator and the stewards
 - ☐ Record the money (S-7): enquiries, journeys, host-nights, earnings aggregated and anonymous, Curator hours and pay, houses sold on the corridor and whether they were on the map, hosts by village. — the Curator
 - ☐ Decide marking: whether the pathway is marked at all, and to which standard (the Czech system already used in the oblast, or Slovakia's), or stays an emergent path told in person. Settled here, not before. — Michel, after the walk
-- ☐ Decide whether the stage planner is needed at all (Gate 5 opens only if the Curator cannot plan on paper). — Michel
+- ☑ The planner public on Plai, before Gate 3 (October 11–13, 2026); the pathway editor's tools at Gate B of the build. — Michel
 - ☐ Apply the stop rule honestly: if the two seasons fall below N journeys, the paid role ends, the hosts are told, their data handed back. — Michel
 - ☐ Ask the regenerative question at the gate: is the place more alive and more able to go on than before? With the signs of success and failure from the white paper's §12. — the co-creators, asked
 - ☐ Closes on Michel's word, with the record published at the gate.
@@ -199,6 +199,7 @@ From the stress tests, so a hurried step does not undo a settled one.
 * * *
 
 *Changelog*
+- v0.5 — 2026-10-13 — Michel's word, October 13 (Gate C): the planner public on Plai, ticked in step 6 (Gate 5 taken before Gate 3).
 - v0.4 — 2026-10-13 — Michel's word, October 13: the project is initiated by three — Tepla Gora, led by Andriy Grushetsky, joins UBEC and Zhyva Khata (§1). Nothing else changed.
 - v0.3 — 2026-10-10 — the Pilgrim of the Plai, Michel's word; the checklist cited at its current version (no line was written at the time).
 - v0.2 — 2026-10-10 — Michel's word: the project is initiated by two; the initiator line in §1 replaced. Nothing else changed.

@@ -1,13 +1,13 @@
 ---
-title: "PROJECT_OVERVIEW_DE_v0_6"
+title: "PROJECT_OVERVIEW_DE_v0_7"
 subtitle: "Trans-Carpathian Pathways — Überblick über das Projekt"
 author: "Michel Garand"
 date: "Oktober 2026"
-version: "v0.6"
+version: "v0.7"
 lang: "de"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
-status: "Übersetzung der englischen Fassung v0.6 durch Claude, auf Michels Wort (11. Oktober 2026); aus dem Weißbuch und dem Umsetzungsplan; entscheidet nichts; noch von niemandem mit Deutsch als Muttersprache gelesen"
+status: "Übersetzung der englischen Fassung v0.7 durch Claude, auf Michels Wort (11. Oktober 2026); aus dem Weißbuch und dem Umsetzungsplan; entscheidet nichts; noch von niemandem mit Deutsch als Muttersprache gelesen"
 ---
 
 # Trans-Carpathian Pathways
@@ -18,7 +18,7 @@ status: "Übersetzung der englischen Fassung v0.6 durch Claude, auf Michels Wort
 
 ## In Kürze
 
-Trans-Carpathian Pathways ist ein Netzwerk lokaler Gastgeberinnen und Gastgeber, die teilen, was sie tatsächlich haben – ein Bett, eine Mahlzeit, Begleitung oder ein Handwerk –, und zwar dort, wo sie leben. Ein Weg entsteht aus den Orten, an denen diese Gastgebenden sind, und lokale Kuratorinnen und Kuratoren sowie Wegepatinnen und Wegepaten betreuen jeden seiner Abschnitte.
+Trans-Carpathian Pathways ist ein Netzwerk lokaler Gastgeberinnen und Gastgeber, die teilen, was sie tatsächlich haben – ein Bett, eine Mahlzeit, Begleitung oder ein Handwerk –, und zwar dort, wo sie leben. Ein Weg entsteht aus den Orten, an denen diese Gastgebenden sind, Wegepatinnen und Wegepaten betreuen jeden seiner Abschnitte, und lokale Kuratorinnen und Kuratoren halten das Ganze.
 
 Das Projekt ist für den gesamten Karpatenbogen gedacht und beginnt mit einem einzigen Korridor, von **Worochta über Werchowyna nach Kossiw** im huzulischen Hochland. Initiiert wird das Projekt von **UBEC** (Ubuntu Bioregional Economic Commons) unter der Leitung von Michel Garand, von **Zhyva Khata** unter der Leitung von Vasyl Yuskiv und von **Tepla Gora** unter der Leitung von Andriy Grushetsky.
 
@@ -42,11 +42,11 @@ Drei Dinge greifen ineinander: Gastgebende, die anbieten, was echt ist, ein Weg,
 | Rolle | Was sie tun |
 | --- | --- |
 | Gastgeberin, Gastgeber | Bietet eines oder mehreres an – eine Übernachtung, eine Mahlzeit, ortskundige Begleitung oder einen Workshop –, so beschrieben, wie es ist. Legt selbst die Monate, die Kapazität, die Sprachen und die Anreise zum Ort fest. |
-| Wegepatin, Wegepate | Kümmert sich um einen Wegabschnitt, kennt dessen Gastgebende und Orte und kann einen Ort für Gastgebende eintragen, die das selbst nicht können. |
-| Kuratorin, Kurator | Ein Mensch aus dem Korridor – oft Landwirtin oder Landwirt, Lehrerin oder Lehrer, Wanderin oder Wanderer –, der jeden Ort sichtet, bevor er veröffentlicht wird, das Sicherheitswissen bewahrt und jeder Pilgerin und jedem Pilger eine Reise vorschlägt (nie verkauft). |
+| Wegepatin, Wegepate | Kümmert sich um einen Wegabschnitt, kennt dessen Gastgebende und Orte kann einen Ort für Gastgebende eintragen, die das selbst nicht können, und speichert einen geplanten Weg als Entwurf. |
+| Kuratorin, Kurator | Ein Mensch aus dem Korridor – oft Landwirtin oder Landwirt, Lehrerin oder Lehrer, Wanderin oder Wanderer –, der jeden Ort, jedes Wegstück und jeden Korridor sichtet, bevor er veröffentlicht wird, das Sicherheitswissen bewahrt und jeder Pilgerin und jedem Pilger eine Reise vorschlägt (nie verkauft). |
 | Pilgerin oder Pilger des Plai | Geht einen Abschnitt des Plai – des alten Weges über die Hochweiden, nach dem die Karte ihren Namen trägt – einen Nachmittag oder einen Monat lang, um zu lernen statt zu schauen, und kommt als Gast an. |
 
-**Der Weg wird nicht von oben gezeichnet.** Jede Gastgeberin und jeder Gastgeber wird zu einem Punkt; die Wege dazwischen folgen bestehenden Pfaden; die Kuratorin oder der Kurator passt sie an Gelände, Jahreszeit und Kapazität an. Quellen, Aussichtspunkte und andere Orte, an denen anzukommen sich lohnt, werden unterwegs kartiert.
+**Der Weg wird nicht von oben gezeichnet.** Jede Gastgeberin und jeder Gastgeber wird zu einem Punkt; die Wege dazwischen folgen bestehenden Pfaden; die Kuratorin oder der Kurator passt sie an Gelände, Jahreszeit und Kapazität an. Jede und jeder kann auf Plai einen Weg planen; Wegepaten oder Kuratoren behalten und berichtigen ihn; die Kuratorin oder der Kurator veröffentlicht. Quellen, Aussichtspunkte und andere Orte, an denen anzukommen sich lohnt, werden unterwegs kartiert.
 
 **Plai gibt es bereits.** Plai enthält eine Grundkarte des gesamten Karpatengebirges, eine Eingabeoberfläche, auf der man einen Punkt genau dort setzt, wo man ihn meint, die Einwilligung Feld für Feld, das Zurückziehen aus jeder Karte und jedem Export sowie die Felder für Gastgebende – gebaut und getestet im Oktober 2026. Der Name erinnert an *plai*, den Bergweg von Weide zu Weide, und an die Lwiwer Gesellschaft für Landeskunde *Plai* von 1924.
 
@@ -103,13 +103,14 @@ Die Karte und die Dokumente gibt es; die Gastgebenden noch nicht. Jede Schwelle 
 | --- | --- | --- |
 | Schwellen 0 bis 2: Entscheidungen und die Karte | Erledigt | Entscheidungen festgehalten; Felder für Gastgebende und Einwilligung auf Plai gebaut und getestet (Oktober 2026) |
 | Eine Erprobung des Konzepts | Parallel zur öffentlichen Durchsicht | Eine Gastgeberin oder ein Gastgeber, eine Pilgerin oder ein Pilger, das ehrliche Angebot und der Beitrag, erprobt auf einem kurzen Abschnitt des Korridors, sobald die Entwürfe zur Durchsicht vorliegen, und verändert, während sie dazulernt |
+| Schwelle 5: der öffentliche Planer | Getan | „Plan a way“ auf Plai (Oktober 2026); Wegstücke und Korridore behalten Wegepaten und Kuratoren, veröffentlicht die Kuratorin oder der Kurator |
 | Schwelle 3: die ersten Gastgebenden | Als Nächstes | Drei bis fünf Gastgeberinnen und Gastgeber, eingetragen mit der Kuratorin oder dem Kurator an ihrer Seite; öffnet sich nach Datensicherungen außerhalb des Servers und der datenschutzrechtlichen Prüfung |
 | Schwelle 4: der Korridor begangen | Danach | Worochta bis Kossiw von Anfang bis Ende, einmal pro Saison, zwei Saisons lang; Entfernung, Zeit und was Pilgerinnen und Pilger brauchten, je Etappe festgehalten |
 | Phase 2: der Korridor entscheidet | Später | Die Gastgeberinnen und Gastgeber, Wegepatinnen und Wegepaten sowie Kuratorinnen und Kuratoren des Korridors wählen, wie das Projekt gesteuert wird und welcher Korridor als Nächstes kommt |
 
-**Vorhanden.** Der Projektvorschlag, das Weißbuch, die Mitgestaltungsvereinbarung und das Benutzerhandbuch auf Englisch und Ukrainisch; Plai mit eingebauten Feldern für Gastgebende, Einwilligung und Gelände; Schwellen 0 bis 2 abgeschlossen. Eine Erprobung des Konzepts auf einem kurzen Abschnitt des Korridors läuft parallel zur öffentlichen Durchsicht und verändert sich, während sie dazulernt.
+**Vorhanden.** Der Projektvorschlag, das Weißbuch, die Mitgestaltungsvereinbarung und das Benutzerhandbuch auf Englisch und Ukrainisch, die ersten beiden und dieser Überblick auch auf Deutsch und Polnisch, auf der Website des Projekts und in seinem öffentlichen Archiv; Plai mit eingebauten Feldern für Gastgebende, Einwilligung, Gelände und dem Wegplaner; Schwellen 0 bis 2 und 5 abgeschlossen. Eine Erprobung des Konzepts auf einem kurzen Abschnitt des Korridors läuft parallel zur öffentlichen Durchsicht und verändert sich, während sie dazulernt.
 
-**Noch nicht.** Namentlich benannte Gastgebende, Wegepatinnen und Wegepaten oder Kuratorinnen und Kuratoren. Datensicherungen außerhalb des Servers, die Voraussetzung für das erste echte Konto. Ein Rechtsträger: Heute hält eine einzige Person die Daten, den Server und jedes Versprechen. Geld: Ein Budget für die Pilotphase von etwa 25.700 € über achtzehn Monate ist vorgeschlagen, nicht beschlossen, und wartet auf eine Zuwendungsempfängerin oder einen Zuwendungsempfänger. Eine Lektüre der ukrainischen Texte durch Menschen im Korridor.
+**Noch nicht.** Namentlich benannte Gastgebende, Wegepatinnen oder Wegepaten; die erste Kuratorenrolle hält vorerst die Projektleitung, bis ein Kerngremium gebildet ist. Datensicherungen außerhalb des Servers, die Voraussetzung für das erste echte Konto. Ein Rechtsträger: Heute hält eine einzige Person die Daten, den Server und jedes Versprechen. Geld: Ein Budget für die Pilotphase von etwa 25.700 € über achtzehn Monate ist vorgeschlagen, nicht beschlossen, und wartet auf eine Zuwendungsempfängerin oder einen Zuwendungsempfänger. Eine Lektüre der ukrainischen Texte durch Menschen im Korridor.
 
 ## Was wir nicht gelöst haben
 
@@ -161,5 +162,6 @@ Das Weißbuch, der Projektvorschlag und die Mitgestaltungsvereinbarung stehen au
 * * *
 
 *Changelog*
+- v0.7 — 2026-10-13 — auf Michels Wort, 13. Oktober (Schwelle C, dem Weißbuch v0.11 folgend): Wegepaten betreuen den Abschnitt, Kuratoren halten das Ganze; der öffentliche Planer auf Plai im Weg-Absatz, in den Rollen, in der Standtabelle (Schwelle 5 getan) und unter „Vorhanden“; eine Formulierung für die erste Kuratorenrolle. Folgt der englischen Fassung v0.7.
 - v0.6 — 2026-10-13 — auf Michels Wort: drei Initiatoren — Tepla Gora unter der Leitung von Andriy Grushetsky tritt zu UBEC und Zhyva Khata; der Kontaktabschnitt nennt ihn. Sonst unverändert.
 - v0.5 — 2026-10-11 — Übersetzung aus dem Englischen v0.5, auf Michels Wort, nach dem Glossar docs/translations/GLOSSARY_DE_PL_v0_1.md. Inhalt unverändert.

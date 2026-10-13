@@ -1,11 +1,12 @@
 ---
 title: "Trans-Carpathian Pathways — Proposal (EN)"
-version: "v0.8"
+version: "v0.9"
 date: "October 2026"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
 changelog:
+  - "v0.9 — 2026-10-13 — Michel's word, October 13 (Gate C, following white paper v0.11): the pathway planner in place on Plai, the pathway editor in its place among the things to build and in the funding lines; the Curator knows the path, not a stretch; the first Curator the project lead for now; the documents named with the site and the record."
   - "v0.8 — 2026-10-13 — Michel's word, October 13: the project is initiated by three — Tepla Gora, led by Andriy Grushetsky, joins UBEC and Zhyva Khata, in the summary table and in \"How to take part\". Nothing else changed."
   - "v0.7 — 2026-10-10 — Michel's word, October 11: no ratings without the consent of those rated (D-7). Nothing else changed."
   - "v0.6 — 2026-10-10 — the public-drafts stress tests (docs/reviews/PUBLIC_DRAFTS_STRESS_TESTS_v0_1.md), corrections taken in: the host fields moved to what is in place, Plai's English screens said plainly, the corridor table without \"the first known hosts\" and with Kosiv's ceramics, distances, each instance its own database, the border rules for those who come directly, how to recognise the project, hosts' own tax duty, the existing guest-receiving tradition acknowledged, the budget's authorship note and decision dates. Nothing decided changed."
@@ -37,7 +38,7 @@ The first corridor is in the Hutsul highlands of western Ukraine, between Vorokh
 | Where next | The Ukrainian Carpathians, then across the arc's other countries |
 | Built on | Plai — the Carpathian hub of UBEC Mapservice |
 | Initiated by | UBEC (Ubuntu Bioregional Economic Commons), led by Michel Garand, Zhyva Khata, led by Vasyl Yuskiv, and Tepla Gora, led by Andriy Grushetsky |
-| Stage | Prototype: technical base in place, first hosts and Curator being sought |
+| Stage | Prototype: technical base in place, first hosts being sought; the first Curator is the project lead for now |
 
 We are looking for people to take part: hosts, stewards and Curators in the corridor, partners along the arc, technical contributors, and funders for the pilot.
 
@@ -72,7 +73,7 @@ Hosts are not service providers. The offer is honest and specific, with no perfo
 
 **A living pathway.** The route is not designed from above. It emerges as hosts join: each host becomes a point on the map, the paths between them are traced over the mountain trail network, and the Curator adjusts the result for terrain, season, host capacity and the human logic of a journey. It grows as the network grows and contracts when hosts are away.
 
-**The Pathway Curator.** The memory of the path, usually a local farmer, teacher or walker. The Curator knows a stretch of the pathway and its hosts, listens to each pilgrim's time, company and wish, suggests a route rather than prescribing one, and keeps track of who can receive whom, and when. The Curator is not a travel agent but a guide to the whole — and not a gatekeeper: a pilgrim may also find a published host on the map and go directly. Beside the Curator, a **pathway steward** cares for one stretch: walks it, knows its hosts and places, may enter a place for a host who cannot and add places along the way, and leaves publishing to the Curator.
+**The Pathway Curator.** The memory of the path, usually a local farmer, teacher or walker. The Curator knows the path and its hosts, listens to each pilgrim's time, company and wish, suggests a route rather than prescribing one, and keeps track of who can receive whom, and when. The Curator is not a travel agent but a guide to the whole — and not a gatekeeper: a pilgrim may also find a published host on the map and go directly. Beside the Curator, a **pathway steward** cares for one stretch: walks it, knows its hosts and places, may enter a place for a host who cannot and add places along the way, and leaves publishing to the Curator.
 
 ## Who it serves
 
@@ -123,6 +124,7 @@ The project does not start from zero: its map platform already exists. Plai is t
 - Consent built into the database: the entrant agrees, field by field, to what may be shown; a curator decides what is published; withdrawn entries leave every map and export.
 - One photo per place, cleaned of location and camera data before it is stored, and shown only where the entrant has agreed and a curator has chosen to show it.
 - Host details: one place with a list of offers, months open, capacity, languages, how the place is reached and the forms of payment the host accepts, built and tested in October 2026; and a tick on every entry that its maker has read the co-creator agreement.
+- The pathway planner: anyone plans a way on Plai from a start to an end, footpaths first; a steward or Curator keeps it as a stretch, edits it on the map and joins stretches into a corridor; only the Curator publishes (October 2026).
 - Safeguards set before anything goes public: each instance of the map service, Plai among them, has its own database, data licences are enforced by the database, and every public endpoint is tested for leaks.
 - Full export at any time, so no community depends on UBEC to keep its own data.
 - Plai's screens are in English for now; until they are translated, a host who does not read English is helped by the Curator or a steward, beside them or entering the place for them with their agreement.
@@ -132,9 +134,9 @@ The project does not start from zero: its map platform already exists. Plai is t
 | Piece | What it does |
 | --- | --- |
 | Local languages | Entry forms in Ukrainian first, then Polish, Slovak, Romanian and others |
-| Stage planner | A tool for the Curator that proposes daily stages between hosts by walking time and ascent |
+| Pathway editor on Plai | Via and avoid points, a line of one's own, a walked track, the gap and road checks for stewards — the planner's second step |
 
-The stage planner is a tool for the Curator, never a replacement. It proposes; the Curator decides. It favours encounters along the way over speed.
+The planner proposes; a person decides. It favours encounters along the way over speed, and a way becomes the project's only when the Curator publishes it.
 
 ## Principles
 
@@ -189,7 +191,7 @@ Support for the pilot would go to people on the ground first and software second
 | Host outreach | Finding and visiting hosts, explaining the project, sitting with them while they enter their details |
 | Curator and stewards | Paid roles for the first Curator and the first stewards during the pilot, under written arrangements once a financing plan is secured |
 | Walking the corridor | Test journeys, documentation, safety assessment of each stage |
-| Development | Local-language forms, the stage planner if needed, other Plai changes |
+| Development | Local-language forms, the pathway editor, other Plai changes |
 | Translation | Interface and project materials in Ukrainian and later other Carpathian languages |
 | Hosting and security | Server, backups and the safeguards that keep host data private |
 | Legal | The two legal reads — data protection in Germany, tourism and tax law in Ukraine — and the forming of the core body |
@@ -204,7 +206,7 @@ How a host is paid is settled: each host chooses, for each offer, among a fixed 
 | Two pathway stewards | €2,400 | a stipend of about €100 a month each for a year |
 | Host outreach | €1,500 | visits, travel, printing, the sign-on sheets |
 | Walking the corridor | €2,000 | two seasons, documentation, the stage register |
-| Development | €3,000 | Plai changes, the site, the planner only if needed |
+| Development | €3,000 | Plai changes, the site, the pathway editor |
 | Translation and materials | €1,500 | |
 | Hosting and security | €900 | server, backups, domain |
 | Legal | €4,000 | the two reads; forming the core body |
@@ -222,13 +224,13 @@ There are five ways in, and each one shapes the project from here.
 | A host in the corridor | Offer a bed, a meal, guidance or a craft, on your own terms |
 | A local walker, farmer or teacher | Become a pathway steward and care for a stretch of the path, or a Curator and hold the whole |
 | An initiative elsewhere on the arc | Partner on a corridor in Poland, Slovakia, Romania or beyond |
-| A developer, mapper or translator | Help build Plai's host tools, the stage planner or local-language forms |
+| A developer, mapper or translator | Help build Plai's tools — local-language forms, the pathway editor — or mend the paths in OpenStreetMap |
 | A funder or foundation | Support the pilot corridor, its first Curator and its first stewards |
 
 Initiated by UBEC (Ubuntu Bioregional Economic Commons), led by Michel Garand, Zhyva Khata, led by Vasyl Yuskiv, and Tepla Gora, led by Andriy Grushetsky.
 
 Contact: Michel Garand — stewardship@ubec.network
 
-The project's other documents: the white paper, which sets this proposal against the evidence; the co-creator agreement, which says what each role promises; and the user manual for Plai. All are in English and Ukrainian, under CC BY-SA 4.0.
+The project's other documents: the white paper, which sets this proposal against the evidence; the co-creator agreement, which says what each role promises; the project overview; and the user manual for Plai. All are in English and Ukrainian, the overview, this proposal and the white paper in German and Polish too, under CC BY-SA 4.0, on the project's site, tcp.ubec.network, and in its public record.
 
 *This is a living document. It will be refined as the network grows.*

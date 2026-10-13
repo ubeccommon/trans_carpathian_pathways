@@ -1,12 +1,13 @@
 ---
 title: "Trans-Carpathian Pathways — Projektvorschlag (DE)"
-version: "v0.8"
+version: "v0.9"
 date: "Oktober 2026"
 lang: "de"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
-status: "Übersetzung der englischen Fassung v0.8 durch Claude, auf Michels Wort (11. Oktober 2026); noch von niemandem mit Deutsch als Muttersprache gelesen"
+status: "Übersetzung der englischen Fassung v0.9 durch Claude, auf Michels Wort (11. Oktober 2026); noch von niemandem mit Deutsch als Muttersprache gelesen"
 changelog:
+  - "v0.9 — 2026-10-13 — auf Michels Wort, 13. Oktober (Schwelle C, dem Weißbuch v0.11 folgend): der Wegplaner auf Plai vorhanden, der Wegeditor an seiner Stelle unter dem zu Bauenden und in den Finanzzeilen; die Kuratorin kennt den Weg, nicht einen Abschnitt; die erste Kuratorenrolle vorerst bei der Projektleitung; die Dokumente mit Website und Archiv genannt. Folgt der englischen Fassung v0.9."
   - "v0.8 — 2026-10-13 — auf Michels Wort: drei Initiatoren — Tepla Gora unter der Leitung von Andriy Grushetsky tritt zu UBEC und Zhyva Khata (Tabelle und „Mitmachen“). Sonst unverändert; folgt der englischen Fassung v0.8."
   - "v0.7 — 2026-10-11 — Übersetzung aus dem Englischen v0.7, auf Michels Wort, nach dem Glossar docs/translations/GLOSSARY_DE_PL_v0_1.md. Inhalt unverändert."
 ---
@@ -17,7 +18,7 @@ changelog:
 
 *Ein lebendiges Netzwerk aus Ort, Menschen und Weg – Projektzusammenfassung und Projektvorschlag*
 
-Oktober 2026 · UBEC / Karpaten-Hub-Initiative · Entwurf v0.8
+Oktober 2026 · UBEC / Karpaten-Hub-Initiative · Entwurf v0.9
 
 ## Zusammenfassung
 
@@ -32,7 +33,7 @@ Der erste Korridor liegt im huzulischen Hochland im Westen der Ukraine, zwischen
 | Wo danach | Die ukrainischen Karpaten, dann die übrigen Länder des Karpatenbogens |
 | Grundlage | Plai – der Karpaten-Hub von UBEC Mapservice |
 | Initiiert von | UBEC (Ubuntu Bioregional Economic Commons), geleitet von Michel Garand, Zhyva Khata, geleitet von Vasyl Yuskiv, und Tepla Gora, geleitet von Andriy Grushetsky |
-| Stand | Prototyp: technische Grundlage vorhanden, erste Gastgeberinnen und Gastgeber sowie eine erste Kuratorin oder ein erster Kurator werden gesucht |
+| Stand | Prototyp: technische Grundlage vorhanden, erste Gastgeberinnen und Gastgeber werden gesucht; die erste Kuratorenrolle hält vorerst die Projektleitung |
 
 Wir suchen Menschen, die mitmachen: Gastgeberinnen und Gastgeber, Wegepatinnen und Wegepaten sowie Kuratorinnen und Kuratoren im Korridor, Partnerinnen und Partner entlang des Karpatenbogens, technische Mitwirkende sowie Förderinnen und Förderer für die Pilotphase.
 
@@ -67,7 +68,7 @@ Gastgebende sind keine Dienstleistenden. Das Angebot ist ehrlich und konkret, oh
 
 **Ein lebendiger Weg.** Die Route wird nicht von oben entworfen. Sie entsteht, während Gastgebende hinzukommen: Jede Gastgeberin und jeder Gastgeber wird zu einem Punkt auf der Karte, die Wege zwischen ihnen werden über das Netz der Bergwanderwege gelegt, und die Kuratorin oder der Kurator passt das Ergebnis an Gelände, Jahreszeit, Aufnahmekapazität der Gastgebenden und die menschliche Logik einer Reise an. Die Route wächst, wenn das Netzwerk wächst, und schrumpft, wenn Gastgebende nicht da sind.
 
-**Die Kuratorin oder der Kurator des Weges.** Das Gedächtnis des Weges, meist ein Mensch aus der Gegend, der Landwirtschaft betreibt, unterrichtet oder wandert. Die Kuratorin oder der Kurator kennt einen Abschnitt des Weges und seine Gastgebenden, hört sich an, wie viel Zeit jede Pilgerin und jeder Pilger hat, mit wem sie unterwegs sind und was sie sich wünschen, schlägt eine Route vor, statt sie vorzuschreiben, und behält im Blick, wer wen wann aufnehmen kann. Die Kuratorin oder der Kurator ist kein Reisebüro, sondern Wegweiser zum Ganzen – und keine Kontrollinstanz, die den Zugang bewacht: Pilgernde können eine veröffentlichte Gastgeberin oder einen veröffentlichten Gastgeber auch selbst auf der Karte finden und direkt hingehen. Neben der Kuratorin oder dem Kurator pflegt eine **Wegepatin oder ein Wegepate** einen Abschnitt: geht ihn ab, kennt seine Gastgebenden und Orte, kann für Gastgebende, die es selbst nicht können, einen Ort eintragen und Orte entlang des Weges hinzufügen und überlässt das Veröffentlichen der Kuratorin oder dem Kurator.
+**Die Kuratorin oder der Kurator des Weges.** Das Gedächtnis des Weges, meist ein Mensch aus der Gegend, der Landwirtschaft betreibt, unterrichtet oder wandert. Die Kuratorin oder der Kurator kennt den Weg und seine Gastgebenden, hört sich an, wie viel Zeit jede Pilgerin und jeder Pilger hat, mit wem sie unterwegs sind und was sie sich wünschen, schlägt eine Route vor, statt sie vorzuschreiben, und behält im Blick, wer wen wann aufnehmen kann. Die Kuratorin oder der Kurator ist kein Reisebüro, sondern Wegweiser zum Ganzen – und keine Kontrollinstanz, die den Zugang bewacht: Pilgernde können eine veröffentlichte Gastgeberin oder einen veröffentlichten Gastgeber auch selbst auf der Karte finden und direkt hingehen. Neben der Kuratorin oder dem Kurator pflegt eine **Wegepatin oder ein Wegepate** einen Abschnitt: geht ihn ab, kennt seine Gastgebenden und Orte, kann für Gastgebende, die es selbst nicht können, einen Ort eintragen und Orte entlang des Weges hinzufügen und überlässt das Veröffentlichen der Kuratorin oder dem Kurator.
 
 ## Für wen es da ist
 
@@ -118,6 +119,7 @@ Das Projekt beginnt nicht bei null: Seine Kartenplattform besteht bereits. Plai 
 - Einwilligung, in die Datenbank eingebaut: Wer einträgt, stimmt Feld für Feld zu, was gezeigt werden darf; eine Kuratorin oder ein Kurator entscheidet, was veröffentlicht wird; zurückgezogene Einträge verschwinden aus jeder Karte und jedem Export.
 - Ein Foto pro Ort, vor dem Speichern von Standort- und Kameradaten bereinigt und nur dort gezeigt, wo die eintragende Person zugestimmt und eine Kuratorin oder ein Kurator entschieden hat, es zu zeigen.
 - Angaben der Gastgebenden: ein Ort mit einer Liste von Angeboten, Öffnungsmonaten, Kapazität, Sprachen, wie der Ort zu erreichen ist, und den Zahlungsformen, die die Gastgeberin oder der Gastgeber annimmt, im Oktober 2026 gebaut und getestet; dazu bei jedem Eintrag ein Häkchen, dass die Person, die ihn angelegt hat, die Mitgestaltungsvereinbarung gelesen hat.
+- Der Wegplaner: Jede und jeder plant auf Plai einen Weg von einem Anfang zu einem Ende, Fußwege zuerst; Wegepaten oder Kuratoren behalten ihn als Wegstück, berichtigen ihn auf der Karte und fügen Wegstücke zu einem Korridor zusammen; veröffentlichen kann nur die Kuratorin oder der Kurator (Oktober 2026).
 - Schutzvorkehrungen, die getroffen sind, bevor etwas öffentlich wird: Jede Instanz des Kartendienstes, Plai eingeschlossen, hat ihre eigene Datenbank, Datenlizenzen werden von der Datenbank durchgesetzt, und jeder öffentliche Endpunkt wird auf Datenlecks getestet.
 - Vollständiger Export jederzeit, sodass keine Gemeinschaft auf UBEC angewiesen ist, um ihre eigenen Daten zu behalten.
 - Die Oberflächen von Plai sind vorerst auf Englisch; bis sie übersetzt sind, helfen die Kuratorin oder der Kurator oder eine Wegepatin oder ein Wegepate Gastgebenden, die kein Englisch lesen – an ihrer Seite oder indem sie den Ort mit ihrem Einverständnis für sie eintragen.
@@ -127,9 +129,9 @@ Das Projekt beginnt nicht bei null: Seine Kartenplattform besteht bereits. Plai 
 | Baustein | Was er leistet |
 | --- | --- |
 | Lokale Sprachen | Eingabeformulare zuerst auf Ukrainisch, dann auf Polnisch, Slowakisch, Rumänisch und in weiteren Sprachen |
-| Etappenplaner | Ein Werkzeug für Kuratorinnen und Kuratoren, das Tagesetappen zwischen Gastgeberinnen und Gastgebern nach Gehzeit und Aufstieg vorschlägt |
+| Wegeditor auf Plai | Zwischen- und Meidepunkte, eine eigene Linie, ein gegangener Track, die Lücken- und Straßenprüfung für Wegepaten – der zweite Schritt des Planers |
 
-Der Etappenplaner ist ein Werkzeug für die Kuratorin oder den Kurator, niemals ein Ersatz. Er schlägt vor; die Kuratorin oder der Kurator entscheidet. Er gibt Begegnungen unterwegs den Vorzug vor Geschwindigkeit.
+Der Planer schlägt vor; ein Mensch entscheidet. Er gibt Begegnungen unterwegs den Vorzug vor Geschwindigkeit, und ein Weg wird erst dann zum Weg des Projekts, wenn die Kuratorin oder der Kurator ihn veröffentlicht.
 
 ## Grundsätze
 
@@ -184,7 +186,7 @@ Eine Förderung der Pilotphase ginge zuerst an Menschen vor Ort und erst danach 
 | Ansprache von Gastgeberinnen und Gastgebern | Gastgeberinnen und Gastgeber finden und besuchen, das Projekt erklären, bei ihnen sitzen, während sie ihre Angaben eintragen |
 | Kuratorin oder Kurator, Wegepatinnen und Wegepaten | Bezahlte Rollen für die erste Kuratorin oder den ersten Kurator und die ersten Wegepatinnen und Wegepaten während der Pilotphase, mit schriftlichen Vereinbarungen, sobald ein Finanzierungsplan gesichert ist |
 | Begehung des Korridors | Testreisen, Dokumentation, Sicherheitsbewertung jeder Etappe |
-| Entwicklung | Formulare in den lokalen Sprachen, der Etappenplaner, falls nötig, weitere Änderungen an Plai |
+| Entwicklung | Formulare in den lokalen Sprachen, der Wegeditor, weitere Änderungen an Plai |
 | Übersetzung | Oberfläche und Projektmaterialien auf Ukrainisch und später in weiteren Sprachen der Karpatenregion |
 | Hosting und Sicherheit | Server, Datensicherungen und die Schutzvorkehrungen, die die Daten der Gastgeberinnen und Gastgeber vertraulich halten |
 | Recht | Die beiden rechtlichen Prüfungen – Datenschutz in Deutschland, Tourismus- und Steuerrecht in der Ukraine – und die Gründung des Kerngremiums |
@@ -199,7 +201,7 @@ Wie Gastgebende bezahlt werden, ist geklärt: Jede Gastgeberin und jeder Gastgeb
 | Zwei Wegepatinnen oder Wegepaten | 2.400 € | eine Aufwandsentschädigung von je rund 100 € im Monat für ein Jahr |
 | Ansprache von Gastgeberinnen und Gastgebern | 1.500 € | Besuche, Fahrten, Druck, die Anmeldebögen |
 | Begehung des Korridors | 2.000 € | zwei Saisons, Dokumentation, das Etappenverzeichnis |
-| Entwicklung | 3.000 € | Änderungen an Plai, die Website, der Planer nur, falls nötig |
+| Entwicklung | 3.000 € | Änderungen an Plai, die Website, der Wegeditor |
 | Übersetzung und Materialien | 1.500 € | |
 | Hosting und Sicherheit | 900 € | Server, Datensicherungen, Domain |
 | Recht | 4.000 € | die beiden Prüfungen; Gründung des Kerngremiums |
@@ -217,13 +219,13 @@ Es gibt fünf Zugänge, und jeder davon prägt das Projekt von hier an mit.
 | Gastgeberin oder Gastgeber im Korridor | Ein Bett, eine Mahlzeit, Führung oder ein Handwerk anbieten, zu Ihren eigenen Bedingungen |
 | Wanderin oder Wanderer, Bäuerin oder Bauer, Lehrerin oder Lehrer aus der Gegend | Wegepatin oder Wegepate werden und einen Abschnitt des Weges pflegen, oder Kuratorin oder Kurator werden und das Ganze zusammenhalten |
 | Eine Initiative anderswo im Karpatenbogen | Partnerschaft für einen Korridor in Polen, der Slowakei, Rumänien oder darüber hinaus eingehen |
-| Entwicklerin oder Entwickler, Kartiererin oder Kartierer, Übersetzerin oder Übersetzer | Beim Aufbau der Werkzeuge für Gastgebende in Plai, des Etappenplaners oder der Formulare in lokalen Sprachen helfen |
+| Entwicklerin oder Entwickler, Kartiererin oder Kartierer, Übersetzerin oder Übersetzer | Beim Aufbau der Werkzeuge in Plai – Formulare in lokalen Sprachen, der Wegeditor – helfen oder die Wege in OpenStreetMap ausbessern |
 | Förderin, Förderer oder Stiftung | Den Pilotkorridor, seine erste Kuratorin oder seinen ersten Kurator und seine ersten Wegepatinnen und Wegepaten unterstützen |
 
 Initiiert von UBEC (Ubuntu Bioregional Economic Commons), geleitet von Michel Garand, Zhyva Khata, geleitet von Vasyl Yuskiv, und Tepla Gora, geleitet von Andriy Grushetsky.
 
 Kontakt: Michel Garand – stewardship@ubec.network
 
-Die weiteren Dokumente des Projekts: das Weißbuch, das diesen Projektvorschlag den Belegen gegenüberstellt; die Mitgestaltungsvereinbarung, die sagt, was jede Rolle verspricht; und das Benutzerhandbuch für Plai. Alle liegen auf Englisch und Ukrainisch vor, unter CC BY-SA 4.0.
+Die weiteren Dokumente des Projekts: das Weißbuch, das diesen Projektvorschlag den Belegen gegenüberstellt; die Mitgestaltungsvereinbarung, die sagt, was jede Rolle verspricht; der Projektüberblick; und das Benutzerhandbuch für Plai. Alle liegen auf Englisch und Ukrainisch vor, der Überblick, dieser Vorschlag und das Weißbuch auch auf Deutsch und Polnisch, unter CC BY-SA 4.0, auf der Website des Projekts, tcp.ubec.network, und in seinem öffentlichen Archiv.
 
 *Dies ist ein lebendiges Dokument. Es wird weiter verfeinert, während das Netzwerk wächst.*

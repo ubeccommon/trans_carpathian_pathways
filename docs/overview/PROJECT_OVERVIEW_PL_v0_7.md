@@ -1,13 +1,13 @@
 ---
-title: "PROJECT_OVERVIEW_PL_v0_6"
+title: "PROJECT_OVERVIEW_PL_v0_7"
 subtitle: "Trans-Carpathian Pathways – przegląd projektu"
 author: "Michel Garand"
 date: "Październik 2026"
-version: "v0.6"
+version: "v0.7"
 lang: "pl"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
-status: "Tłumaczenie angielskiej wersji v0.6 wykonane przez Claude, na słowo Michela (11 października 2026); nie czytał go jeszcze nikt, dla kogo polski jest językiem ojczystym; oparty na białej księdze i planie wdrożenia; niczego nie rozstrzyga"
+status: "Tłumaczenie angielskiej wersji v0.7 wykonane przez Claude, na słowo Michela (11 października 2026); nie czytał go jeszcze nikt, dla kogo polski jest językiem ojczystym; oparty na białej księdze i planie wdrożenia; niczego nie rozstrzyga"
 ---
 
 # Trans-Carpathian Pathways
@@ -18,7 +18,7 @@ status: "Tłumaczenie angielskiej wersji v0.6 wykonane przez Claude, na słowo M
 
 ## W skrócie
 
-Trans-Carpathian Pathways to sieć lokalnych gospodarzy, którzy tam, gdzie mieszkają, dzielą się tym, co naprawdę mają – łóżkiem, posiłkiem, przewodnictwem lub rzemiosłem. Szlak wyłania się z miejsc, w których żyją ci gospodarze, a każdego jego odcinka doglądają lokalni kuratorzy i opiekunowie szlaku.
+Trans-Carpathian Pathways to sieć lokalnych gospodarzy, którzy tam, gdzie mieszkają, dzielą się tym, co naprawdę mają – łóżkiem, posiłkiem, przewodnictwem lub rzemiosłem. Szlak wyłania się z miejsc, w których żyją ci gospodarze, o każdy jego odcinek dbają opiekunowie szlaku, a lokalni kuratorzy trzymają całość.
 
 Projekt jest pomyślany dla całego łuku Karpat i zaczyna się od jednego korytarza: **z Worochty przez Werchowynę do Kosowa** na Huculszczyźnie. Projekt zainicjowały **UBEC** (Ubuntu Bioregional Economic Commons), na którego czele stoi Michel Garand, **Zhyva Khata**, na której czele stoi Vasyl Yuskiv, oraz **Tepla Gora**, na której czele stoi Andriy Grushetsky.
 
@@ -42,11 +42,11 @@ Zazębiają się tu trzy rzeczy: gospodarze, którzy oferują to, co prawdziwe, 
 | Rola | Co robi |
 | --- | --- |
 | Gospodarz | Oferuje jedno lub więcej z następujących: nocleg, posiłek, lokalne przewodnictwo lub warsztat – opisane takimi, jakie są. Sam ustala miesiące, liczbę miejsc, języki i sposób dotarcia do miejsca. |
-| Opiekun szlaku | Dba o odcinek ścieżki, zna jego gospodarzy i miejsca, może wpisać miejsce za gospodarza, który nie może zrobić tego sam. |
-| Kurator | Osoba z korytarza – często rolnik, nauczyciel lub piechur – która przegląda każde miejsce przed jego opublikowaniem, przechowuje wiedzę o bezpieczeństwie i proponuje (nigdy nie sprzedaje) każdemu pielgrzymowi podróż. |
+| Opiekun szlaku | Dba o odcinek ścieżki, zna jego gospodarzy i miejsca, może wpisać miejsce za gospodarza, który nie może zrobić tego sam, i zapisuje zaplanowaną drogę jako wersję roboczą. |
+| Kurator | Osoba z korytarza – często rolnik, nauczyciel lub piechur – która przegląda każde miejsce, odcinek i korytarz przed ich opublikowaniem, przechowuje wiedzę o bezpieczeństwie i proponuje (nigdy nie sprzedaje) każdemu pielgrzymowi podróż. |
 | Pielgrzym płaju | Przemierza odcinek płaju – starej ścieżki przez wysokie pastwiska, od której mapa wzięła nazwę – przez jedno popołudnie lub przez miesiąc, by się uczyć, a nie oglądać, i przychodzi jako gość. |
 
-**Szlak nie jest wytyczany odgórnie.** Każdy gospodarz staje się punktem; ścieżki między nimi prowadzą istniejącymi szlakami; kurator dostosowuje je do terenu, pory roku i liczby miejsc. Źródła, punkty widokowe i inne miejsca, do których warto dotrzeć, są po drodze nanoszone na mapę.
+**Szlak nie jest wytyczany odgórnie.** Każdy gospodarz staje się punktem; ścieżki między nimi prowadzą istniejącymi szlakami; kurator dostosowuje je do terenu, pory roku i liczby miejsc. Każdy może zaplanować drogę w Plai; opiekun szlaku lub kurator zachowuje ją i poprawia; kurator publikuje. Źródła, punkty widokowe i inne miejsca, do których warto dotrzeć, są po drodze nanoszone na mapę.
 
 **Plai już istnieje.** Zawiera mapę bazową całego łańcucha Karpat, interfejs wprowadzania danych, w którym osoba umieszcza punkt dokładnie tam, gdzie zamierza, zgodę udzielaną pole po polu, możliwość wycofania z każdej mapy i każdego eksportu oraz pola gospodarza – zbudowane i przetestowane w październiku 2026 roku. Nazwa nawiązuje do *płaju*, górskiej ścieżki od pastwiska do pastwiska, oraz do lwowskiego towarzystwa krajoznawczego *Płaj* z 1924 roku.
 
@@ -103,13 +103,14 @@ Mapa i dokumenty istnieją; gospodarzy jeszcze nie ma. Każdy próg otwiera się
 | --- | --- | --- |
 | Progi od 0 do 2: decyzje i mapa | Gotowe | Decyzje zapisane; pola gospodarza i zgoda zbudowane i przetestowane w Plai (październik 2026) |
 | Próba koncepcji | Razem z publiczną recenzją | Gospodarz, pielgrzym, uczciwa oferta i wkład wypróbowane na krótkim odcinku korytarza, gdy tylko wersje robocze zostaną udostępnione do recenzji, i zmieniane w miarę zdobywania doświadczeń |
+| Próg 5: publiczny planer | Zrobione | „Plan a way” w Plai (październik 2026); odcinki i korytarze zachowują opiekunowie i kuratorzy, publikuje kurator |
 | Próg 3: pierwsi gospodarze | Następny | Od trzech do pięciu gospodarzy wpisanych z kuratorem u boku; otwiera się po wdrożeniu kopii zapasowych poza serwerem i po analizie ochrony danych |
 | Próg 4: korytarz przemierzony | Potem | Z Worochty do Kosowa od końca do końca, raz w każdym sezonie, przez dwa sezony; odległość, czas i to, czego potrzebował pielgrzym, zapisane dla każdego etapu |
 | Faza 2: korytarz decyduje | Później | Gospodarze, opiekunowie szlaku i kuratorzy korytarza wybierają, jak projekt jest zarządzany i który korytarz będzie następny |
 
-**Już jest.** Propozycja projektu, biała księga, porozumienie współtwórców i podręcznik użytkownika po angielsku i ukraińsku; Plai z wbudowanymi polami gospodarza, zgodą i danymi o terenie; progi od 0 do 2 zamknięte. Próba koncepcji na krótkim odcinku korytarza przebiega równolegle z publiczną recenzją i zmienia się w miarę zdobywania doświadczeń.
+**Już jest.** Propozycja projektu, biała księga, porozumienie współtwórców i podręcznik użytkownika po angielsku i ukraińsku, dwa pierwsze i ten przegląd także po niemiecku i polsku, na stronie projektu i w jego publicznym zapisie; Plai z wbudowanymi polami gospodarza, zgodą, danymi o terenie i planerem szlaku; progi od 0 do 2 oraz 5 zamknięte. Próba koncepcji na krótkim odcinku korytarza przebiega równolegle z publiczną recenzją i zmienia się w miarę zdobywania doświadczeń.
 
-**Jeszcze nie.** Żaden gospodarz, opiekun szlaku ani kurator wskazany z nazwiska. Kopie zapasowe poza serwerem – warunek pierwszego prawdziwego konta. Podmiot prawny: dziś jedna osoba trzyma w rękach dane, serwer i każdą obietnicę. Pieniądze: budżet pilotażu w wysokości około 25 700 € na osiemnaście miesięcy jest zaproponowany, a nie przyjęty, i czeka na beneficjenta grantu. Lektura ukraińskich tekstów przez ludzi z korytarza.
+**Jeszcze nie.** Żaden gospodarz ani opiekun szlaku wskazany z nazwiska; pierwszym kuratorem jest na razie kierownik projektu, dopóki nie powstanie zespół główny. Kopie zapasowe poza serwerem – warunek pierwszego prawdziwego konta. Podmiot prawny: dziś jedna osoba trzyma w rękach dane, serwer i każdą obietnicę. Pieniądze: budżet pilotażu w wysokości około 25 700 € na osiemnaście miesięcy jest zaproponowany, a nie przyjęty, i czeka na beneficjenta grantu. Lektura ukraińskich tekstów przez ludzi z korytarza.
 
 ## Czego nie rozwiązaliśmy
 
@@ -161,5 +162,6 @@ Biała księga, propozycja projektu i porozumienie współtwórców znajdują si
 * * *
 
 *Changelog*
+- v0.7 — 2026-10-13 — na słowo Michela, 13 października (próg C, za białą księgą v0.11): opiekunowie dbają o odcinek, kuratorzy trzymają całość; publiczny planer w Plai w akapicie o szlaku, w rolach, w tabeli stanu (próg 5 zrobiony) i w „Już jest”; jedno sformułowanie o pierwszym kuratorze. Za angielską wersją v0.7.
 - v0.6 — 2026-10-13 — na słowo Michela: trzech inicjatorów — do UBEC i Zhyva Khata dołącza Tepla Gora, którą kieruje Andriy Grushetsky; sekcja „Kontakt” go wymienia. Poza tym bez zmian.
 - v0.5 — 2026-10-11 — tłumaczenie z angielskiej wersji v0.5, na słowo Michela, według glosariusza docs/translations/GLOSSARY_DE_PL_v0_1.md. Treść bez zmian.

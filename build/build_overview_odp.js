@@ -322,20 +322,20 @@ function twoCol(bg, sec, eyebrow, title, cols, size, H, after, afterY, afterSize
 twoCol(C.cream, S6, "Where it stands · October 2026", "The map is ready; the people are not yet", [
   ["In place", C.green, [
     "Proposal, white paper, co-creator agreement and manual, in English and Ukrainian",
-    "Plai with host fields, consent and terrain",
-    "Decisions on record; Gates 0 to 2 closed",
+    "Plai with host fields, consent, terrain and the pathway planner",
+    "Decisions on record; Gates 0 to 2 and 5 closed",
     "A test of the concept, with the public review",
   ]],
   ["Not yet", C.red, [
-    "Any host, steward or Curator by name",
+    "Any host or steward by name; the first Curator is the project lead for now",
     "Off-host backups, the condition for a real account",
     "A legal body: today one person holds it all",
     "Money: a pilot budget proposed, not decided",
     "The Ukrainian texts read in the corridor",
   ]],
-], 25, 410, "Next: Gate 3, three to five hosts and a Curator; then Gate 4, the corridor walked.", 744, 26,
+], 25, 410, "Gate 5, the planner public, taken before Gate 3. Next: Gate 3, three to five hosts; then Gate 4, the corridor walked.", 744, 26,
   "A gate opens when its work is done, not on a date · 13",
-  "The software is ahead of the agreements between people. That is the right order for a map, since the consent model had to be proven before anyone was asked to trust it; Gate 3 is the first gate whose work is a promise made to a person. The co-creator agreement is still a draft with items open: the rights in entries, governing law and retention. The pilot budget proposed is about 25,700 euro over eighteen months from the first hosts, mostly the Curator, stewards, host visits, walking the corridor and the legal reads; it waits on a grantee. Gate 4 walks Vorokhta to Kosiv once per season for two seasons, recording distance, time and what a pilgrim needed at each stage. A stage planner, Gate 5, is built only if the Curator cannot plan on paper.");
+  "The software is ahead of the agreements between people. That is the right order for a map, since the consent model had to be proven before anyone was asked to trust it; Gate 3 is the first gate whose work is a promise made to a person. The co-creator agreement is still a draft with items open: the rights in entries, governing law and retention. The pilot budget proposed is about 25,700 euro over eighteen months from the first hosts, mostly the Curator, stewards, host visits, walking the corridor and the legal reads; it waits on a grantee. Gate 4 walks Vorokhta to Kosiv once per season for two seasons, recording distance, time and what a pilgrim needed at each stage. Gate 5, the pathway planner public on Plai, was taken before Gate 3: anyone plans a way, stewards and Curators keep stretches and corridors, the Curator publishes.");
 
 gridSlide(S6, "Honestly", "What we have not solved", [
   ["The map and “no performance”", "A pin that says “workshop” invites its host to become what the pin says."],

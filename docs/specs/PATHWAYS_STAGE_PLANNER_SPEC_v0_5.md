@@ -1,9 +1,9 @@
 ---
-title: "PATHWAYS_STAGE_PLANNER_SPEC_v0_4"
+title: "PATHWAYS_STAGE_PLANNER_SPEC_v0_5"
 subtitle: "The planner anyone may use, the stretches a Curator saves, and the corridors made of them"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.4"
+version: "v0.5"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -52,8 +52,8 @@ openly.
 | Who | Plans | Downloads the answer | Saves a stretch | Joins stretches into a corridor | Publishes or withdraws |
 |---|---|---|---|---|---|
 | Anyone, the pilgrim included | yes | yes, hosts by name and detour time only (§5) | no | no | no |
-| Pathway steward | yes | yes, hosts by name and detour time only | a draft (SP-1) | no | no |
-| Curator | yes, and may list hosts in full | yes | yes | yes | yes — their own stretches and the drafts stewards save |
+| Pathway steward | yes | yes, hosts by name and detour time only | a draft (SP-1) | a draft (Michel's word, October 12, 2026) | no |
+| Curator | yes, and may list hosts in full | yes | yes | yes | yes — their own stretches and corridors and the drafts stewards save; a corridor only once every stretch in it is published |
 
 The Curator works from their Plai account, in `PLAI_CURATOR`; a
 steward saves drafts from theirs, in `PLAI_STEWARD`; nobody else
@@ -304,10 +304,14 @@ enough for a corridor's paths.
 
 ## 7. A Corridor
 
-An ordered set of stretches with a name, made and managed by a
-Curator. Proposed for Plai, in the same migration:
-`instance_sa.corridor` (id, name, state, curator, note) and
-`instance_sa.corridor_stretch` (corridor, stretch, position).
+An ordered set of stretches with a name. A steward or the Curator
+makes one and saves it as a draft; only the Curator publishes it, and
+only once every stretch in it is published (Michel's word, October
+12, 2026). Built in Plai as `plai/009`: `instance_sa.corridor` holds
+the stretches' numbers in walking order (no `corridor_stretch`
+table); a published stretch or corridor is never changed in place —
+its saver's changes go into a draft of it (`plai/010`); a visitor
+without an account keeps a link and a download, nothing stored.
 
 - **Drawn from its stretches only:** the union of their bands,
   ring by ring, with one boundary; nothing is drawn that a stretch
@@ -383,8 +387,12 @@ Changed with this specification: the starting prompt v0.62 (§6,
 §7, OI-P10), v0.63 (SP-1 to SP-3, Gate order) and v0.64 (SP-4 to
 SP-7), the decisions checklist v0.5 to v0.7, the reasoning v0.4.
 
-Still saying the planner is the Curator's alone, or may never be
-built, until Michel says to revise them (SP-6):
+Revised on Michel's word of October 13, 2026 (the documentation as
+one set, Gate C): the white paper v0.11, the proposal v0.9, the
+overview v0.7, the implementation plan v0.5 and the module map v0.4,
+each in every language it has, and the overview's deck. Before that,
+these said the planner was the Curator's alone, or might never be
+built:
 
 - the white paper, English and Ukrainian (§ "No algorithm
   deciding"; the gates), and its PDF; its German and Polish
@@ -401,6 +409,7 @@ built, until Michel says to revise them (SP-6):
 
 ## Changelog
 
+- v0.5 — 2026-10-13 — Michel's word (the documentation as one set, Gates A and C): §2 and §7 carry what was built and decided October 12 — a steward saves a corridor draft, the Curator publishes once every stretch is, edits to a published one go into a draft, a visitor keeps nothing; §10 records the public documents as revised.
 - v0.4, amended 2026-10-11 — §3b, §6: the editor and the planner
   integrated in the map service, inside Plai's Pathways application,
   with Mapbender's Digitizer for what is drawn; Michel's word.

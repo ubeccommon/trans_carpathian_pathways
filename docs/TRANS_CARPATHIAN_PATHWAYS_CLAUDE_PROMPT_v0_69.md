@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_68"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_69"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.68"
+version: "v0.69"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -430,7 +430,7 @@ first Ukrainian mountain shelter (Plisce, 1933–35). The same review
 rewrote the long list's trail-marking entry (v0.2).
 
 **The modules, adopted — Michel's word, October 9, 2026.** All six
-points of the module map, as proposed (`docs/TRANS_CARPATHIAN_PATHWAYS_MODULES_v0_3.md`):
+points of the module map, as proposed (`docs/TRANS_CARPATHIAN_PATHWAYS_MODULES_v0_4.md`):
 the four blocks and twelve modules are how the project describes
 itself; active now P1, P2, P3, T1, T2, G1, T3 and T4, and named H1,
 H2, G2, G3 — a named module opens on a gate's need and a holder, on his
@@ -878,6 +878,39 @@ on every cover; Tepla Gora's place in the agreement and the core
 body; and the proposal v0.8 and white paper v0.10 carry this change
 only — the planner revisions of Gate C still wait (SP-6).
 
+**The white paper and what follows it, Gate C — Michel's word,
+October 13, 2026.** Each change proposed with its section and reason,
+all taken: white paper v0.11 in English, Ukrainian, German and Polish
+— the summary gives the stretch to the steward and the whole to the
+Curator and says anyone can plan a way on Plai; §6.1 describes the
+planner as built (public, "Plan a way", footpaths first, the doubts
+named; a steward or Curator keeps a stretch, corrects it by hand,
+puts stretches in walking order as a corridor; only the Curator
+publishes; what is walked and saved becomes the planner's knowledge);
+the Curator knows the path, the roles table carries stretches and
+corridors; §6.3 "No algorithm deciding" keeps the principle and drops
+"if one is ever built" (the answer a proposal, a host by name and
+detour time only); §9 tells the two senses of corridor apart; §11 is
+the stage on October 13 — the `geo:` link, the planner (Gate 5, taken
+before Gate 3), the site in four languages, the record public, one
+wording for the first Curator, the Ukrainian unread in the corridor;
+the gates ahead say Gate 5 was taken. Appendix A stays the dated
+record of October 9; no engine number enters the paper. Following it:
+the proposal v0.9 (the planner in place, the pathway editor among the
+things to build and in the funding lines, "the Curator knows the
+path", the first Curator the project lead for now, the documents named
+with the site and the record), the overview v0.7 (stewards the
+stretch, Curators the whole; the planner in the pathway paragraph, the
+roles, the status table — Gate 5 done — and "In place"; D-5's
+wording), both in four languages; the implementation plan v0.5 (step
+6 ticked), the module map v0.4 (T1), the deck's status slide and its
+LibreOffice copy; the planner spec v0.5 (§2 and §7 carry October 12 —
+stewards save corridor drafts, the Curator publishes once every
+stretch is, edits go into a draft, a visitor keeps nothing; §10
+records the documents as revised). Every PDF rebuilt; the site
+follows on the next build. The deck in Claude's Slides is its own
+copy and follows the repository.
+
 * * *
 
 ## 3. The First Corridor
@@ -1078,7 +1111,7 @@ can use it. The Curator can create a route, save it and manage
 it; these stretches can be combined to create a corridor. This
 replaces "for the Curator only, never answering a pilgrim, built
 only if needed". The specification:
-`docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_4.md`. Decided there on
+`docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_5.md`. Decided there on
 Michel's word the same day: a steward may save a draft, and only
 the Curator publishes it (SP-1); the public page and service run
 on Plai and come before the first hosts (SP-2); the public answer
@@ -1423,6 +1456,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.69 — 2026-10-13 — Gate C, Michel's word: white paper v0.11, proposal v0.9, overview v0.7, plan v0.5, module map v0.4, spec v0.5 — the planner as built, in every language; PDFs and the deck's copy rebuilt.
 - v0.68 — 2026-10-13 — the third initiator, Michel's word: Tepla Gora, led by Andriy Grushetsky, in every document and page that names the initiators; overview v0.6, proposal v0.8, white paper v0.10, agreement v0.8, plan v0.4, landing pages en/uk v0.9, de/pl v0.4; PDFs and the deck's LibreOffice copy rebuilt.
 - v0.67, amended 2026-10-13 — the overview in Ukrainian, Michel's word; build v0.14, site README v0.21.
 - v0.67 — 2026-10-13 — the landing page, Gate B, Michel's word: the front door of the public review in four languages, built and checked; site README v0.20, landing pages en/uk v0.8, de/pl v0.3, stylesheet v0.8.

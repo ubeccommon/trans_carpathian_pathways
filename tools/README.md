@@ -3,7 +3,7 @@
 ## stage_planner.py — `route`, `corridor`, `find` and `inspect`, v0.13
 
 The stage planner (starting prompt §6; spec
-`docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_4.md`). Public, on
+`docs/specs/PATHWAYS_STAGE_PLANNER_SPEC_v0_5.md`). Public, on
 Michel's word of October 11, 2026: anyone plans with it; the
 Curator saves a route as a stretch and joins stretches into a
 corridor. `route`, from a

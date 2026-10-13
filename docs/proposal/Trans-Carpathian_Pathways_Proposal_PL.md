@@ -1,12 +1,13 @@
 ---
 title: "Trans-Carpathian Pathways — Propozycja projektu (PL)"
-version: "v0.8"
+version: "v0.9"
 date: "Październik 2026"
 lang: "pl"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
-status: "Tłumaczenie angielskiej wersji v0.8 wykonane przez Claude, na słowo Michela (11 października 2026); nie czytał go jeszcze nikt, dla kogo polski jest językiem ojczystym"
+status: "Tłumaczenie angielskiej wersji v0.9 wykonane przez Claude, na słowo Michela (11 października 2026); nie czytał go jeszcze nikt, dla kogo polski jest językiem ojczystym"
 changelog:
+  - "v0.9 — 2026-10-13 — na słowo Michela, 13 października (próg C, za białą księgą v0.11): planer szlaku jest w Plai, edytor szlaku na jego miejscu wśród rzeczy do zbudowania i w wierszach finansowania; kurator zna szlak, nie odcinek; pierwszym kuratorem na razie kierownik projektu; dokumenty wymienione razem ze stroną i zapisem. Za angielską wersją v0.9."
   - "v0.8 — 2026-10-13 — na słowo Michela: trzech inicjatorów — do UBEC i Zhyva Khata dołącza Tepla Gora, którą kieruje Andriy Grushetsky (tabela i „Jak dołączyć”). Poza tym bez zmian; za angielską wersją v0.8."
   - "v0.7 — 2026-10-11 — tłumaczenie z angielskiej wersji v0.7, na słowo Michela, według glosariusza docs/translations/GLOSSARY_DE_PL_v0_1.md. Treść bez zmian."
 ---
@@ -17,7 +18,7 @@ changelog:
 
 *Żywa sieć miejsc, ludzi i ścieżek – streszczenie i propozycja projektu*
 
-Październik 2026 · UBEC / Inicjatywa Karpackiego Hubu · wersja robocza v0.8
+Październik 2026 · UBEC / Inicjatywa Karpackiego Hubu · wersja robocza v0.9
 
 ## Streszczenie
 
@@ -32,7 +33,7 @@ Pierwszy korytarz leży na Huculszczyźnie, w zachodniej Ukrainie, między Woroc
 | Gdzie dalej | Ukraińskie Karpaty, potem pozostałe kraje łuku Karpat |
 | Podstawa | Plai – karpacki hub UBEC Mapservice |
 | Inicjatorzy | UBEC (Ubuntu Bioregional Economic Commons), kierowany przez Michela Garanda, Zhyva Khata, kierowana przez Vasyla Yuskiva, oraz Tepla Gora, kierowana przez Andriya Grushetsky'ego |
-| Etap | Prototyp: podstawa techniczna gotowa, trwają poszukiwania pierwszych gospodarzy i kuratora |
+| Etap | Prototyp: podstawa techniczna gotowa, trwają poszukiwania pierwszych gospodarzy; pierwszym kuratorem jest na razie kierownik projektu |
 
 Szukamy ludzi, którzy zechcą wziąć udział: gospodarzy, opiekunów szlaku i kuratorów w korytarzu, partnerów wzdłuż łuku Karpat, współpracowników technicznych oraz darczyńców dla pilotażu.
 
@@ -67,7 +68,7 @@ Gospodarze nie są usługodawcami. Oferta jest uczciwa i konkretna – nic na po
 
 **Żywy szlak.** Trasa nie jest projektowana odgórnie. Wyłania się w miarę, jak dołączają gospodarze: każdy gospodarz staje się punktem na mapie, ścieżki między nimi są wytyczane po sieci górskich szlaków, a kurator dostosowuje wynik do terenu, pory roku, możliwości gospodarzy i ludzkiej logiki podróży. Szlak rośnie wraz z siecią i kurczy się, gdy gospodarzy nie ma na miejscu.
 
-**Kurator szlaku.** Pamięć ścieżki, zwykle miejscowy rolnik, nauczyciel lub wędrowiec. Kurator zna odcinek szlaku i jego gospodarzy, wsłuchuje się w to, ile czasu ma każdy pielgrzym, z kim idzie i czego pragnie, proponuje trasę, zamiast ją narzucać, i pamięta, kto może przyjąć kogo i kiedy. Kurator nie jest agentem turystycznym, lecz przewodnikiem po całości – i nie jest strażnikiem dostępu: pielgrzym może też znaleźć opublikowanego gospodarza na mapie i pójść do niego bezpośrednio. Obok kuratora **opiekun szlaku** dba o jeden odcinek: przemierza go, zna jego gospodarzy i miejsca, może wprowadzić miejsce za gospodarza, który nie może zrobić tego sam, i dodawać miejsca po drodze, a publikację pozostawia kuratorowi.
+**Kurator szlaku.** Pamięć ścieżki, zwykle miejscowy rolnik, nauczyciel lub wędrowiec. Kurator zna szlak i jego gospodarzy, wsłuchuje się w to, ile czasu ma każdy pielgrzym, z kim idzie i czego pragnie, proponuje trasę, zamiast ją narzucać, i pamięta, kto może przyjąć kogo i kiedy. Kurator nie jest agentem turystycznym, lecz przewodnikiem po całości – i nie jest strażnikiem dostępu: pielgrzym może też znaleźć opublikowanego gospodarza na mapie i pójść do niego bezpośrednio. Obok kuratora **opiekun szlaku** dba o jeden odcinek: przemierza go, zna jego gospodarzy i miejsca, może wprowadzić miejsce za gospodarza, który nie może zrobić tego sam, i dodawać miejsca po drodze, a publikację pozostawia kuratorowi.
 
 ## Komu służy
 
@@ -118,6 +119,7 @@ Projekt nie zaczyna od zera: jego platforma mapowa już istnieje. Plai to karpac
 - Zgoda wbudowana w bazę danych: osoba wprowadzająca dane zgadza się, pole po polu, na to, co może zostać pokazane; kurator decyduje, co zostaje opublikowane; wycofane wpisy znikają z każdej mapy i każdego eksportu.
 - Jedno zdjęcie na miejsce, oczyszczone z danych o lokalizacji i aparacie przed zapisaniem i pokazywane tylko tam, gdzie zgodziła się osoba wprowadzająca dane, a kurator zdecydował się je pokazać.
 - Dane gospodarza: jedno miejsce z listą ofert, miesiącami, w których jest otwarte, liczbą miejsc, językami, sposobem dotarcia i formami płatności akceptowanymi przez gospodarza – zbudowane i przetestowane w październiku 2026; a przy każdym wpisie znacznik, że jego autor przeczytał porozumienie współtwórców.
+- Planer szlaku: każdy planuje w Plai drogę od początku do końca, najpierw ścieżkami; opiekun szlaku lub kurator zachowuje ją jako odcinek, poprawia na mapie i łączy odcinki w korytarz; publikuje tylko kurator (październik 2026).
 - Zabezpieczenia ustalone, zanim cokolwiek zostanie upublicznione: każda instancja serwisu mapowego, w tym Plai, ma własną bazę danych, licencje danych egzekwuje baza danych, a każdy publiczny punkt dostępu jest testowany pod kątem wycieków.
 - Pełny eksport w dowolnym momencie, tak aby żadna społeczność nie była zależna od UBEC w przechowywaniu własnych danych.
 - Ekrany Plai są na razie po angielsku; dopóki nie zostaną przetłumaczone, gospodarzowi, który nie czyta po angielsku, pomaga kurator lub opiekun szlaku – siedząc obok niego albo wprowadzając miejsce za niego, za jego przyzwoleniem.
@@ -127,9 +129,9 @@ Projekt nie zaczyna od zera: jego platforma mapowa już istnieje. Plai to karpac
 | Element | Do czego służy |
 | --- | --- |
 | Języki lokalne | Formularze wprowadzania danych najpierw po ukraińsku, potem po polsku, słowacku, rumuńsku i w innych językach |
-| Planer etapów | Narzędzie dla kuratora, które proponuje dzienne etapy między gospodarzami według czasu marszu i przewyższeń |
+| Edytor szlaku w Plai | Punkty pośrednie i punkty omijane, własna linia, przebyty ślad, sprawdzenie luk i dróg dla opiekunów – drugi krok planera |
 
-Planer etapów jest narzędziem dla kuratora, nigdy jego zastępstwem. Proponuje; decyduje kurator. Przedkłada spotkania po drodze nad szybkość.
+Planer proponuje; decyduje człowiek. Przedkłada spotkania po drodze nad szybkość, a droga staje się drogą projektu dopiero wtedy, gdy kurator ją opublikuje.
 
 ## Zasady
 
@@ -184,7 +186,7 @@ Wsparcie dla pilotażu trafiłoby najpierw do ludzi w terenie, a dopiero potem n
 | Docieranie do gospodarzy | Szukanie i odwiedzanie gospodarzy, wyjaśnianie projektu, towarzyszenie im przy wprowadzaniu danych |
 | Kurator i opiekunowie szlaku | Płatne role dla pierwszego kuratora i pierwszych opiekunów szlaku w czasie pilotażu, na podstawie pisemnych ustaleń, gdy tylko zostanie zapewniony plan finansowania |
 | Przejście korytarza | Podróże testowe, dokumentacja, ocena bezpieczeństwa każdego etapu |
-| Prace programistyczne | Formularze w językach lokalnych, planer etapów, jeśli będzie potrzebny, inne zmiany w Plai |
+| Prace programistyczne | Formularze w językach lokalnych, edytor szlaku, inne zmiany w Plai |
 | Tłumaczenie | Interfejs i materiały projektu po ukraińsku, a później w innych językach karpackich |
 | Hosting i bezpieczeństwo | Serwer, kopie zapasowe i zabezpieczenia, dzięki którym dane gospodarzy pozostają prywatne |
 | Kwestie prawne | Dwie analizy prawne – ochrona danych w Niemczech, prawo turystyczne i podatkowe w Ukrainie – oraz utworzenie zespołu głównego |
@@ -199,7 +201,7 @@ Sposób wynagradzania gospodarzy jest ustalony: każdy gospodarz wybiera dla ka�
 | Dwóch opiekunów szlaku | 2 400 € | ryczałt około 100 € miesięcznie dla każdego przez rok |
 | Docieranie do gospodarzy | 1 500 € | wizyty, przejazdy, druk, formularze przystąpienia |
 | Przejście korytarza | 2 000 € | dwa sezony, dokumentacja, rejestr etapów |
-| Prace programistyczne | 3 000 € | zmiany w Plai, strona internetowa, planer tylko w razie potrzeby |
+| Prace programistyczne | 3 000 € | zmiany w Plai, strona internetowa, edytor szlaku |
 | Tłumaczenie i materiały | 1 500 € | |
 | Hosting i bezpieczeństwo | 900 € | serwer, kopie zapasowe, domena |
 | Kwestie prawne | 4 000 € | dwie analizy; utworzenie zespołu głównego |
@@ -217,13 +219,13 @@ Jest pięć sposobów, by się włączyć, a każdy z nich od tej chwili kształ
 | Gospodarzem w korytarzu | Zaoferować nocleg, posiłek, przewodnictwo lub rzemiosło – na własnych warunkach |
 | Miejscowym wędrowcem, rolnikiem lub nauczycielem | Zostać opiekunem szlaku i dbać o odcinek ścieżki albo kuratorem i czuwać nad całością |
 | Inicjatywą z innego miejsca łuku Karpat | Współtworzyć jako partner korytarz w Polsce, na Słowacji, w Rumunii lub dalej |
-| Programistą, maperem lub tłumaczem | Pomóc zbudować narzędzia Plai dla gospodarzy, planer etapów lub formularze w językach lokalnych |
+| Programistą, maperem lub tłumaczem | Pomóc zbudować narzędzia Plai – formularze w językach lokalnych, edytor szlaku – albo poprawić ścieżki w OpenStreetMap |
 | Darczyńcą lub fundacją | Wesprzeć korytarz pilotażowy, jego pierwszego kuratora i pierwszych opiekunów szlaku |
 
 Inicjatorzy: UBEC (Ubuntu Bioregional Economic Commons), kierowany przez Michela Garanda, Zhyva Khata, kierowana przez Vasyla Yuskiva, oraz Tepla Gora, kierowana przez Andriya Grushetsky'ego.
 
 Kontakt: Michel Garand – stewardship@ubec.network
 
-Pozostałe dokumenty projektu: biała księga, która konfrontuje tę propozycję z dowodami; porozumienie współtwórców, które określa, co obiecuje każda rola; oraz podręcznik użytkownika Plai. Wszystkie są dostępne po angielsku i ukraińsku, na licencji CC BY-SA 4.0.
+Pozostałe dokumenty projektu: biała księga, która konfrontuje tę propozycję z dowodami; porozumienie współtwórców, które określa, co obiecuje każda rola; przegląd projektu; oraz podręcznik użytkownika Plai. Wszystkie są dostępne po angielsku i ukraińsku, a przegląd, ta propozycja i biała księga także po niemiecku i polsku, na licencji CC BY-SA 4.0, na stronie projektu tcp.ubec.network i w jego publicznym zapisie.
 
 *To żywy dokument. Będzie dopracowywany w miarę rozwoju sieci.*

@@ -1,9 +1,9 @@
 ---
-title: "PROJECT_OVERVIEW_v0_6"
+title: "PROJECT_OVERVIEW_v0_7"
 subtitle: "Trans-Carpathian Pathways — project overview"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.6"
+version: "v0.7"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -18,7 +18,7 @@ October 10, 2026 · Michel Garand
 
 ## In brief
 
-Trans-Carpathian Pathways is a network of local hosts who share what they actually have — a bed, a meal, guidance or a craft — from where they live. A pathway emerges from where those hosts are, and local Curators and pathway stewards hold each stretch of it.
+Trans-Carpathian Pathways is a network of local hosts who share what they actually have — a bed, a meal, guidance or a craft — from where they live. A pathway emerges from where those hosts are, pathway stewards care for each stretch of it, and local Curators hold the whole.
 
 The project is meant for the whole Carpathian arc and begins with one corridor, from **Vorokhta through Verkhovyna to Kosiv** in the Hutsul highlands. The project is initiated by **UBEC** (Ubuntu Bioregional Economic Commons), led by Michel Garand, **Zhyva Khata**, led by Vasyl Yuskiv, and **Tepla Gora**, led by Andriy Grushetsky.
 
@@ -42,11 +42,11 @@ Three things interlock: hosts who offer what is real, a pathway that emerges bet
 | Role | What they do |
 | --- | --- |
 | Host | Offers one or more of an overnight stay, a meal, local guidance or a workshop, described as it is. Sets their own months, capacity, languages and how the place is reached. |
-| Pathway steward | Cares for a stretch of path, knows its hosts and places, may enter a place for a host who cannot. |
-| Curator | A person of the corridor — often a farmer, teacher or walker — who reads every place before it is published, holds the safety knowledge, and suggests (never sells) a journey to each pilgrim. |
+| Pathway steward | Cares for a stretch of path, knows its hosts and places, may enter a place for a host who cannot, and saves a planned way as a draft. |
+| Curator | A person of the corridor — often a farmer, teacher or walker — who reads every place, stretch and corridor before it is published, holds the safety knowledge, and suggests (never sells) a journey to each pilgrim. |
 | Pilgrim of the Plai | Walks a stretch of the plai — the old path through the high pastures, from which the map takes its name — for an afternoon or a month, to learn rather than to look, and arrives as a guest. |
 
-**The pathway is not drawn from above.** Each host becomes a point; the paths between them follow existing trails; the Curator adjusts for terrain, season and capacity. Springs, viewpoints and other places worth arriving at are mapped along the way.
+**The pathway is not drawn from above.** Each host becomes a point; the paths between them follow existing trails; the Curator adjusts for terrain, season and capacity. Anyone can plan a way on Plai; a steward or Curator keeps and corrects it; the Curator publishes. Springs, viewpoints and other places worth arriving at are mapped along the way.
 
 **Plai already exists.** It holds a base map of the whole Carpathian range, an entry surface where a person places a point exactly where they mean it, consent field by field, withdrawal from every map and export, and the host fields — built and tested in October 2026. The name echoes *plai*, the mountain path from pasture to pasture, and the Lviv regional-studies society *Plai* of 1924.
 
@@ -103,13 +103,14 @@ The map and the documents exist; the hosts do not yet. Each gate opens when its 
 | --- | --- | --- |
 | Gates 0 to 2: decisions and the map | Done | Decisions recorded; host fields and consent built and tested on Plai (October 2026) |
 | A test of the concept | With the public review | A host, a pilgrim, the honest offer and the contribution, tried on a short stretch of the corridor once the drafts are out for review, and changed as it learns |
+| Gate 5: the planner public | Done | "Plan a way" on Plai (October 2026); stretches and corridors kept by stewards and Curators, published by the Curator |
 | Gate 3: the first hosts | Next | Three to five hosts entered with the Curator beside them; opens after off-host backups and the data-protection read |
 | Gate 4: the corridor walked | Then | Vorokhta to Kosiv end to end, once per season, for two seasons; distance, time and what a pilgrim needed recorded per stage |
 | Phase 2: the corridor decides | Later | The corridor's hosts, stewards and Curators choose how the project is governed, and which corridor comes next |
 
-**In place.** The proposal, white paper, co-creator agreement and user manual in English and Ukrainian; Plai with the host fields, consent and terrain built in; Gates 0 to 2 closed. A test of the concept on a short stretch of the corridor runs with the public review and changes as it learns.
+**In place.** The proposal, white paper, co-creator agreement and user manual in English and Ukrainian, the first two and this overview in German and Polish too, on the project's site and in its public record; Plai with the host fields, consent, terrain and the pathway planner built in; Gates 0 to 2 and 5 closed. A test of the concept on a short stretch of the corridor runs with the public review and changes as it learns.
 
-**Not yet.** Any host, steward or Curator by name. Off-host backups, the condition for the first real account. A legal body: today one person holds the data, the server and every promise. Money: a pilot budget of about €25,700 over eighteen months is proposed, not decided, and waits on a grantee. A reading of the Ukrainian texts by people in the corridor.
+**Not yet.** Any host or pathway steward by name; the first Curator is the project lead for now, until a core body is formed. Off-host backups, the condition for the first real account. A legal body: today one person holds the data, the server and every promise. Money: a pilot budget of about €25,700 over eighteen months is proposed, not decided, and waits on a grantee. A reading of the Ukrainian texts by people in the corridor.
 
 ## What we have not solved
 
@@ -161,6 +162,7 @@ The white paper, the proposal and the co-creator agreement are on the project's 
 * * *
 
 *Changelog*
+- v0.7 — 2026-10-13 — Michel's word, October 13 (Gate C, following white paper v0.11): stewards care for the stretch, Curators hold the whole; the planner public on Plai in the pathway paragraph, the roles, the status table (Gate 5 done) and 'In place'; one wording for the first Curator. The deck's status slide and its LibreOffice copy follow.
 - v0.6 — 2026-10-13 — Michel's word: the project is initiated by three — Tepla Gora, led by Andriy Grushetsky, joins UBEC and Zhyva Khata as the third initiator; the contact section names him. The Ukrainian exists since October 13. Nothing else changed.
 - v0.5 — 2026-10-11 — Michel's word: the white paper, the proposal and the co-creator agreement are on the project's site, in place of "available on request". Nothing else changed.
 - v0.4, amended 2026-10-11 — Michel's word: the record is public (D-3); the test of the concept runs with the public review (D-4); no ratings without consent (D-7).
