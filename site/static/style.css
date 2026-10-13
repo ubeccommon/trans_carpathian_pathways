@@ -1,4 +1,4 @@
-/* Trans-Carpathian Pathways — tcp.ubec.network, v0.7
+/* Trans-Carpathian Pathways — tcp.ubec.network, v0.8
  * SPDX-License-Identifier: AGPL-3.0-or-later
  *
  * The palette and type of the project's PDFs (build/build_pdf.py):
@@ -11,6 +11,9 @@
  * pairs listed in its CONTRAST table against the colours below.
  *
  * Changelog:
+ *   v0.8 — 2026-10-13 — the landing page's new sections (Michel's word, the
+ *          documentation as one set, Gate B): a list inside a block, set like a
+ *          document's; the stage block's last paragraph keeps its room.
  *   v0.7 — 2026-10-11 — German and Polish: the language switch becomes a
  *          list of four, a <details> in the old switch's pill, its panel
  *          under it at the right; a small EN tag in the menu for a document
@@ -135,6 +138,9 @@ h2::before { content: ""; display: block; width: 2.6rem; height: 2px; background
              margin-bottom: .85rem; }
 p { margin: 0 0 1rem; }
 strong { font-weight: 600; color: var(--night); }
+
+.block ul { margin: 0 0 1rem; padding-left: 1.4rem; }
+.block li { margin: 0 0 .45rem; }
 
 #vision p:first-of-type { font-family: "Lora", Georgia, serif; font-size: 1.28rem; line-height: 1.5;
                           color: var(--night); }

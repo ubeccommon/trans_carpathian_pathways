@@ -1,11 +1,11 @@
 ---
 title: "tcp.ubec.network — the site"
-version: "v0.19"
+version: "v0.20"
 date: "2026-10-13"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
-status: "Gate A record of the first site, the menu and the documents' pages, and of the documentation as one set (docs/prompts/TCP_DOCUMENTATION_START_PROMPT_v0_1.md): Michel's answers of October 13 recorded; Gate B, the landing page, next"
+status: "Gate A record of the first site, the menu and the documents' pages, and of the documentation as one set (docs/prompts/TCP_DOCUMENTATION_START_PROMPT_v0_1.md); Gate B, the landing page for the public review, built in the tree on October 13 — Gate E on the host next"
 ---
 
 # tcp.ubec.network
@@ -190,6 +190,37 @@ Gates B (the landing page: outline, English, Ukrainian, German and
 Polish, built and checked), C (the white paper and what follows it)
 and D (the user guide in four parts) follow, each closing with one
 commit; Gate E on the host, on Michel's "looks good".
+
+## The landing page for the public review — Gate B, Michel's word, October 13, 2026
+
+Built from the sources at their current versions, section by section;
+every sentence on the page is drawn from a document in `docs/`, and
+the footer names them (white paper v0.9, proposal v0.7, agreement
+v0.7).
+
+| Section | What it says | Source |
+| --- | --- | --- |
+| Vision | unchanged | white paper summary, §9 |
+| Mission | the pathway steward cares for each stretch, the Curator holds the whole; one line on the plai and the Pilgrim of the Plai | proposal (summary, roles); white paper §4.3 |
+| The regenerative test | unchanged | white paper §5, §12 |
+| Where we are | built: the map with its host fields, "Plan a way" public on Plai, a steward or Curator keeps stretches and corridors, the Curator publishes; the documents in four languages; the record public. Not yet: no host or steward named; the first Curator is the project lead for now, until a core body is formed; the agreement a draft; the corridor not walked; the first hosts after off-host backups and the data-protection read. The test of the concept with the review | white paper §11 as corrected at Gate A; overview "Where the project stands"; prompt v0.66 §2, §6; mapservice `9356c18` |
+| Read, and answer | the four drafts with links to their pages; EN/UK, DE/PL translations unread by their speakers, the Ukrainian unread in the corridor; mail or an issue on the record; no closing date | prompt v0.66 Gate A; review §5 D-2 |
+| If you come directly | own preparation (advice, martial law, insurance, cash, permits); curfew, alerts, the five-kilometre strip, the permit, the Verkhovyna district, routes to Chornohora closed or restricted; no stage inside the strip suggested; the sources named and dated, "not legal advice"; a link to §10.2. Never a route, a stage or a village inside the strip | white paper §10 intro, §10.2 [54][55]; agreement §7, pilgrim part; proposal, Safety |
+| How to recognise the project | writes only from the stewardship address; nobody asks for money in advance, a deposit, a password, a passport or a copy; the pilgrim pays the host; the project holds no money for stays and takes no share | agreement Part II (host, pilgrim), §8; proposal, Safety |
+| Elsewhere | the map, with "Plan a way" named; the field writing; the record on GitHub ("The project's record on GitHub"; an issue answers the review); write to us | — |
+
+English first (landing page v0.8), then Ukrainian (v0.8; the note that
+the corridor has not read it stays), then German and Polish (v0.3,
+Claude's translations of the English v0.8, each saying so). The
+picture's licence is CC BY-SA 4.0 and the footer names it. The
+stylesheet (v0.8) sets a list inside a block like a document's. Links
+inside the page are written relative per language (pandoc encodes a
+placeholder inside an href). The build's checks pass on all 17 pages;
+the English and Ukrainian pages were looked at headless at 390 and
+1280 px wide: nothing cut off, nothing scrolling sideways. Gate E —
+deploy from schiff, verify, Michel's look on phone and computer, and
+the person's accessibility checks below for the new sections — closes
+on his "looks good".
 
 ## Gate A — what was found
 
@@ -422,6 +453,9 @@ site's own, and logged no policy violation.
 * * *
 
 *Changelog*
+- v0.20 — 2026-10-13 — the landing page for the public review, Gate B, Michel's word: the
+  outline with its sources, the page in English, Ukrainian, German and Polish, built and
+  checked. Landing pages en/uk v0.8, de/pl v0.3, stylesheet v0.8.
 - v0.19 — 2026-10-13 — the documentation as one set, Gate A, Michel's word: what was found against the
   site, and Claude's proposals taken as the answers to the landing-page prompt's §5 — the four documents for review,
   mail and issues, the record linked, the border rules and the recognition line on the page, "Where we are" as built,

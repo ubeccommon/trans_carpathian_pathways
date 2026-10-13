@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_66"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_67"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.66"
+version: "v0.67"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -821,6 +821,28 @@ Gates B (the landing page), C (the white paper and what follows it)
 and D (the user guide) run next, in the order Michel chooses; the
 answers are recorded in `site/README.md` v0.19 too.
 
+**The landing page, Gate B — Michel's word, October 13, 2026.** The
+front door of the public review, built from the sources at their
+current versions and recorded section by section in `site/README.md`
+v0.20: the mission gives the stretch to the pathway steward and the
+whole to the Curator and says in a line what the plai is (white paper
+§4.3); "Where we are" says what is built — the map with its host
+fields, the pathway planner public on Plai ("Plan a way"), the
+documents in four languages, the record public — and what is not,
+with the one wording for the first Curator, and the test of the
+concept with the review; "Read, and answer" names the four drafts,
+mail and issues, no closing date; "If you come directly" states the
+border rules as white paper §10.2 does, with its sources and reading
+date and the not-legal-advice line, never a route, stage or village
+inside the strip; "How to recognise the project" in the agreement's
+words; the record on GitHub among the links; the picture named CC
+BY-SA 4.0. English first (landing page v0.8), then Ukrainian (v0.8,
+not yet read in the corridor), then German and Polish (v0.3, Claude's
+translations, each saying so). Stylesheet v0.8 for a list inside a
+block. The build's checks pass on all 17 pages. Gate E — deploy,
+verify, his look on phone and computer, the person's checks of
+`site/README.md` — closes on his "looks good".
+
 * * *
 
 ## 3. The First Corridor
@@ -1366,6 +1388,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.67 — 2026-10-13 — the landing page, Gate B, Michel's word: the front door of the public review in four languages, built and checked; site README v0.20, landing pages en/uk v0.8, de/pl v0.3, stylesheet v0.8.
 - v0.66 — 2026-10-13 — the documentation as one set, Gate A, Michel's word: `main` fast-forwarded to the planner branch; the set, the drift and the branches recorded; Claude's proposals taken as the answers (the four documents for review, how it is answered, the record linked, the border rules and the recognition line on the landing page, one wording for the first Curator, the white paper revised, a guide in four parts with a page on the site); §6 and §7 carry what the map service built October 11 to 13 (stewards save corridor drafts, `plai/009` and `010`, the engine pinned at `99ba6d8`). Starting prompt `docs/prompts/TCP_DOCUMENTATION_START_PROMPT_v0_1.md`.
 - v0.65, amended 2026-10-11 — the editor integrated in the map service, Michel's word.
 - v0.65 — 2026-10-11 — the three steps and the pathway editor, Michel's word: the planner proposes, the steward or Curator edits, walked and saved ways become its best knowledge; engine v0.13 (via, avoid, known); spec v0.4, start prompt v0.3.
