@@ -1,9 +1,9 @@
 ---
-title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_69"
+title: "TRANS_CARPATHIAN_PATHWAYS_CLAUDE_PROMPT_v0_70"
 subtitle: "Starting Prompt — Trans-Carpathian Pathways on Plai"
 author: "Michel Garand"
 date: "October 2026"
-version: "v0.69"
+version: "v0.70"
 lang: "en"
 license: "CC BY-SA 4.0"
 project: "Trans-Carpathian Pathways"
@@ -869,9 +869,8 @@ summary table and "How to take part"); the white paper v0.10 in four
 languages (§11's line on the legal body names all three); the
 agreement v0.8 §1, English and Ukrainian; the implementation plan
 v0.4 §1, both languages. Nothing else changed in any of them; every
-PDF rebuilt. Plai still links agreement draft v0.7, whose line on the
-version Plai records holds; putting v0.8 on Plai is a mapservice
-change of its own, when Michel says so. Unchanged, for his word: who
+PDF rebuilt. Plai linked agreement draft v0.7 until October 14 (see
+"The agreement at draft v0.8 on Plai" below). Unchanged, for his word: who
 answers for the project and holds the data (A-1, Michel personally
 until the core body); the byline "UBEC / Carpathian Hub Initiative"
 on every cover; Tepla Gora's place in the agreement and the core
@@ -910,6 +909,22 @@ stretch is, edits go into a draft, a visitor keeps nothing; §10
 records the documents as revised). Every PDF rebuilt; the site
 follows on the next build. The deck in Claude's Slides is its own
 copy and follows the repository.
+
+**The agreement at draft v0.8 on Plai — Michel's word, October 14,
+2026 ("ensure the mapservice has the current docs").** The map
+service holds one Pathways document, the co-creator agreement Plai's
+form links and records; it linked v0.7. Built in `ubec_mapservice`
+as `005` and `007` were — the named change this conversation was
+allowed to write there: the v0.8 PDF in `mapbender/branding/agreement/`,
+Plai's entries scheme v0.12 linking it, `plai/011` setting
+`agreement_version` to v0.8 and moving the version checks; proven on
+a throwaway PostgreSQL 16 after 005 and 007 (mapservice `b564c48`,
+its prompt v1.07, README v0.56). An entry that accepted an earlier
+draft keeps it. The engine pin (`99ba6d8`) stands, since
+`tools/stage_planner.py` has not changed. On the host, Michel's run:
+`migrate plai`, `render`, `cache:clear`, the link changed in the user
+copy's Digitizer element and the copy exported, `verify plai`, a look
+at the link.
 
 * * *
 
@@ -1456,6 +1471,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.70 — 2026-10-14 — the agreement at draft v0.8 on Plai, Michel's word: mapservice `plai/011` (`b564c48`), the named change written there from this conversation.
 - v0.69 — 2026-10-13 — Gate C, Michel's word: white paper v0.11, proposal v0.9, overview v0.7, plan v0.5, module map v0.4, spec v0.5 — the planner as built, in every language; PDFs and the deck's copy rebuilt.
 - v0.68 — 2026-10-13 — the third initiator, Michel's word: Tepla Gora, led by Andriy Grushetsky, in every document and page that names the initiators; overview v0.6, proposal v0.8, white paper v0.10, agreement v0.8, plan v0.4, landing pages en/uk v0.9, de/pl v0.4; PDFs and the deck's LibreOffice copy rebuilt.
 - v0.67, amended 2026-10-13 — the overview in Ukrainian, Michel's word; build v0.14, site README v0.21.
