@@ -59,10 +59,17 @@ sheets.csv columns
     west east north south
                 optional overrides, decimal degrees Greenwich (MGI); leave empty
                 to use the Zone/Kolonne-derived values
+    sha256      optional: the scan's checksum; a row whose file differs is
+                skipped, since corner pixels fit one scan only
+
+tools/sheets/hutsul_corridor_sheets.csv holds the corners for the corridor's
+six sheets as Michel downloaded them on October 17, 2026; copy it beside the
+scans as sheets.csv and run warp.
 """
 
 import argparse
 import csv
+import hashlib
 import json
 import re
 import shutil
@@ -183,6 +190,16 @@ def cmd_warp(d: Path, merc: bool, tiles: tuple[int, int] | None, datum: str = "m
         if not src.exists():
             print(f"-- {name}: skipped (file not found)", file=sys.stderr)
             continue
+        want = (row.get("sha256") or "").strip().lower()
+        if want:   # corners read off one scan fit that scan only
+            h = hashlib.sha256()
+            with src.open("rb") as fh:
+                for block in iter(lambda: fh.read(1 << 20), b""):
+                    h.update(block)
+            if h.hexdigest() != want:
+                print(f"-- {name}: skipped (not the scan its corners were read from:"
+                      f" sha256 differs)", file=sys.stderr)
+                continue
 
         zone = int(row["zone"])
         kol = roman_to_int(row["kol"])

@@ -216,6 +216,15 @@ clipped to its frame, so no paper margin covers a neighbour. Tried on
 Szipot-kamerale (4874, 600 dpi) on October 17, 2026: today's Shepit
 falls in the old village at the confluence.
 
+The corridor's six sheets are done: their corner pixels, read off the
+frame lines and checked by eye at every corner, are in
+`tools/sheets/hutsul_corridor_sheets.csv`, with each scan's sha256 —
+`warp` skips a row whose file differs, since corners fit one scan only.
+Copy it beside the scans as `sheets.csv`; no `init` needed. Tried end
+to end on October 17, 2026: the sheets meet without a step at
+Verkhovyna (the Cheremosh runs straight across 24°50′), at 48°15′ and
+at 48°.
+
 Accuracy: corner-pinning carries the 1880s survey's own distortion —
 tens of metres in high relief. Right for finding the historic
 alignment; where a stretch needs precision, that sheet is refined in
