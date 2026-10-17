@@ -111,9 +111,16 @@ def cmd_init(d: Path):
         w = csv.DictWriter(f, fieldnames=FIELDS)
         w.writeheader()
         for name in images:
-            w.writerow({"file": name})
+            row = {"file": name}
+            # Z13_K31_Bogdan.jpg -> zone 13, kol 31; 14_XXXI_… -> 14, XXXI
+            m = (re.match(r"[Zz](\d{1,2})_[Kk]([0-9IVXLivxl]+)_", name)
+                 or re.match(r"(\d{1,2})_([IVXLivxl]+)_", name))
+            if m:
+                row["zone"], row["kol"] = m.group(1), m.group(2).upper()
+            w.writerow(row)
     print(f"wrote {csv_path} with {len(images)} row(s).")
-    print("Fill in zone, kol and the four corner-pixel pairs per sheet, then run: warp")
+    print("Zone and Kolonne are filled in from the file names where they follow")
+    print("Z<zone>_K<kol>_<name>; fill in the four corner-pixel pairs, then run: warp")
 
 
 # ------------------------------------------------------------------------ warp
