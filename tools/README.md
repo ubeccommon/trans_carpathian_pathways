@@ -144,3 +144,61 @@ xdg-open /home/farmer/projects/plai/corridor.html
 The `.html` and `.geojson` files are answers, not records: they
 are not committed. With `--audience curator` they can hold hosts,
 so they are not passed on.
+
+## fetch_pathways_basemaps.py and georeference_sheets.py — historic sheets for tracing, v0.1
+
+For the stretches where OSM is not usable. Traced geometry stays in
+the project (Michel's word, October 17, 2026) — the tracing grants of
+Esri, Bing and Maxar reach only work that goes back into OSM, so what
+remains for private tracing is public-domain material: the
+Austro-Hungarian Third Military Survey. Its Spezialkarte 1:75 000
+sheets (1880s) draw footpaths and mule tracks explicitly — the
+historic alignment of the corridor's ways, before the Soviet forestry
+roads.
+
+Both scripts run on the host or any machine with open internet; the
+sandbox Claude works in cannot reach the archives.
+
+`fetch_pathways_basemaps.py` downloads into `pathways_basemaps/`
+(`--out` to change):
+
+- `historic/sdoum_75k/` — Spezialkarte sheets for the Hutsul corridor,
+  matched by name (Żabie, Kuty, Kosów, Worochta, Mikuliczyn, Hryniawa,
+  Burkut …) and by grid position (Zones 12–14, Kolonnen XXXI–XXXII)
+  from the mapywig archive indexed at igrek.amzp.pl. If the index
+  layout differs from what the scraper expects, it prints what it
+  found and names the series to open in a browser.
+- `historic/gkm_200k/` — Generalkarte 1:200 000 overview sheets 42-47
+  and 42-48, from Wikimedia Commons.
+- `oam/` — whatever OpenAerialMap holds for the corridor, CC-BY 4.0.
+  Empty as of October 17, 2026 (`found: 0` for 24.3–25.4 E,
+  47.8–48.5 N) — our own drone flights would be the first coverage;
+  re-running picks up new uploads.
+
+`georeference_sheets.py` turns the scans into tracing layers. Every
+Spezialkarte sheet covers an exact 30′ × 15′ graticule cell, so its
+corner coordinates follow from the Zone and Kolonne alone (longitudes
+counted from Ferro, Greenwich + 17°40′); what is entered by hand, once
+per sheet, is the pixel position of the four neatline corners. Needs
+the GDAL command line (`sudo apt install gdal-bin`), nothing from
+`requirements.txt`.
+
+```bash
+python3 tools/georeference_sheets.py init pathways_basemaps/historic/sdoum_75k
+# fill in sheets.csv: zone, kol, the four corner-pixel pairs
+python3 tools/georeference_sheets.py warp pathways_basemaps/historic/sdoum_75k --tiles 8 15
+```
+
+`warp` writes `georef/<sheet>.tif` (EPSG:4326; `--merc` for 3857,
+GCP + thin-plate-spline, internal overviews) and, with `--tiles`, XYZ
+tiles under `tiles/<sheet>/` that can be served as static files beside
+the mapservice. The computed corners are printed for checking against
+the values in the sheet margin (the margin shows Ferro); the csv's
+override columns win where the printed values differ.
+
+Accuracy: corner-pinning carries the 1880s survey's own distortion —
+tens of metres in high relief. Right for finding the historic
+alignment; where a stretch needs precision, that sheet is refined in
+the QGIS Georeferencer against local points — churches, bridges,
+confluences — of which the corridor has plenty. Wiring the layers into
+Plai is a mapservice step, taken when mapservice work resumes.
