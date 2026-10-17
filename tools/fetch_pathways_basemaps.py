@@ -3,11 +3,15 @@
 fetch_pathways_basemaps.py — download public-domain historic map sheets and
 OpenAerialMap imagery for the Hutsul corridor (Trans-Carpathian Pathways).
 
-Run on your own machine (schiff), not in a sandbox:
+Runs on the host, from the mapservice checkout, like the planner:
 
-    python3 fetch_pathways_basemaps.py [--out DATA_DIR]
+    scp tools/fetch_pathways_basemaps.py ubec-common:/tmp/        # from schiff
+    cd /home/ubec/ubec_commons/ubec_mapservice && source tools/hostenv.sh
+    python3 /tmp/fetch_pathways_basemaps.py
 
-Downloads into DATA_DIR (default ./pathways_basemaps):
+Downloads into $UBEC_EXCHANGE/basemaps (the mapservice's work area,
+/data/ubec_mapservice/exchange, writable by ubec), or --out DATA_DIR;
+./pathways_basemaps when UBEC_EXCHANGE is not set:
     historic/sdoum_75k/   Austro-Hungarian Spezialkarte 1:75,000 sheets
                           (Third Military Survey; scans from the mapywig
                           archive, indexed at igrek.amzp.pl — public domain)
@@ -23,6 +27,7 @@ Stdlib only. Be gentle: one request at a time, with a pause.
 import argparse
 import html
 import json
+import os
 import re
 import sys
 import time
@@ -204,7 +209,10 @@ def fetch_oam(out: Path):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--out", default="pathways_basemaps", type=Path)
+    ex = os.environ.get("UBEC_EXCHANGE")
+    default_out = Path(ex) / "basemaps" if ex else Path("pathways_basemaps")
+    ap.add_argument("--out", default=default_out, type=Path,
+                    help=f"download directory (default: {default_out})")
     a = ap.parse_args()
     fetch_spezialkarte(a.out / "historic" / "sdoum_75k")
     fetch_generalkarte(a.out / "historic" / "gkm_200k")

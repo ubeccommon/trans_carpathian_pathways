@@ -156,10 +156,27 @@ sheets (1880s) draw footpaths and mule tracks explicitly — the
 historic alignment of the corridor's ways, before the Soviet forestry
 roads.
 
-Both scripts run on the host or any machine with open internet; the
-sandbox Claude works in cannot reach the archives.
+Both run on the host, as the planner does: copied to `/tmp` from
+schiff, run from the mapservice checkout after `source
+tools/hostenv.sh`. Downloads and work go to `$UBEC_EXCHANGE/basemaps`
+— the mapservice's work area, `/data/ubec_mapservice/exchange`,
+writable by `ubec` — never into either tree. A finished layer gets
+its own directory in `$DATA_ROOT` beside `terrain/`, with its
+read-only mount, only when the mapservice step wires it into Plai.
 
-`fetch_pathways_basemaps.py` downloads into `pathways_basemaps/`
+```bash
+# on schiff
+cd /home/farmer/projects/plai && git pull
+scp tools/fetch_pathways_basemaps.py tools/georeference_sheets.py ubec-common:/tmp/
+# on ubec-common
+cd /home/ubec/ubec_commons/ubec_mapservice && source tools/hostenv.sh
+python3 /tmp/fetch_pathways_basemaps.py
+python3 /tmp/georeference_sheets.py init "$UBEC_EXCHANGE/basemaps/historic/sdoum_75k"
+# fill in sheets.csv: zone, kol, the four corner-pixel pairs
+python3 /tmp/georeference_sheets.py warp "$UBEC_EXCHANGE/basemaps/historic/sdoum_75k" --tiles 8 15
+```
+
+`fetch_pathways_basemaps.py` downloads into `$UBEC_EXCHANGE/basemaps`
 (`--out` to change):
 
 - `historic/sdoum_75k/` — Spezialkarte sheets for the Hutsul corridor,
@@ -183,16 +200,9 @@ per sheet, is the pixel position of the four neatline corners. Needs
 the GDAL command line (`sudo apt install gdal-bin`), nothing from
 `requirements.txt`.
 
-```bash
-python3 tools/georeference_sheets.py init pathways_basemaps/historic/sdoum_75k
-# fill in sheets.csv: zone, kol, the four corner-pixel pairs
-python3 tools/georeference_sheets.py warp pathways_basemaps/historic/sdoum_75k --tiles 8 15
-```
-
 `warp` writes `georef/<sheet>.tif` (EPSG:4326; `--merc` for 3857,
 GCP + thin-plate-spline, internal overviews) and, with `--tiles`, XYZ
-tiles under `tiles/<sheet>/` that can be served as static files beside
-the mapservice. The computed corners are printed for checking against
+tiles under `tiles/<sheet>/`. The computed corners are printed for checking against
 the values in the sheet margin (the margin shows Ferro); the csv's
 override columns win where the printed values differ.
 
