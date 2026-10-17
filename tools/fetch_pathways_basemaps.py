@@ -13,8 +13,12 @@ Downloads into $UBEC_EXCHANGE/basemaps (the mapservice's work area,
 /data/ubec_mapservice/exchange, writable by ubec), or --out DATA_DIR;
 ./pathways_basemaps when UBEC_EXCHANGE is not set:
     historic/sdoum_75k/   Austro-Hungarian Spezialkarte 1:75,000 sheets
-                          (Third Military Survey; scans from the mapywig
-                          archive, indexed at igrek.amzp.pl — public domain)
+                          (Third Military Survey — public domain), from a
+                          list of URLs you give with --sheet-urls; without
+                          it, the script prints the six corridor sheets to
+                          fetch by hand. No crawling: v0.1 crawled the
+                          igrek.amzp.pl index blind, and the site began
+                          resetting the host's connections.
     historic/gkm_200k/    Generalkarte 1:200,000 overview sheets 42-47, 42-48
                           (from Wikimedia Commons — public domain)
     oam/                  Any CC-BY imagery OpenAerialMap holds for the
@@ -25,7 +29,6 @@ Stdlib only. Be gentle: one request at a time, with a pause.
 """
 
 import argparse
-import html
 import json
 import os
 import re
@@ -35,28 +38,25 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
-UA = {"User-Agent": "TransCarpathianPathways/0.1 (michel@ubec.network; corridor basemap fetch)"}
+UA = {"User-Agent": "TransCarpathianPathways/0.2 (michel@ubec.network; corridor basemap fetch)"}
 PAUSE = 2.0  # seconds between requests
 
 # Hutsul corridor, generous: Vorokhta .. Kosiv/Kuty, down past Hryniawa
 CORRIDOR_BBOX = (24.3, 47.8, 25.4, 48.5)   # W, S, E, N (Greenwich)
 
-# Place names that appear in Spezialkarte sheet titles for this area.
-# Sheets of interest (15' lat x 30' lon, Ferro longitudes):
-#   Zone 12 Kol. XXXI/XXXII  (48°15'-48°30'N)  — Mikuliczyn, Kosów, Kuty, Kołomyja edge
-#   Zone 13 Kol. XXXI/XXXII  (48°00'-48°15'N)  — Żabie (Verkhovyna), Worochta
-#   Zone 14 Kol. XXXI/XXXII  (47°45'-48°00'N)  — Hryniawa, Burkut, Czywczyn
-SHEET_NAMES = [
-    "zabie", "żabie", "kuty", "kosów", "kosow", "worochta", "mikuliczyn",
-    "hryniawa", "hryniava", "burkut", "delatyn", "nadwórna", "nadworna",
-    "pistyń", "pistyn", "kołomyja", "kolomyja", "jablonów", "jablonow",
-    "körösmező", "korosmezo", "jasina", "czywczyn", "kirlibaba",
+# The corridor's Spezialkarte sheets, by Zone and Kolonne. Each covers
+# 15' of latitude by 30' of longitude (Ferro); the bounds below are the
+# same arithmetic georeference_sheets.py uses, checked against Wien
+# (Zone 13 Kol. XV) and Wels (Zone 13 Kol. X).
+CORRIDOR_SHEETS = [
+    (12, "XXXI",  "Vorokhta, Yaremche, Mikulychyn, Yablunytsia pass"),
+    (12, "XXXII", "Kosiv, Kuty, Pistyn"),
+    (13, "XXXI",  "Verkhovyna (at the east edge), Hoverla, Chornohora"),
+    (13, "XXXII", "Kryvorivnia, the Cheremosh east of Verkhovyna"),
+    (14, "XXXI",  "southern Chornohora (optional)"),
+    (14, "XXXII", "Hryniava, Burkut"),
 ]
-ZONE_KOL = re.compile(r"(?:z(?:one)?[ ._-]*1[234])[ ._-]*(?:k(?:ol)?\.?[ ._-]*)(?:xxxi{1,2}|3[12])",
-                      re.IGNORECASE)
-
-IGREK = "http://igrek.amzp.pl"
-FILE_HOSTS = ("mapywig.org", "amzp.pl")
+FERRO_OFFSET = 17 + 40 / 60
 FILE_EXT = (".jpg", ".jpeg", ".png", ".tif", ".tiff", ".pdf", ".zip")
 
 
@@ -84,64 +84,45 @@ def download(url: str, dest: Path) -> bool:
         return False
 
 
-def links_in(page: str, base: str):
-    for m in re.finditer(r'href=["\']([^"\']+)["\']', page, re.IGNORECASE):
-        yield urllib.parse.urljoin(base, html.unescape(m.group(1)))
+def roman(n: str) -> int:
+    vals = {"I": 1, "V": 5, "X": 10, "L": 50}
+    total, prev = 0, 0
+    for ch in reversed(n.upper()):
+        v = vals[ch]
+        total += v if v >= prev else -v
+        prev = max(prev, v)
+    return total
+
+
+def sheet_bounds(zone: int, kol: str):
+    north = 51.5 - zone * 0.25
+    west = 27.0 + (roman(kol) - 1) * 0.5 - FERRO_OFFSET
+    return west, west + 0.5, north - 0.25, north   # W, E, S, N
 
 
 # ---------------------------------------------------------------- Spezialkarte
 
-def fetch_spezialkarte(out: Path):
-    print("\n== Spezialkarte 1:75,000 (Third Military Survey) via igrek.amzp.pl ==")
+def fetch_spezialkarte(out: Path, url_file: Path | None):
+    print("\n== Spezialkarte 1:75,000 (Third Military Survey) ==")
     out.mkdir(parents=True, exist_ok=True)
-    try:
-        front = get(IGREK + "/")
-    except Exception as e:
-        print(f"  could not reach {IGREK}: {e}", file=sys.stderr)
-        print("  -> open it in a browser instead; series: K.u.K. Spezialkarte 1:75 000.")
+    print("  corridor sheets (Greenwich bounds):")
+    for zone, kol, places in CORRIDOR_SHEETS:
+        w, e, s, n = sheet_bounds(zone, kol)
+        print(f"    Zone {zone:>2} Kol. {kol:<5}  {s:.2f}-{n:.2f} N  {w:.2f}-{e:.2f} E  {places}")
+    if url_file is None:
+        print(f"""
+  No --sheet-urls given, so nothing is fetched. Download the sheets above in
+  a browser (on schiff), name each Z<zone>_K<kol>_<name>.jpg, and copy them to
+    {out}/
+  or put one URL per line in a file and run again with --sheet-urls FILE.""")
         return
-
-    # Find index pages for the K.u.K. 1:75k series on the front page.
-    series_pages = sorted({
-        u for u in links_in(front, IGREK + "/")
-        if re.search(r"(075|75\s*0{3}|kuk)", u, re.IGNORECASE) and "amzp.pl" in u
-    })
-    if not series_pages:
-        series_pages = [IGREK + "/mapindex.php?cat=KUK075"]
-    print(f"  index pages to scan: {len(series_pages)}")
-
-    candidates: dict[str, str] = {}   # url -> matched label
-    for page_url in series_pages:
-        try:
-            page = get(page_url)
-        except Exception as e:
-            print(f"  skip {page_url} ({e})", file=sys.stderr)
-            continue
-        # Walk one level deeper: sheet-list pages linked from the series index.
-        subpages = [u for u in links_in(page, page_url)
-                    if "amzp.pl" in u and not u.lower().endswith(FILE_EXT)]
-        for sub in [page_url] + subpages[:60]:
-            try:
-                sheet_html = page if sub == page_url else get(sub)
-            except Exception:
-                continue
-            text = sheet_html.lower()
-            if not (any(n in text for n in SHEET_NAMES) or ZONE_KOL.search(sheet_html)):
-                continue
-            for u in links_in(sheet_html, sub):
-                low = u.lower()
-                if any(h in low for h in FILE_HOSTS) and low.endswith(FILE_EXT):
-                    fname = urllib.parse.unquote(low.rsplit("/", 1)[-1])
-                    if any(n in fname for n in SHEET_NAMES) or ZONE_KOL.search(fname):
-                        candidates[u] = fname
-    if not candidates:
-        print("  No sheet scans matched automatically — the index layout may differ.")
-        print("  Open http://igrek.amzp.pl in a browser, series 'Spezialkarte 1:75 000',")
-        print("  and search for: Żabie, Kuty, Kosów, Worochta, Mikuliczyn, Hryniawa, Burkut.")
-        return
-    print(f"  matched {len(candidates)} sheet file(s):")
-    for url, name in sorted(candidates.items(), key=lambda kv: kv[1]):
-        download(url, out / Path(urllib.parse.urlparse(url).path).name)
+    urls = [ln.strip() for ln in url_file.read_text().splitlines()
+            if ln.strip() and not ln.lstrip().startswith("#")]
+    print(f"  {len(urls)} URL(s) from {url_file}")
+    for i, url in enumerate(urls, 1):
+        name = urllib.parse.unquote(Path(urllib.parse.urlparse(url).path).name) or f"sheet_{i}.jpg"
+        print(f"  [{i}/{len(urls)}]")
+        download(url, out / name)
 
 
 # ------------------------------------------------------- Generalkarte (Commons)
@@ -213,8 +194,10 @@ def main():
     default_out = Path(ex) / "basemaps" if ex else Path("pathways_basemaps")
     ap.add_argument("--out", default=default_out, type=Path,
                     help=f"download directory (default: {default_out})")
+    ap.add_argument("--sheet-urls", type=Path, metavar="FILE",
+                    help="file with one Spezialkarte sheet URL per line")
     a = ap.parse_args()
-    fetch_spezialkarte(a.out / "historic" / "sdoum_75k")
+    fetch_spezialkarte(a.out / "historic" / "sdoum_75k", a.sheet_urls)
     fetch_generalkarte(a.out / "historic" / "gkm_200k")
     fetch_oam(a.out / "oam")
     print("\nDone. Next step for tracing: georeference each 75k sheet in QGIS")

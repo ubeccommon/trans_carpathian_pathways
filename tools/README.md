@@ -179,12 +179,14 @@ python3 /tmp/georeference_sheets.py warp "$UBEC_EXCHANGE/basemaps/historic/sdoum
 `fetch_pathways_basemaps.py` downloads into `$UBEC_EXCHANGE/basemaps`
 (`--out` to change):
 
-- `historic/sdoum_75k/` — Spezialkarte sheets for the Hutsul corridor,
-  matched by name (Żabie, Kuty, Kosów, Worochta, Mikuliczyn, Hryniawa,
-  Burkut …) and by grid position (Zones 12–14, Kolonnen XXXI–XXXII)
-  from the mapywig archive indexed at igrek.amzp.pl. If the index
-  layout differs from what the scraper expects, it prints what it
-  found and names the series to open in a browser.
+- `historic/sdoum_75k/` — the corridor's six Spezialkarte sheets,
+  Zones 12–14 by Kolonnen XXXI–XXXII (Vorokhta and Kosiv in Zone 12,
+  Verkhovyna and Kryvorivnia in 13, Hryniava in 14). The script
+  prints them with their bounds and fetches them from a list of URLs
+  given with `--sheet-urls FILE`; without one, they are downloaded by
+  hand in a browser and copied here. It does not crawl: v0.1 walked
+  the igrek.amzp.pl index blind, and the site began resetting the
+  host's connections (October 17, 2026).
 - `historic/gkm_200k/` — Generalkarte 1:200 000 overview sheets 42-47
   and 42-48, from Wikimedia Commons.
 - `oam/` — whatever OpenAerialMap holds for the corridor, CC-BY 4.0.
