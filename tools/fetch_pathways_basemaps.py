@@ -48,13 +48,15 @@ CORRIDOR_BBOX = (24.3, 47.8, 25.4, 48.5)   # W, S, E, N (Greenwich)
 # 15' of latitude by 30' of longitude (Ferro); the bounds below are the
 # same arithmetic georeference_sheets.py uses, checked against Wien
 # (Zone 13 Kol. XV) and Wels (Zone 13 Kol. X).
+# Sheet titles and the alternative numbers (4673 …) as Mapster
+# (igrek.amzp.pl) indexes them, read off its index on October 17, 2026.
 CORRIDOR_SHEETS = [
-    (12, "XXXI",  "Vorokhta, Yaremche, Mikulychyn, Yablunytsia pass"),
-    (12, "XXXII", "Kosiv, Kuty, Pistyn"),
-    (13, "XXXI",  "Verkhovyna (at the east edge), Hoverla, Chornohora"),
-    (13, "XXXII", "Kryvorivnia, the Cheremosh east of Verkhovyna"),
-    (14, "XXXI",  "southern Chornohora (optional)"),
-    (14, "XXXII", "Hryniava, Burkut"),
+    (12, "XXXI",  "Mikuliczyn, Körösmező (4673) — Vorokhta, Yaremche, Mikulychyn"),
+    (12, "XXXII", "Kuty (4674) — Kosiv, Kuty, Pistyn"),
+    (13, "XXXI",  "Bogdan (4773) — Verkhovyna (east edge), Hoverla, Chornohora"),
+    (13, "XXXII", "Wiznitz, Malenicze (4774) — Kryvorivnia, the Cheremosh"),
+    (14, "XXXI",  "Ruszpolyana (4873) — southern Chornohora, mostly Romania; optional"),
+    (14, "XXXII", "Szipot-kamerale (4874) — Hryniava, Burkut"),
 ]
 FERRO_OFFSET = 17 + 40 / 60
 FILE_EXT = (".jpg", ".jpeg", ".png", ".tif", ".tiff", ".pdf", ".zip")
