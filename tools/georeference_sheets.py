@@ -33,6 +33,16 @@ Workflow (host or laptop; needs the GDAL command-line tools: apt install gdal-bi
                               into DIR_WITH_SCANS/tiles/<name>/  -- these can
                               be served as static files behind the mapservice
 
+Datum: the sheets stand on the Austro-Hungarian datum (Bessel 1841 ellipsoid,
+Hermannskogel origin; EPSG:4312 MGI, with longitudes from Ferro). In the
+corridor that datum sits some 170 m west and 15-20 m south of WGS84 for the
+same numbers -- PROJ itself offers only a "ballpark" (no shift) outside
+Austria, so the corners are given in MGI with the Austrian Helmert
+parameters stated explicitly (EPSG:1618, "MGI to WGS 84 (3)"), and gdalwarp
+shifts them. Extrapolated 600 km east of Austria it is still far better than
+no shift; check the result against today's churches and confluences, and
+use --datum none to see the unshifted placement.
+
 Accuracy: corner-pinning carries the 1880s survey's own distortion -- expect
 tens of metres of local error in high relief. Good for finding the historic
 alignment; where a stretch needs precision, refine that sheet in the QGIS
@@ -47,12 +57,13 @@ sheets.csv columns
     se_x se_y   ... south-east
     sw_x sw_y   ... south-west
     west east north south
-                optional overrides, decimal degrees Greenwich; leave empty
+                optional overrides, decimal degrees Greenwich (MGI); leave empty
                 to use the Zone/Kolonne-derived values
 """
 
 import argparse
 import csv
+import json
 import re
 import shutil
 import subprocess
@@ -60,6 +71,10 @@ import sys
 from pathlib import Path
 
 FERRO_OFFSET = 17 + 40 / 60          # Ferro = Greenwich + 17°40' (Austrian convention)
+# MGI (Bessel 1841, Hermannskogel) with EPSG:1618's Helmert parameters
+# written out, so the shift is applied outside Austria's area of use too.
+MGI_SRS = ("+proj=longlat +ellps=bessel "
+           "+towgs84=577.326,90.129,463.919,5.137,1.474,5.297,2.4232 +no_defs")
 IMG_EXT = {".jpg", ".jpeg", ".png", ".tif", ".tiff"}
 FIELDS = ["file", "zone", "kol",
           "nw_x", "nw_y", "ne_x", "ne_y", "se_x", "se_y", "sw_x", "sw_y",
@@ -81,13 +96,27 @@ def roman_to_int(s: str) -> int:
 
 
 def corners_from_grid(zone: int, kol: int):
-    """(west, east, north, south) in decimal degrees Greenwich."""
+    """(west, east, north, south) in decimal degrees Greenwich, MGI datum."""
     north = 51.5 - zone * 0.25
     south = north - 0.25
     west_ferro = 27.0 + (kol - 1) * 0.5
     west = west_ferro - FERRO_OFFSET
     east = west + 0.5
     return west, east, north, south
+
+
+def frame_ring(src_srs: str, west: float, east: float, north: float, south: float):
+    """The frame's corners in WGS84 lon/lat, as a closed ring (gdaltransform)."""
+    pts = [(west, north), (east, north), (east, south), (west, south)]
+    if src_srs == "EPSG:4326":
+        out = pts
+    else:
+        res = subprocess.run(["gdaltransform", "-s_srs", src_srs, "-t_srs", "EPSG:4326",
+                              "-output_xy"],
+                             input="".join(f"{x} {y}\n" for x, y in pts),
+                             capture_output=True, text=True, check=True).stdout
+        out = [tuple(map(float, ln.split()[:2])) for ln in res.splitlines() if ln.strip()]
+    return [list(p) for p in out] + [list(out[0])]
 
 
 def need(cmd: str):
@@ -125,10 +154,11 @@ def cmd_init(d: Path):
 
 # ------------------------------------------------------------------------ warp
 
-def cmd_warp(d: Path, merc: bool, tiles: tuple[int, int] | None):
+def cmd_warp(d: Path, merc: bool, tiles: tuple[int, int] | None, datum: str = "mgi"):
     need("gdal_translate")
     need("gdalwarp")
     need("gdaladdo")
+    need("gdaltransform")
     if tiles:
         need("gdal2tiles.py") if shutil.which("gdal2tiles.py") else need("gdal2tiles")
     csv_path = d / "sheets.csv"
@@ -177,10 +207,19 @@ def cmd_warp(d: Path, merc: bool, tiles: tuple[int, int] | None):
 
         stem = re.sub(r"[^\w.-]+", "_", Path(name).stem)
         tmp = out_dir / f"{stem}.gcp.tif"
+        cut = out_dir / f"{stem}.frame.geojson"
         out = out_dir / f"{stem}.tif"
         try:
-            run(["gdal_translate", "-of", "GTiff", "-a_srs", "EPSG:4326", *gcps, src, tmp])
+            src_srs = MGI_SRS if datum == "mgi" else "EPSG:4326"
+            run(["gdal_translate", "-of", "GTiff", "-a_srs", src_srs, *gcps, src, tmp])
+            # Clip to the map frame, so a sheet's paper margin never covers
+            # its neighbour: the four corners, shifted as the warp shifts them.
+            ring = frame_ring(src_srs, west, east, north, south)
+            cut.write_text(json.dumps({"type": "FeatureCollection", "features": [{
+                "type": "Feature", "properties": {},
+                "geometry": {"type": "Polygon", "coordinates": [ring]}}]}))
             run(["gdalwarp", "-tps", "-r", "bilinear", "-t_srs", srs, "-dstalpha",
+                 "-cutline", cut, "-crop_to_cutline",
                  "-overwrite", "-co", "TILED=YES", "-co", "COMPRESS=DEFLATE", tmp, out])
             run(["gdaladdo", "-r", "average", out, "2", "4", "8", "16"])
             if tiles:
@@ -195,6 +234,7 @@ def cmd_warp(d: Path, merc: bool, tiles: tuple[int, int] | None):
             continue
         finally:
             tmp.unlink(missing_ok=True)
+            cut.unlink(missing_ok=True)
         done += 1
     print(f"\n{done} sheet(s) georeferenced into {out_dir}/"
           + (f", tiles in {d / 'tiles'}/" if tiles and done else ""))
@@ -209,6 +249,9 @@ def main():
     p_warp = sub.add_parser("warp", help="georeference every completed row of sheets.csv")
     p_warp.add_argument("dir", type=Path)
     p_warp.add_argument("--merc", action="store_true", help="output EPSG:3857 instead of 4326")
+    p_warp.add_argument("--datum", choices=("mgi", "none"), default="mgi",
+                        help="mgi (default): shift from the Austro-Hungarian datum to WGS84;"
+                             " none: take the sheet's numbers as WGS84")
     p_warp.add_argument("--tiles", nargs=2, type=int, metavar=("ZMIN", "ZMAX"),
                         help="also render XYZ tiles for this zoom range")
     a = ap.parse_args()
@@ -217,7 +260,7 @@ def main():
     if a.cmd == "init":
         cmd_init(a.dir)
     else:
-        cmd_warp(a.dir, a.merc, tuple(a.tiles) if a.tiles else None)
+        cmd_warp(a.dir, a.merc, tuple(a.tiles) if a.tiles else None, a.datum)
 
 
 if __name__ == "__main__":

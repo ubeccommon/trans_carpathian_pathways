@@ -208,6 +208,14 @@ tiles under `tiles/<sheet>/`. The computed corners are printed for checking agai
 the values in the sheet margin (the margin shows Ferro); the csv's
 override columns win where the printed values differ.
 
+The sheets stand on the Austro-Hungarian datum (Bessel, Hermannskogel),
+some 170 m west of WGS84 in the corridor; PROJ offers no shift outside
+Austria, so the warp states the Austrian Helmert parameters (EPSG:1618)
+and applies them (`--datum none` to leave them out). Each sheet is
+clipped to its frame, so no paper margin covers a neighbour. Tried on
+Szipot-kamerale (4874, 600 dpi) on October 17, 2026: today's Shepit
+falls in the old village at the confluence.
+
 Accuracy: corner-pinning carries the 1880s survey's own distortion —
 tens of metres in high relief. Right for finding the historic
 alignment; where a stretch needs precision, that sheet is refined in
