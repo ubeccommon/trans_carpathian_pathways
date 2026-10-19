@@ -240,6 +240,18 @@ asked for again each time it is shown, from what is published that
 day. A host who withdraws leaves every stretch at once; a stored
 list would keep them.
 
+**What a click on a published stretch says** (Michel's word,
+October 19, 2026). Beside its name, length, walking time, ascent,
+descent and note: where it starts and ends (a place on Plai at
+either end, else the nearest village or peak); its elevation
+profile from the ground model; what lies along it — the places
+published on Plai within its walking reach, in walking order, each
+by its name and its detour in minutes, hosts alike (§5, SP-3),
+read again at each click and never stored; and the stretch to take
+along, as GPX and GeoJSON (the line alone, no waypoint) and its
+start for the phone's map app. Built in the map service, Plai's
+`022`.
+
 The engine already writes what a stretch carries (`route` v0.3 and later:
 the `stretch` block of its output). Saving is Plai's: a steward or
 the Curator saves from the planner's page while logged in (§6);
@@ -409,6 +421,10 @@ built:
 
 ## Changelog
 
+- v0.5, amended 2026-10-19 — §4: what a click on a published stretch
+  says — from and to, its profile, the places along it read at each
+  click, GPX, GeoJSON and its start for a map app; Michel's word.
+  Built in the map service (`plai/022`, worker v0.3, planner v0.5).
 - v0.5 — 2026-10-13 — Michel's word (the documentation as one set, Gates A and C): §2 and §7 carry what was built and decided October 12 — a steward saves a corridor draft, the Curator publishes once every stretch is, edits to a published one go into a draft, a visitor keeps nothing; §10 records the public documents as revised.
 - v0.4, amended 2026-10-11 — §3b, §6: the editor and the planner
   integrated in the map service, inside Plai's Pathways application,

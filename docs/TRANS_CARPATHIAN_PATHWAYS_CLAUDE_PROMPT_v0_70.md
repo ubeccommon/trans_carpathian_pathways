@@ -1471,6 +1471,7 @@ Gate-by-gate: a gate opens on Michel's word, not on a date.
 * * *
 
 *Changelog*
+- v0.70, amended 2026-10-19 — the click on a published stretch, Michel's word: from and to, elevation profile, the places within reach with their detour minutes (read at each click, never stored; hosts by name and minutes), GPX, GeoJSON and its start for a map app; planner spec v0.5 §4 amended; built in mapservice `plai/022` (`5f3765d`). The same morning in the map service: Pathways opens on the Zhyva Khata – Tepla Gora stretch; the old maps an editors' source for Curators and stewards only; OpenStreetMap, own data and contour lines as separate sources; three test looks of the base map to choose from.
 - v0.70 — 2026-10-14 — the agreement at draft v0.8 on Plai, Michel's word: mapservice `plai/011` (`b564c48`), the named change written there from this conversation.
 - v0.69 — 2026-10-13 — Gate C, Michel's word: white paper v0.11, proposal v0.9, overview v0.7, plan v0.5, module map v0.4, spec v0.5 — the planner as built, in every language; PDFs and the deck's copy rebuilt.
 - v0.68 — 2026-10-13 — the third initiator, Michel's word: Tepla Gora, led by Andriy Grushetsky, in every document and page that names the initiators; overview v0.6, proposal v0.8, white paper v0.10, agreement v0.8, plan v0.4, landing pages en/uk v0.9, de/pl v0.4; PDFs and the deck's LibreOffice copy rebuilt.
